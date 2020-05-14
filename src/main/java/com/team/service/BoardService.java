@@ -2,7 +2,6 @@ package com.team.service;
 
 import org.springframework.stereotype.Service;
 
-import com.team.dto.boardDTO;
 
 @Service
 public interface BoardService {

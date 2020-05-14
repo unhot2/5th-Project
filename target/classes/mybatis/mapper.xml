@@ -10,7 +10,7 @@
 		select * from login
 	</select>
 	<!-- 예2) -->
-	<select id="listAll" resultType="boardDTO">
+	<select id="boardListAll" resultType="boardDTO">
 		select * from board
 	</select>
 	
