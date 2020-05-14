@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="login">
+	<!-- login은 loginDTO, board는 boardDTO사용 mybatis-config.xml에 등록해둠-->
+	<!-- 예1) -->
+	<select id="listAll" resultType="loginDTO">
+		select * from login
+	</select>
+	<!-- 예2) -->
+	<select id="listAll" resultType="boardDTO">
+		select * from board
+	</select>
+	
+		
+</mapper>
