@@ -2,6 +2,9 @@ package com.team.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
 import com.team.service.LoginService;
 
 @Controller
@@ -11,10 +14,10 @@ public class LoginControllerImpl implements LoginController {
 	LoginService service;
 	
 	
-	@Override
+	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home() {
-		// TODO Auto-generated method stub
-		return null;
+		System.out.println("home 들어옴");
+		return "index";
 	}
 
 	@Override
