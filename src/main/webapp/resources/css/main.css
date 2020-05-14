@@ -1,0 +1,7 @@
+@charset "UTF-8";
+.menu{
+	padding: 0 30px;
+	color:red;
+	text-decoration: none;
+	font-weight: bold;
+}

@@ -16,7 +16,6 @@ public class LoginControllerImpl implements LoginController {
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home() {
-		System.out.println("home 들어옴");
 		return "index";
 	}
 

@@ -7,4 +7,4 @@ userAddr varchar2(100),
 userGender varchar2(20),
 userBirth date,
 userEmail varchar2(40),
-primary key(id));
+primary key(userId));
