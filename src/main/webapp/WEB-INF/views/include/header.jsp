@@ -19,4 +19,5 @@
 <span><a href="#" class="menu">장바구니</a></span>
 <span><a href="#" class="menu">주문조회</a></span>
 <span><a href="#" class="menu">고객센터</a></span>
+<span><a href="qnaList" class="menu">QnA</a></span>
 </div>
