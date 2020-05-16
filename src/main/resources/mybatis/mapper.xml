@@ -3,16 +3,28 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="login">
-	<!-- login은 loginDTO, board는 boardDTO사용 mybatis-config.xml에 등록해둠-->
-	<!-- 예1) -->
-	<select id="listAll" resultType="loginDTO">
-		select * from login
+<mapper namespace="sql">
+
+	<select id="noticeListAll" resultType="noticeDTO">
+		select * from notice order by id asc
 	</select>
-	<!-- 예2) -->
-	<select id="boardListAll" resultType="boardDTO">
-		select * from board
+
+	<select id="noticeDetail" resultType="noticeDTO">
+		select * from notice where id = #{id}
 	</select>
+
+	<insert id="noticeInsert" parameterType="noticeDTO">
+		insert into
+		notice(id,name,title,content,idgroup)
+		values(notice_seq.nextval,#{name},#{title},#{content},notice_seq.currval)
+	</insert>
 	
-		
+	<update id="noticeModify">
+		update notice set
+		name=#{name}, title= #{title}, content=#{content} where id=#{id}
+	</update>
+
+	<delete id="noticeDelete">
+		delete from notice where id=#{id}
+	</delete>
 </mapper>

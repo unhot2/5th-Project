@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,4 +20,5 @@
 <span><a href="#" class="menu">장바구니</a></span>
 <span><a href="#" class="menu">주문조회</a></span>
 <span><a href="#" class="menu">고객센터</a></span>
+<span><a href="noticeList" class="menu">공지사항</a></span>
 </div>

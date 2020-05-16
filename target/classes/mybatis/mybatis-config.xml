@@ -8,5 +8,6 @@
 		<!--  alias 는 리턴타입의 별명, type은 리턴값을 TestDTO 타입으로 받아온다는 의미 -->
 			<typeAlias alias="loginDTO" type="com.team.dto.loginDTO"/>
 			<typeAlias alias="boardDTO" type="com.team.dto.boardDTO"/>
+			<typeAlias alias="noticeDTO" type="com.team.dto.noticeDTO"/>
 		</typeAliases>
 	</configuration>
