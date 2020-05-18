@@ -9,5 +9,6 @@
 			<typeAlias alias="loginDTO" type="com.team.dto.LoginDTO"/>
 			<typeAlias alias="boardDTO" type="com.team.dto.BoardDTO"/>
 			<typeAlias alias="noticeDTO" type="com.team.dto.NoticeDTO"/>
+			<typeAlias alias="qnaDTO" type="com.team.dto.QnaDTO"/>
 		</typeAliases>
 	</configuration>

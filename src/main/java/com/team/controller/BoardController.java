@@ -28,4 +28,16 @@ public interface BoardController {
 	public String noticeDelete(NoticeDTO dto);
 	/* notice 글 상세보기 */
 	public String noticeDetail(NoticeDTO dto, Model model);
+
+	/* QnA 글 가져오는 메소드 */
+	public String qnalist();
+	/* QnA 글작성 메소드 */
+	public String qnawrite();
+	/* QnA 글수정 메소드 */
+	public String qnaupdate();
+	/* QnA 글삭제 메소드 */
+	public String qnadelete();
+	/* QnA 상세내용 보기 메소드 */
+	public String qnadetail();
+
 }

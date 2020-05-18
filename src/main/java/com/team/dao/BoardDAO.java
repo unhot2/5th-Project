@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.team.dto.BoardDTO;
 import com.team.dto.NoticeDTO;
+import com.team.dto.QnaDTO;
 
 public interface BoardDAO {
 	/* 게시글 모두 가져오기 */
@@ -32,5 +33,16 @@ public interface BoardDAO {
 	public NoticeDTO noticeDetail(NoticeDTO dto);
 	/* notice 글 조회수 */
 	public void noticeViewCnt(int id);
+
+	/* QnA 글 가져오는 메소드 */
+	public List<QnaDTO> qnalist();
+	/* QnA 글작성 메소드 */
+	public void qnawrite(QnaDTO qnadto);
+	/* QnA 글수정 메소드 */
+	public void qnaupdate(QnaDTO qnadto);
+	/* QnA 글삭제 메소드 */
+	public void qnadelete(QnaDTO qnadto);
+	/* QnA 상세내용 보기 메소드 */
+	public QnaDTO qnadetail(String id);
 	
 }

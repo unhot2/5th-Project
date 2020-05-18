@@ -4,8 +4,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
-
 import com.team.dto.NoticeDTO;
+import com.team.dto.QnaDTO;
 
 
 @Service
@@ -38,4 +38,15 @@ public interface BoardService {
 	public NoticeDTO noticeDetail(NoticeDTO dto);
 	/* notice 글 조회수 */
 	public void noticeViewCnt(int id);
+	/* QnA 글 가져오는 메소드 */
+	/* public void qnalist(Model model); */
+	List<QnaDTO> qnalist();
+	/* QnA 글작성 메소드 */
+	public void qnawrite(QnaDTO qnadto);
+	/* QnA 글수정 메소드 */
+	public void qnaupdate(QnaDTO qnadto);
+	/* QnA 글삭제 메소드 */
+	public void qnadelete(QnaDTO qnadto);
+	/* QnA 상세내용 보기 메소드 */
+	public void qnadetail(Model model);
 }
