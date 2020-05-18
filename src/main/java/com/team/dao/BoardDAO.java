@@ -35,14 +35,16 @@ public interface BoardDAO {
 	public void noticeViewCnt(int id);
 
 	/* QnA 글 가져오는 메소드 */
-	public List<QnaDTO> qnalist();
+	public List<QnaDTO> qnaList();
 	/* QnA 글작성 메소드 */
-	public void qnawrite(QnaDTO qnadto);
+	public void qnaWrite(QnaDTO qnadto);
 	/* QnA 글수정 메소드 */
-	public void qnaupdate(QnaDTO qnadto);
+	public void qnaUpdate(QnaDTO qnadto);
+	/* QnA 글수정 메소드2 */
+	public void qnaModify(QnaDTO qnadto);
 	/* QnA 글삭제 메소드 */
-	public void qnadelete(QnaDTO qnadto);
+	public void qnaDelete(QnaDTO qnadto);
 	/* QnA 상세내용 보기 메소드 */
-	public QnaDTO qnadetail(String id);
+	public QnaDTO qnaDetail(QnaDTO qnadto);
 	
 }

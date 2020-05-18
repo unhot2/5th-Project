@@ -8,7 +8,7 @@
 </head>
 <body>
 	<div align="center">
-		<form action="qnawrite_save">
+		<form action="qnaWrite">
 			<table border="1">
 				<font size="6"><b>QnA</b></font>
 				<tr>
@@ -25,7 +25,7 @@
 				</tr>
 				<tr>
 					<th colspan="2"><input type="submit" value="저장">&nbsp;&nbsp;&nbsp;
-					<a href="qnalist">목록이동</a></th>
+					<a href="qnaList">목록이동</a></th>
 				</tr>
 			</table>
 		</form>

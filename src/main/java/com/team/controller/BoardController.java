@@ -1,8 +1,11 @@
 package com.team.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.ui.Model;
 
 import com.team.dto.NoticeDTO;
+import com.team.dto.QnaDTO;
 
 public interface BoardController {
 	/* 게시판 글 가져오는 메소드 */
@@ -11,6 +14,8 @@ public interface BoardController {
 	public String write();
 	/* 게시판 글수정 메소드 */
 	public String update();
+	/* 게시판 글수정 메소드2 */
+	public String noticeModify(HttpServletRequest request, Model model, NoticeDTO dto);
 	/* 게시판 글삭제 메소드 */
 	public String delete();
 	/* 게시판 상세내용 보기 메소드 */
@@ -29,14 +34,16 @@ public interface BoardController {
 	public String noticeDetail(NoticeDTO dto, Model model);
 
 	/* QnA 글 가져오는 메소드 */
-	public String qnalist();
+	public String qnaList(Model model);
 	/* QnA 글작성 메소드 */
-	public String qnawrite();
+	public String qnaWrite(QnaDTO qnadto);
 	/* QnA 글수정 메소드 */
-	public String qnaupdate();
+	public String qnaUpdate(QnaDTO qnadto);
+	/* QnA 글수정 메소드2 */
+	public String qnaModify();
 	/* QnA 글삭제 메소드 */
-	public String qnadelete();
+	public String qnaDelete(QnaDTO qnadto);
 	/* QnA 상세내용 보기 메소드 */
-	public String qnadetail();
+	public String qnaDetail(QnaDTO qnadto, Model model);
 
 }

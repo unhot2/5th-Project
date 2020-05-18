@@ -5,6 +5,7 @@
 
 <mapper namespace="sql">
 
+	<!-- notice 부분 -->
 	<select id="noticeListAll" resultType="noticeDTO">
 		select * from notice order by id asc
 	</select>
@@ -13,7 +14,7 @@
 		select * from notice where id = #{id}
 	</select>
 
-	<insert id="noticeInsert" parameterType="noticeDTO">
+	<insert id="noticeWrite" parameterType="noticeDTO">
 		insert into
 		notice(id,name,title,content,idgroup)
 		values(notice_seq.nextval,#{name},#{title},#{content},notice_seq.currval)
@@ -33,20 +34,30 @@
 		delete from notice where id=#{id}
 	</delete>
 
+	<!-- QNA 부분 -->
+
 	<select id="qnaListAll" resultType="QnaDTO">
 		select * from qna
 	</select>
-	<insert id="qnasavedata" parameterType="QnaDTO">	
+	
+	<insert id="qnaWrite" parameterType="QnaDTO">	
 		insert into qna(id,title,name,content,idgroup)
 			values(qna_seq.nextval,#{title},#{name},#{content},qna_seq.currval)
 	</insert>
-	<select id="qnadetail" resultType="QnaDTO">
+	
+	<select id="qnaDetail" resultType="QnaDTO">
 		select * from qna where id=#{id}
 	</select>
-	<update id="qnaupdate" parameterType="QnaDTO">
+	
+	<update id="qnaUpdate" parameterType="QnaDTO">
 		update qna set name=#{name}, title=#{title}, content=#{content} where id=#{id}
 	</update>
-	<delete id="qnadelete" parameterType="QnaDTO">
+	
+	<update id="qnaModify" parameterType="QnaDTO">
+	
+	</update>
+	
+	<delete id="qnaDelete" parameterType="QnaDTO">
 		delete from qna where id=#{id}
 	</delete>
 </mapper>

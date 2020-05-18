@@ -12,7 +12,6 @@ import com.team.dto.QnaDTO;
 
 @Repository
 public class BoardDAOImpl implements BoardDAO {
-	private static final String qnanamespace="sql";
 	@Autowired
 	SqlSession sqlSession;
 
@@ -40,7 +39,7 @@ public class BoardDAOImpl implements BoardDAO {
 	}
 
 	public int noticeWrite(NoticeDTO dto) {
-		return sqlSession.insert("sql.noticeInsert", dto);
+		return sqlSession.insert("sql.noticeWrite", dto);
 	}
 
 	public NoticeDTO noticeUpdate(NoticeDTO dto) {
@@ -64,33 +63,29 @@ public class BoardDAOImpl implements BoardDAO {
 	}
 
 	/* QnA부분 */
-	public List<QnaDTO> qnalist() {
-		
-		return sqlSession.selectList(qnanamespace+".qnaListAll");
+	public List<QnaDTO> qnaList() {
+		return sqlSession.selectList("sql.qnaListAll");
 	}
 
-	public void qnawrite(QnaDTO qnadto) {
-		System.out.println("값들어옴 : "+qnadto.getName());
-		int result = sqlSession.insert(qnanamespace+".qnasavedata", qnadto);
-		System.out.println("결과 값 :"+result);
+	public void qnaWrite(QnaDTO qnadto) {
+		int result = sqlSession.insert("sql.qnaWrite", qnadto);
 		
 	}
 
-	public void qnaupdate(QnaDTO qnadto) {
-		System.out.println("qnaupdate값 들어옴"+qnadto.getName());
-		int result =sqlSession.update(qnanamespace+".qnaupdate", qnadto);
-		System.out.println(qnadto.getId());
-		System.out.println("qnaupdate결과값 :"+result);
+	public void qnaUpdate(QnaDTO qnadto) {
+		int result =sqlSession.update("sql.qnaUpdate", qnadto);
+	}
+	
+	public void qnaModify(QnaDTO qnadto) {
+
 	}
 
-	public void qnadelete(QnaDTO qnadto) {
-		System.out.println("마지막 진짜 쿼리 걸치기전에" +qnadto);
-	int result = sqlSession.delete(qnanamespace+".qnadelete",qnadto);
+	public void qnaDelete(QnaDTO qnadto) {
+	int result = sqlSession.delete("sql.qnaDelete",qnadto);
 		
 	}
 
-	public QnaDTO qnadetail(String id) {
-		System.out.println("값 들어온다 ㅎㅎ : "+id);
-		return sqlSession.selectOne(qnanamespace+".qnadetail",id);
+	public QnaDTO qnaDetail(QnaDTO qnadto) {
+		return sqlSession.selectOne("sql.qnaDetail",qnadto);
 	}
 }

@@ -15,24 +15,24 @@
 	</div>
 	<div align="center">
 		<table border="1">
-
 			<tr>
 				<th>번호</th>
 				<th>제목</th>
 				<th>이름</th>
+				<th>내용</th>
 				<th>날짜</th>
 				<th>조회수</th>
 				<th>group</th>
 				<th>step</th>
 				<th>indent</th>
 			</tr>
-			<c:forEach items="${qnalist }" var="dto">
+			<c:forEach items="${qnaList }" var="dto">
 				<tr>
 					<td>${dto.id }</td>
-					<td><a href="qnacontent_view?id=${dto.id }">${dto.title }</a></td>
+					<td><a href="qnaDetail?id=${dto.id }">${dto.title }</a></td>
 					<td>${dto.name }</td>
+					<td>${dto.content }</td>
 					<td>${dto.savedate }</td>
-					<%-- <td>${dto.content }</td> --%>
 					<td>${dto.hit }</td>
 					<td>${dto.idgroup }</td>
 					<td>${dto.step }</td>
@@ -40,7 +40,7 @@
 				</tr>
 			</c:forEach>
 			<tr>
-				<td colspan="8"><a href="qnawrite_view">글작성</a></td>
+				<td colspan="9"><a href="qnaSave">글작성</a></td>
 			</tr>
 		</table>
 	</div>

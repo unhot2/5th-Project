@@ -63,41 +63,30 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	/* QNA 부분 */
-	@Override
-	public List<QnaDTO> qnalist() {
-		List<QnaDTO> list = dao.qnalist();
+	public List<QnaDTO> qnaList() {
+		List<QnaDTO> list = dao.qnaList();
 		return list;
 	}
 
-	@Override
-	public void qnawrite(QnaDTO qnadto) {
-		System.out.println(qnadto.getName());
-		System.out.println(qnadto.getTitle());
-		System.out.println(qnadto.getContent());
-
-		dao.qnawrite(qnadto);
+	public void qnaWrite(QnaDTO qnadto) {
+		dao.qnaWrite(qnadto);
 	}
 
-	@Override
-	public void qnaupdate(QnaDTO qnadto) {
-		System.out.println("qnadate값 :" + qnadto);
-		dao.qnaupdate(qnadto);
+	public void qnaUpdate(QnaDTO qnadto) {
+		dao.qnaUpdate(qnadto);
 
 	}
 
-	@Override
-	public void qnadelete(QnaDTO qnadto) {
-		System.out.println(qnadto);
-		dao.qnadelete(qnadto);
-
+	public void qnaModify(QnaDTO qnadto) {
+	
+	}
+	
+	public void qnaDelete(QnaDTO qnadto) {
+		dao.qnaDelete(qnadto);
 	}
 
-	@Override
-	public void qnadetail(Model model) {
-		Map<String, Object> map = model.asMap();
-		HttpServletRequest request = (HttpServletRequest) map.get("request");
-		String id = request.getParameter("id");
-		System.out.println(id);
-		model.addAttribute("qnadetail", dao.qnadetail(id));
+	public QnaDTO qnaDetail(QnaDTO qnadto) {
+		return dao.qnaDetail(qnadto);
 	}
+
 }

@@ -6,7 +6,7 @@ content varchar2(300),
 savedate date default sysdate,
 hit number(4) default 0,
 idgroup number(4),
-step number(4),
-indent number(4)
+step number(4) default 0,
+indent number(4) default 0
 );
 create sequence qna_seq;

@@ -1,4 +1,5 @@
 package com.team.controller;
+
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
@@ -12,36 +13,30 @@ import com.team.service.BoardService;
 
 @Controller
 public class BoardControllerImpl implements BoardController {
-	
+
 	@Autowired
 	BoardService service;
-	
-	
-	
+
 	public String list() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	
 	public String write() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	
 	public String update() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	
 	public String delete() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	
 	public String detail() {
 		// TODO Auto-generated method stub
 		return null;
@@ -50,35 +45,33 @@ public class BoardControllerImpl implements BoardController {
 	@RequestMapping("noticeList")
 	public String noticeList(Model model) {
 		ArrayList<NoticeDTO> list = (ArrayList<NoticeDTO>) service.noticeList();
-		model.addAttribute("noticeList",list);
+		model.addAttribute("noticeList", list);
 		return "board/noticeList";
 	}
 
-	@RequestMapping("noticeWriteForm")
-	public String noticeWriteForm() {
-		return "board/noticeWriteForm";
+	@RequestMapping("noticeSave")
+	public String noticeSave() {
+		return "board/noticeWrite";
 	}
-	
+
 	@RequestMapping("noticeWrite")
-	public String noticeWrite(NoticeDTO dto,Model model) {
+	public String noticeWrite(NoticeDTO dto, Model model) {
 		int chk = service.noticeWrite(dto);
 		if (chk == 1) {
 			System.out.println("저장성공");
-		}
-		else {
+		} else {
 			System.out.println("저장실패");
 		}
 		return "redirect:noticeList";
 	}
-	
 
 	@RequestMapping("noticeUpdate")
-	public String noticeUpdate(NoticeDTO dto,Model model) {
+	public String noticeUpdate(NoticeDTO dto, Model model) {
 		NoticeDTO detail = service.noticeDetail(dto);
-		model.addAttribute("noticeDetail",detail);
+		model.addAttribute("noticeDetail", detail);
 		return "board/noticeModify";
 	}
-	
+
 	@RequestMapping("noticeModify")
 	public String noticeModify(HttpServletRequest request, Model model, NoticeDTO dto) {
 		service.noticeModify(dto);
@@ -92,85 +85,62 @@ public class BoardControllerImpl implements BoardController {
 	}
 
 	@RequestMapping("noticeDetail")
-	public String noticeDetail(NoticeDTO dto,Model model) {
+	public String noticeDetail(NoticeDTO dto, Model model) {
 		service.noticeViewCnt(dto.getId());
-		NoticeDTO detail = service.noticeDetail(dto);
-		model.addAttribute("noticeDetail",detail);
+		model.addAttribute("noticeDetail", service.noticeDetail(dto));
 		return "board/noticeDetail";
 	}
 
 	@RequestMapping("replyWrite")
 	public String replyWrite() {
-		
+
 		return "replyWrite";
 	}
 
 	/* QnA 부분 */
 	@RequestMapping("qnaList")
-	public String qnalist(Model model) {
-		System.out.println("qnaList실행");
-		List<QnaDTO> list = service.qnalist();
-		model.addAttribute("qnalist", list);
+	public String qnaList(Model model) {
+		List<QnaDTO> list = service.qnaList();
+		model.addAttribute("qnaList", list);
 		return "board/qnaList";
 	}
 
-	@RequestMapping("qnawrite_view")
-	public String qnawrite() {
-		// TODO Auto-generated method stub
-		return "board/qnawrite_view";
+	@RequestMapping("qnaSave")
+	public String qnaSave() {
+		return "board/qnaWrite";
 	}
-	@RequestMapping("qnawrite_save")
-	public String qnawrite_save(QnaDTO qnadto) {
-		System.out.println("qnawrite_save실행");
-		service.qnawrite(qnadto);
+
+	@RequestMapping("qnaWrite")
+	public String qnaWrite(QnaDTO qnadto) {
+		service.qnaWrite(qnadto);
 		return "redirect:qnaList";
 	}
 
-	@RequestMapping("qnaupdate")
-	public String qnaupdate(QnaDTO qnadto) {
-		System.out.println("수정 실행");
-		service.qnaupdate(qnadto);
+	@RequestMapping("qnaUpdate")
+	public String qnaUpdate(QnaDTO qnadto) {
+		service.qnaUpdate(qnadto);
 		return "redirect:qnaList";
 	}
 
-	@RequestMapping("qnadelete")
-	public String qnadelete(QnaDTO qnadto) {
-		service.qnadelete(qnadto);
+	public String qnaModify() {
+		return null;
+	}
+
+	@RequestMapping("qnaDelete")
+	public String qnaDelete(QnaDTO qnadto) {
+		service.qnaDelete(qnadto);
 		return "redirect:qnaList";
 	}
 
-	@RequestMapping("qnacontent_view")	
-	public String qnadetail(Model model, HttpServletRequest re) {
-		model.addAttribute("request", re);
-		service.qnadetail(model);
-		return "board/qnacontent_view";
+	@RequestMapping("qnaDetail")
+	public String qnaDetail(QnaDTO qnadto, Model model) {
+		model.addAttribute("qnaDetail",service.qnaDetail(qnadto));
+		return "board/qnaDetail";
 	}
-	@RequestMapping("qnarelpy_view")
+
+	@RequestMapping("qnaReply")
 	public String qnarelpy_view() {
-		
-		return "board/qnarelpy_view";
-	}
-	@Override
-	public String qnalist() {
-		// TODO Auto-generated method stub
-		return null;
+		return "board/qnaReply";
 	}
 
-	@Override
-	public String qnadetail() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public String qnaupdate() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public String qnadelete() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 }
