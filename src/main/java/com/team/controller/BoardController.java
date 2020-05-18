@@ -17,7 +17,6 @@ public interface BoardController {
 	public String detail();
 	
 	/* 더 필요한 메소드 있을 시 인터페이스에 주석 작성 후 추가해서 사용하세요 */
-	
 	/* notice 글목록 */
 	public String noticeList(Model model);
 	/* notice 글작성 */
