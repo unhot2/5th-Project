@@ -13,20 +13,20 @@
 	<select id="boardListAll" resultType="boardDTO">
 		select * from board
 	</select> -->
-	<select id="qnaListAll" resultType="qnaDTO">
+	<select id="qnaListAll" resultType="QnaDTO">
 		select * from qna
 	</select>
-	<insert id="qnasavedata" parameterType="qnaDTO">	
+	<insert id="qnasavedata" parameterType="QnaDTO">	
 		insert into qna(id,title,name,content,idgroup)
 			values(qna_seq.nextval,#{title},#{name},#{content},qna_seq.currval)
 	</insert>
-	<select id="qnadetail" resultType="qnaDTO">
+	<select id="qnadetail" resultType="QnaDTO">
 		select * from qna where id=#{id}
 	</select>
-	<update id="qnaupdate" parameterType="qnaDTO">
+	<update id="qnaupdate" parameterType="QnaDTO">
 		update qna set name=#{name}, title=#{title}, content=#{content} where id=#{id}
 	</update>
-	<delete id="qnadelete" parameterType="qnaDTO">
+	<delete id="qnadelete" parameterType="QnaDTO">
 		delete from qna where id=#{id}
 	</delete>
 </mapper>

@@ -33,9 +33,9 @@
 				<tr>
 					<th colspan="2">
 					<input type="submit" value="수정">&nbsp;&nbsp;&nbsp;
-					<a href="qnalist">목록이동</a>	&nbsp;&nbsp;				
+					<a href="qnaList">목록이동</a>	&nbsp;&nbsp;				
 					<button type="button" onclick="location.href='qnadelete?id=${qnadetail.id }'">삭제</button>&nbsp;&nbsp;
-					<a href="#">답변</a>
+					<a href="qnarelpy_view">답변</a>
 					</th>
 				</tr>
 			

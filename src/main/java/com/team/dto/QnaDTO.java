@@ -2,11 +2,11 @@ package com.team.dto;
 
 import java.sql.Timestamp;
 
-
-public class boardDTO {
-	private int id, hit, idgroup, step, indent;
-	private String name, title, content;
-	private Timestamp savedate;
+public class QnaDTO {
+	   private int id, hit, idgroup, step, indent;
+	   private String name, title, content;
+	   private Timestamp savedate;
+	   
 	public int getId() {
 		return id;
 	}
@@ -61,5 +61,5 @@ public class boardDTO {
 	public void setSavedate(Timestamp savedate) {
 		this.savedate = savedate;
 	}
-	
+	   
 }

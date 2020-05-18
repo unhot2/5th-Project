@@ -7,8 +7,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.team.dto.boardDTO;
-import com.team.dto.qnaDTO;
+import com.team.dto.BoardDTO;
+import com.team.dto.QnaDTO;
 
 @Repository
 public class BoardDAOImpl implements BoardDAO {
@@ -17,7 +17,7 @@ public class BoardDAOImpl implements BoardDAO {
 	SqlSession sqlSession;
 
 	@Override
-	public ArrayList<boardDTO> list() {
+	public ArrayList<BoardDTO> list() {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -41,20 +41,20 @@ public class BoardDAOImpl implements BoardDAO {
 	}
 
 	@Override
-	public boardDTO detail() {
+	public BoardDTO detail() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	/* QnA부분 */
 	@Override
-	public List<qnaDTO> qnalist() {
+	public List<QnaDTO> qnalist() {
 		
 		return sqlSession.selectList(qnanamespace+".qnaListAll");
 	}
 
 	@Override
-	public void qnawrite(qnaDTO qnadto) {
+	public void qnawrite(QnaDTO qnadto) {
 		System.out.println("값들어옴 : "+qnadto.getName());
 		int result = sqlSession.insert(qnanamespace+".qnasavedata", qnadto);
 		System.out.println("결과 값 :"+result);
@@ -62,7 +62,7 @@ public class BoardDAOImpl implements BoardDAO {
 	}
 
 	@Override
-	public void qnaupdate(qnaDTO qnadto) {
+	public void qnaupdate(QnaDTO qnadto) {
 		System.out.println("qnaupdate값 들어옴"+qnadto.getName());
 		int result =sqlSession.update(qnanamespace+".qnaupdate", qnadto);
 		System.out.println(qnadto.getId());
@@ -70,14 +70,14 @@ public class BoardDAOImpl implements BoardDAO {
 	}
 
 	@Override
-	public void qnadelete(qnaDTO qnadto) {
+	public void qnadelete(QnaDTO qnadto) {
 		System.out.println("마지막 진짜 쿼리 걸치기전에" +qnadto);
 	int result = sqlSession.delete(qnanamespace+".qnadelete",qnadto);
 		
 	}
 
 	@Override
-	public qnaDTO qnadetail(String id) {
+	public QnaDTO qnadetail(String id) {
 		System.out.println("값 들어온다 ㅎㅎ : "+id);
 		return sqlSession.selectOne(qnanamespace+".qnadetail",id);
 	}

@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
-import com.team.dto.qnaDTO;
+import com.team.dto.QnaDTO;
 
 
 @Service
@@ -26,13 +26,13 @@ public interface BoardService {
 	
 	/* QnA 글 가져오는 메소드 */
 	/* public void qnalist(Model model); */
-	List<qnaDTO> qnalist();
+	List<QnaDTO> qnalist();
 	/* QnA 글작성 메소드 */
-	public void qnawrite(qnaDTO qnadto);
+	public void qnawrite(QnaDTO qnadto);
 	/* QnA 글수정 메소드 */
-	public void qnaupdate(qnaDTO qnadto);
+	public void qnaupdate(QnaDTO qnadto);
 	/* QnA 글삭제 메소드 */
-	public void qnadelete(qnaDTO qnadto);
+	public void qnadelete(QnaDTO qnadto);
 	/* QnA 상세내용 보기 메소드 */
 	public void qnadetail(Model model);
 	

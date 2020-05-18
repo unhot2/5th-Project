@@ -8,11 +8,14 @@
 <title>Insert title here</title>
 </head>
 <body>
+<jsp:include page="../include/header.jsp" />
+<hr>
+	<div align="center">
+		<font size="6"><b>QnA</b></font>
+	</div>
 	<div align="center">
 		<table border="1">
-			<caption>
-				<font size="6"><b>QnA</b></font>
-			</caption>
+
 			<tr>
 				<th>번호</th>
 				<th>제목</th>
@@ -29,7 +32,7 @@
 					<td><a href="qnacontent_view?id=${dto.id }">${dto.title }</a></td>
 					<td>${dto.name }</td>
 					<td>${dto.savedate }</td>
-<%-- 					<td>${dto.content }</td> --%>				
+					<%-- <td>${dto.content }</td> --%>
 					<td>${dto.hit }</td>
 					<td>${dto.idgroup }</td>
 					<td>${dto.step }</td>

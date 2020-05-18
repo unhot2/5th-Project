@@ -8,7 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.team.dto.qnaDTO;
+import com.team.dto.QnaDTO;
 import com.team.service.BoardService;
 
 @Controller
@@ -51,7 +51,7 @@ public class BoardControllerImpl implements BoardController {
 	@RequestMapping("qnaList")
 	public String qnalist(Model model) {
 		System.out.println("qnaList실행");
-		List<qnaDTO> list = service.qnalist();
+		List<QnaDTO> list = service.qnalist();
 		model.addAttribute("qnalist", list);
 		return "board/qnaList";
 	}
@@ -62,21 +62,21 @@ public class BoardControllerImpl implements BoardController {
 		return "board/qnawrite_view";
 	}
 	@RequestMapping("qnawrite_save")
-	public String qnawrite_save(qnaDTO qnadto) {
+	public String qnawrite_save(QnaDTO qnadto) {
 		System.out.println("qnawrite_save실행");
 		service.qnawrite(qnadto);
 		return "redirect:qnaList";
 	}
 
 	@RequestMapping("qnaupdate")
-	public String qnaupdate(qnaDTO qnadto) {
+	public String qnaupdate(QnaDTO qnadto) {
 		System.out.println("수정 실행");
 		service.qnaupdate(qnadto);
 		return "redirect:qnaList";
 	}
 
 	@RequestMapping("qnadelete")
-	public String qnadelete(qnaDTO qnadto) {
+	public String qnadelete(QnaDTO qnadto) {
 		service.qnadelete(qnadto);
 		return "redirect:qnaList";
 	}
@@ -87,7 +87,11 @@ public class BoardControllerImpl implements BoardController {
 		service.qnadetail(model);
 		return "board/qnacontent_view";
 	}
-
+	@RequestMapping("qnarelpy_view")
+	public String qnarelpy_view() {
+		
+		return "board/qnarelpy_view";
+	}
 	@Override
 	public String qnalist() {
 		// TODO Auto-generated method stub

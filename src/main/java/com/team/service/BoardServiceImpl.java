@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
 import com.team.dao.BoardDAO;
-import com.team.dto.qnaDTO;
+import com.team.dto.QnaDTO;
 
 @Service
 public class BoardServiceImpl implements BoardService {
@@ -49,13 +49,13 @@ public class BoardServiceImpl implements BoardService {
 
 	/* QNA 부분 */
 	@Override
-	public List<qnaDTO> qnalist() {
-		List<qnaDTO> list = dao.qnalist();
+	public List<QnaDTO> qnalist() {
+		List<QnaDTO> list = dao.qnalist();
 		return list;
 	}
 
 	@Override
-	public void qnawrite(qnaDTO qnadto) {
+	public void qnawrite(QnaDTO qnadto) {
 		System.out.println(qnadto.getName());
 		System.out.println(qnadto.getTitle());
 		System.out.println(qnadto.getContent());
@@ -64,14 +64,14 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public void qnaupdate(qnaDTO qnadto) {
+	public void qnaupdate(QnaDTO qnadto) {
 		System.out.println("qnadate값 :"+qnadto);
 		dao.qnaupdate(qnadto);
 		
 	}
 
 	@Override
-	public void qnadelete(qnaDTO qnadto) {
+	public void qnadelete(QnaDTO qnadto) {
 		System.out.println(qnadto);
 		dao.qnadelete(qnadto);
 		
