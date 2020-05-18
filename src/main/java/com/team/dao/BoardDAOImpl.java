@@ -7,15 +7,15 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.team.dto.boardDTO;
-import com.team.dto.noticeDTO;
+import com.team.dto.BoardDTO;
+import com.team.dto.NoticeDTO;
 
 @Repository
 public class BoardDAOImpl implements BoardDAO {
 	@Autowired
 	SqlSession sqlSession;
 
-	public ArrayList<boardDTO> list() {
+	public ArrayList<BoardDTO> list() {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -35,33 +35,37 @@ public class BoardDAOImpl implements BoardDAO {
 
 	}
 
-	public boardDTO detail() {
+	public BoardDTO detail() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public List<noticeDTO> noticeList() {
+	public List<NoticeDTO> noticeList() {
 		return sqlSession.selectList("sql.noticeListAll");
 	}
 
-	public int noticeWrite(noticeDTO dto) {
+	public int noticeWrite(NoticeDTO dto) {
 		return sqlSession.insert("sql.noticeInsert", dto);
 	}
 
-	public noticeDTO noticeUpdate(noticeDTO dto) {
+	public NoticeDTO noticeUpdate(NoticeDTO dto) {
 		return sqlSession.selectOne("sql.noticeDetail", dto);
 	}
 
-	public void noticeModify(noticeDTO dto) {
+	public void noticeModify(NoticeDTO dto) {
 		int chk = sqlSession.update("sql.noticeModify",dto);
 	}
 
-	public void noticeDelete(noticeDTO dto) {
+	public void noticeDelete(NoticeDTO dto) {
 		int chk = sqlSession.delete("sql.noticeDelete", dto);
 	}
 
-	public noticeDTO noticeDetail(noticeDTO dto) {
+	public NoticeDTO noticeDetail(NoticeDTO dto) {
 		return sqlSession.selectOne("sql.noticeDetail", dto);
+	}
+
+	public void noticeViewCnt(int id) {
+		sqlSession.update("sql.noticeViewCnt",id);
 	}
 
 }

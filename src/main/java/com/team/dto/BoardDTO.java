@@ -1,11 +1,12 @@
 package com.team.dto;
 
-import java.sql.Date;
+import java.sql.Timestamp;
 
-public class noticeDTO {
+
+public class BoardDTO {
 	private int id, hit, idgroup, step, indent;
 	private String name, title, content;
-	private Date savedate;
+	private Timestamp savedate;
 	public int getId() {
 		return id;
 	}
@@ -54,10 +55,10 @@ public class noticeDTO {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public Date getSavedate() {
+	public Timestamp getSavedate() {
 		return savedate;
 	}
-	public void setSavedate(Date savedate) {
+	public void setSavedate(Timestamp savedate) {
 		this.savedate = savedate;
 	}
 	

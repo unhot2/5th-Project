@@ -3,12 +3,12 @@ package com.team.dao;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.team.dto.boardDTO;
-import com.team.dto.noticeDTO;
+import com.team.dto.BoardDTO;
+import com.team.dto.NoticeDTO;
 
 public interface BoardDAO {
 	/* 게시글 모두 가져오기 */
-	public ArrayList<boardDTO> list();
+	public ArrayList<BoardDTO> list();
 	/* 게시판 글작성 메소드 */
 	public void write();
 	/* 게시판 글수정 메소드 */
@@ -16,19 +16,21 @@ public interface BoardDAO {
 	/* 게시판 글삭제 메소드 */
 	public void delete();
 	/* 게시판 상세내용 보기 메소드 */
-	public boardDTO detail();
+	public BoardDTO detail();
 	
 	/* notice 글목록 */
-	public List<noticeDTO> noticeList();
+	public List<NoticeDTO> noticeList();
 	/* notice 글작성 */
-	public int noticeWrite(noticeDTO dto);
+	public int noticeWrite(NoticeDTO dto);
 	/* notice 글수정 */
-	public noticeDTO noticeUpdate(noticeDTO dto);
+	public NoticeDTO noticeUpdate(NoticeDTO dto);
 	/* notice 글 내용수정 */
-	public void noticeModify(noticeDTO dto);
+	public void noticeModify(NoticeDTO dto);
 	/* notice 글삭제 */
-	public void noticeDelete(noticeDTO dto);
+	public void noticeDelete(NoticeDTO dto);
 	/* notice 글 상세보기 */
-	public noticeDTO noticeDetail(noticeDTO dto);
+	public NoticeDTO noticeDetail(NoticeDTO dto);
+	/* notice 글 조회수 */
+	public void noticeViewCnt(int id);
 	
 }

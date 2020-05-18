@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
-import com.team.dto.noticeDTO;
+import com.team.dto.NoticeDTO;
 
 
 @Service
@@ -25,15 +25,17 @@ public interface BoardService {
 	/* 더 필요한 메소드 있을 시 인터페이스에 주석 작성 후 추가해서 사용하세요 */
 	
 	/* notice 글목록 */
-	public List<noticeDTO> noticeList();
+	public List<NoticeDTO> noticeList();
 	/* notice 글작성 */
-	public int noticeWrite(noticeDTO dto);
+	public int noticeWrite(NoticeDTO dto);
 	/* notice 글수정 */
-	public noticeDTO noticeUpdate(noticeDTO dto);
+	public NoticeDTO noticeUpdate(NoticeDTO dto);
 	/* notice 글 내용 수정 */
-	public void noticeModify(noticeDTO dto);
+	public void noticeModify(NoticeDTO dto);
 	/* notice 글삭제 */
-	public void noticeDelete(noticeDTO dto);
+	public void noticeDelete(NoticeDTO dto);
 	/* notice 글 상세보기 */
-	public noticeDTO noticeDetail(noticeDTO dto);
+	public NoticeDTO noticeDetail(NoticeDTO dto);
+	/* notice 글 조회수 */
+	public void noticeViewCnt(int id);
 }

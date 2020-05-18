@@ -3,7 +3,7 @@ package com.team.dto;
 import java.util.Date;
 
 
-public class loginDTO {
+public class LoginDTO {
 	private String userId;
 	private String userPwd;
 	private String userName;

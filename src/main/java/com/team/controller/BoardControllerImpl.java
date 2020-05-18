@@ -9,7 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.team.dto.noticeDTO;
+import com.team.dto.NoticeDTO;
 import com.team.service.BoardService;
 
 @Controller
@@ -51,7 +51,7 @@ public class BoardControllerImpl implements BoardController {
 
 	@RequestMapping("noticeList")
 	public String noticeList(Model model) {
-		ArrayList<noticeDTO> list = (ArrayList<noticeDTO>) service.noticeList();
+		ArrayList<NoticeDTO> list = (ArrayList<NoticeDTO>) service.noticeList();
 		model.addAttribute("noticeList",list);
 		return "board/noticeList";
 	}
@@ -62,7 +62,7 @@ public class BoardControllerImpl implements BoardController {
 	}
 	
 	@RequestMapping("noticeWrite")
-	public String noticeWrite(noticeDTO dto,Model model) {
+	public String noticeWrite(NoticeDTO dto,Model model) {
 		int chk = service.noticeWrite(dto);
 		if (chk == 1) {
 			System.out.println("저장성공");
@@ -75,30 +75,36 @@ public class BoardControllerImpl implements BoardController {
 	
 
 	@RequestMapping("noticeUpdate")
-	public String noticeUpdate(noticeDTO dto,Model model) {
-		noticeDTO detail = service.noticeDetail(dto);
+	public String noticeUpdate(NoticeDTO dto,Model model) {
+		NoticeDTO detail = service.noticeDetail(dto);
 		model.addAttribute("noticeDetail",detail);
 		return "board/noticeModify";
 	}
 	
 	@RequestMapping("noticeModify")
-	public String noticeModify(HttpServletRequest request, Model model, noticeDTO dto) {
+	public String noticeModify(HttpServletRequest request, Model model, NoticeDTO dto) {
 		service.noticeModify(dto);
 		return "redirect:noticeList";
 	}
 
 	@RequestMapping("noticeDelete")
-	public String noticeDelete(noticeDTO dto) {
+	public String noticeDelete(NoticeDTO dto) {
 		service.noticeDelete(dto);
 		return "redirect:noticeList";
 	}
 
 	@RequestMapping("noticeDetail")
-	public String noticeDetail(noticeDTO dto,Model model) {
-		noticeDTO detail = service.noticeDetail(dto);
+	public String noticeDetail(NoticeDTO dto,Model model) {
+		service.noticeViewCnt(dto.getId());
+		NoticeDTO detail = service.noticeDetail(dto);
 		model.addAttribute("noticeDetail",detail);
 		return "board/noticeDetail";
 	}
 
+	@RequestMapping("replyWrite")
+	public String replyWrite() {
+		
+		return "replyWrite";
+	}
 
 }

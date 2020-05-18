@@ -38,5 +38,9 @@
 			</td>
 		</tr>
 	</table>
+	<h3>댓글</h3>
+	<hr>
+	<div class="replyBoard">
+	</div>
 </section>
 <jsp:include page="../include/footer.jsp" />

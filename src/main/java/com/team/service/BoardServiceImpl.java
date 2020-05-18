@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.team.dao.BoardDAO;
-import com.team.dto.noticeDTO;
+import com.team.dto.NoticeDTO;
 
 @Service
 public class BoardServiceImpl implements BoardService {
@@ -44,32 +44,36 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	
-	public List<noticeDTO> noticeList() {
-		List<noticeDTO> list =  dao.noticeList();
+	public List<NoticeDTO> noticeList() {
+		List<NoticeDTO> list =  dao.noticeList();
 		return list;
 	}
 
 	
-	public int noticeWrite(noticeDTO dto) {
+	public int noticeWrite(NoticeDTO dto) {
 		return dao.noticeWrite(dto);
 	}
 
 	
-	public noticeDTO noticeUpdate(noticeDTO dto) {
+	public NoticeDTO noticeUpdate(NoticeDTO dto) {
 		return dao.noticeDetail(dto);
 	}
 
-	public void noticeModify(noticeDTO dto) {
+	public void noticeModify(NoticeDTO dto) {
 		dao.noticeModify(dto);
 	}
 	
-	public void noticeDelete(noticeDTO dto) {
+	public void noticeDelete(NoticeDTO dto) {
 		dao.noticeDelete(dto);
 	}
 
 	
-	public noticeDTO noticeDetail(noticeDTO dto) {
+	public NoticeDTO noticeDetail(NoticeDTO dto) {
 		return dao.noticeDetail(dto);
+	}
+
+	public void noticeViewCnt(int id) {
+		dao.noticeViewCnt(id);
 	}
 
 

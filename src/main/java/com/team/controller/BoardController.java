@@ -2,7 +2,7 @@ package com.team.controller;
 
 import org.springframework.ui.Model;
 
-import com.team.dto.noticeDTO;
+import com.team.dto.NoticeDTO;
 
 public interface BoardController {
 	/* 게시판 글 가져오는 메소드 */
@@ -21,11 +21,11 @@ public interface BoardController {
 	/* notice 글목록 */
 	public String noticeList(Model model);
 	/* notice 글작성 */
-	public String noticeWrite(noticeDTO dto,Model model);
+	public String noticeWrite(NoticeDTO dto,Model model);
 	/* notice 글수정 */
-	public String noticeUpdate(noticeDTO dto,Model model);
+	public String noticeUpdate(NoticeDTO dto,Model model);
 	/* notice 글삭제 */
-	public String noticeDelete(noticeDTO dto);
+	public String noticeDelete(NoticeDTO dto);
 	/* notice 글 상세보기 */
-	public String noticeDetail(noticeDTO dto, Model model);
+	public String noticeDetail(NoticeDTO dto, Model model);
 }

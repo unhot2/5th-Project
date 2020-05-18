@@ -23,6 +23,11 @@
 		update notice set
 		name=#{name}, title= #{title}, content=#{content} where id=#{id}
 	</update>
+	
+	<update id="noticeViewCnt">
+		update notice set
+		hit = hit+1 where id=#{id}
+	</update>
 
 	<delete id="noticeDelete">
 		delete from notice where id=#{id}
