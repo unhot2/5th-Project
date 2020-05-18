@@ -38,9 +38,9 @@ public interface BoardController {
 	/* QnA 글작성 메소드 */
 	public String qnaWrite(QnaDTO qnadto);
 	/* QnA 글수정 메소드 */
-	public String qnaUpdate(QnaDTO qnadto);
+	public String qnaUpdate(QnaDTO qnadto, Model model);
 	/* QnA 글수정 메소드2 */
-	public String qnaModify();
+	public String qnaModify(QnaDTO qnadto);
 	/* QnA 글삭제 메소드 */
 	public String qnaDelete(QnaDTO qnadto);
 	/* QnA 상세내용 보기 메소드 */

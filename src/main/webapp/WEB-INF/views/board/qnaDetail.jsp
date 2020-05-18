@@ -8,40 +8,46 @@
 <title>Insert title here</title>
 </head>
 <body>
-<section>
-	<div align="center">
-		<form action="qnaUpdate">
-			<table border="1">
-				<font size="6"><b>상세내용</b></font>
-				<tr>
-					<th>번호</th>
-					<td><input type="text" name="id" value="${qnaDetail.id}" size="100"></td>
-				</tr>
-				<tr>
-					<th>이름</th>
-					<td><input type="text" name="name" value="${qnaDetail.name }" size="100"></td>
-				</tr>
-				<tr>
-					<th>제목</th>
-					<td><input type="text" name="title" value="${qnaDetail.title }" size="100"></td>
-				</tr>
-				<tr>
-					<th>내용</th>
-					<td><textarea name="content" rows="10" cols="100">${qnaDetail.content }</textarea></td>
-				</tr>
-				
-				<tr>
-					<th colspan="2">
-					<input type="submit" value="수정">&nbsp;&nbsp;&nbsp;
-					<a href="qnaList">목록이동</a>	&nbsp;&nbsp;				
-					<button type="button" onclick="location.href='qnaDelete?id=${qnaDetail.id }'">삭제</button>&nbsp;&nbsp;
-					<a href="qnaReply">답변</a>
-					</th>
-				</tr>
-			
-			</table>
-		</form>
+<section class="noticeDetailSection">
+	<h1>회원정보</h1>
+	<table border="2">
+		<tr>
+			<th>아이디</th>
+			<td>${qnaDetail.id}</td>
+		</tr>
+		<tr>
+			<th>이름</th>
+			<td>${qnaDetail.name }</td>
+		</tr>
+		<tr>
+			<th>제목</th>
+			<td>${qnaDetail.title }</td>
+		</tr>
+		<tr>
+			<th>내용</th>
+			<td>${qnaDetail.content }</td>
+		</tr>
+		<tr>
+			<th>작성시간</th>
+			<td>${qnaDetail.savedate }</td>
+		</tr>
+		<tr>
+			<th>조회수</th>
+			<td>${qnaDetail.hit }</td>
+		</tr>
+		<tr>
+			<td>
+				<button type="button" onclick="location.href='qnaUpdate?id=${qnaDetail.id}'">글수정</button>
+			</td>
+			<td>
+				<button type="button" onclick="location.href='qnaDelete?id=${qnaDetail.id }'">글삭제</button>
+			</td>
+		</tr>
+	</table>
+	<h3>댓글</h3>
+	<hr>
+	<div class="replyBoard">
 	</div>
-</section>		
+</section>
 </body>
 </html>

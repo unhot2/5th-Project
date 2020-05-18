@@ -13,15 +13,15 @@
 				<font size="6"><b>QnA</b></font>
 				<tr>
 					<th>이름</th>
-					<td><input type="text" name="name" size="100"></td>
+					<td><input type="text" name="name" size="100" value="${qnaUpdate.name }"></td>
 				</tr>
 				<tr>
 					<th>제목</th>
-					<td><input type="text" name="title" size="100"></td>
+					<td><input type="text" name="title" size="100" value="${qnaUpdate.title }"></td>
 				</tr>
 				<tr>
 					<th>내용</th>
-					<td><textarea name="content" rows="10" cols="100"></textarea></td>
+					<td><textarea name="content" rows="10" cols="100">${qnaUpdate.content }</textarea></td>
 				</tr>
 				<tr>
 					<th colspan="2"><input type="submit" value="저장">&nbsp;&nbsp;&nbsp;

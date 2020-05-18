@@ -117,13 +117,15 @@ public class BoardControllerImpl implements BoardController {
 	}
 
 	@RequestMapping("qnaUpdate")
-	public String qnaUpdate(QnaDTO qnadto) {
-		service.qnaUpdate(qnadto);
-		return "redirect:qnaList";
+	public String qnaUpdate(QnaDTO qnadto,Model model) {
+		model.addAttribute("qnaUpdate",service.qnaDetail(qnadto));
+		return "board/qnaModify";
 	}
 
-	public String qnaModify() {
-		return null;
+	@RequestMapping("qnaModify")
+	public String qnaModify(QnaDTO qnadto) {
+		service.qnaUpdate(qnadto);
+		return "redirect:qnaList";
 	}
 
 	@RequestMapping("qnaDelete")
