@@ -4,14 +4,27 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="sql">
+	<!-- login 부분 -->
+	<select id="listAll">
+		select * from login
+	</select>
+
+	<insert id="saveMember">
+		insert into login
+		values(#{userId},#{userPwd,jdbcType=VARCHAR},#{userName,jdbcType=VARCHAR},
+		#{userAge,jdbcType=INTEGER},#{userAddr,jdbcType=VARCHAR},#{userGender,jdbcType=VARCHAR},#{userBirth,jdbcType=DATE},#{userEmail,jdbcType=VARCHAR})
+	</insert>
+
 
 	<!-- notice 부분 -->
 	<select id="noticeListAll" resultType="noticeDTO">
-		select * from notice order by id asc
+		select * from notice order
+		by id asc
 	</select>
 
 	<select id="noticeDetail" resultType="noticeDTO">
-		select * from notice where id = #{id}
+		select * from notice where
+		id = #{id}
 	</select>
 
 	<insert id="noticeWrite" parameterType="noticeDTO">
@@ -19,12 +32,13 @@
 		notice(id,name,title,content,idgroup)
 		values(notice_seq.nextval,#{name},#{title},#{content},notice_seq.currval)
 	</insert>
-	
+
 	<update id="noticeModify">
 		update notice set
-		name=#{name}, title= #{title}, content=#{content} where id=#{id}
+		name=#{name}, title= #{title},
+		content=#{content} where id=#{id}
 	</update>
-	
+
 	<update id="noticeViewCnt">
 		update notice set
 		hit = hit+1 where id=#{id}
@@ -39,25 +53,29 @@
 	<select id="qnaListAll" resultType="QnaDTO">
 		select * from qna
 	</select>
-	
-	<insert id="qnaWrite" parameterType="QnaDTO">	
-		insert into qna(id,title,name,content,idgroup)
-			values(qna_seq.nextval,#{title},#{name},#{content},qna_seq.currval)
+
+	<insert id="qnaWrite" parameterType="QnaDTO">
+		insert into
+		qna(id,title,name,content,idgroup)
+		values(qna_seq.nextval,#{title},#{name},#{content},qna_seq.currval)
 	</insert>
-	
+
 	<select id="qnaDetail" resultType="QnaDTO">
-		select * from qna where id=#{id}
+		select * from qna where
+		id=#{id}
 	</select>
-	
+
 	<update id="qnaUpdate" parameterType="QnaDTO">
-		update qna set name=#{name}, title=#{title}, content=#{content} where id=#{id}
+		update qna set
+		name=#{name}, title=#{title}, content=#{content} where id=#{id}
 	</update>
-	
+
 	<update id="qnaModify" parameterType="QnaDTO">
-	
+
 	</update>
-	
+
 	<delete id="qnaDelete" parameterType="QnaDTO">
-		delete from qna where id=#{id}
+		delete from qna where
+		id=#{id}
 	</delete>
 </mapper>

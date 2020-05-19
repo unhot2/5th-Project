@@ -1,10 +1,14 @@
 package com.team.dao;
 
+import java.util.List;
+
+import com.team.dto.LoginDTO;
+
 public interface LoginDAO {
 	/* login Check 메소드 (dao연결)*/
-	public boolean loginChk();
+	public List<LoginDTO> loginChk(LoginDTO dto);
 	/* 회원정보 DB저장 메소드 */
-	public void saveMember();
+	public int saveMember(LoginDTO dto);
 	/* 회원정보 삭제 메소드 */
 	public void delMember();
 	/* 회원정보 수정 메소드 */

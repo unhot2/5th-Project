@@ -1,5 +1,9 @@
 package com.team.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
+import com.team.dto.LoginDTO;
+
 public interface LoginController {
 //	화면연결 메소드
 	/* 기본화면 연결 메소드 */
@@ -13,9 +17,9 @@ public interface LoginController {
 	
 //	dao연결 메소드
 	/* login Check 메소드 (dao연결)*/
-	public String loginChk();
+	public String loginChk(LoginDTO dto, HttpServletRequest request);
 	/* 회원정보 DB저장 메소드 */
-	public String saveMember();
+	public String saveMember(LoginDTO dto);
 	/* 회원정보 삭제 메소드 */
 	public String delMember();
 	/* 회원정보 수정 메소드 */

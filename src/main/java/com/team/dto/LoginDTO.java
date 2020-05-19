@@ -2,6 +2,8 @@ package com.team.dto;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 
 public class LoginDTO {
 	private String userId;
@@ -10,6 +12,7 @@ public class LoginDTO {
 	private int userAge;
 	private String userAddr;
 	private String userGender;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date userBirth;
 	private String userEmail;
 	public String getUserId() {

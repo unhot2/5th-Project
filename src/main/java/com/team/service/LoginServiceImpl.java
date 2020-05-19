@@ -1,35 +1,53 @@
 package com.team.service;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
+
 import com.team.dao.LoginDAO;
+import com.team.dto.LoginDTO;
 
 @Service
-public class LoginServiceImpl implements LoginService{
+public class LoginServiceImpl implements LoginService {
 	@Autowired
 	LoginDAO dao;
 
 	@Override
-	public boolean loginChk() {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean loginChk(LoginDTO dto) {
+		boolean chk = false;
+		for (LoginDTO dbDto : dao.loginChk(dto)) {
+			if (dto.getUserId().equals(dbDto.getUserId())) {
+				if (dto.getUserPwd().equals(dbDto.getUserPwd())) {
+					chk = true;
+					System.out.println("로그인 성공");
+				} else {
+					System.out.println("비밀번호 틀림");
+				}
+			} else {
+				System.out.println("아이디 없음");
+			}
+		}
+		return chk;
 	}
 
-	@Override
-	public void saveMember() {
-		// TODO Auto-generated method stub
-		
+	public int saveMember(LoginDTO dto) {
+		return dao.saveMember(dto);
 	}
 
-	@Override
 	public void delMember() {
-		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
 	public void updateMember() {
-		// TODO Auto-generated method stub
-		
+
+	}
+
+	public void memberInfoDetail(String id, Object object) {
+
+	}
+
+	public void memberInfo(Model model) {
+
 	}
 
 }
