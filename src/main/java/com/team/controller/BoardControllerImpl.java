@@ -136,6 +136,7 @@ public class BoardControllerImpl implements BoardController {
 
 	@RequestMapping("qnaDetail")
 	public String qnaDetail(QnaDTO qnadto, Model model) {
+		service.qnaViewCnt(qnadto.getId());
 		model.addAttribute("qnaDetail",service.qnaDetail(qnadto));
 		return "board/qnaDetail";
 	}

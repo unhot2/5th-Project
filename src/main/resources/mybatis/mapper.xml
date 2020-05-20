@@ -11,13 +11,31 @@
 
 	<insert id="saveMember">
 		insert into login
-		values(#{userId},#{userPwd,jdbcType=VARCHAR},#{userName,jdbcType=VARCHAR},
-		#{userAge,jdbcType=INTEGER},#{userAddr,jdbcType=VARCHAR},#{userGender,jdbcType=VARCHAR},#{userBirth,jdbcType=DATE},#{userEmail,jdbcType=VARCHAR})
+		values(#{userId},#{userPwd},#{userName},
+		#{userAge},#{userAddr},#{userGender},#{userBirth},#{userEmail},DEFAULT)
 	</insert>
 
+	<select id="memberInfo" resultType="loginDTO">
+		select * from login where
+		userId=#{userId}
+	</select>
+
+	<update id="updateMember">
+		update login set
+		userPwd=#{userPwd}, userName=#{userName},
+		userAge=#{userAge},
+		userAddr=#{userAddr},userGender=#{userGender},
+		userBirth=#{userBirth},userEmail=#{userEmail}
+		where userId=#{userId}
+	</update>
+
 	<delete id="deleteMember">
-		delete from notice where id=#{id}
+		delete from login where userId=#{userId}
 	</delete>
+
+	<select id="getMaster" resultType="String">
+	select master from login where userId=#{id}
+	</select>
 
 	<!-- notice 부분 -->
 	<select id="noticeListAll" resultType="noticeDTO">
@@ -81,4 +99,9 @@
 		delete from qna where
 		id=#{id}
 	</delete>
+	
+	<update id="qnaViewCnt">
+		update qna set
+		hit = hit+1 where id=#{id}
+	</update>
 </mapper>

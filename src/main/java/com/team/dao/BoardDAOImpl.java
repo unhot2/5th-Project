@@ -88,4 +88,8 @@ public class BoardDAOImpl implements BoardDAO {
 	public QnaDTO qnaDetail(QnaDTO qnadto) {
 		return sqlSession.selectOne("sql.qnaDetail",qnadto);
 	}
+
+	public void qnaViewCnt(int id) {
+		sqlSession.update("sql.qnaViewCnt",id);
+	}
 }

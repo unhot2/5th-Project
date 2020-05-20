@@ -1,14 +1,14 @@
 package com.team.controller;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import com.team.dto.LoginDTO;
 import com.team.service.LoginService;
 
@@ -28,8 +28,12 @@ public class LoginControllerImpl implements LoginController {
 		return "login/login";
 	}
 
-	public String logout() {
-		return null;
+	@RequestMapping("logout")
+	public String logout(HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		session.removeAttribute("userId");
+		session.removeAttribute("userMaster");
+		return "index";
 	}
 
 	@RequestMapping("memberShip")
@@ -37,12 +41,25 @@ public class LoginControllerImpl implements LoginController {
 		return "login/memberShip";
 	}
 
+	@RequestMapping("memberList")
+	public String memberList(Model model) {
+		model.addAttribute("memberList",(ArrayList<LoginDTO>)service.memberList());
+		return "login/memberList";
+	}
+	
+	@RequestMapping("memberInfo")
+	public String memberInfo(LoginDTO dto,Model model) {
+		model.addAttribute("memberInfo",service.memberInfo(dto));
+		return "login/memberInfo";
+	}
+	
 	@RequestMapping("loginChk")
 	public String loginChk(LoginDTO dto, HttpServletRequest request) {
 		HttpSession session = null;
 		if (service.loginChk(dto)) {
 			session = request.getSession();
-			session.setAttribute("id", dto.getUserId());
+			session.setAttribute("userId", dto.getUserId());
+			session.setAttribute("userMaster", service.getMaster(dto.getUserId()));
 			return "index";
 		} else {
 			return "login/login";
@@ -51,15 +68,6 @@ public class LoginControllerImpl implements LoginController {
 
 	@RequestMapping("saveMember")
 	public String saveMember(LoginDTO dto) {
-		System.out.println("controller단");
-		System.out.println(dto.getUserId());
-		System.out.println(dto.getUserPwd());
-		System.out.println(dto.getUserName());
-		System.out.println(dto.getUserAge());
-		System.out.println(dto.getUserAddr());
-		System.out.println(dto.getUserGender());
-		System.out.println(dto.getUserBirth());
-		System.out.println(dto.getUserEmail());
 		int num = service.saveMember(dto);
 		if (num == 1) {
 			System.out.println("저장성공");
@@ -70,27 +78,29 @@ public class LoginControllerImpl implements LoginController {
 		return "login/login";
 	}
 
-	@RequestMapping("delMember")
-	public String delMember() {
-		return "login/login";
+	@RequestMapping("deleteMember")
+	public String deleteMember(LoginDTO dto) {
+		service.deleteMember(dto);
+		return "redirect:memberList";
 	}
 
 	@RequestMapping("updateMember")
-	public String updateMember() {
-		// TODO Auto-generated method stub
-		return null;
+	public String updateMember(LoginDTO dto) {
+		service.updateMember(dto);
+		return "redirect:memberList";
 	}
-
-	@RequestMapping("memberInfo")
-	public String memberInfo(Model model) {
-		service.memberInfo(model);
-		return "login/memberInfo";
+	
+	@RequestMapping("updateUserMember")
+	public String updateUserMember(LoginDTO dto,Model model) {
+		model.addAttribute("memberInfo",service.memberInfo(dto));
+		return "login/updateUserMember";
 	}
-
-	@RequestMapping("memberInfoDetail")
-	public String memberInfoDetail(@RequestParam("id") String id) {
-		service.memberInfoDetail(id, null);
-		return "login/memberInfoDetail";
+	
+	@RequestMapping("updateUser")
+	public String updateUser(LoginDTO dto,Model model) {
+		service.updateMember(dto);
+		model.addAttribute("memberInfo",service.memberInfo(dto));
+		return "index";
 	}
-
+	
 }

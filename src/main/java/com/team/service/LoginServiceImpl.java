@@ -1,9 +1,9 @@
 package com.team.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
-
 import com.team.dao.LoginDAO;
 import com.team.dto.LoginDTO;
 
@@ -12,7 +12,10 @@ public class LoginServiceImpl implements LoginService {
 	@Autowired
 	LoginDAO dao;
 
-	@Override
+	public List<LoginDTO> memberList() {
+		return dao.memberList();
+	}
+
 	public boolean loginChk(LoginDTO dto) {
 		boolean chk = false;
 		for (LoginDTO dbDto : dao.loginChk(dto)) {
@@ -34,20 +37,24 @@ public class LoginServiceImpl implements LoginService {
 		return dao.saveMember(dto);
 	}
 
-	public void delMember() {
-		
+	public void deleteMember(LoginDTO dto) {
+		dao.deleteMember(dto);
 	}
 
-	public void updateMember() {
-
+	public void updateMember(LoginDTO dto) {
+		dao.updateMember(dto);
 	}
 
 	public void memberInfoDetail(String id, Object object) {
 
 	}
 
-	public void memberInfo(Model model) {
+	public LoginDTO memberInfo(LoginDTO dto) {
+		return dao.memberInfo(dto);
+	}
 
+	public String getMaster(String id) {
+		return dao.getMaster(id);
 	}
 
 }

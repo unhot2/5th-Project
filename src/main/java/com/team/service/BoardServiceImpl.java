@@ -89,4 +89,8 @@ public class BoardServiceImpl implements BoardService {
 		return dao.qnaDetail(qnadto);
 	}
 
+	public void qnaViewCnt(int id) {
+		dao.qnaViewCnt(id);
+	}
+
 }

@@ -51,4 +51,6 @@ public interface BoardService {
 	public void qnaDelete(QnaDTO qnadto);
 	/* QnA 상세내용 보기 메소드 */
 	public QnaDTO qnaDetail(QnaDTO qnadto);
+	/* Qna 글 조회수 */
+	public void qnaViewCnt(int id);
 }
