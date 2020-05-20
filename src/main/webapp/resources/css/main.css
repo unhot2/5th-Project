@@ -1,12 +1,72 @@
 @charset "UTF-8";
-.menu{
-	padding: 0 30px;
-	color:red;
-	text-decoration: none;
-	font-weight: bold;
+
+.menu {
+   padding: 0 30px;
+   color: red;
+   text-decoration: none;
+   font-weight: bold;
 }
 
-a{
-	text-decoration: none;
-	color:#555555;	
+a {
+   text-decoration: none;
+   color: #555555;
+}
+
+.footermenu {
+   color: white;
+   text-decoration: none;
+   font-weight: bold;
+}
+
+
+.table {
+   background: black;
+   color: white;
+   align-content: center;
+   text-decoration: none;
+}
+
+.div01 {
+   text-align: center;
+   color: white;
+   text-decoration: none;
+   padding: 20px 0px 0px 100px;
+}
+
+.div02 {
+   text-align: center;
+   color: white;
+   text-decoration: none;
+   padding: 20px 0px 0px 0px;
+}
+
+.div03 {
+   text-align: center;
+   color: white;
+   text-decoration: none;
+   padding: 20px 0px 0px 0px;
+}
+
+.div04 {
+   text-align: center;
+   color: white;
+   text-decoration: none;
+   padding: 20px 300px 0px 0px;
+}
+
+.div05 {
+   text-align: center;
+   color: white;
+   text-decoration: none;
+}
+
+.div06 {
+   text-align: center;
+   color: white;
+   text-decoration: none;
+}
+.socialimg{
+   width:20px;
+   height:20px;
+   /* padding:5px 5px 5px 5px; */
 }
