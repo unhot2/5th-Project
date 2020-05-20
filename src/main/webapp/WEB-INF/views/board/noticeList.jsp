@@ -25,7 +25,7 @@
 		</c:forEach>
 		<tr>
 			<td colspan="6" align="right"><button type="button"
-					onclick="location.href='noticeWriteForm'">글작성</button></td>
+					onclick="location.href='noticeSave'">글작성</button></td>
 	</table>
 </section>
 <jsp:include page="../include/footer.jsp" />
