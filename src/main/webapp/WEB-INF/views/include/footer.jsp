@@ -64,8 +64,8 @@
                <a><img src="resources/img/instargram.jpg" class="socialimg">인스타그램</a>
                <a><img src="resources/img/youtube.png" class="socialimg">유튜브</a>&nbsp;&nbsp;&nbsp;&nbsp; 
 
-               <a href="//www.cafe24.com/" target="_blank"><img src="/_d1/img/escrow/cafe24.png">cafe24</a>
-               <a> 공정거래위원회</a>
+               <a href="//www.cafe24.com/" target="_blank"><img src="resources/img/cafe24.png"></a>
+               <a href="//www.ftc.go.kr/" target="_blank"><img src="resources/img/ftc.png"></a>
             </div>
          </td>   
       </tr>
