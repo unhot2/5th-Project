@@ -3,6 +3,7 @@ package com.team.controller;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.team.dto.NoticeDTO;
 import com.team.dto.QnaDTO;
@@ -34,7 +35,7 @@ public interface BoardController {
 	public String noticeDetail(NoticeDTO dto, Model model);
 
 	/* QnA 글 가져오는 메소드 */
-	public String qnaList(Model model);
+	public String qnaList(Model model,@RequestParam("start")int start);
 	/* QnA 글작성 메소드 */
 	public String qnaWrite(QnaDTO qnadto);
 	/* QnA 글수정 메소드 */

@@ -22,7 +22,8 @@
 
 	<update id="updateMember">
 		update login set
-		userPwd=#{userPwd}, userName=#{userName},
+		userPwd=#{userPwd},
+		userName=#{userName},
 		userAge=#{userAge},
 		userAddr=#{userAddr},userGender=#{userGender},
 		userBirth=#{userBirth},userEmail=#{userEmail}
@@ -34,7 +35,7 @@
 	</delete>
 
 	<select id="getMaster" resultType="String">
-	select master from login where userId=#{id}
+		select master from login where userId=#{id}
 	</select>
 
 	<!-- notice 부분 -->
@@ -72,7 +73,7 @@
 	<!-- QNA 부분 -->
 
 	<select id="qnaListAll" resultType="QnaDTO">
-		select * from qna
+		select B.* from(select rownum rn, A.* from(select * from qna order by id desc)A)B where rn between #{startPage} and #{endPage}
 	</select>
 
 	<insert id="qnaWrite" parameterType="QnaDTO">
@@ -99,9 +100,17 @@
 		delete from qna where
 		id=#{id}
 	</delete>
-	
+
 	<update id="qnaViewCnt">
 		update qna set
 		hit = hit+1 where id=#{id}
 	</update>
+
+	<select id="qnaGetTotalPage" resultType="_int">
+		select count(*) from qna
+	</select>
+	
+	<select id="search" resultType="QnaDTO">
+		select * from qna where title like '%'||#{search}||'%'
+	</select>
 </mapper>

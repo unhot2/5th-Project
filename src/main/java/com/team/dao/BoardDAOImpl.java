@@ -6,8 +6,12 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestParam;
+
 import com.team.dto.BoardDTO;
 import com.team.dto.NoticeDTO;
+import com.team.dto.PageCount;
 import com.team.dto.QnaDTO;
 
 @Repository
@@ -47,11 +51,11 @@ public class BoardDAOImpl implements BoardDAO {
 	}
 
 	public void noticeModify(NoticeDTO dto) {
-		int chk = sqlSession.update("sql.noticeModify",dto);
+		sqlSession.update("sql.noticeModify",dto);
 	}
 
 	public void noticeDelete(NoticeDTO dto) {
-		int chk = sqlSession.delete("sql.noticeDelete", dto);
+		sqlSession.delete("sql.noticeDelete", dto);
 	}
 
 	public NoticeDTO noticeDetail(NoticeDTO dto) {
@@ -63,17 +67,19 @@ public class BoardDAOImpl implements BoardDAO {
 	}
 
 	/* QnA부분 */
-	public List<QnaDTO> qnaList() {
-		return sqlSession.selectList("sql.qnaListAll");
+	public List<QnaDTO> qnaList(int start,Model model) {
+		PageCount pc = qnaPagingNum(start);
+		model.addAttribute("pc",pc);
+		return sqlSession.selectList("sql.qnaListAll",pc);
 	}
 
 	public void qnaWrite(QnaDTO qnadto) {
-		int result = sqlSession.insert("sql.qnaWrite", qnadto);
+		sqlSession.insert("sql.qnaWrite", qnadto);
 		
 	}
 
 	public void qnaUpdate(QnaDTO qnadto) {
-		int result =sqlSession.update("sql.qnaUpdate", qnadto);
+		sqlSession.update("sql.qnaUpdate", qnadto);
 	}
 	
 	public void qnaModify(QnaDTO qnadto) {
@@ -81,7 +87,7 @@ public class BoardDAOImpl implements BoardDAO {
 	}
 
 	public void qnaDelete(QnaDTO qnadto) {
-	int result = sqlSession.delete("sql.qnaDelete",qnadto);
+	sqlSession.delete("sql.qnaDelete",qnadto);
 		
 	}
 
@@ -91,5 +97,23 @@ public class BoardDAOImpl implements BoardDAO {
 
 	public void qnaViewCnt(int id) {
 		sqlSession.update("sql.qnaViewCnt",id);
+	}
+	
+	public PageCount qnaPagingNum(int start) {
+		if(start == 0)start=1;
+		PageCount pc = new PageCount();
+		int pageNum=5;
+		int totalPage = sqlSession.selectOne("sql.qnaGetTotalPage");
+		int totEndPage = totalPage/pageNum + (totalPage%pageNum == 0 ?0 :1);
+		int startPage = (start - 1) * pageNum + 1;
+		int endPage = pageNum * start;
+		pc.setTotalPage(totEndPage);
+		pc.setStartPage(startPage);
+		pc.setEndPage(endPage);
+		return pc;
+	}
+
+	public List<QnaDTO> search(String search) {
+		return sqlSession.selectList("sql.search",search);
 	}
 }

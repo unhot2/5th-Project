@@ -33,5 +33,5 @@
 			</c:when>
 		</c:choose>
 		<span><a href="noticeList" class="menu">공지사항</a></span> <span><a
-			href="qnaList" class="menu">QnA</a></span>
+			href="qnaList?start=0" class="menu">QnA</a></span>
 	</div>

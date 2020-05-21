@@ -10,7 +10,7 @@
 <body>
 <section class="noticeDetailSection">
 	<h1>회원정보</h1>
-	<table border="2">
+	<table border="1">
 		<tr>
 			<th>아이디</th>
 			<td>${qnaDetail.id}</td>

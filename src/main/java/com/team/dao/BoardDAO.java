@@ -3,6 +3,8 @@ package com.team.dao;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.ui.Model;
+
 import com.team.dto.BoardDTO;
 import com.team.dto.NoticeDTO;
 import com.team.dto.QnaDTO;
@@ -35,7 +37,7 @@ public interface BoardDAO {
 	public void noticeViewCnt(int id);
 
 	/* QnA 글 가져오는 메소드 */
-	public List<QnaDTO> qnaList();
+	public List<QnaDTO> qnaList(int start,Model model);
 	/* QnA 글작성 메소드 */
 	public void qnaWrite(QnaDTO qnadto);
 	/* QnA 글수정 메소드 */
@@ -48,5 +50,7 @@ public interface BoardDAO {
 	public QnaDTO qnaDetail(QnaDTO qnadto);
 	/* Qna 글 조회수 */
 	public void qnaViewCnt(int id);
+	/* Qna 검색 */
+	public List<QnaDTO> search(String search);
 	
 }

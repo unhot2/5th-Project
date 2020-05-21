@@ -1,13 +1,11 @@
 package com.team.service;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
+
 import com.team.dao.BoardDAO;
 import com.team.dto.NoticeDTO;
 import com.team.dto.QnaDTO;
@@ -63,8 +61,8 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	/* QNA 부분 */
-	public List<QnaDTO> qnaList() {
-		List<QnaDTO> list = dao.qnaList();
+	public List<QnaDTO> qnaList(int start,Model model) {
+		List<QnaDTO> list = dao.qnaList(start,model);
 		return list;
 	}
 
@@ -91,6 +89,10 @@ public class BoardServiceImpl implements BoardService {
 
 	public void qnaViewCnt(int id) {
 		dao.qnaViewCnt(id);
+	}
+
+	public List<QnaDTO> search(String search) {
+		return dao.search(search);
 	}
 
 }

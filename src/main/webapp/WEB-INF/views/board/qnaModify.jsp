@@ -10,8 +10,8 @@
 <section>
 	<div align="center">
 		<form action="qnaModify">
-			<table border="1">
 				<font size="6"><b>상세내용</b></font>
+				<table border="1">
 				<tr>
 					<th>번호</th>
 					<td><input type="text" name="id" value="${qnaUpdate.id}" size="100"></td>

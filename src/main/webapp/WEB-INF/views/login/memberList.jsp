@@ -9,7 +9,7 @@
 </head>
 <body>
 	<h1>회 원 목 록(관리자)</h1>
-	<table border="2">
+	<table border="1">
 			<tr>
 				<th>아이디</th>
 				<th>비밀번호</th>

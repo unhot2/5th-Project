@@ -4,10 +4,10 @@
 <jsp:include page="../include/header.jsp" />
 <section class="noticeWriteSection">
 <form action="noticeWrite">
-<table border="2">
+<table border="1">
 	<tr><td>이름</td><td><input type="text" name="name"></td>
 	<tr><td>제목</td><td><input type="text" name="title"></td>
-	<tr><td>내용</td><td><textarea row="5" cols="50" name="content"></textarea></td></tr>
+	<tr><td>내용</td><td><textarea rows="5" cols="50" name="content"></textarea></td></tr>
 	<tr><td colspan="2"><input type="submit" value="작성"></td></tr>
 </table>
 </form>

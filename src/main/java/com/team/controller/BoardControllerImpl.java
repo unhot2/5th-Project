@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 import com.team.dto.NoticeDTO;
 import com.team.dto.QnaDTO;
 import com.team.service.BoardService;
@@ -99,9 +101,13 @@ public class BoardControllerImpl implements BoardController {
 
 	/* QnA 부분 */
 	@RequestMapping("qnaList")
-	public String qnaList(Model model) {
-		List<QnaDTO> list = service.qnaList();
+	public String qnaList(Model model, @RequestParam("start") int start) {
+		if (start == 0) {
+			start = 1;
+		}
+		List<QnaDTO> list = service.qnaList(start, model);
 		model.addAttribute("qnaList", list);
+		model.addAttribute("start", start);
 		return "board/qnaList";
 	}
 
@@ -117,8 +123,8 @@ public class BoardControllerImpl implements BoardController {
 	}
 
 	@RequestMapping("qnaUpdate")
-	public String qnaUpdate(QnaDTO qnadto,Model model) {
-		model.addAttribute("qnaUpdate",service.qnaDetail(qnadto));
+	public String qnaUpdate(QnaDTO qnadto, Model model) {
+		model.addAttribute("qnaUpdate", service.qnaDetail(qnadto));
 		return "board/qnaModify";
 	}
 
@@ -137,7 +143,7 @@ public class BoardControllerImpl implements BoardController {
 	@RequestMapping("qnaDetail")
 	public String qnaDetail(QnaDTO qnadto, Model model) {
 		service.qnaViewCnt(qnadto.getId());
-		model.addAttribute("qnaDetail",service.qnaDetail(qnadto));
+		model.addAttribute("qnaDetail", service.qnaDetail(qnadto));
 		return "board/qnaDetail";
 	}
 
@@ -146,4 +152,14 @@ public class BoardControllerImpl implements BoardController {
 		return "board/qnaReply";
 	}
 
+	@RequestMapping("search")
+	public String search(@RequestParam("search") String search, Model model) {
+		ArrayList<QnaDTO> list = (ArrayList<QnaDTO>) service.search(search);
+		System.out.println(list.get(0).getId());
+		System.out.println(list.get(0).getName());
+		System.out.println(list.get(1).getId());
+		System.out.println(list.get(1).getName());
+		model.addAttribute("qnaList", list);
+		return "board/qnaList";
+	}
 }

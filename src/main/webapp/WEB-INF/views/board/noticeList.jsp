@@ -4,7 +4,7 @@
 <jsp:include page="../include/header.jsp" />
 <section class="noticeSection">
 	<h1>공 지 사 항</h1>
-	<table border="2">
+	<table border="1">
 		<tr>
 			<th>아이디</th>
 			<th>이름</th>

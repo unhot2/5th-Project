@@ -30,7 +30,7 @@ public class LoginDAOImpl implements LoginDAO {
 	}
 
 	public void updateMember(LoginDTO dto) {
-		int num = sqlSession.update("sql.updateMember",dto);
+		sqlSession.update("sql.updateMember",dto);
 	}
 
 	public LoginDTO memberInfo(LoginDTO dto) {
