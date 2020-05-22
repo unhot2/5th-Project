@@ -22,7 +22,14 @@ public class LoginControllerImpl implements LoginController {
 	public String home() {
 		return "index";
 	}
-
+	@RequestMapping("home")
+	public String index() {
+		return "index";
+	}
+	@RequestMapping("login2")
+	public String login2() {
+		return "login/login2";
+	}
 	@RequestMapping("login")
 	public String login() {
 		return "login/login";
