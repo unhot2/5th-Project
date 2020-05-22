@@ -1,6 +1,6 @@
 package com.team.service;
 
-import java.util.ArrayList;
+
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,8 +31,8 @@ public class BoardServiceImpl implements BoardService {
 	public void detail() {
 	}
 
-	public List<NoticeDTO> noticeList() {
-		List<NoticeDTO> list = dao.noticeList();
+	public List<NoticeDTO> noticeList(int noticestart,Model model) {
+		List<NoticeDTO> list = dao.noticeList(noticestart,model);
 		return list;
 	}
 
@@ -44,8 +44,8 @@ public class BoardServiceImpl implements BoardService {
 		return dao.noticeDetail(dto);
 	}
 
-	public void noticeModify(NoticeDTO dto) {
-		dao.noticeModify(dto);
+	public int noticeModify(NoticeDTO dto) {
+		return dao.noticeModify(dto);
 	}
 
 	public void noticeDelete(NoticeDTO dto) {
@@ -59,15 +59,17 @@ public class BoardServiceImpl implements BoardService {
 	public void noticeViewCnt(int id) {
 		dao.noticeViewCnt(id);
 	}
-
+	public List<NoticeDTO> noticeSearch(String noticeSearch) {
+		return dao.noticeSearch(noticeSearch);
+	}
 	/* QNA 부분 */
 	public List<QnaDTO> qnaList(int start,Model model) {
 		List<QnaDTO> list = dao.qnaList(start,model);
 		return list;
 	}
 
-	public void qnaWrite(QnaDTO qnadto) {
-		dao.qnaWrite(qnadto);
+	public int qnaWrite(QnaDTO qnadto) {
+		return dao.qnaWrite(qnadto);
 	}
 
 	public void qnaUpdate(QnaDTO qnadto) {
@@ -75,7 +77,8 @@ public class BoardServiceImpl implements BoardService {
 
 	}
 
-	public void qnaModify(QnaDTO qnadto) {
+	public int qnaModify(QnaDTO qnadto) {
+		return dao.qnaModify(qnadto);
 	
 	}
 	

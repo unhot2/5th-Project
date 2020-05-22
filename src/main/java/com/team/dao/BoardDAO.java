@@ -22,28 +22,30 @@ public interface BoardDAO {
 	public BoardDTO detail();
 	
 	/* notice 글목록 */
-	public List<NoticeDTO> noticeList();
+	public List<NoticeDTO> noticeList(int noticestart,Model model);
 	/* notice 글작성 */
 	public int noticeWrite(NoticeDTO dto);
 	/* notice 글수정 */
 	public NoticeDTO noticeUpdate(NoticeDTO dto);
 	/* notice 글 내용수정 */
-	public void noticeModify(NoticeDTO dto);
+	public int noticeModify(NoticeDTO dto);
 	/* notice 글삭제 */
 	public void noticeDelete(NoticeDTO dto);
 	/* notice 글 상세보기 */
 	public NoticeDTO noticeDetail(NoticeDTO dto);
 	/* notice 글 조회수 */
 	public void noticeViewCnt(int id);
-
+	/* Qna 검색 */
+	public List<NoticeDTO> noticeSearch(String noticeSearch);
+	
 	/* QnA 글 가져오는 메소드 */
 	public List<QnaDTO> qnaList(int start,Model model);
 	/* QnA 글작성 메소드 */
-	public void qnaWrite(QnaDTO qnadto);
+	public int qnaWrite(QnaDTO qnadto);
 	/* QnA 글수정 메소드 */
 	public void qnaUpdate(QnaDTO qnadto);
 	/* QnA 글수정 메소드2 */
-	public void qnaModify(QnaDTO qnadto);
+	public int qnaModify(QnaDTO qnadto);
 	/* QnA 글삭제 메소드 */
 	public void qnaDelete(QnaDTO qnadto);
 	/* QnA 상세내용 보기 메소드 */

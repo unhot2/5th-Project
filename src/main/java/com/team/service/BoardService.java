@@ -1,6 +1,5 @@
 package com.team.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -27,28 +26,30 @@ public interface BoardService {
 	/* 더 필요한 메소드 있을 시 인터페이스에 주석 작성 후 추가해서 사용하세요 */
 	
 	/* notice 글목록 */
-	public List<NoticeDTO> noticeList();
+	public List<NoticeDTO> noticeList(int noticestart,Model model);
 	/* notice 글작성 */
 	public int noticeWrite(NoticeDTO dto);
 	/* notice 글수정 */
 	public NoticeDTO noticeUpdate(NoticeDTO dto);
 	/* notice 글 내용 수정 */
-	public void noticeModify(NoticeDTO dto);
+	public int noticeModify(NoticeDTO dto);
 	/* notice 글삭제 */
 	public void noticeDelete(NoticeDTO dto);
 	/* notice 글 상세보기 */
 	public NoticeDTO noticeDetail(NoticeDTO dto);
 	/* notice 글 조회수 */
 	public void noticeViewCnt(int id);
+	/* notice 검색 */
+	public List<NoticeDTO> noticeSearch(String noticeSearch);
 	
 	/* QnA 글 가져오는 메소드 */
 	public List<QnaDTO> qnaList(int start,Model model);
 	/* QnA 글작성 메소드 */
-	public void qnaWrite(QnaDTO qnadto);
+	public int qnaWrite(QnaDTO qnadto);
 	/* QnA 글수정 메소드 */
 	public void qnaUpdate(QnaDTO qnadto);
 	/* QnA 글수정 메소드 */
-	public void qnaModify(QnaDTO qnadto);
+	public int qnaModify(QnaDTO qnadto);
 	/* QnA 글삭제 메소드 */
 	public void qnaDelete(QnaDTO qnadto);
 	/* QnA 상세내용 보기 메소드 */

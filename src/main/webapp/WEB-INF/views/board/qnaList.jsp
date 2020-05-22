@@ -3,7 +3,7 @@
 	pageEncoding="UTF-8"%>
 <jsp:include page="../include/header.jsp" />
 <jsp:useBean id="dao" class="com.team.dao.BoardDAOImpl" />
-<hr>
+<section class="qnaSection">
 <div align="center">
 	<font size="6"><b>QnA</b></font>
 </div>
@@ -75,5 +75,6 @@
 		</tr>
 	</table>
 </div>
+</section>
 </body>
 </html>
