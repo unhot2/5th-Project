@@ -3,10 +3,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <jsp:include page="../include/header.jsp" />
 <jsp:useBean id="dao" class="com.team.dao.BoardDAOImpl" />
-<section class="noticeSection">
+<section class="noticeListSection">
 	<div align="center">
 		<h1>공 지 사 항</h1>
-
 		<table border="1">
 			<tr>
 				<th>아이디</th>
