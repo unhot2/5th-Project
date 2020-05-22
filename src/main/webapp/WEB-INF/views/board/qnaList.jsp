@@ -20,28 +20,29 @@
 				<th>step</th>
 				<th>indent</th>
 			</tr>
-			<c:choose>
-				<c:when test="${qnaList.size() != 0 }">
-					<c:forEach items="${qnaList }" var="dto">
-						<tr>
-							<td>${dto.id }</td>
-							<td><a href="qnaDetail?id=${dto.id }">${dto.title }</a></td>
-							<td>${dto.name }</td>
-							<td>${dto.content }</td>
-							<td>${dto.savedate }</td>
-							<td>${dto.hit }</td>
-							<td>${dto.idgroup }</td>
-							<td>${dto.step }</td>
-							<td>${dto.indent }</td>
-						</tr>
-					</c:forEach>
-				</c:when>
-				<c:otherwise>
+
+		<c:choose>
+			<c:when test="${qnaList.size() != 0 }">
+				<c:forEach items="${qnaList }" var="dto">
 					<tr>
-						<th colspan="9">등록된 정보가 없습니다</th>
+						<td>${dto.id }</td>
+						<td><a href="qnaDetail?id=${dto.id }">${dto.title }</a></td>
+						<td>${dto.name }</td>
+						<td>${dto.content }</td>
+						<td>${dto.savedate }</td>
+						<td>${dto.hit }</td>
+						<td>${dto.idgroup }</td>
+						<td>${dto.step }</td>
+						<td>${dto.indent }</td>
 					</tr>
-				</c:otherwise>
-			</c:choose>
+				</c:forEach>
+			</c:when>
+			<c:otherwise>
+				<tr>
+					<th colspan="9">등록된 정보가 없습니다</th>
+				</tr>
+			</c:otherwise>
+		</c:choose>
 			<tr>
 				<td colspan="9" align="right"><c:choose>
 						<c:when test="${start > 1}">

@@ -40,8 +40,7 @@
 
 	<!-- notice 부분 -->
 	<select id="noticeListAll" resultType="noticeDTO">
-		select * from notice order
-		by id asc
+		select B.* from(select rownum rn, A.* from(select * from notice order by id desc)A)B where rn between #{startPage} and #{endPage}
 	</select>
 
 	<select id="noticeDetail" resultType="noticeDTO">
@@ -69,7 +68,14 @@
 	<delete id="noticeDelete">
 		delete from notice where id=#{id}
 	</delete>
-
+	
+	<select id="noticeGetTotalPage" resultType="_int">
+		select count(*) from notice
+	</select>
+	
+	<select id="noticeSearch" resultType="noticeDTO">
+		select * from notice where title like '%'||#{noticestart}||'%'
+	</select>
 	<!-- QNA 부분 -->
 
 	<select id="qnaListAll" resultType="QnaDTO">

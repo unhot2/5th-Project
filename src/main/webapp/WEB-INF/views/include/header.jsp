@@ -36,7 +36,7 @@
 			<div class="dropdown">
 				<button class="dropbtn menu">고객센터</button>
 				<span class="dropdown-content">
-					<a href="qnaList?start=0">QnA</a><a href="noticeList">공지사항</a>
+					<a href="qnaList?start=0">QnA</a><a href="noticeList?noticestart=0">공지사항</a>
 				</span>
 			</div>
 			

@@ -46,9 +46,13 @@ public class BoardControllerImpl implements BoardController {
 	}
 
 	@RequestMapping("noticeList")
-	public String noticeList(Model model) {
-		ArrayList<NoticeDTO> list = (ArrayList<NoticeDTO>) service.noticeList();
+	public String noticeList(Model model,@RequestParam("noticestart")int noticestart) {
+		if (noticestart==0) {
+			noticestart=1;
+		}	
+		List<NoticeDTO> list = service.noticeList(noticestart, model);
 		model.addAttribute("noticeList", list);
+		model.addAttribute("noticestart", noticestart);
 		return "board/noticeList";
 	}
 
@@ -65,6 +69,7 @@ public class BoardControllerImpl implements BoardController {
 		} else {
 			System.out.println("저장실패");
 		}
+		model.addAttribute("noticestart",0);
 		return "redirect:noticeList";
 	}
 
@@ -77,7 +82,14 @@ public class BoardControllerImpl implements BoardController {
 
 	@RequestMapping("noticeModify")
 	public String noticeModify(HttpServletRequest request, Model model, NoticeDTO dto) {
-		service.noticeModify(dto);
+		int num = service.noticeModify(dto);
+		if(num == 1) {
+			System.out.println("저장성공");
+		} else {
+			System.out.println("저장실패");
+		}
+		model.addAttribute("noticestart",0);
+	
 		return "redirect:noticeList";
 	}
 
@@ -99,7 +111,13 @@ public class BoardControllerImpl implements BoardController {
 
 		return "replyWrite";
 	}
-
+	@RequestMapping("noticeSearch")
+	public String noticesearch(@RequestParam("noticeSearch") String noticeSearch, Model model) {	
+		ArrayList<NoticeDTO> list = (ArrayList<NoticeDTO>) service.noticeSearch(noticeSearch);
+		model.addAttribute("noticeList", list);
+		return "board/noticeList";
+	}
+	
 	/* QnA 부분 */
 	@RequestMapping("qnaList")
 	public String qnaList(Model model, @RequestParam("start") int start) {
@@ -118,8 +136,14 @@ public class BoardControllerImpl implements BoardController {
 	}
 
 	@RequestMapping("qnaWrite")
-	public String qnaWrite(QnaDTO qnadto) {
-		service.qnaWrite(qnadto);
+	public String qnaWrite(QnaDTO qnadto, Model model) {
+		int chk = service.qnaWrite(qnadto);
+		if (chk == 1) {
+			System.out.println("저장성공");
+		} else {
+			System.out.println("저장실패");
+		}
+		model.addAttribute("start",0);
 		return "redirect:qnaList";
 	}
 
@@ -130,8 +154,14 @@ public class BoardControllerImpl implements BoardController {
 	}
 
 	@RequestMapping("qnaModify")
-	public String qnaModify(QnaDTO qnadto) {
-		service.qnaUpdate(qnadto);
+	public String qnaModify(QnaDTO qnadto, Model model) {
+		int num = service.qnaModify(qnadto);
+		if(num == 1) {
+			System.out.println("저장성공");
+		} else {
+			System.out.println("저장실패");
+		}
+		model.addAttribute("start",0);
 		return "redirect:qnaList";
 	}
 
