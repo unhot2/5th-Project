@@ -4,9 +4,16 @@
 	    PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	    "http://mybatis.org/dtd/mybatis-3-config.dtd">
 	<configuration>
+		<!-- oracle null처리  -->
+		<settings>
+			<setting name="cacheEnabled" value="false"/>
+			<setting name="jdbcTypeForNull" value="NULL"/>
+		</settings>
 		<typeAliases>
-		<!--  alias 는 리턴타입의 별명, type은 리턴값을 TestDTO 타입으로 받아온다는 의미 -->
-			<typeAlias alias="loginDTO" type="com.team.dto.loginDTO"/>
-			<typeAlias alias="boardDTO" type="com.team.dto.boardDTO"/>
+			<typeAlias alias="loginDTO" type="com.team.dto.LoginDTO"/>
+			<typeAlias alias="boardDTO" type="com.team.dto.BoardDTO"/>
+			<typeAlias alias="noticeDTO" type="com.team.dto.NoticeDTO"/>
+			<typeAlias alias="qnaDTO" type="com.team.dto.QnaDTO"/>
+			<typeAlias alias="replyDTO" type="com.team.dto.ReplyDTO"/>
 		</typeAliases>
 	</configuration>

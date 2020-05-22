@@ -3,16 +3,128 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="login">
-	<!-- login은 loginDTO, board는 boardDTO사용 mybatis-config.xml에 등록해둠-->
-	<!-- 예1) -->
+<mapper namespace="sql">
+	<!-- login 부분 -->
 	<select id="listAll" resultType="loginDTO">
 		select * from login
 	</select>
-	<!-- 예2) -->
-	<select id="boardListAll" resultType="boardDTO">
-		select * from board
+
+	<insert id="saveMember">
+		insert into login
+		values(#{userId},#{userPwd},#{userName},
+		#{userAge},#{userAddr},#{userGender},#{userBirth},#{userEmail},DEFAULT)
+	</insert>
+
+	<select id="memberInfo" resultType="loginDTO">
+		select * from login where
+		userId=#{userId}
+	</select>
+
+	<update id="updateMember">
+		update login set
+		userPwd=#{userPwd},
+		userName=#{userName},
+		userAge=#{userAge},
+		userAddr=#{userAddr},userGender=#{userGender},
+		userBirth=#{userBirth},userEmail=#{userEmail}
+		where userId=#{userId}
+	</update>
+
+	<delete id="deleteMember">
+		delete from login where userId=#{userId}
+	</delete>
+
+	<select id="getMaster" resultType="String">
+		select master from login where userId=#{id}
+	</select>
+
+	<!-- notice 부분 -->
+	<select id="noticeListAll" resultType="noticeDTO">
+		select B.* from(select rownum rn, A.* from(select * from notice order by id desc)A)B where rn between #{startPage} and #{endPage}
+	</select>
+
+	<select id="noticeDetail" resultType="noticeDTO">
+		select * from notice where
+		id = #{id}
+	</select>
+
+	<insert id="noticeWrite" parameterType="noticeDTO">
+		insert into
+		notice(id,name,title,content,idgroup)
+		values(notice_seq.nextval,#{name},#{title},#{content},notice_seq.currval)
+	</insert>
+
+	<update id="noticeModify">
+		update notice set
+		name=#{name}, title= #{title},
+		content=#{content} where id=#{id}
+	</update>
+
+	<update id="noticeViewCnt">
+		update notice set
+		hit = hit+1 where id=#{id}
+	</update>
+
+	<delete id="noticeDelete">
+		delete from notice where id=#{id}
+	</delete>
+	
+	<select id="noticeGetTotalPage" resultType="_int">
+		select count(*) from notice
 	</select>
 	
-		
+	<select id="noticeSearch" resultType="noticeDTO">
+		select * from notice where title like '%'||#{noticestart}||'%'
+	</select>
+	<!-- QNA 부분 -->
+
+	<select id="qnaListAll" resultType="QnaDTO">
+		select B.* from(select rownum rn, A.* from(select * from qna order by id desc)A)B where rn between #{startPage} and #{endPage}
+	</select>
+
+	<insert id="qnaWrite" parameterType="QnaDTO">
+		insert into
+		qna(id,title,name,content,idgroup)
+		values(qna_seq.nextval,#{title},#{name},#{content},qna_seq.currval)
+	</insert>
+
+	<select id="qnaDetail" resultType="QnaDTO">
+		select * from qna where
+		id=#{id}
+	</select>
+
+	<update id="qnaUpdate" parameterType="QnaDTO">
+		update qna set
+		name=#{name}, title=#{title}, content=#{content} where id=#{id}
+	</update>
+
+	<update id="qnaModify" parameterType="QnaDTO">
+
+	</update>
+
+	<delete id="qnaDelete" parameterType="QnaDTO">
+		delete from qna where
+		id=#{id}
+	</delete>
+
+	<update id="qnaViewCnt">
+		update qna set
+		hit = hit+1 where id=#{id}
+	</update>
+
+	<select id="qnaGetTotalPage" resultType="_int">
+		select count(*) from qna
+	</select>
+	
+	<select id="search" resultType="QnaDTO">
+		select * from qna where title like '%'||#{search}||'%'
+	</select>
+	
+	<insert id="qnaReplyWrite">
+		insert into qnareply values(qna_reply_seq.nextval,#{userid},#{content},default,default,default,#{idgroup})
+	</insert>
+	
+	<select id="qnaReplyList" resultType="replyDTO">
+		select * from qnareply where idgroup = #{idgroup}
+	</select>
 </mapper>

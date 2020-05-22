@@ -3,7 +3,7 @@ package com.team.dto;
 import java.sql.Timestamp;
 
 
-public class boardDTO {
+public class BoardDTO {
 	private int id, hit, idgroup, step, indent;
 	private String name, title, content;
 	private Timestamp savedate;
