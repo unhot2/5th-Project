@@ -64,8 +64,8 @@
 						</c:otherwise>
 					</c:choose>
 					<form action="qnaSearch" method="post" style="display: inline;">
-						<input type="text" name="qnaSearch" placeholder="검색"> <input
-							type="submit" value="검색" />
+						<input type="text" name="qnaSearch" placeholder="검색"> 
+						<input type="submit" value="검색" />
 					</form>
 					<button type="button" onclick="location.href='qnaSave'">글작성</button></td>
 			</tr>
