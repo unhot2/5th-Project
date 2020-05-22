@@ -14,5 +14,6 @@
 			<typeAlias alias="boardDTO" type="com.team.dto.BoardDTO"/>
 			<typeAlias alias="noticeDTO" type="com.team.dto.NoticeDTO"/>
 			<typeAlias alias="qnaDTO" type="com.team.dto.QnaDTO"/>
+			<typeAlias alias="replyDTO" type="com.team.dto.ReplyDTO"/>
 		</typeAliases>
 	</configuration>

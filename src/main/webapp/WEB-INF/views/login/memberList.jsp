@@ -1,13 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
 	<h1>회 원 목 록(관리자)</h1>
 	<table border="1">
 			<tr>
@@ -28,7 +23,7 @@
 				<td>${mb.userAge }</td>
 				<td>${mb.userAddr }</td>
 				<td>${mb.userGender }</td>
-				<td>${mb.userBirth }</td>
+				<td><fmt:formatDate value="${mb.userBirth }" pattern="yyyy.MM.dd"/></td>
 				<td>${mb.userEmail }</td>
 			</tr>
 		</c:forEach>

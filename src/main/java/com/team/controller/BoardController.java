@@ -1,5 +1,8 @@
 package com.team.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.ui.Model;
@@ -7,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.team.dto.NoticeDTO;
 import com.team.dto.QnaDTO;
+import com.team.dto.ReplyDTO;
 
 public interface BoardController {
 	/* 게시판 글 가져오는 메소드 */
@@ -46,5 +50,10 @@ public interface BoardController {
 	public String qnaDelete(QnaDTO qnadto);
 	/* QnA 상세내용 보기 메소드 */
 	public String qnaDetail(QnaDTO qnadto, Model model);
-
+	/* Qna 검색 */
+	public String qnaSearch(@RequestParam("search") String search, Model model);
+	/* QnA 댓글 작성 */
+	public void qnaReplyWrite(ReplyDTO dto,Model model,QnaDTO qna);
+	/* QnA 댓글 리스트 */
+	public ArrayList<ReplyDTO> qnaReplyList(int idgroup);
 }

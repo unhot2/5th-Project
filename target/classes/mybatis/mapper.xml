@@ -113,4 +113,12 @@
 	<select id="search" resultType="QnaDTO">
 		select * from qna where title like '%'||#{search}||'%'
 	</select>
+	
+	<insert id="qnaReplyWrite">
+		insert into qnareply values(qna_reply_seq.nextval,#{userid},#{content},default,default,default,#{idgroup})
+	</insert>
+	
+	<select id="qnaReplyList" resultType="replyDTO">
+		select * from qnareply where idgroup = #{idgroup}
+	</select>
 </mapper>

@@ -13,6 +13,7 @@ import com.team.dto.BoardDTO;
 import com.team.dto.NoticeDTO;
 import com.team.dto.PageCount;
 import com.team.dto.QnaDTO;
+import com.team.dto.ReplyDTO;
 
 @Repository
 public class BoardDAOImpl implements BoardDAO {
@@ -113,7 +114,15 @@ public class BoardDAOImpl implements BoardDAO {
 		return pc;
 	}
 
-	public List<QnaDTO> search(String search) {
+	public List<QnaDTO> qnaSearch(String search) {
 		return sqlSession.selectList("sql.search",search);
+	}
+
+	public void qnaReplyWrite(ReplyDTO dto) {
+		sqlSession.insert("sql.qnaReplyWrite",dto);
+	}
+
+	public List<ReplyDTO> qnaReplyList(int idgroup) {
+		return sqlSession.selectList("sql.qnaReplyList",idgroup);
 	}
 }

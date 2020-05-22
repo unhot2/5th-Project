@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.team.dto.NoticeDTO;
 import com.team.dto.QnaDTO;
+import com.team.dto.ReplyDTO;
 import com.team.service.BoardService;
 
 @Controller
@@ -143,7 +144,9 @@ public class BoardControllerImpl implements BoardController {
 	@RequestMapping("qnaDetail")
 	public String qnaDetail(QnaDTO qnadto, Model model) {
 		service.qnaViewCnt(qnadto.getId());
-		model.addAttribute("qnaDetail", service.qnaDetail(qnadto));
+		QnaDTO dto = service.qnaDetail(qnadto);
+		model.addAttribute("qnaReplyList", qnaReplyList(dto.getIdgroup()));
+		model.addAttribute("qnaDetail", dto);
 		return "board/qnaDetail";
 	}
 
@@ -152,14 +155,21 @@ public class BoardControllerImpl implements BoardController {
 		return "board/qnaReply";
 	}
 
-	@RequestMapping("search")
-	public String search(@RequestParam("search") String search, Model model) {
-		ArrayList<QnaDTO> list = (ArrayList<QnaDTO>) service.search(search);
-		System.out.println(list.get(0).getId());
-		System.out.println(list.get(0).getName());
-		System.out.println(list.get(1).getId());
-		System.out.println(list.get(1).getName());
+	@RequestMapping("qnaSearch")
+	public String qnaSearch(@RequestParam("qnaSearch") String search, Model model) {
+		ArrayList<QnaDTO> list = (ArrayList<QnaDTO>) service.qnaSearch(search);
 		model.addAttribute("qnaList", list);
 		return "board/qnaList";
+	}
+
+	@RequestMapping("qnaReplyWrite")
+	public void qnaReplyWrite(ReplyDTO dto, Model model, QnaDTO qna) {
+		service.qnaReplyWrite(dto);
+		qnaDetail(qna, model);
+	}
+
+	public ArrayList<ReplyDTO> qnaReplyList(int idgroup) {
+		ArrayList<ReplyDTO> list = (ArrayList<ReplyDTO>) service.qnaReplyList(idgroup);
+		return list;
 	}
 }

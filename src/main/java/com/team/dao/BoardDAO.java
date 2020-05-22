@@ -4,10 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.team.dto.BoardDTO;
 import com.team.dto.NoticeDTO;
 import com.team.dto.QnaDTO;
+import com.team.dto.ReplyDTO;
 
 public interface BoardDAO {
 	/* 게시글 모두 가져오기 */
@@ -51,6 +53,9 @@ public interface BoardDAO {
 	/* Qna 글 조회수 */
 	public void qnaViewCnt(int id);
 	/* Qna 검색 */
-	public List<QnaDTO> search(String search);
-	
+	public List<QnaDTO> qnaSearch(String search);
+	/* QnA 댓글 작성 */
+	public void qnaReplyWrite(ReplyDTO dto);
+	/* QnA 댓글 리스트 */
+	public List<ReplyDTO> qnaReplyList(int idgroup);
 }

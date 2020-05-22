@@ -1,13 +1,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<jsp:include page="../include/header.jsp" />
 <section class="noticeDetailSection">
 	<h1>회원정보</h1>
 	<table border="1">
@@ -37,17 +32,35 @@
 		</tr>
 		<tr>
 			<td>
-				<button type="button" onclick="location.href='qnaUpdate?id=${qnaDetail.id}'">글수정</button>
+				<button type="button"
+					onclick="location.href='qnaUpdate?id=${qnaDetail.id}'">글수정</button>
 			</td>
 			<td>
-				<button type="button" onclick="location.href='qnaDelete?id=${qnaDetail.id }'">글삭제</button>
+				<button type="button"
+					onclick="location.href='qnaDelete?id=${qnaDetail.id }'">글삭제</button>
 			</td>
 		</tr>
 	</table>
-	<h3>댓글</h3>
-	<hr>
-	<div class="replyBoard">
-	</div>
+	<c:choose>
+		<c:when test="${userId ne null }">
+			<h3>댓글</h3>
+			<hr>
+			<div class="replyBoard">
+				<form
+					action="qnaReplyWrite?userid=${userId }&idgroup=${qnaDetail.idgroup}&id=${qnaDetail.id}"
+					method="post">
+					댓글 : <input type="text" name="content"> <input
+						type="submit" value="작성">
+				</form>
+			</div>
+		</c:when>
+	</c:choose>
+		<table>
+	<c:forEach var="reply" items="${qnaReplyList }">
+			<tr>
+				<td>${reply.userid }</td><td>${reply.content }</td><td><fmt:formatDate value="${reply.rdate}" pattern="yyyy.MM.dd"/></td>
+			</tr>
+	</c:forEach>
+		</table>
 </section>
-</body>
-</html>
+<jsp:include page="../include/footer.jsp" />

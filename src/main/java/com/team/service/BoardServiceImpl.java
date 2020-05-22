@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import com.team.dao.BoardDAO;
 import com.team.dto.NoticeDTO;
 import com.team.dto.QnaDTO;
+import com.team.dto.ReplyDTO;
 
 @Service
 public class BoardServiceImpl implements BoardService {
@@ -91,8 +92,16 @@ public class BoardServiceImpl implements BoardService {
 		dao.qnaViewCnt(id);
 	}
 
-	public List<QnaDTO> search(String search) {
-		return dao.search(search);
+	public List<QnaDTO> qnaSearch(String search) {
+		return dao.qnaSearch(search);
+	}
+
+	public void qnaReplyWrite(ReplyDTO dto) {
+		dao.qnaReplyWrite(dto);
+	}
+
+	public List<ReplyDTO> qnaReplyList(int idgroup) {
+		return dao.qnaReplyList(idgroup);
 	}
 
 }
