@@ -5,7 +5,6 @@
 <html>
 <head>
 <meta charset="UTF-8">
-
 <link rel="stylesheet" href="resources/css/main.css" />
 <link rel="stylesheet" href="resources/js/main.js" />
 <title>5TH POJECT</title>
@@ -35,9 +34,9 @@
 				</c:when>
 			</c:choose>
 			<div class="dropdown">
-				<button class="dropbtn menu" onclick="location.href='noticeList'">고객센터</button>
+				<button class="dropbtn menu">고객센터</button>
 				<span class="dropdown-content">
-					<a href="qnaList">QnA</a><a href="#">공지사항</a>
+					<a href="qnaList?start=0">QnA</a><a href="noticeList">공지사항</a>
 				</span>
 			</div>
 			
