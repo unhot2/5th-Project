@@ -193,9 +193,9 @@ public class BoardControllerImpl implements BoardController {
 	}
 
 	@RequestMapping("qnaReplyWrite")
-	public void qnaReplyWrite(ReplyDTO dto, Model model, QnaDTO qna) {
+	public String qnaReplyWrite(ReplyDTO dto, Model model, QnaDTO qnadto) {
 		service.qnaReplyWrite(dto);
-		qnaDetail(qna, model);
+		return qnaDetail(qnadto, model);
 	}
 
 	public ArrayList<ReplyDTO> qnaReplyList(int idgroup) {

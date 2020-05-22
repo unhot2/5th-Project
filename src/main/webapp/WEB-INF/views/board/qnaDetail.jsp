@@ -58,7 +58,7 @@
 		<table>
 	<c:forEach var="reply" items="${qnaReplyList }">
 			<tr>
-				<td>${reply.userid }</td><td>${reply.content }</td><td><fmt:formatDate value="${reply.rdate}" pattern="yyyy.MM.dd"/></td>
+				<td>${reply.userid }</td><td>${reply.content }</td><td><fmt:formatDate value="${reply.rdate}" pattern="yyyy.MM.dd:hh.mm"/></td>
 			</tr>
 	</c:forEach>
 		</table>

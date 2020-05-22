@@ -50,10 +50,11 @@ public interface BoardController {
 	public String qnaDelete(QnaDTO qnadto);
 	/* QnA 상세내용 보기 메소드 */
 	public String qnaDetail(QnaDTO qnadto, Model model);
+	
 	/* Qna 검색 */
 	public String qnaSearch(@RequestParam("search") String search, Model model);
 	/* QnA 댓글 작성 */
-	public void qnaReplyWrite(ReplyDTO dto,Model model,QnaDTO qna);
+	public String qnaReplyWrite(ReplyDTO dto,Model model,QnaDTO qna);
 	/* QnA 댓글 리스트 */
 	public ArrayList<ReplyDTO> qnaReplyList(int idgroup);
 }
