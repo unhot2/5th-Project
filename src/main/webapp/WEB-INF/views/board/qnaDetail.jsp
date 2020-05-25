@@ -1,9 +1,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <jsp:include page="../include/header.jsp" />
-<section class="noticeDetailSection">
+<section class="qnaDetailSection">
+	<div align="center">
 	<h1>회원정보</h1>
 	<table border="1">
 		<tr>
@@ -62,5 +63,6 @@
 			</tr>
 	</c:forEach>
 		</table>
+		</div>
 </section>
 <jsp:include page="../include/footer.jsp" />

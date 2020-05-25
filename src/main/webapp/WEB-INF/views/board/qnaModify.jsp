@@ -1,7 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<<<<<<< HEAD
 <jsp:include page="../include/header.jsp" />
 <section class="qnaModifySection">
+=======
+<!DOCTYPE html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<jsp:include page="../include/header.jsp" />
+<section class="qnaeModifySection">
+>>>>>>> refs/heads/온슬기
 	<div align="center">
 		<form action="qnaModify">
 				<font size="6"><b>상세내용</b></font>
