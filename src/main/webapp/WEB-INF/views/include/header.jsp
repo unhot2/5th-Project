@@ -8,6 +8,11 @@
 <link rel="stylesheet" href="resources/css/main.css" />
 <link rel="stylesheet" href="resources/js/main.js" />
 <title>5TH POJECT</title>
+<style>
+	.memberListSection{margin: 50px 500px;}
+	.memberInfoSection{margin: 50px 600px;}
+	.loginSection{margin: 50px 600px;}
+</style>
 </head>
 <body>
 	<!-- 아래로 헤더부분 작성 -->
