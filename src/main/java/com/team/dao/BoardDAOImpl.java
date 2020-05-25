@@ -7,8 +7,6 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestParam;
-
 import com.team.dto.BoardDTO;
 import com.team.dto.NoticeDTO;
 import com.team.dto.NoticePageCount;

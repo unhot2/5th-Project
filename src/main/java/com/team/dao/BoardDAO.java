@@ -2,10 +2,7 @@ package com.team.dao;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestParam;
-
 import com.team.dto.BoardDTO;
 import com.team.dto.NoticeDTO;
 import com.team.dto.QnaDTO;
