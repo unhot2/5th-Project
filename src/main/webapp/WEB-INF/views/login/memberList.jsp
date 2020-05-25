@@ -25,7 +25,8 @@
 					<td>${mb.userAge }</td>
 					<td>${mb.userAddr }</td>
 					<td>${mb.userGender }</td>
-					<td>${mb.userBirth }</td>
+					<td><fmt:formatDate value="${mb.userBirth }"
+							pattern="yyyy.MM.dd" /></td>
 					<td>${mb.userEmail }</td>
 				</tr>
 			</c:forEach>
