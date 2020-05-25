@@ -24,9 +24,9 @@ public class KakaoController {
  
         postParams.add(new BasicNameValuePair("grant_type", "authorization_code"));
  
-        postParams.add(new BasicNameValuePair("client_id", "efe1fb9fcc73a6afbabdc661c5134935"));
+        postParams.add(new BasicNameValuePair("client_id", "743aef8e3dd2328efcaf307a4b13db51"));
  
-        postParams.add(new BasicNameValuePair("redirect_uri", "http://localhost:80/controller/kakaologin"));
+        postParams.add(new BasicNameValuePair("redirect_uri", "http://localhost:8087/sample/kakaologin"));
  
         postParams.add(new BasicNameValuePair("code", autorize_code));
  

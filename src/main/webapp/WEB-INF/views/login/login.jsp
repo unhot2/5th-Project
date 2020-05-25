@@ -20,7 +20,7 @@
 		</tr>
 		<tr>
 			<th colspan="2"><a
-						href="https://kauth.kakao.com/oauth/authorize?client_id=efe1fb9fcc73a6afbabdc661c5134935&redirect_uri=http://localhost:80/controller/kakaologin&response_type=code">
+						href="https://kauth.kakao.com/oauth/authorize?client_id=743aef8e3dd2328efcaf307a4b13db51&redirect_uri=http://localhost:8087/sample/kakaologin&response_type=code">
 						<img src="//mud-kage.kakao.com/14/dn/btqbjxsO6vP/KPiGpdnsubSq3a0PHEGUK1/o.jpg" width="223" />
 					</a></th>
 		</tr>

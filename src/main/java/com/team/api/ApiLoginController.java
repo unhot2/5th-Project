@@ -118,7 +118,7 @@ public class ApiLoginController {
 			// 세션에 담아준다.
 			session.setAttribute("token", token);
 
-			return "logininfo";
+			return "index";
 		}
 
 		@RequestMapping(value = "/logoutkakao", produces = "application/json")
