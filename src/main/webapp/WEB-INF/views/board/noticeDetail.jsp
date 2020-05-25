@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <jsp:include page="../include/header.jsp" />
 <section class="noticeDetailSection">
 	<div align="center">
@@ -41,9 +42,28 @@
 				</td>
 			</tr>
 		</table>
-		<h3>댓글</h3>
-		<hr>
-		<div class="replyBoard"></div>
-	</div>
+	<c:choose>
+		<c:when test="${userId ne null }">
+			<h3>댓글</h3>
+			<hr>
+			<div class="replyBoard">
+				<form
+					action="noticeReplyWrite?userid=${userId }&idgroup=${noticeDetail.idgroup}&id=${noticeDetail.id}"
+					method="post">
+					댓글 : <input type="text" name="content"> <input
+						type="submit" value="작성">
+				</form>
+			</div>
+		</c:when>
+	</c:choose>
+		<table>
+	<c:forEach var="reply" items="${noticeReplyList }">
+			<tr>
+				<td>${reply.userid }</td><td>${reply.content }</td>
+				<td><fmt:formatDate value="${reply.rdate}" pattern="yyyy.MM.dd:hh.mm"/> </td>
+			</tr>
+	</c:forEach>
+		</table>
+		</div>
 </section>
 <jsp:include page="../include/footer.jsp" />

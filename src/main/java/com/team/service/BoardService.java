@@ -1,10 +1,12 @@
 package com.team.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import com.team.dto.NoticeDTO;
+import com.team.dto.NoticeReplyDTO;
 import com.team.dto.QnaDTO;
 import com.team.dto.ReplyDTO;
 
@@ -41,6 +43,11 @@ public interface BoardService {
 	public void noticeViewCnt(int id);
 	/* notice 검색 */
 	public List<NoticeDTO> noticeSearch(String noticeSearch);
+	/* notice 댓글 작성 */
+	public void noticeReplyWrite(NoticeReplyDTO replydto);
+	/* notice 댓글 리스트 */
+	public List<NoticeReplyDTO> noticeReplyList(int idgroup);
+	
 	
 	/* QnA 글 가져오는 메소드 */
 	public List<QnaDTO> qnaList(int start,Model model);

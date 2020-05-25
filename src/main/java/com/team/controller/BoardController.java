@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestParam;
 import com.team.dto.NoticeDTO;
+import com.team.dto.NoticeReplyDTO;
 import com.team.dto.QnaDTO;
 import com.team.dto.ReplyDTO;
 
@@ -33,7 +34,15 @@ public interface BoardController {
 	public String noticeDelete(NoticeDTO dto);
 	/* notice 글 상세보기 */
 	public String noticeDetail(NoticeDTO dto, Model model);
-
+	
+	/* notice 검색 */
+	public String noticeSearch(@RequestParam("noticeSearch") String noticeSearch, Model model);
+	/* notice 댓글 작성 */
+	public String noticeReplyWrite(NoticeReplyDTO replydto,Model model,NoticeDTO dto);
+	/* notice 댓글 리스트 */
+	public ArrayList<NoticeReplyDTO> noticeReplyList(int idgroup);
+	
+	
 	/* QnA 글 가져오는 메소드 */
 	public String qnaList(Model model,@RequestParam("start")int start);
 	/* QnA 글작성 메소드 */

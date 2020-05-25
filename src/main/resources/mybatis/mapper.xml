@@ -76,6 +76,14 @@
 	<select id="noticeSearch" resultType="noticeDTO">
 		select * from notice where title like '%'||#{noticestart}||'%'
 	</select>
+	<insert id="noticeReplyWrite">
+		insert into noticereply values(notice_reply_seq.nextval,#{userid},#{content},default,default,default,#{idgroup})
+	</insert>
+	
+	<select id="noticeReplyList" resultType="NoticeReplyDTO">
+		select * from noticereply where idgroup = #{idgroup}
+	</select>
+	
 	<!-- QNA 부분 -->
 
 	<select id="qnaListAll" resultType="QnaDTO">

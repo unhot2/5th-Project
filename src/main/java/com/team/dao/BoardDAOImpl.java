@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import com.team.dto.BoardDTO;
 import com.team.dto.NoticeDTO;
 import com.team.dto.NoticePageCount;
+import com.team.dto.NoticeReplyDTO;
 import com.team.dto.PageCount;
 import com.team.dto.QnaDTO;
 import com.team.dto.ReplyDTO;
@@ -84,6 +85,14 @@ public class BoardDAOImpl implements BoardDAO {
 	public List<NoticeDTO> noticeSearch(String noticeSearch) {
 		return sqlSession.selectList("sql.noticeSearch",noticeSearch);
 	}
+	public void noticeReplyWrite(NoticeReplyDTO replydto) {
+		sqlSession.insert("sql.noticeReplyWrite",replydto);
+	}
+
+	public List<NoticeReplyDTO> noticeReplyList(int idgroup) {
+		return sqlSession.selectList("sql.noticeReplyList",idgroup);
+	}
+	
 	/* QnA부분 */
 	public List<QnaDTO> qnaList(int start,Model model) {
 		PageCount pc = qnaPagingNum(start);
@@ -143,4 +152,6 @@ public class BoardDAOImpl implements BoardDAO {
 	public List<ReplyDTO> qnaReplyList(int idgroup) {
 		return sqlSession.selectList("sql.qnaReplyList",idgroup);
 	}
+
+
 }
