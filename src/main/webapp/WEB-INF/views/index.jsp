@@ -6,5 +6,17 @@
 <c:remove var="userMaster"/> --%>
 <section class="indexSection">
 	<h1>INDEX 영역</h1>
+	<table border="1">
+		<tr>
+			<th>카카오로 들어온 값</th>
+		</tr>
+		<tr><td>email</td><td>${kemail }</td></tr>
+		<tr><td>name</td><td>${kname }</td></tr>
+		<tr><td>image</td><td>${kiamge }</td></tr>
+		<tr><td>gender</td><td>${kgender }</td></tr>
+		<tr><td>birthday</td><td>${kbirthday }</td></tr>
+		<tr><td>age</td><td>${kage }</td></tr>
+	</table>
+
 </section>
 <jsp:include page="include/footer.jsp" />

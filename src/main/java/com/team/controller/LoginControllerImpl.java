@@ -9,7 +9,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
+
 import com.team.dto.LoginDTO;
+import com.team.service.KakaoServiceImpl;
 import com.team.service.LoginService;
 
 @Controller
@@ -17,6 +20,8 @@ public class LoginControllerImpl implements LoginController {
 
 	@Autowired
 	LoginService service;
+	@Autowired
+	KakaoServiceImpl kakao;
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home() {
@@ -26,13 +31,14 @@ public class LoginControllerImpl implements LoginController {
 	public String index() {
 		return "index";
 	}
-	@RequestMapping("login2")
-	public String login2() {
-		return "login/login2";
-	}
+	
 	@RequestMapping("login")
-	public String login() {
-		return "login/login";
+	public ModelAndView login(HttpSession session) {
+		ModelAndView mav = new ModelAndView();
+		String kakaoUrl = kakao.getUrl(session);
+		mav.setViewName("login/login");
+		mav.addObject("kakao_url",kakaoUrl);
+		return mav;
 	}
 
 	@RequestMapping("logout")

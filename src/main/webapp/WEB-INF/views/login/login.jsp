@@ -17,9 +17,8 @@
 				<th><input type="text" name="userPwd"></th>
 			</tr>
 			<tr>
-				<th colspan="2"><a
-					href="${kakaoUrl }">
-						<img src="resources/img/kakao_login_btn_medium_narrow.png">
+				<th colspan="2"><a href="${kakao_url }"> <img
+						src="resources/img/kakao_login_btn_medium_narrow.png">
 				</a></th>
 			</tr>
 			<tr>

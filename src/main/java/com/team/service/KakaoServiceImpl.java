@@ -56,7 +56,7 @@ public class KakaoServiceImpl {
 		return returnNode;
 	}
 
-	public JsonNode getKakaoUserInfo(JsonNode accessToken) {
+	public JsonNode getUserInfo(JsonNode accessToken) {
 		final String RequestUrl = "https://kapi.kakao.com/v2/user/me";
 		final HttpClient client = HttpClientBuilder.create().build();
 		final HttpPost post = new HttpPost(RequestUrl);

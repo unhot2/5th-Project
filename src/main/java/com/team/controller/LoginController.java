@@ -1,8 +1,10 @@
 package com.team.controller;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.ui.Model;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.team.dto.LoginDTO;
 
@@ -12,7 +14,7 @@ public interface LoginController {
 	public String home();
 
 	/* login 화면 연결 메소드 */
-	public String login();
+	public ModelAndView login(HttpSession session);
 
 	/* logout 연결 메소드 (반환값 login.jsp) */
 	public String logout(HttpServletRequest request);
