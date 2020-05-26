@@ -74,7 +74,7 @@ public class KakaoServiceImpl {
 		return returnNode;
 	}
 
-	public JsonNode Logout(String autorize_code) {
+	public JsonNode kakaoLogout(Object autorize_code) {
 		final String RequestUrl = "https://kapi.kakao.com/v2/user/logout";
 		final HttpClient client = HttpClientBuilder.create().build();
 		final HttpPost post = new HttpPost(RequestUrl);

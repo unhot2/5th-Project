@@ -27,10 +27,7 @@ public class LoginControllerImpl implements LoginController {
 	public String home() {
 		return "index";
 	}
-	@RequestMapping("home")
-	public String index() {
-		return "index";
-	}
+	
 	
 	@RequestMapping("login")
 	public ModelAndView login(HttpSession session) {
@@ -42,13 +39,14 @@ public class LoginControllerImpl implements LoginController {
 	}
 
 	@RequestMapping("logout")
-	public String logout(HttpServletRequest request) {
-		HttpSession session = request.getSession();
+	public String logout(HttpSession session) {
+		session.removeAttribute("access_Token");
 		session.removeAttribute("userId");
 		session.removeAttribute("userMaster");
+		session.removeAttribute("userType");
 		return "index";
 	}
-
+	
 	@RequestMapping("memberShip")
 	public String membership() {
 		return "login/memberShip";
@@ -73,6 +71,7 @@ public class LoginControllerImpl implements LoginController {
 			session = request.getSession();
 			session.setAttribute("userId", dto.getUserId());
 			session.setAttribute("userMaster", service.getMaster(dto.getUserId()));
+			session.setAttribute("userType","member");
 			return "index";
 		} else {
 			return "login/login";

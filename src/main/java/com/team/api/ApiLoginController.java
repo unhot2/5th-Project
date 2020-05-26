@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import com.team.dto.LoginDTO;
 import com.team.service.KakaoServiceImpl;
 
 @Controller
@@ -42,19 +41,28 @@ public class ApiLoginController {
 		kgender = kakao_account.path("gender").asText();
 		kbirthday = kakao_account.path("birthday").asText();
 		kage = kakao_account.path("age_range").asText();
+		session.setAttribute("access_Token", access_token);
 		session.setAttribute("kemail", kemail);
 		session.setAttribute("kname", kname);
 		session.setAttribute("kgender", kgender);
 		session.setAttribute("kbirthday", kbirthday);
 		session.setAttribute("userId", kemail);
 		session.setAttribute("userMaster", 1);
+		session.setAttribute("userType","kakao");
 		mav.setViewName("index");
 		return mav;
 	}
 
-	@RequestMapping(value = "/kakaologout", produces = "application/json")
+	@RequestMapping(value = "/kakaoLogout", produces = "application/json")
 	public String Logout(HttpSession session) {
-		JsonNode node = kakao.Logout(session.getAttribute("token").toString());
-		return "redirect:index.jsp";
+		kakao.kakaoLogout(session.getAttribute("access_Token"));
+		session.removeAttribute("access_Token");
+		session.removeAttribute("userId");
+		session.removeAttribute("userMaster");
+		session.removeAttribute("kemail");
+		session.removeAttribute("kname");
+		session.removeAttribute("kgender");
+		session.removeAttribute("kbirthday");
+		return "index";
 	}
 }

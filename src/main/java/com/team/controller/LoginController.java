@@ -17,7 +17,7 @@ public interface LoginController {
 	public ModelAndView login(HttpSession session);
 
 	/* logout 연결 메소드 (반환값 login.jsp) */
-	public String logout(HttpServletRequest request);
+	public String logout(HttpSession session);
 
 	/* 회원가입 창 연결 메소드 */
 	public String membership();
