@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<script type="text/javascript"
+	src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
 <!DOCTYPE html>
 
 <jsp:include page="../include/header.jsp" />
@@ -20,7 +24,7 @@
 		</tr>
 		<tr>
 			<th colspan="2"><a
-						href="https://kauth.kakao.com/oauth/authorize?client_id=743aef8e3dd2328efcaf307a4b13db51&redirect_uri=http://localhost:8087/sample/kakaologin&response_type=code">
+						href="https://kauth.kakao.com/oauth/authorize?client_id=57e29a56d203070d6cf1e82d0cf4ed2f&redirect_uri=http://localhost:8083/sample/kakaologin&response_type=code">
 						<img src="//mud-kage.kakao.com/14/dn/btqbjxsO6vP/KPiGpdnsubSq3a0PHEGUK1/o.jpg" width="223" />
 					</a></th>
 		</tr>

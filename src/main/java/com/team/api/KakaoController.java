@@ -17,16 +17,15 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class KakaoController {
 	public JsonNode getAccessToken(String autorize_code) {
-		 
         final String RequestUrl = "https://kauth.kakao.com/oauth/token";
  
         final List<NameValuePair> postParams = new ArrayList<NameValuePair>();
  
         postParams.add(new BasicNameValuePair("grant_type", "authorization_code"));
  
-        postParams.add(new BasicNameValuePair("client_id", "743aef8e3dd2328efcaf307a4b13db51"));
+        postParams.add(new BasicNameValuePair("client_id", "57e29a56d203070d6cf1e82d0cf4ed2f"));
  
-        postParams.add(new BasicNameValuePair("redirect_uri", "http://localhost:8087/sample/kakaologin"));
+        postParams.add(new BasicNameValuePair("redirect_uri", "http://localhost:8083/sample/kakaologin"));
  
         postParams.add(new BasicNameValuePair("code", autorize_code));
  
@@ -61,12 +60,11 @@ public class KakaoController {
         } finally {
  
         }
- 
         return returnNode;
  
     }
 	 public JsonNode Logout(String autorize_code) {
-	        final String RequestUrl = "https://kapi.kakao.com/v2/user/logout";
+	        final String RequestUrl = "https://kapi.kakao.com/v1/user/logout";
 	 
 	        final HttpClient client = HttpClientBuilder.create().build();
 	 

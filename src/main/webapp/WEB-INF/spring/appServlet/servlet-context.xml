@@ -20,9 +20,6 @@
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
-	
-	<context:component-scan
-		base-package="com.kakao.login" />
 
 	<!-- NaverLoginBO Class에 대한 Bean설정 추가 -->
 	<beans:bean id="naverLoginBO"

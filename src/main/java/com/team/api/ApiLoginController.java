@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.github.scribejava.core.model.OAuth2AccessToken;
+import com.team.api.KakaoController;
 
 @Controller
 public class ApiLoginController {
@@ -43,7 +44,7 @@ public class ApiLoginController {
 		}
 
 		// 로그인 첫 화면 요청 메소드
-		@RequestMapping(value = "/login2", method = { RequestMethod.GET, RequestMethod.POST })
+		@RequestMapping(value = "/login", method = { RequestMethod.GET, RequestMethod.POST })
 		public String login(Model model, HttpSession session) {
 			/* 네이버아이디로 인증 URL을 생성하기 위하여 naverLoginBO클래스의 getAuthorizationUrl메소드 호출 */
 			String naverAuthUrl = naverLoginBO.getAuthorizationUrl(session);
@@ -59,7 +60,7 @@ public class ApiLoginController {
 			System.out.println("구글:" + url);
 
 			model.addAttribute("google_url", url);
-			return "login";
+			return "login/login";
 		}
 
 		// 네이버 로그인 성공시 callback호출 메소드
@@ -88,7 +89,7 @@ public class ApiLoginController {
 			// 4.파싱 닉네임 세션으로 저장
 			session.setAttribute("sessionId", nickname); // 세션 생성
 			model.addAttribute("result", apiResult);
-			return "login";
+			return "login/login";
 		}
 
 		// 로그아웃
@@ -106,7 +107,6 @@ public class ApiLoginController {
 			// 카카오 홈페이지에서 받은 결과 코드
 			System.out.println(code);
 			System.out.println("로그인 후 결과값");
-
 			// 카카오 rest api 객체 선언
 			KakaoController kr = new KakaoController();
 			// 결과값을 node에 담아줌
@@ -115,6 +115,7 @@ public class ApiLoginController {
 			System.out.println(node);
 			// 노드 안에 있는 access_token값을 꺼내 문자열로 변환
 			String token = node.get("access_token").toString();
+			System.out.println(token);
 			// 세션에 담아준다.
 			session.setAttribute("token", token);
 
