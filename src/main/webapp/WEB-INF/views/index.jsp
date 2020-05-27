@@ -8,12 +8,12 @@
 	<h1>INDEX 영역</h1>
 	<table border="1">
 		<tr>
-			<th>카카오로 들어온 값</th>
+			<th colspan="2">카카오로 들어온 값</th>
 		</tr>
-		<tr><td>email</td><td>${kemail }</td></tr>
-		<tr><td>name</td><td>${kname }</td></tr>
-		<tr><td>gender</td><td>${kgender }</td></tr>
-		<tr><td>birthday</td><td>${kbirthday }</td></tr>
+		<tr><td>id</td><td>${kakaoDTO.userId}</td></tr>
+		<tr><td>name</td><td>${kakaoDTO.userName}</td></tr>
+		<tr><td>gender</td><td>${kakaoDTO.userGender }</td></tr>
+		<tr><td>email</td><td>${kakaoDTO.userEmail }</td></tr>
 	</table>
 
 </section>

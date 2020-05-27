@@ -44,5 +44,8 @@ public interface LoginController {
 	/* 회원정보 수정 메소드(유저용) */
 	public String updateUserMember(LoginDTO dto, Model model);
 
+	/* 회원 ID 유무 확인 메소드 */
+	public boolean idCheck(String id);
+
 	/* 더 필요한 메소드 있을 시 인터페이스에 주석 작성 후 추가해서 사용하세요 */
 }

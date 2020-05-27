@@ -115,4 +115,8 @@ public class LoginControllerImpl implements LoginController {
 		return "index";
 	}
 	
+	public boolean idCheck(String id) {
+		return service.idCheck(id);
+	}
+	
 }
