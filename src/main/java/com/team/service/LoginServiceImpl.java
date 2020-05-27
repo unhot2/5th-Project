@@ -57,9 +57,9 @@ public class LoginServiceImpl implements LoginService {
 		return dao.getMaster(id);
 	}
 
-	public boolean idCheck(String id) {
+	public boolean kakaoIdCheck(String id) {
 		boolean chk = false;
-		for (LoginDTO dto : dao.idCheck()) {
+		for (LoginDTO dto : dao.kakaoIdCheck()) {
 			if (id.equals(dto.getUserId())) {
 				chk = true;
 			}

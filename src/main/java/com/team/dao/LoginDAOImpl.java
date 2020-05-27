@@ -40,7 +40,7 @@ public class LoginDAOImpl implements LoginDAO {
 		return sqlSession.selectOne("sql.getMaster",id);
 	}
 
-	public List<LoginDTO> idCheck() {
+	public List<LoginDTO> kakaoIdCheck() {
 		return sqlSession.selectList("sql.listAll");
 	}
 

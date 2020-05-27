@@ -34,12 +34,7 @@ public class ApiLoginController {
 		dto.setUserGender(kakao_account.path("gender").asText());
 		dto.setUserEmail(kakao_account.path("email").asText());
 		dto.setUserName(properties.path("nickname").asText());
-		boolean chk = LoCon.idCheck(userInfo.path("id").asText());
-		System.out.println("chk 값 : "+chk);
-		System.out.println("dto ID : "+dto.getUserId());
-		System.out.println("dto Name : "+dto.getUserName());
-		System.out.println("dto Gender : "+dto.getUserGender());
-		System.out.println("dto Email : "+dto.getUserEmail());
+		boolean chk = LoCon.kakaoIdCheck(userInfo.path("id").asText());
 		if (chk) {
 			session.setAttribute("userId", dto.getUserId());
 			session.setAttribute("userMaster", 1);
@@ -58,10 +53,6 @@ public class ApiLoginController {
 		session.removeAttribute("access_Token");
 		session.removeAttribute("userId");
 		session.removeAttribute("userMaster");
-		session.removeAttribute("kemail");
-		session.removeAttribute("kname");
-		session.removeAttribute("kgender");
-		session.removeAttribute("kbirthday");
 		return "index";
 	}
 }

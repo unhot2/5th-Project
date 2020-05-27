@@ -3,6 +3,14 @@
 	pageEncoding="UTF-8"%>
 <jsp:include page="../include/header.jsp" />
 <section class="qnaListSection">
+	<c:choose>
+		<c:when test="${start == null}">
+			<c:set var="start" value="1" />
+		</c:when>
+		<c:otherwise>
+			<c:set var="start" value="${start }" />
+		</c:otherwise>
+	</c:choose>
 	<hr>
 	<div align="center">
 		<h1>QnA</h1>
@@ -69,6 +77,8 @@
 					<button type="button" onclick="location.href='qnaSave'">글작성</button></td>
 			</tr>
 		</table>
+		<button type="button" onclick="location.href='qnaSave'">글작성</button>
+		</td>
 	</div>
 </section>
 <jsp:include page="../include/footer.jsp" />

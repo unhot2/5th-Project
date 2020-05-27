@@ -27,7 +27,7 @@
 				<tr>
 					<th colspan="2">
 					<input type="submit" value="수정">&nbsp;&nbsp;&nbsp;
-					<a href="qnaList?start=0">목록이동</a>	&nbsp;&nbsp;				
+					<a href="qnaList">목록이동</a>	&nbsp;&nbsp;				
 					<button type="button" onclick="location.href='qnaDelete?id=${qnaUpdate.id }'">삭제</button>&nbsp;&nbsp;
 					<a href="qnaReply">답변</a>
 					</th>

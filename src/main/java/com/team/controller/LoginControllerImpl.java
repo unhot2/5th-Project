@@ -115,8 +115,8 @@ public class LoginControllerImpl implements LoginController {
 		return "index";
 	}
 	
-	public boolean idCheck(String id) {
-		return service.idCheck(id);
+	public boolean kakaoIdCheck(String id) {
+		return service.kakaoIdCheck(id);
 	}
 	
 }

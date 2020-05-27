@@ -46,10 +46,7 @@ public class BoardControllerImpl implements BoardController {
 	}
 
 	@RequestMapping("noticeList")
-	public String noticeList(Model model,@RequestParam("noticestart")int noticestart) {
-		if (noticestart==0) {
-			noticestart=1;
-		}	
+	public String noticeList(Model model, @RequestParam(value = "noticestart", defaultValue = "1") int noticestart) {
 		List<NoticeDTO> list = service.noticeList(noticestart, model);
 		model.addAttribute("noticeList", list);
 		model.addAttribute("noticestart", noticestart);
@@ -69,7 +66,7 @@ public class BoardControllerImpl implements BoardController {
 		} else {
 			System.out.println("저장실패");
 		}
-		model.addAttribute("noticestart",0);
+		model.addAttribute("noticestart", 0);
 		return "redirect:noticeList";
 	}
 
@@ -83,13 +80,13 @@ public class BoardControllerImpl implements BoardController {
 	@RequestMapping("noticeModify")
 	public String noticeModify(HttpServletRequest request, Model model, NoticeDTO dto) {
 		int num = service.noticeModify(dto);
-		if(num == 1) {
+		if (num == 1) {
 			System.out.println("저장성공");
 		} else {
 			System.out.println("저장실패");
 		}
-		model.addAttribute("noticestart",0);
-	
+		model.addAttribute("noticestart", 0);
+
 		return "redirect:noticeList";
 	}
 
@@ -111,19 +108,17 @@ public class BoardControllerImpl implements BoardController {
 
 		return "replyWrite";
 	}
+
 	@RequestMapping("noticeSearch")
-	public String noticesearch(@RequestParam("noticeSearch") String noticeSearch, Model model) {	
+	public String noticesearch(@RequestParam("noticeSearch") String noticeSearch, Model model) {
 		ArrayList<NoticeDTO> list = (ArrayList<NoticeDTO>) service.noticeSearch(noticeSearch);
 		model.addAttribute("noticeList", list);
 		return "board/noticeList";
 	}
-	
+
 	/* QnA 부분 */
 	@RequestMapping("qnaList")
-	public String qnaList(Model model, @RequestParam("start") int start) {
-		if (start == 0) {
-			start = 1;
-		}
+	public String qnaList(Model model, @RequestParam(value = "start", defaultValue = "1") int start) {
 		List<QnaDTO> list = service.qnaList(start, model);
 		model.addAttribute("qnaList", list);
 		model.addAttribute("start", start);
@@ -143,7 +138,7 @@ public class BoardControllerImpl implements BoardController {
 		} else {
 			System.out.println("저장실패");
 		}
-		model.addAttribute("start",0);
+		model.addAttribute("start", 0);
 		return "redirect:qnaList";
 	}
 
@@ -156,12 +151,12 @@ public class BoardControllerImpl implements BoardController {
 	@RequestMapping("qnaModify")
 	public String qnaModify(QnaDTO qnadto, Model model) {
 		int num = service.qnaModify(qnadto);
-		if(num == 1) {
+		if (num == 1) {
 			System.out.println("저장성공");
 		} else {
 			System.out.println("저장실패");
 		}
-		model.addAttribute("start",0);
+		model.addAttribute("start", 0);
 		return "redirect:qnaList";
 	}
 
