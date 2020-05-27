@@ -21,7 +21,6 @@ import com.fasterxml.jackson.databind.JsonNode;
 @Controller
 public class HomeController {
     
-    private KakaoController kakao_restapi = new KakaoController();
     
     private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	

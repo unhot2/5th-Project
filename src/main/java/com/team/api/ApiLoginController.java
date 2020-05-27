@@ -1,43 +1,31 @@
 package com.team.api;
+
 import java.io.IOException;
+
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.social.google.connect.GoogleConnectionFactory;
-import org.springframework.social.oauth2.GrantType;
-import org.springframework.social.oauth2.OAuth2Operations;
-import org.springframework.social.oauth2.OAuth2Parameters;
+import org.springframework.expression.ParseException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.github.scribejava.core.model.OAuth2AccessToken;
-import com.team.api.KakaoController;
+import com.team.service.KakaoServiceImpl;
 
 @Controller
 public class ApiLoginController {
-	
-
-	/**
-	 * Handles requests for the application home page.
-	 */
-
-	
-		/* NaverLoginBO */
+	@Autowired
+	KakaoServiceImpl kakao;	
 		private NaverLoginBO naverLoginBO;
 		private String apiResult = null;
-
-		/* GoogleLogin */
-		@Autowired
-		private GoogleConnectionFactory googleConnectionFactory;
-		@Autowired
-		private OAuth2Parameters googleOAuth2Parameters;
-
 		@Autowired
 		private void setNaverLoginBO(NaverLoginBO naverLoginBO) {
 			this.naverLoginBO = naverLoginBO;
@@ -53,20 +41,13 @@ public class ApiLoginController {
 			System.out.println("네이버:" + naverAuthUrl);
 			 //네이버
 			model.addAttribute("url", naverAuthUrl);
-			/* 구글code 발행 */
-			OAuth2Operations oauthOperations = googleConnectionFactory.getOAuthOperations();
-			String url = oauthOperations.buildAuthorizeUrl(GrantType.AUTHORIZATION_CODE, googleOAuth2Parameters);
-
-			System.out.println("구글:" + url);
-
-			model.addAttribute("google_url", url);
 			return "login/login";
 		}
 
 		// 네이버 로그인 성공시 callback호출 메소드
 		@RequestMapping(value = "/callback", method = { RequestMethod.GET, RequestMethod.POST })
 		public String callback(Model model, @RequestParam String code, @RequestParam String state, HttpSession session)
-				throws IOException, ParseException {
+				throws IOException, ParseException, Exception {
 			System.out.println("여기는 callback");
 			OAuth2AccessToken oauthToken;
 			oauthToken = naverLoginBO.getAccessToken(session, code, state);
@@ -99,59 +80,6 @@ public class ApiLoginController {
 			session.invalidate();
 			return "redirect:index.jsp";
 		}
-
-		@RequestMapping(value = "/kakaologin", produces = "application/json", method = { RequestMethod.GET,
-				RequestMethod.POST })
-		public String kakaoLogin(@RequestParam("code") String code, Model model, HttpSession session) {
-			System.out.println("로그인 할때 임시 코드값");
-			// 카카오 홈페이지에서 받은 결과 코드
-			System.out.println(code);
-			System.out.println("로그인 후 결과값");
-			// 카카오 rest api 객체 선언
-			KakaoController kr = new KakaoController();
-			// 결과값을 node에 담아줌
-			JsonNode node = kr.getAccessToken(code);
-			// 결과값 출력
-			System.out.println(node);
-			// 노드 안에 있는 access_token값을 꺼내 문자열로 변환
-			String token = node.get("access_token").toString();
-			System.out.println(token);
-			// 세션에 담아준다.
-			session.setAttribute("token", token);
-
-			return "index";
-		}
-
-		@RequestMapping(value = "/logoutkakao", produces = "application/json")
-		public String Logout(HttpSession session) {
-			// kakao restapi 객체 선언
-			KakaoController kr = new KakaoController();
-			// 노드에 로그아웃한 결과값음 담아줌 매개변수는 세션에 잇는 token을 가져와 문자열로 변환
-			JsonNode node = kr.Logout(session.getAttribute("token").toString());
-			// 결과 값 출력
-			System.out.println("로그인 후 반환되는 아이디 : " + node.get("id"));
-			session.invalidate();
-			return "redirect:index.jsp";
-		}
-		/*
-		 * // 로그인 첫 화면 요청 메소드
-		 * 
-		 * @RequestMapping(value = "/login", method = { RequestMethod.GET,
-		 * RequestMethod.POST }) public String loginGoogle(Model model, HttpSession
-		 * session) {
-		 * 
-		 * 구글code 발행 OAuth2Operations oauthOperations =
-		 * googleConnectionFactory.getOAuthOperations(); String url =
-		 * oauthOperations.buildAuthorizeUrl(GrantType.AUTHORIZATION_CODE,
-		 * googleOAuth2Parameters);
-		 * 
-		 * System.out.println("구글:" + url);
-		 * 
-		 * model.addAttribute("google_url", url);
-		 * 
-		 * 생성한 인증 URL을 View로 전달 return "login"; }
-		 */
-
 		// 구글 Callback호출 메소드
 		@RequestMapping(value = "/googlecallback", method = { RequestMethod.GET, RequestMethod.POST })
 		public String googleCallback(Model model, @RequestParam String code) throws IOException {
@@ -159,5 +87,52 @@ public class ApiLoginController {
 
 			return "googleSuccess";
 		}
-	
+
+	@RequestMapping(value = "/kakaoLogin", produces = "application/json", method = { RequestMethod.GET,
+			RequestMethod.POST })
+	public ModelAndView kakaoLogin(@RequestParam("code") String code, Model model, HttpSession session,
+			HttpServletRequest request) {
+		ModelAndView mav = new ModelAndView();
+		JsonNode node = kakao.getAccessToken(code);
+		JsonNode access_token = node.get("access_token");
+		JsonNode userInfo = kakao.getUserInfo(access_token);
+		String kemail = null;
+		String kname = null;
+		String kgender = null;
+		String kbirthday = null;
+		String kage = null;
+		String kimage = null;
+		JsonNode properties = userInfo.path("properties");
+		JsonNode kakao_account = userInfo.path("kakao_account");
+		kemail = kakao_account.path("email").asText();
+		kname = properties.path("nickname").asText();
+		kimage = properties.path("profile_image").asText();
+		kgender = kakao_account.path("gender").asText();
+		kbirthday = kakao_account.path("birthday").asText();
+		kage = kakao_account.path("age_range").asText();
+		session.setAttribute("access_Token", access_token);
+		session.setAttribute("kemail", kemail);
+		session.setAttribute("kname", kname);
+		session.setAttribute("kgender", kgender);
+		session.setAttribute("kbirthday", kbirthday);
+		session.setAttribute("userId", kemail);
+		session.setAttribute("userMaster", 1);
+		session.setAttribute("userType","kakao");
+		mav.setViewName("index");
+		return mav;
+	}
+
+	@RequestMapping(value = "/kakaoLogout", produces = "application/json")
+	public String Logout(HttpSession session) {
+		kakao.kakaoLogout(session.getAttribute("access_Token"));
+		session.removeAttribute("access_Token");
+		session.removeAttribute("userId");
+		session.removeAttribute("userMaster");
+		session.removeAttribute("kemail");
+		session.removeAttribute("kname");
+		session.removeAttribute("kgender");
+		session.removeAttribute("kbirthday");
+		return "index";
+	}
 }
+
