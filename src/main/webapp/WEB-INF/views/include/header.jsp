@@ -34,6 +34,9 @@
 						<c:when test="${userType eq 'kakao'}">
 							<span class="menu"><a href="kakaoLogout" class="menu">로그아웃</a></span>
 						</c:when>
+							<c:when test="${userType eq 'nickname'}">
+							<span class="menu"><a href="naverLogout" class="menu">로그아웃</a></span>
+						</c:when>
 					</c:choose>
 				</c:otherwise>
 			</c:choose>
