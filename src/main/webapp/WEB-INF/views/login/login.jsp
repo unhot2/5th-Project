@@ -14,5 +14,7 @@
 	<input type="submit" value="로그인">
 </form>
 	<button type="button" onclick="location.href='memberShip'">회원가입</button>
+	
+	
 </body>
 </html>

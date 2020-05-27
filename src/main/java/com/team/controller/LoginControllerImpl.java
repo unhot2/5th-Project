@@ -7,8 +7,14 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.team.dto.LoginDTO;
 import com.team.service.LoginService;
 
@@ -25,6 +31,10 @@ public class LoginControllerImpl implements LoginController {
 	@RequestMapping("home")
 	public String index() {
 		return "index";
+	}
+	@RequestMapping("addr")
+	public String address() {
+		return "login/addr";
 	}
 	@RequestMapping("login2")
 	public String login2() {
@@ -59,6 +69,25 @@ public class LoginControllerImpl implements LoginController {
 		model.addAttribute("memberInfo",service.memberInfo(dto));
 		return "login/memberInfo";
 	}
+	
+	@ResponseBody
+	@RequestMapping(value="idCheck",produces="application/json;charset=utf8")
+	public int idCheck(@RequestParam(value="userId") String userId) throws JsonProcessingException  {
+
+		System.out.println("userId2 의 값" +userId);
+
+		boolean chk = service.idcheck(userId);
+		int result = 0;
+		if(chk) {
+			result = 1;
+			System.out.println("아이디 있음");
+		}else {
+			System.out.println("아이디 없음");
+		}
+			
+		return result;
+	}
+	
 	
 	@RequestMapping("loginChk")
 	public String loginChk(LoginDTO dto, HttpServletRequest request) {
