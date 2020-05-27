@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
+
 import com.team.dto.LoginDTO;
 import com.team.service.LoginService;
 
@@ -32,14 +32,7 @@ public class LoginControllerImpl implements LoginController {
 	public String index() {
 		return "index";
 	}
-	@RequestMapping("addr")
-	public String address() {
-		return "login/addr";
-	}
-	@RequestMapping("login2")
-	public String login2() {
-		return "login/login2";
-	}
+	
 	@RequestMapping("login")
 	public String login() {
 		return "login/login";
