@@ -7,12 +7,13 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestParam;
-
 import com.team.dto.BoardDTO;
 import com.team.dto.NoticeDTO;
+import com.team.dto.NoticePageCount;
+import com.team.dto.NoticeReplyDTO;
 import com.team.dto.PageCount;
 import com.team.dto.QnaDTO;
+import com.team.dto.ReplyDTO;
 
 @Repository
 public class BoardDAOImpl implements BoardDAO {
@@ -38,8 +39,10 @@ public class BoardDAOImpl implements BoardDAO {
 		return null;
 	}
 
-	public List<NoticeDTO> noticeList() {
-		return sqlSession.selectList("sql.noticeListAll");
+	public List<NoticeDTO> noticeList(int noticestart,Model model) {
+		NoticePageCount pc = noticePagingNum(noticestart);
+		model.addAttribute("pc",pc);
+		return sqlSession.selectList("sql.noticeListAll",pc);
 	}
 
 	public int noticeWrite(NoticeDTO dto) {
@@ -50,8 +53,8 @@ public class BoardDAOImpl implements BoardDAO {
 		return sqlSession.selectOne("sql.noticeDetail", dto);
 	}
 
-	public void noticeModify(NoticeDTO dto) {
-		sqlSession.update("sql.noticeModify",dto);
+	public int noticeModify(NoticeDTO dto) {
+		return sqlSession.update("sql.noticeModify",dto);
 	}
 
 	public void noticeDelete(NoticeDTO dto) {
@@ -65,7 +68,31 @@ public class BoardDAOImpl implements BoardDAO {
 	public void noticeViewCnt(int id) {
 		sqlSession.update("sql.noticeViewCnt",id);
 	}
+	public NoticePageCount noticePagingNum(int noticestart) {
+		if(noticestart == 0)noticestart=1;
+		NoticePageCount pc = new NoticePageCount();
+		int pageNum=5;
+		int totalPage = sqlSession.selectOne("sql.noticeGetTotalPage");
+		int totEndPage = totalPage/pageNum + (totalPage%pageNum == 0 ?0 :1);
+		int startPage = (noticestart - 1) * pageNum + 1;
+		int endPage = pageNum * noticestart;
+		pc.setTotalPage(totEndPage);
+		pc.setStartPage(startPage);
+		pc.setEndPage(endPage);
+		return pc;
+	}
 
+	public List<NoticeDTO> noticeSearch(String noticeSearch) {
+		return sqlSession.selectList("sql.noticeSearch",noticeSearch);
+	}
+	public void noticeReplyWrite(NoticeReplyDTO replydto) {
+		sqlSession.insert("sql.noticeReplyWrite",replydto);
+	}
+
+	public List<NoticeReplyDTO> noticeReplyList(int idgroup) {
+		return sqlSession.selectList("sql.noticeReplyList",idgroup);
+	}
+	
 	/* QnA부분 */
 	public List<QnaDTO> qnaList(int start,Model model) {
 		PageCount pc = qnaPagingNum(start);
@@ -73,8 +100,8 @@ public class BoardDAOImpl implements BoardDAO {
 		return sqlSession.selectList("sql.qnaListAll",pc);
 	}
 
-	public void qnaWrite(QnaDTO qnadto) {
-		sqlSession.insert("sql.qnaWrite", qnadto);
+	public int qnaWrite(QnaDTO qnadto) {
+		return sqlSession.insert("sql.qnaWrite", qnadto);
 		
 	}
 
@@ -82,7 +109,8 @@ public class BoardDAOImpl implements BoardDAO {
 		sqlSession.update("sql.qnaUpdate", qnadto);
 	}
 	
-	public void qnaModify(QnaDTO qnadto) {
+	public int qnaModify(QnaDTO qnadto) {
+		return sqlSession.update("sql.qnaUpdate", qnadto);
 
 	}
 
@@ -113,7 +141,17 @@ public class BoardDAOImpl implements BoardDAO {
 		return pc;
 	}
 
-	public List<QnaDTO> search(String search) {
+	public List<QnaDTO> qnaSearch(String search) {
 		return sqlSession.selectList("sql.search",search);
 	}
+
+	public void qnaReplyWrite(ReplyDTO dto) {
+		sqlSession.insert("sql.qnaReplyWrite",dto);
+	}
+
+	public List<ReplyDTO> qnaReplyList(int idgroup) {
+		return sqlSession.selectList("sql.qnaReplyList",idgroup);
+	}
+
+
 }

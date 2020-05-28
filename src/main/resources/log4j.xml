@@ -10,11 +10,13 @@
 		</layout>
 	</appender>
 	
-	<!-- Application Loggers -->
+
 	<logger name="com.team.controller">
 		<level value="info" />
 	</logger>
-	
+	<logger name="com.kakao.login">
+		<level value="info" />
+	</logger>
 	<!-- 3rdparty Loggers -->
 	<logger name="org.springframework.core">
 		<level value="info" />

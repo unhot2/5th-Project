@@ -16,9 +16,8 @@ public class LoginDAOImpl implements LoginDAO {
 		return sqlSession.selectList("sql.listAll");
 	}
 
-	public List<LoginDTO> loginChk(LoginDTO dto) {
-		List<LoginDTO> list = sqlSession.selectList("sql.listAll", dto);
-		return list;
+	public List<LoginDTO> loginChk() {
+		return sqlSession.selectList("sql.listAll");
 	}
 	
 	public String idCheck(String userId) {
@@ -45,7 +44,7 @@ public class LoginDAOImpl implements LoginDAO {
 		return sqlSession.selectOne("sql.getMaster",id);
 	}
 
-	
-	
-
+	public List<LoginDTO> kakaoIdCheck() {
+		return sqlSession.selectList("sql.listAll");
+	}
 }

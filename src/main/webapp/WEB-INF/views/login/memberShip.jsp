@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+
 <html>
 <head>
 <script src="resources/js/main.js"  ></script>
@@ -12,6 +13,11 @@
 <title>Insert title here</title>
 </head>
 <body>
+
+<jsp:include page="../include/header.jsp" />
+<section class="memberShipSection">
+	<div align="center">
+
 	<form action="saveMember">
 		아이디 : <input type="text" id="userId" name="userId">
 		<button type="button" onclick="idcheck()">아이디 확인</button> 
@@ -32,5 +38,6 @@
 		이메일 : <input type="email" name="userEmail"><br>
 		<input id="submit" type="submit" value="회원가입" disabled="disabled">
 	</form>
-</body>
-</html>
+</div>
+</section>
+<jsp:include page="../include/footer.jsp" />

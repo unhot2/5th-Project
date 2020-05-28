@@ -18,7 +18,7 @@ public class LoginServiceImpl implements LoginService {
 
 	public boolean loginChk(LoginDTO dto) {
 		boolean chk = false;
-		for (LoginDTO dbDto : dao.loginChk(dto)) {
+		for (LoginDTO dbDto : dao.loginChk()) {
 			if (dto.getUserId().equals(dbDto.getUserId())) {
 				if (dto.getUserPwd().equals(dbDto.getUserPwd())) {
 					chk = true;
@@ -63,6 +63,16 @@ public class LoginServiceImpl implements LoginService {
 
 	public String getMaster(String id) {
 		return dao.getMaster(id);
+	}
+
+	public boolean kakaoIdCheck(String id) {
+		boolean chk = false;
+		for (LoginDTO dto : dao.kakaoIdCheck()) {
+			if (id.equals(dto.getUserId())) {
+				chk = true;
+			}
+		}
+		return chk;
 	}
 
 }

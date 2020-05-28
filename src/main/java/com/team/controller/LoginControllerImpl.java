@@ -1,6 +1,9 @@
 package com.team.controller;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -10,12 +13,17 @@ import org.springframework.ui.Model;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 
+import org.springframework.web.servlet.ModelAndView;
+
+
 import com.team.dto.LoginDTO;
+import com.team.service.KakaoServiceImpl;
 import com.team.service.LoginService;
 
 @Controller
@@ -23,29 +31,32 @@ public class LoginControllerImpl implements LoginController {
 
 	@Autowired
 	LoginService service;
+	@Autowired
+	KakaoServiceImpl kakao;
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home() {
 		return "index";
 	}
-	@RequestMapping("home")
-	public String index() {
-		return "index";
-	}
 	
 	@RequestMapping("login")
-	public String login() {
-		return "login/login";
+	public ModelAndView login(HttpSession session) {
+		ModelAndView mav = new ModelAndView();
+		String kakaoUrl = kakao.getUrl(session);
+		mav.setViewName("login/login");
+		mav.addObject("kakao_url",kakaoUrl);
+		return mav;
 	}
 
 	@RequestMapping("logout")
-	public String logout(HttpServletRequest request) {
-		HttpSession session = request.getSession();
+	public String logout(HttpSession session) {
+		session.removeAttribute("access_Token");
 		session.removeAttribute("userId");
 		session.removeAttribute("userMaster");
+		session.removeAttribute("userType");
 		return "index";
 	}
-
+	
 	@RequestMapping("memberShip")
 	public String membership() {
 		return "login/memberShip";
@@ -59,7 +70,16 @@ public class LoginControllerImpl implements LoginController {
 	
 	@RequestMapping("memberInfo")
 	public String memberInfo(LoginDTO dto,Model model) {
-		model.addAttribute("memberInfo",service.memberInfo(dto));
+		
+		LoginDTO login = service.memberInfo(dto);
+		
+		Date Mbirth = login.getUserBirth();
+		
+		DateFormat dateFormat = new SimpleDateFormat ("yyyy-MM-dd");
+		String birth = dateFormat.format(Mbirth);
+		
+		model.addAttribute("userBirth",birth);
+		model.addAttribute("memberInfo",login);
 		return "login/memberInfo";
 	}
 	
@@ -89,6 +109,7 @@ public class LoginControllerImpl implements LoginController {
 			session = request.getSession();
 			session.setAttribute("userId", dto.getUserId());
 			session.setAttribute("userMaster", service.getMaster(dto.getUserId()));
+			session.setAttribute("userType","member");
 			return "index";
 		} else {
 			return "login/login";
@@ -130,6 +151,10 @@ public class LoginControllerImpl implements LoginController {
 		service.updateMember(dto);
 		model.addAttribute("memberInfo",service.memberInfo(dto));
 		return "index";
+	}
+	
+	public boolean kakaoIdCheck(String id) {
+		return service.kakaoIdCheck(id);
 	}
 	
 }

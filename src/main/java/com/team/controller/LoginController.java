@@ -1,9 +1,14 @@
 package com.team.controller;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.ui.Model;
+
 import org.springframework.web.bind.annotation.PathVariable;
+
+import org.springframework.web.servlet.ModelAndView;
+
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.team.dto.LoginDTO;
@@ -14,10 +19,10 @@ public interface LoginController {
 	public String home();
 
 	/* login 화면 연결 메소드 */
-	public String login();
+	public ModelAndView login(HttpSession session);
 
 	/* logout 연결 메소드 (반환값 login.jsp) */
-	public String logout(HttpServletRequest request);
+	public String logout(HttpSession session);
 
 	/* 회원가입 창 연결 메소드 */
 	public String membership();
@@ -47,6 +52,9 @@ public interface LoginController {
 
 	/* 회원정보 수정 메소드(유저용) */
 	public String updateUserMember(LoginDTO dto, Model model);
+
+	/* 회원 ID 유무 확인 메소드 */
+	public boolean kakaoIdCheck(String id);
 
 	/* 더 필요한 메소드 있을 시 인터페이스에 주석 작성 후 추가해서 사용하세요 */
 }
