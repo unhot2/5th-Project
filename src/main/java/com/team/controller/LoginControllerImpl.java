@@ -17,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.team.dto.LoginDTO;
 import com.team.service.KakaoServiceImpl;
 import com.team.service.LoginService;
+import com.team.service.NaverServiceImpl;
 
 @Controller
 public class LoginControllerImpl implements LoginController {
@@ -25,6 +26,9 @@ public class LoginControllerImpl implements LoginController {
 	LoginService service;
 	@Autowired
 	KakaoServiceImpl kakao;
+	@Autowired
+	NaverServiceImpl naver; 
+	
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home() {
@@ -32,15 +36,17 @@ public class LoginControllerImpl implements LoginController {
 	}
 	
 	
-	@RequestMapping("login")
+	@RequestMapping(value = "/login", method = { RequestMethod.GET, RequestMethod.POST })
 	public ModelAndView login(HttpSession session) {
 		ModelAndView mav = new ModelAndView();
 		String kakaoUrl = kakao.getUrl(session);
+		String naverUrl = naver.getUrl(session);
 		mav.setViewName("login/login");
 		mav.addObject("kakao_url",kakaoUrl);
+		mav.addObject("naver_url",naverUrl);
 		return mav;
 	}
-
+	
 	@RequestMapping("logout")
 	public String logout(HttpSession session) {
 		session.removeAttribute("access_Token");
@@ -130,5 +136,12 @@ public class LoginControllerImpl implements LoginController {
 	public boolean kakaoIdCheck(String id) {
 		return service.kakaoIdCheck(id);
 	}
+
+
+	public boolean naverIdCheck(String id) {
+		return service.naverIdCheck(id);
+	}
+	
+	
 	
 }

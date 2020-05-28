@@ -67,4 +67,14 @@ public class LoginServiceImpl implements LoginService {
 		return chk;
 	}
 
+	public boolean naverIdCheck(String id) {
+		boolean chk = false;
+		for (LoginDTO dto : dao.naverIdCheck()) {
+			if (id.equals(dto.getUserId())) {
+				chk = true;
+			}
+		}
+		return chk;
+	}
+
 }

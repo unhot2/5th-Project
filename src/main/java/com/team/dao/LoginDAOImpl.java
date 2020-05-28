@@ -25,22 +25,26 @@ public class LoginDAOImpl implements LoginDAO {
 	}
 
 	public void deleteMember(LoginDTO dto) {
-		sqlSession.delete("sql.deleteMember",dto);
+		sqlSession.delete("sql.deleteMember", dto);
 	}
 
 	public void updateMember(LoginDTO dto) {
-		sqlSession.update("sql.updateMember",dto);
+		sqlSession.update("sql.updateMember", dto);
 	}
 
 	public LoginDTO memberInfo(LoginDTO dto) {
-		return sqlSession.selectOne("sql.memberInfo",dto);
+		return sqlSession.selectOne("sql.memberInfo", dto);
 	}
 
 	public String getMaster(String id) {
-		return sqlSession.selectOne("sql.getMaster",id);
+		return sqlSession.selectOne("sql.getMaster", id);
 	}
 
 	public List<LoginDTO> kakaoIdCheck() {
+		return sqlSession.selectList("sql.listAll");
+	}
+
+	public List<LoginDTO> naverIdCheck() {
 		return sqlSession.selectList("sql.listAll");
 	}
 
