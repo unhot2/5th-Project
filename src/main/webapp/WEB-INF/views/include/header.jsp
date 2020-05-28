@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="resources/css/main.css" />
 <title>5TH POJECT</title>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/main.js"></script>
-<script src="${pageContext.request.contextPath}resources/js/jquery-3.4.1.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/jquery-3.4.1.min.js"></script>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 </head>
 <body>
@@ -31,7 +31,7 @@
 						<c:when test="${userType eq 'kakao'}">
 							<span class="menu"><a href="kakaoLogout" class="menu">로그아웃</a></span>
 						</c:when>
-						<c:when test="${userType eq 'nickname'}">
+						<c:when test="${userType eq 'naver'}">
 							<span class="menu"><a href="naverLogout" class="menu">로그아웃</a></span>
 						</c:when>
 					</c:choose>

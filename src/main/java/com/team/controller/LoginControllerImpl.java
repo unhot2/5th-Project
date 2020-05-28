@@ -43,7 +43,12 @@ public class LoginControllerImpl implements LoginController {
 		return "index";
 	}
 	
-	@RequestMapping(value = "/login", method = { RequestMethod.GET, RequestMethod.POST })
+	@RequestMapping(value = "index", method = RequestMethod.GET)
+	public String index() {
+		return "index";
+	}
+	
+	@RequestMapping(value = "login", method = { RequestMethod.GET, RequestMethod.POST })
 	public ModelAndView login(HttpSession session) {
 		ModelAndView mav = new ModelAndView();
 		String kakaoUrl = kakao.getUrl(session);
@@ -60,7 +65,7 @@ public class LoginControllerImpl implements LoginController {
 		session.removeAttribute("userId");
 		session.removeAttribute("userMaster");
 		session.removeAttribute("userType");
-		return "index";
+		return "redirect:index";
 	}
 	
 	@RequestMapping("memberShip")
@@ -76,14 +81,10 @@ public class LoginControllerImpl implements LoginController {
 	
 	@RequestMapping("memberInfo")
 	public String memberInfo(LoginDTO dto,Model model) {
-		
 		LoginDTO login = service.memberInfo(dto);
-		
 		Date Mbirth = login.getUserBirth();
-		
 		DateFormat dateFormat = new SimpleDateFormat ("yyyy-MM-dd");
 		String birth = dateFormat.format(Mbirth);
-		
 		model.addAttribute("userBirth",birth);
 		model.addAttribute("memberInfo",login);
 		return "login/memberInfo";
@@ -92,18 +93,11 @@ public class LoginControllerImpl implements LoginController {
 	@ResponseBody
 	@RequestMapping(value="idCheck",produces="application/json;charset=utf8")
 	public int idCheck(@RequestParam(value="userId") String userId) throws JsonProcessingException  {
-
-		System.out.println("userId2 의 값" +userId);
-
 		boolean chk = service.idcheck(userId);
 		int result = 0;
 		if(chk) {
 			result = 1;
-			System.out.println("아이디 있음");
-		}else {
-			System.out.println("아이디 없음");
 		}
-			
 		return result;
 	}
 	
@@ -116,22 +110,32 @@ public class LoginControllerImpl implements LoginController {
 			session.setAttribute("userId", dto.getUserId());
 			session.setAttribute("userMaster", service.getMaster(dto.getUserId()));
 			session.setAttribute("userType","member");
-			return "index";
+			return "redirect:index";
 		} else {
-			return "login/login";
+			return "redirect:login";
 		}
 	}
 
 	@RequestMapping("saveMember")
 	public String saveMember(LoginDTO dto) {
-		int num = service.saveMember(dto);
-		if (num == 1) {
-			System.out.println("저장성공");
-		}
-		else {
-			System.out.println("저장실패");
-		}
-		return "login/login";
+		System.out.println("id:"+dto.getUserId());
+		System.out.println("pwd:"+dto.getUserPwd());
+		System.out.println("name:"+dto.getUserName());
+		System.out.println("postcode:"+dto.getUserPostCode());
+		System.out.println("addr:"+dto.getUserAddr());
+		System.out.println("gender:"+dto.getUserGender());
+		System.out.println("birth:"+dto.getUserBirth());
+		System.out.println("email:"+dto.getUserEmail());
+		service.saveMember(dto);
+		return "redirect:login";
+	}
+	
+	@RequestMapping("apiSaveMember")
+	public String apiSaveMember(LoginDTO dto,HttpSession session) {
+		dto.setUserId((String)session.getAttribute("id"));
+		session.removeAttribute("id");
+		service.apiSaveMember(dto);
+		return "redirect:login";
 	}
 
 	@RequestMapping("deleteMember")
@@ -167,7 +171,4 @@ public class LoginControllerImpl implements LoginController {
 	public boolean naverIdCheck(String id) {
 		return service.naverIdCheck(id);
 	}
-	
-	
-	
 }

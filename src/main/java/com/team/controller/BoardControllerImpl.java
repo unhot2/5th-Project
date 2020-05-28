@@ -148,6 +148,7 @@ public class BoardControllerImpl implements BoardController {
 		int chk = service.qnaWrite(qnadto);
 		if (chk == 1) {
 			System.out.println("저장성공");
+			
 		} else {
 			System.out.println("저장실패");
 		}

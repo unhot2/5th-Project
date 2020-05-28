@@ -9,7 +9,7 @@ public class LoginDTO {
 	private String userId;
 	private String userPwd;
 	private String userName;
-	private int userAge;
+	private String userPostCode;
 	private String userAddr;
 	private String userGender;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -33,17 +33,17 @@ public class LoginDTO {
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
-	public int getUserAge() {
-		return userAge;
-	}
-	public void setUserAge(int userAge) {
-		this.userAge = userAge;
-	}
 	public String getUserAddr() {
 		return userAddr;
 	}
 	public void setUserAddr(String userAddr) {
 		this.userAddr = userAddr;
+	}
+	public String getUserPostCode() {
+		return userPostCode;
+	}
+	public void setUserPostCode(String userPostCode) {
+		this.userPostCode = userPostCode;
 	}
 	public String getUserGender() {
 		return userGender;

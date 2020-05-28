@@ -44,6 +44,10 @@ public class LoginServiceImpl implements LoginService {
 	public int saveMember(LoginDTO dto) {
 		return dao.saveMember(dto);
 	}
+	
+	public void apiSaveMember(LoginDTO dto) {
+		dao.apiSaveMember(dto);
+	}
 
 	public void deleteMember(LoginDTO dto) {
 		dao.deleteMember(dto);
@@ -84,5 +88,4 @@ public class LoginServiceImpl implements LoginService {
 		}
 		return chk;
 	}
-
 }

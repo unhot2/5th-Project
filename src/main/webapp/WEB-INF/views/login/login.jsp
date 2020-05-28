@@ -7,12 +7,6 @@
 <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 <jsp:include page="../include/header.jsp" />
 <section class="loginSection">
-	<c:choose>
-		<c:when test="${userType !=null }">
-			<h2>네이버 아이디 로그인 성공</h2>
-			<h3>'${userType }'님 환영합니다</h3>
-		</c:when>
-		<c:otherwise>
 			<form action="loginChk" method="post">
 				<table border="1">
 					<tr>
@@ -39,8 +33,6 @@
 					</tr>
 				</table>
 			</form>
-		</c:otherwise>
-	</c:choose>
 </section>
 <jsp:include page="../include/footer.jsp" />
 

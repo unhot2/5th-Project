@@ -7,15 +7,11 @@
 <c:remove var="userMaster"/> --%>
 <section class="indexSection">
 	<h1>INDEX 영역</h1>
-	<table border="1">
-		<tr>
-			<th colspan="2">카카오로 들어온 값</th>
-		</tr>
-		<tr><td>id</td><td>${kakaoDTO.userId}</td></tr>
-		<tr><td>name</td><td>${kakaoDTO.userName}</td></tr>
-		<tr><td>gender</td><td>${kakaoDTO.userGender }</td></tr>
-		<tr><td>email</td><td>${kakaoDTO.userEmail }</td></tr>
-	</table>
-
+	<c:choose>
+		<c:when test="${userId !=null }">
+			<h2>로그인 성공</h2>
+			<h3>'${userId}'님 환영합니다</h3>
+		</c:when>
+	</c:choose>
 </section>
 <jsp:include page="include/footer.jsp" />

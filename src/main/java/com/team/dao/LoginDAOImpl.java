@@ -27,6 +27,10 @@ public class LoginDAOImpl implements LoginDAO {
 	public int saveMember(LoginDTO dto) {
 		return sqlSession.insert("sql.saveMember", dto);
 	}
+	
+	public void apiSaveMember(LoginDTO dto) {
+		sqlSession.insert("sql.apiSaveMember",dto);
+	}
 
 	public void deleteMember(LoginDTO dto) {
 		sqlSession.delete("sql.deleteMember", dto);
@@ -51,4 +55,6 @@ public class LoginDAOImpl implements LoginDAO {
 	public List<LoginDTO> naverIdCheck() {
 		return sqlSession.selectList("sql.listAll");
 	}
+
+	
 }

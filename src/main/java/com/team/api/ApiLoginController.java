@@ -47,10 +47,11 @@ public class ApiLoginController {
 			session.setAttribute("userId", dto.getUserId());
 			session.setAttribute("userMaster", 1);
 			session.setAttribute("userType", "kakao");
-			return "index";
+			return "redirect:index";
 		} else {
-			model.addAttribute("kakaoDTO", dto);
-			return "login/kakaoMembership";
+			session.setAttribute("id", dto.getUserId());
+			model.addAttribute("loginDTO", dto);
+			return "login/apiMembership";
 		}
 	}
 
@@ -60,14 +61,14 @@ public class ApiLoginController {
 		session.removeAttribute("access_Token");
 		session.removeAttribute("userId");
 		session.removeAttribute("userMaster");
-		return "index";
+		session.removeAttribute("userType");
+		return "redirect:index";
 	}
 
 	/* 네이버 로그인 API 부분 */
 	@RequestMapping(value = "/callback", method = { RequestMethod.GET, RequestMethod.POST })
 	public String callback(Model model, @RequestParam String code, @RequestParam String state, HttpSession session)
 			throws IOException, ParseException, org.json.simple.parser.ParseException {
-		System.out.println("여기는 callback");
 		OAuth2AccessToken oauthToken;
 		oauthToken = naver.getAccessToken(session, code, state);
 		String apiResult = naver.getUserProfile(oauthToken);
@@ -86,16 +87,19 @@ public class ApiLoginController {
 			session.setAttribute("userId", dto.getUserId());
 			session.setAttribute("userMaster", 1);
 			session.setAttribute("userType", "naver");
-			return "login/login";
+			return "redirect:index";
 		} else {
-			model.addAttribute("naverDTO", dto);
-			return "login/naverMembership";
+			session.setAttribute("id", dto.getUserId());
+			model.addAttribute("loginDTO", dto);
+			return "login/apiMembership";
 		}
 	}
 
 	@RequestMapping(value = "/naverLogout", method = { RequestMethod.GET, RequestMethod.POST })
 	public String logout(HttpSession session) throws IOException {
-		session.invalidate();
-		return "redirect:/";
+		session.removeAttribute("userId");
+		session.removeAttribute("userMaster");
+		session.removeAttribute("userType");
+		return "redirect:index";
 	}
 }

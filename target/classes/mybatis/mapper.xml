@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-
 <mapper namespace="sql">
 	<!-- login 부분 -->
 	<select id="listAll" resultType="loginDTO">
@@ -12,9 +10,14 @@
 	<insert id="saveMember">
 		insert into login
 		values(#{userId},#{userPwd},#{userName},
-		#{userAge},#{userAddr},#{userGender},#{userBirth},#{userEmail},DEFAULT)
+		#{userAddr},#{userGender},#{userBirth},#{userEmail},DEFAULT,#{userPostCode})
 	</insert>
 
+	<insert id="apiSaveMember">
+		insert into login
+		values(#{userId},DEFAULT,#{userName},
+		#{userAddr},#{userGender},#{userBirth},#{userEmail},DEFAULT,#{userPostCode})
+	</insert>
 	<select id="memberInfo" resultType="loginDTO">
 		select * from login where
 		userId=#{userId}
@@ -24,9 +27,9 @@
 		update login set
 		userPwd=#{userPwd},
 		userName=#{userName},
-		userAge=#{userAge},
 		userAddr=#{userAddr},userGender=#{userGender},
-		userBirth=#{userBirth},userEmail=#{userEmail}
+		userBirth=#{userBirth},userEmail=#{userEmail},
+		userPostCode=#{userPostCode}
 		where userId=#{userId}
 	</update>
 
@@ -48,8 +51,7 @@
 	</select>
 
 	<select id="noticeDetail" resultType="noticeDTO">
-		select * from notice where
-		id = #{id}
+		select * from notice where id = #{id}
 	</select>
 
 	<insert id="noticeWrite" parameterType="noticeDTO">

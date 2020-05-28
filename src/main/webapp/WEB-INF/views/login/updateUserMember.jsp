@@ -24,11 +24,6 @@
 						name="userName"></td>
 				</tr>
 				<tr>
-					<th>나이</th>
-					<td><input type="number" value="${memberInfo.userAge }"
-						name="userAge"></td>
-				</tr>
-				<tr>
 					<th>주소</th>
 					<td><input type="text" value="${memberInfo.userAddr }"
 						name="userAddr"></td>

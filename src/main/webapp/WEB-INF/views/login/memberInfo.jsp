@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <jsp:include page="../include/header.jsp" />
 <section class="memberInfoSection">
@@ -25,11 +25,6 @@
 							<th>이름</th>
 							<td><input type="text" value="${memberInfo.userName }"
 								name="userName"></td>
-						</tr>
-						<tr>
-							<th>나이</th>
-							<td><input type="number" value="${memberInfo.userAge }"
-								name="userAge"></td>
 						</tr>
 						<tr>
 							<th>주소</th>
@@ -73,47 +68,85 @@
 				</form>
 			</c:when>
 			<c:otherwise>
-				<h1>내 정보</h1>
-				<table border="1">
-					<tr>
-						<th>아이디</th>
-						<td>${memberInfo.userId }</td>
-					</tr>
-					<tr>
-						<th>비밀번호</th>
-						<td>${memberInfo.userPwd }</td>
-					</tr>
-					<tr>
-						<th>이름</th>
-						<td>${memberInfo.userName }</td>
-					</tr>
-					<tr>
-						<th>나이</th>
-						<td>${memberInfo.userAge }</td>
-					</tr>
-					<tr>
-						<th>주소</th>
-						<td>${memberInfo.userAddr }</td>
-					</tr>
-					<tr>
-						<th>성별</th>
-						<td>${memberInfo.userGender}</td>
-					</tr>
-					<tr>
-						<th>생년월일</th>
-						<td><fmt:formatDate value="${memberInfo.userBirth }" pattern="yyyy.MM.dd"/></td>
-					</tr>
-					<tr>
-						<th>이메일</th>
-						<td>${memberInfo.userEmail }</td>
-					</tr>
-					<tr>
-						<td><button type="button"
-								onclick="location.href='updateUserMember?userId=${memberInfo.userId}'">수정</button></td>
-						<td><button type="button"
-								onclick="location.href='deleteMember?userId=${memberInfo.userId}'">삭제</button></td>
-					</tr>
-				</table>
+				<c:choose>
+					<c:when test="${userType eq 'kakao' || userType eq 'naver' }">
+						<h1>내 정보</h1>
+						<table border="1">
+							<tr>
+								<th>아이디</th>
+								<td>${memberInfo.userId }</td>
+							</tr>
+							<tr>
+								<th>이름</th>
+								<td>${memberInfo.userName }</td>
+							</tr>
+							<tr>
+								<th>주소</th>
+								<td>${memberInfo.userAddr }</td>
+							</tr>
+							<tr>
+								<th>성별</th>
+								<td>${memberInfo.userGender}</td>
+							</tr>
+							<tr>
+								<th>생년월일</th>
+								<td><fmt:formatDate value="${memberInfo.userBirth }"
+										pattern="yyyy.MM.dd" /></td>
+							</tr>
+							<tr>
+								<th>이메일</th>
+								<td>${memberInfo.userEmail }</td>
+							</tr>
+							<tr>
+								<td><button type="button"
+										onclick="location.href='updateUserMember?userId=${memberInfo.userId}'">수정</button></td>
+								<td><button type="button"
+										onclick="location.href='deleteMember?userId=${memberInfo.userId}'">삭제</button></td>
+							</tr>
+						</table>
+					</c:when>
+					<c:otherwise>
+						<h1>내 정보</h1>
+						<table border="1">
+							<tr>
+								<th>아이디</th>
+								<td>${memberInfo.userId }</td>
+							</tr>
+							<tr>
+								<th>비밀번호</th>
+								<td>${memberInfo.userPwd }</td>
+							</tr>
+							<tr>
+								<th>이름</th>
+								<td>${memberInfo.userName }</td>
+							</tr>
+							<tr>
+								<th>주소</th>
+								<td>${memberInfo.userAddr }</td>
+							</tr>
+							<tr>
+								<th>성별</th>
+								<td>${memberInfo.userGender}</td>
+							</tr>
+							<tr>
+								<th>생년월일</th>
+								<td><fmt:formatDate value="${memberInfo.userBirth }"
+										pattern="yyyy.MM.dd" /></td>
+							</tr>
+							<tr>
+								<th>이메일</th>
+								<td>${memberInfo.userEmail }</td>
+							</tr>
+							<tr>
+								<td><button type="button"
+										onclick="location.href='updateUserMember?userId=${memberInfo.userId}'">수정</button></td>
+								<td><button type="button"
+										onclick="location.href='deleteMember?userId=${memberInfo.userId}'">삭제</button></td>
+							</tr>
+						</table>
+
+					</c:otherwise>
+				</c:choose>
 			</c:otherwise>
 		</c:choose>
 	</div>

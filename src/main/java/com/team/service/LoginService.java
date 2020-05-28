@@ -37,6 +37,7 @@ public interface LoginService {
 	
 	/* 네이버 회원 ID 유무 확인 메소드 */
 	public boolean naverIdCheck(String id);
-	/* Service단에서 model로 값 넘겨서 활용 */
-	/* 더 필요한 메소드 있을 시 인터페이스에 주석 작성 후 추가해서 사용하세요 */
+	
+	/* API 통한 회원가입 메소드 */
+	public void apiSaveMember(LoginDTO dto);
 }

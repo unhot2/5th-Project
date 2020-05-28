@@ -33,7 +33,7 @@
 					<c:forEach items="${qnaList }" var="dto">
 						<tr>
 							<td>${dto.id }</td>
-							<td><a href="qnaDetail?id=${dto.id }">${dto.title }</a></td>
+							<td><a href="qnaDetail?id=${dto.id }&idgroup=${dto.idgroup}">${dto.title }</a></td>
 							<td>${dto.name }</td>
 							<td>${dto.content }</td>
 							<td>${dto.savedate }</td>
