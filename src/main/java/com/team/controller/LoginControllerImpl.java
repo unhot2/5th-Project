@@ -1,6 +1,9 @@
 package com.team.controller;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -60,7 +63,16 @@ public class LoginControllerImpl implements LoginController {
 	
 	@RequestMapping("memberInfo")
 	public String memberInfo(LoginDTO dto,Model model) {
-		model.addAttribute("memberInfo",service.memberInfo(dto));
+		
+		LoginDTO login = service.memberInfo(dto);
+		
+		Date Mbirth = login.getUserBirth();
+		
+		DateFormat dateFormat = new SimpleDateFormat ("yyyy-MM-dd");
+		String birth = dateFormat.format(Mbirth);
+		
+		model.addAttribute("userBirth",birth);
+		model.addAttribute("memberInfo",login);
 		return "login/memberInfo";
 	}
 	

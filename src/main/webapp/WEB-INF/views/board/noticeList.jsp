@@ -20,8 +20,8 @@
 					<c:forEach var="nt" items="${noticeList }">
 						<tr>
 							<td>${nt.id}</td>
-							<td>${nt.name}</td>
-							<td><a href="noticeDetail?id=${nt.id}">${nt.title}</a></td>
+							<td><a href="noticeDetail?id=${nt.id}">${nt.name}</a></td>
+							<td>${nt.title}</td>
 							<td>${nt.content}</td>
 							<td>${nt.savedate}</td>
 							<td>${nt.hit}</td>

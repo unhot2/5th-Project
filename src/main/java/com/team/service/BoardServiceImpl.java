@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 
 import com.team.dao.BoardDAO;
 import com.team.dto.NoticeDTO;
+import com.team.dto.NoticeReplyDTO;
 import com.team.dto.QnaDTO;
 import com.team.dto.ReplyDTO;
 
@@ -63,6 +64,14 @@ public class BoardServiceImpl implements BoardService {
 	public List<NoticeDTO> noticeSearch(String noticeSearch) {
 		return dao.noticeSearch(noticeSearch);
 	}
+	public void noticeReplyWrite(NoticeReplyDTO replydto) {
+		dao.noticeReplyWrite(replydto);
+	}
+
+	public List<NoticeReplyDTO> noticeReplyList(int idgroup) {
+		return dao.noticeReplyList(idgroup);
+	}
+	
 	/* QNA 부분 */
 	public List<QnaDTO> qnaList(int start,Model model) {
 		List<QnaDTO> list = dao.qnaList(start,model);
@@ -106,5 +115,7 @@ public class BoardServiceImpl implements BoardService {
 	public List<ReplyDTO> qnaReplyList(int idgroup) {
 		return dao.qnaReplyList(idgroup);
 	}
+
+
 
 }

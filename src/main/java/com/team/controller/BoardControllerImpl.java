@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.team.dto.NoticeDTO;
+import com.team.dto.NoticeReplyDTO;
 import com.team.dto.QnaDTO;
 import com.team.dto.ReplyDTO;
 import com.team.service.BoardService;
@@ -99,23 +100,35 @@ public class BoardControllerImpl implements BoardController {
 	@RequestMapping("noticeDetail")
 	public String noticeDetail(NoticeDTO dto, Model model) {
 		service.noticeViewCnt(dto.getId());
-		model.addAttribute("noticeDetail", service.noticeDetail(dto));
+		NoticeDTO noticedto = service.noticeDetail(dto);
+		model.addAttribute("noticeReplyList",noticeReplyList(noticedto.getIdgroup()));
+		model.addAttribute("noticeDetail", noticedto);
 		return "board/noticeDetail";
 	}
 
-	@RequestMapping("replyWrite")
-	public String replyWrite() {
-
-		return "replyWrite";
+	@RequestMapping("noticeReply")
+	public String noticerelpy_view() {
+		return "board/noticeReply";
 	}
 
 	@RequestMapping("noticeSearch")
-	public String noticesearch(@RequestParam("noticeSearch") String noticeSearch, Model model) {
+	public String noticeSearch(@RequestParam("noticeSearch") String noticeSearch, Model model) {
 		ArrayList<NoticeDTO> list = (ArrayList<NoticeDTO>) service.noticeSearch(noticeSearch);
 		model.addAttribute("noticeList", list);
 		return "board/noticeList";
 	}
+	
+	@RequestMapping("noticeReplyWrite")
+	public String noticeReplyWrite(NoticeReplyDTO replydto, Model model, NoticeDTO dto) {
+		service.noticeReplyWrite(replydto);
+		return noticeDetail(dto, model);
+	}
 
+	public ArrayList<NoticeReplyDTO> noticeReplyList(int idgroup) {
+		ArrayList<NoticeReplyDTO> list = (ArrayList<NoticeReplyDTO>) service.noticeReplyList(idgroup);
+		return list;
+	}
+	
 	/* QnA 부분 */
 	@RequestMapping("qnaList")
 	public String qnaList(Model model, @RequestParam(value = "start", defaultValue = "1") int start) {
@@ -197,4 +210,7 @@ public class BoardControllerImpl implements BoardController {
 		ArrayList<ReplyDTO> list = (ArrayList<ReplyDTO>) service.qnaReplyList(idgroup);
 		return list;
 	}
+
+	
+
 }

@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestParam;
 import com.team.dto.NoticeDTO;
+import com.team.dto.NoticeReplyDTO;
 import com.team.dto.QnaDTO;
 import com.team.dto.ReplyDTO;
 
@@ -15,8 +16,6 @@ public interface BoardController {
 	public String write();
 	/* 게시판 글수정 메소드 */
 	public String update();
-	/* 게시판 글수정 메소드2 */
-	public String noticeModify(HttpServletRequest request, Model model, NoticeDTO dto);
 	/* 게시판 글삭제 메소드 */
 	public String delete();
 	/* 게시판 상세내용 보기 메소드 */
@@ -29,11 +28,21 @@ public interface BoardController {
 	public String noticeWrite(NoticeDTO dto,Model model);
 	/* notice 글수정 */
 	public String noticeUpdate(NoticeDTO dto,Model model);
+	/* notice 글수정 2 */
+	public String noticeModify(HttpServletRequest request, Model model, NoticeDTO dto);
 	/* notice 글삭제 */
 	public String noticeDelete(NoticeDTO dto);
 	/* notice 글 상세보기 */
 	public String noticeDetail(NoticeDTO dto, Model model);
-
+	
+	/* notice 검색 */
+	public String noticeSearch(@RequestParam("noticeSearch") String noticeSearch, Model model);
+	/* notice 댓글 작성 */
+	public String noticeReplyWrite(NoticeReplyDTO replydto,Model model,NoticeDTO dto);
+	/* notice 댓글 리스트 */
+	public ArrayList<NoticeReplyDTO> noticeReplyList(int idgroup);
+	
+	
 	/* QnA 글 가져오는 메소드 */
 	public String qnaList(Model model,@RequestParam("start")int start);
 	/* QnA 글작성 메소드 */

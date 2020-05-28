@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.ui.Model;
 import com.team.dto.BoardDTO;
 import com.team.dto.NoticeDTO;
+import com.team.dto.NoticeReplyDTO;
 import com.team.dto.QnaDTO;
 import com.team.dto.ReplyDTO;
 
@@ -34,8 +35,13 @@ public interface BoardDAO {
 	public NoticeDTO noticeDetail(NoticeDTO dto);
 	/* notice 글 조회수 */
 	public void noticeViewCnt(int id);
-	/* Qna 검색 */
+	/* notice 검색 */
 	public List<NoticeDTO> noticeSearch(String noticeSearch);
+	/* notice 댓글 작성 */
+	public void noticeReplyWrite(NoticeReplyDTO replydto);
+	/* notice 댓글 리스트 */
+	public List<NoticeReplyDTO> noticeReplyList(int idgroup);
+
 	
 	/* QnA 글 가져오는 메소드 */
 	public List<QnaDTO> qnaList(int start,Model model);
@@ -57,4 +63,5 @@ public interface BoardDAO {
 	public void qnaReplyWrite(ReplyDTO dto);
 	/* QnA 댓글 리스트 */
 	public List<ReplyDTO> qnaReplyList(int idgroup);
+
 }
