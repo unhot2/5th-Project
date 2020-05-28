@@ -7,6 +7,8 @@ import com.team.dto.LoginDTO;
 public interface LoginDAO {
 	/* login Check 메소드 (dao연결)*/
 	public List<LoginDTO> loginChk();
+	/* 회원가입 아이디 중복 체크 */
+	public String idCheck(String userId);
 	/* 회원정보 DB저장 메소드 */
 	public int saveMember(LoginDTO dto);
 	/* 회원정보 삭제 메소드 */

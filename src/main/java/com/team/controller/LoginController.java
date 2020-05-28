@@ -4,8 +4,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.ui.Model;
+
+import org.springframework.web.bind.annotation.PathVariable;
+
 import org.springframework.web.servlet.ModelAndView;
 
+
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.team.dto.LoginDTO;
 
 public interface LoginController {
@@ -23,8 +28,12 @@ public interface LoginController {
 	public String membership();
 
 //	dao연결 메소드
+		
 	/* login Check 메소드 (dao연결) */
 	public String loginChk(LoginDTO dto, HttpServletRequest request);
+	
+	/* 회원가입 아이디 중복 확인 메소드 */
+	public int idCheck(@PathVariable("idcheck") String id) throws JsonProcessingException;
 
 	/* 회원정보 DB저장 메소드 */
 	public String saveMember(LoginDTO dto);

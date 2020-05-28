@@ -10,6 +10,9 @@ public interface LoginService {
 //	dao연결 메소드
 	/* login Check 메소드 (dao연결) */
 	public boolean loginChk(LoginDTO dto);
+	
+	/* 회원가입 아이디 중복 체크 */
+	public boolean idcheck(String userId);
 
 	/* 회원정보 DB저장 메소드 */
 	public int saveMember(LoginDTO dto);

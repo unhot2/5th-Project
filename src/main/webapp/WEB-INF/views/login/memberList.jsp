@@ -1,12 +1,20 @@
+<!DOCTYPE html>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>Insert title here</title>
+</head>
 <jsp:include page="../include/header.jsp" />
 <section class="memberListSection">
 	<div align="center">
 		<h1>회 원 목 록(관리자)</h1>
 		<table border="1">
+
 			<tr>
 				<th>아이디</th>
 				<th>비밀번호</th>

@@ -37,6 +37,10 @@
 	<select id="getMaster" resultType="String">
 		select master from login where userId=#{id}
 	</select>
+	
+	<select id="idCheck" resultType="String">
+		select userId from login where userId=#{userId}
+	</select>
 
 	<!-- notice 부분 -->
 	<select id="noticeListAll" resultType="noticeDTO">

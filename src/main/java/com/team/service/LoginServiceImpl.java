@@ -32,6 +32,14 @@ public class LoginServiceImpl implements LoginService {
 		}
 		return chk;
 	}
+	
+	public boolean idcheck(String userId) {
+		boolean chk = false;
+		if (userId.equals(dao.idCheck(userId))) {
+			chk = true;
+		}
+		return chk;  
+	}
 
 	public int saveMember(LoginDTO dto) {
 		return dao.saveMember(dto);

@@ -6,13 +6,10 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="resources/css/main.css" />
-<link rel="stylesheet" href="resources/js/main.js" />
 <title>5TH POJECT</title>
-<style>
-	.memberListSection{margin: 50px 500px;}
-	.memberInfoSection{margin: 50px 600px;}
-	.loginSection{margin: 50px 600px;}
-</style>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/main.js"></script>
+<script src="${pageContext.request.contextPath}resources/js/jquery-3.4.1.min.js"></script>
+<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 </head>
 <body>
 	<!-- 아래로 헤더부분 작성 -->
@@ -34,7 +31,7 @@
 						<c:when test="${userType eq 'kakao'}">
 							<span class="menu"><a href="kakaoLogout" class="menu">로그아웃</a></span>
 						</c:when>
-							<c:when test="${userType eq 'nickname'}">
+						<c:when test="${userType eq 'nickname'}">
 							<span class="menu"><a href="naverLogout" class="menu">로그아웃</a></span>
 						</c:when>
 					</c:choose>

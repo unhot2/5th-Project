@@ -19,6 +19,10 @@ public class LoginDAOImpl implements LoginDAO {
 	public List<LoginDTO> loginChk() {
 		return sqlSession.selectList("sql.listAll");
 	}
+	
+	public String idCheck(String userId) {
+		return sqlSession.selectOne("sql.idCheck",userId);
+	}
 
 	public int saveMember(LoginDTO dto) {
 		return sqlSession.insert("sql.saveMember", dto);
@@ -47,5 +51,4 @@ public class LoginDAOImpl implements LoginDAO {
 	public List<LoginDTO> naverIdCheck() {
 		return sqlSession.selectList("sql.listAll");
 	}
-
 }

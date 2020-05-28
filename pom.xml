@@ -151,13 +151,20 @@
 			<artifactId>jquery</artifactId>
 			<version>3.2.1</version>
 		</dependency>
-		<!-- 잭슨 -->
+
+		<!-- json -->
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
-			<version>2.9.5</version>
+			<version>2.9.6</version>
 		</dependency>
-
+		<dependency>
+			<groupId>net.sf.json-lib</groupId>
+			<artifactId>json-lib</artifactId>
+			<version>2.4</version>
+			<classifier>jdk15</classifier>
+		</dependency>
+				
 		<!-- httpcore(카카오) -->
 		<dependency>
 			<groupId>org.apache.httpcomponents</groupId>
@@ -200,6 +207,7 @@
             <artifactId>spring-social-facebook</artifactId>
             <version>2.0.3.RELEASE</version>
         </dependency>
+
 	</dependencies>
 	<build>
 		<plugins>

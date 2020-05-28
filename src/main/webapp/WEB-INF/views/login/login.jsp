@@ -5,10 +5,6 @@
 <script type="text/javascript"
 	src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
-<script src="https://apis.google.com/js/platform.js" async defer></script>
-
-<!DOCTYPE html>
-
 <jsp:include page="../include/header.jsp" />
 <section class="loginSection">
 	<c:choose>
@@ -47,3 +43,4 @@
 	</c:choose>
 </section>
 <jsp:include page="../include/footer.jsp" />
+
