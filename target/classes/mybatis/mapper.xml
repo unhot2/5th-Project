@@ -141,4 +141,8 @@
 	<select id="qnaReplyList" resultType="replyDTO">
 		select * from qnareply where idgroup = #{idgroup}
 	</select>
+	<!-- cloth부분 -->
+	<select resultType="ClothDTO" id="clothListAll">
+		select * from cloth 
+	</select>
 </mapper>

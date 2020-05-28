@@ -16,5 +16,6 @@
 			<typeAlias alias="qnaDTO" type="com.team.dto.QnaDTO"/>
 			<typeAlias alias="replyDTO" type="com.team.dto.ReplyDTO"/>
 			<typeAlias alias="NoticereplyDTO" type="com.team.dto.NoticeReplyDTO"/>
+			<typeAlias alias="ClothDTO" type="com.team.dto.ClothDTO"/>
 		</typeAliases>
 	</configuration>
