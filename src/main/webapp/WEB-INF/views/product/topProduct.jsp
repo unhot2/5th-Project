@@ -1,13 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
-<link rel="stylesheet" href="resources/css/cloth.css" />
 <jsp:include page="../include/header.jsp" />
-<section class="loginSection">
-	<div id="columns" align="center">
+
 	
+	<div id="columns" align="center">
+	<c:forEach items="${toplist}" var="dto">
+		<figure>
+			<img src="${dto.imgpath}">
+			<figcaption>
+				${dto.title }
+				${dto.price }
+			</figcaption>
+		</figure>
+	</c:forEach>
 	</div>
-</section>
-<jsp:include page="../include/footer.jsp" />
+	
+
+<jsp:include page="../include/footer.jsp"/>

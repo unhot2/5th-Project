@@ -15,8 +15,8 @@ public class ProductServiceImpl implements ProductService{
 	ProductDAO dao;
 	
 	@Override
-	public List<ProductDTO> productlist(Model model) {
-		return dao.productlist(model);
+	public List<ProductDTO> productlist() {
+		return dao.productlist();
 	}
 
 	@Override
