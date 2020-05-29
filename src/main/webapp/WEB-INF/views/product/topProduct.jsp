@@ -7,44 +7,7 @@
 <jsp:include page="../include/header.jsp" />
 <section class="loginSection">
 	<div id="columns" align="center">
-
-		
-			<figure>
-				<img src="resources/top/yyj_1.jpg">
-				<figcaption>의상</figcaption>
-				<figcaption>15000원</figcaption>
-			</figure>
-			<figure>
-				<img src="resources/top/yyj_1.jpg">
-				<figcaption>의상</figcaption>
-				<figcaption>15000원</figcaption>
-			</figure>
-			<figure>
-				<img src="resources/top/yyj_1.jpg">
-				<figcaption>의상</figcaption>
-				<figcaption>15000원</figcaption>
-			</figure>
-			<figure>
-				<img src="resources/top/yyj_1.jpg">
-				<figcaption>의상</figcaption>
-				<figcaption>15000원</figcaption>
-			</figure>
-			<figure>
-				<img src="resources/top/yyj_1.jpg">
-				<figcaption>의상</figcaption>
-				<figcaption>15000원</figcaption>
-			</figure>
-			<figure>
-				<img src="resources/top/yyj_1.jpg">
-				<figcaption>의상</figcaption>
-				<figcaption>15000원</figcaption>
-			</figure>
-			<figure>
-				<img src="resources/top/yyj_1.jpg">
-				<figcaption>의상</figcaption>
-				<figcaption>15000원</figcaption>
-			</figure>
-		
+	
 	</div>
 </section>
 <jsp:include page="../include/footer.jsp" />

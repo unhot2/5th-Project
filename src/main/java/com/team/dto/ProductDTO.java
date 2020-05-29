@@ -5,6 +5,7 @@ public class ProductDTO {
 	private String category;
 	private int price;
 	private String subcategory;
+	private String imppath;
 	
 	public String getTitle() {
 		return title;
@@ -14,6 +15,12 @@ public class ProductDTO {
 	}
 	public String getCategory() {
 		return category;
+	}
+	public String getImppath() {
+		return imppath;
+	}
+	public void setImppath(String imppath) {
+		this.imppath = imppath;
 	}
 	public void setCategory(String category) {
 		this.category = category;
