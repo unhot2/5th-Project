@@ -7,16 +7,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 
-import com.team.dto.ClothDTO;
+import com.team.dto.ProductDTO;
 
 @Controller
-public class ClothDAOImpl implements ClothDAO{
+public class ProductDAOImpl implements ProductDAO{
 	@Autowired
 	SqlSession sqlSession;
 
 	@Override
-	public List<ClothDTO> clothlist(Model model) {
-		return sqlSession.selectList("sql.clothListAll");
+	public List<ProductDTO> productlist(Model model) {
+		return sqlSession.selectList("sql.productListAll");
 	}
 
 	@Override

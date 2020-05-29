@@ -1,0 +1,15 @@
+@charset "UTF-8";
+
+#columns{
+	column-count:4;
+	border: 3px solid green;
+	column-gap:15; 
+}
+#columns figure{
+	display: inline-block;
+	border: 5px solid red;
+	margin: 0px;
+}
+#columns img{
+	width: 200px;
+}

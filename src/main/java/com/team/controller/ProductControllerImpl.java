@@ -7,20 +7,20 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.team.dto.ClothDTO;
-import com.team.service.ClothService;
+import com.team.dto.ProductDTO;
+import com.team.service.ProductService;
 
 @Controller
-public class ClothControllerImpl implements ClothController{
+public class ProductControllerImpl implements ProductController{
 	@Autowired
-	ClothService service;
+	ProductService service;
 	
-	@RequestMapping("topCloth")
-	public String clothlist(Model model) {
-		List<ClothDTO> list = service.clothlist(model);
+	@RequestMapping("topProduct")
+	public String productlist(Model model) {
+		List<ProductDTO> list = service.productlist(model);
 	
-		model.addAttribute("clothlist", list);
-		return "cloth/topCloth";
+		model.addAttribute("toplist", list);
+		return "product/topProduct";
 	}
 
 	@Override

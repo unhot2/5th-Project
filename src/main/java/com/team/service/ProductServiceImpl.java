@@ -6,17 +6,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
-import com.team.dao.ClothDAO;
-import com.team.dto.ClothDTO;
+import com.team.dao.ProductDAO;
+import com.team.dto.ProductDTO;
 
 @Service
-public class ClothServiceImpl implements ClothService{
+public class ProductServiceImpl implements ProductService{
 	@Autowired
-	ClothDAO dao;
+	ProductDAO dao;
 	
 	@Override
-	public List<ClothDTO> clothlist(Model model) {
-		return dao.clothlist(model);
+	public List<ProductDTO> productlist(Model model) {
+		return dao.productlist(model);
 	}
 
 	@Override
