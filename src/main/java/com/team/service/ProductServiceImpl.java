@@ -15,14 +15,35 @@ public class ProductServiceImpl implements ProductService{
 	ProductDAO dao;
 	
 	@Override
-	public List<ProductDTO> productlist() {
-		return dao.productlist();
+	public List<ProductDTO> productlistAll() {
+		return dao.productlistAll();
+	}
+	@Override
+	public List<ProductDTO> topProductlist() {
+		return dao.topProductlist();
+	}
+	@Override
+	public List<ProductDTO> outerProductlist() {
+		return dao.outerProductlist();
 	}
 
+	@Override
+	public List<ProductDTO> pantProductlist() {
+		return dao.pantProductlist();
+	}
+
+	@Override
+	public List<ProductDTO> accProductlist() {
+		return dao.accProductlist();
+	}
+	
 	@Override
 	public void clothInfoInput() {
 		dao.clothInfoInput();
 		
 	}
+
+
+
 	
 }

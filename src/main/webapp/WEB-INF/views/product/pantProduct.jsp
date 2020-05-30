@@ -4,9 +4,9 @@
 <!DOCTYPE html>
 <jsp:include page="../include/header.jsp" />
 <jsp:include page="../include/productmenu.jsp" />
-<section class="topProductSection">
+<section class="pantProductSection">
 	<div id="columns" align="center">
-		<c:forEach items="${toplist}" var="dto">
+		<c:forEach items="${pantlist}" var="dto">
 			<figure>
 				<a href="productInformation"><img src="${dto.imgpath}"></a>
 				<figcaption>${dto.title }${dto.price }</figcaption>

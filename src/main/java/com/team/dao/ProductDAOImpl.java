@@ -13,21 +13,30 @@ public class ProductDAOImpl implements ProductDAO{
 	SqlSession sqlSession;
 
 	@Override
-	public List<ProductDTO> productlist() {
-		
-		List<ProductDTO> list = sqlSession.selectList("sql.productListAll");
-		System.out.println(list);
-		return list;
-		
+	public List<ProductDTO> productlistAll() {
+		return sqlSession.selectList("sql.productListAll");
+	}
+	
+	@Override
+	public List<ProductDTO> topProductlist() {
+		return sqlSession.selectList("sql.producTopList");
+	}
+	@Override
+	public List<ProductDTO> outerProductlist() {
+		return sqlSession.selectList("sql.productOuterList");
 	}
 
+	@Override
+	public List<ProductDTO> pantProductlist() {
+		return sqlSession.selectList("sql.productPantList");
+	}
+
+	@Override
+	public List<ProductDTO> accProductlist() {
+		return sqlSession.selectList("sql.productAccList");
+	}
 	@Override
 	public void clothInfoInput() {
 		
 	}
-	
-	
-	
-	
-	
 }

@@ -144,7 +144,6 @@
 										onclick="location.href='deleteMember?userId=${memberInfo.userId}'">삭제</button></td>
 							</tr>
 						</table>
-
 					</c:otherwise>
 				</c:choose>
 			</c:otherwise>

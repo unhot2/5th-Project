@@ -16,12 +16,6 @@ public class ProductDTO {
 	public String getCategory() {
 		return category;
 	}
-	public String getImppath() {
-		return imgpath;
-	}
-	public void setImppath(String imgpath) {
-		this.imgpath = imgpath;
-	}
 	public void setCategory(String category) {
 		this.category = category;
 	}
@@ -36,6 +30,12 @@ public class ProductDTO {
 	}
 	public void setSubcategory(String subcategory) {
 		this.subcategory = subcategory;
+	}
+	public String getImgpath() {
+		return imgpath;
+	}
+	public void setImgpath(String imgpath) {
+		this.imgpath = imgpath;
 	}
 
 	
