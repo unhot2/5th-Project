@@ -162,4 +162,8 @@
 	<select id="productAccList" resultType="ProductDTO">
 		select * from product where category='악세서리'
 	</select>
+	<select id="productInformation" resultType="ProductDTO">
+		select * from product where
+		title=#{title}
+	</select>
 </mapper>

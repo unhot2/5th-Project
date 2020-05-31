@@ -1,6 +1,9 @@
 package com.team.service;
 
 import java.util.List;
+
+import org.springframework.ui.Model;
+
 import com.team.dto.ProductDTO;
 
 public interface ProductService {
@@ -12,7 +15,7 @@ public interface ProductService {
 	public List<ProductDTO> accProductlist();
 	
 	/* cloth 정보 가져오기 */
-	public void clothInfoInput();
+	public ProductDTO clothInfoInput(ProductDTO dto);
 
 	
 

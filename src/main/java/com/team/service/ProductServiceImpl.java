@@ -38,8 +38,8 @@ public class ProductServiceImpl implements ProductService{
 	}
 	
 	@Override
-	public void clothInfoInput() {
-		dao.clothInfoInput();
+	public ProductDTO clothInfoInput(ProductDTO dto) {
+		return dao.clothInfoInput(dto);
 		
 	}
 

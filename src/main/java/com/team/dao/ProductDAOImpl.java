@@ -5,6 +5,8 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+
 import com.team.dto.ProductDTO;
 
 @Controller
@@ -36,7 +38,7 @@ public class ProductDAOImpl implements ProductDAO{
 		return sqlSession.selectList("sql.productAccList");
 	}
 	@Override
-	public void clothInfoInput() {
-		
+	public ProductDTO clothInfoInput(ProductDTO dto) {
+		return sqlSession.selectOne("sql.productInformation", dto);
 	}
 }

@@ -1,9 +1,6 @@
 package com.team.dao;
 
 import java.util.List;
-
-import org.springframework.ui.Model;
-
 import com.team.dto.ProductDTO;
 
 public interface ProductDAO {
@@ -14,6 +11,6 @@ public interface ProductDAO {
 	public List<ProductDTO> pantProductlist();
 	public List<ProductDTO> accProductlist();
 	/* cloth 정보 가져오기 */
-	public void clothInfoInput();
+	public ProductDTO clothInfoInput(ProductDTO dto);
 
 }

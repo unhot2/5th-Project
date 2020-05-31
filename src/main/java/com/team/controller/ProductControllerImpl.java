@@ -50,8 +50,9 @@ public class ProductControllerImpl implements ProductController{
 	
 	
 	@RequestMapping("productInformation")
-	public String clothInfoInput() {
-		service.clothInfoInput();
+	public String clothInfoInput(Model model,ProductDTO dto) {
+		ProductDTO productdto = service.clothInfoInput(dto);
+		model.addAttribute("productInfo",productdto);	
 		return "product/productInformation";
 	}
 	

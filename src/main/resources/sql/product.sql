@@ -10,11 +10,11 @@ insert into product values('하얀티셔츠', 32000, '상의','티셔츠','resou
 insert into product values('검은티셔츠', 34000, '상의','티셔츠','resources/img/top/ts/ts3.gif');
 insert into product values('초록티셔츠', 30000, '상의','티셔츠','resources/img/top/ts/ts4.gif');
 insert into product values('블라우스', 50000, '상의','블라우스','resources/img/top/blouse/bs1.gif');
-insert into product values('하얀면바지', 58000, '바지','면바지','resources/img/pant/cotton/cott1.gif');
-insert into product values('분홍면바지', 58000, '바지','면바지','resources/img/pant/cotton/cott2.gif');
-insert into product values('검은면바지', 58000, '바지','면바지','resources/img/pant/cotton/cott3.gif');
-insert into product values('연한청바지', 58000, '바지','청바지','resources/img/pant/jean/jean1.gif');
-insert into product values('진한청바지', 48000, '바지','청바지','resources/img/pant/jean/jean2.gif');
+insert into product values('하얀면바지', 58000, '하의','면바지','resources/img/pant/cotton/cott1.gif');
+insert into product values('분홍면바지', 58000, '하의','면바지','resources/img/pant/cotton/cott2.gif');
+insert into product values('검은면바지', 58000, '하의','면바지','resources/img/pant/cotton/cott3.gif');
+insert into product values('연한청바지', 58000, '하의','청바지','resources/img/pant/jean/jean1.gif');
+insert into product values('진한청바지', 48000, '하의','청바지','resources/img/pant/jean/jean2.gif');
 insert into product values('연청코트', 126000, '아우터','코트','resources/img/outer/coat/coat1.gif');
 insert into product values('갈색코트', 126000, '아우터','코트','resources/img/outer/coat/coat2.gif');
 insert into product values('베이지색코트', 126000, '아우터','코트','resources/img/outer/coat/coat3.gif');
