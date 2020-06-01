@@ -42,6 +42,10 @@ public class ProductServiceImpl implements ProductService{
 		return dao.clothInfoInput(dto);
 		
 	}
+	@Override
+	public ProductDTO cart(ProductDTO dto) {
+		return dao.cart(dto);
+	}
 
 
 

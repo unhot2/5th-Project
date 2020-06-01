@@ -55,6 +55,7 @@ public class ProductControllerImpl implements ProductController{
 		model.addAttribute("productInfo",productdto);	
 		return "product/productInformation";
 	}
-	
-	
+
+
+
 }

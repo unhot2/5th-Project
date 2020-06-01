@@ -16,13 +16,13 @@
 						</tr>
 						<tr>
 							<td>상품가격</td>
-							<td><input type="text" value="${productInfo.price }" name="price" patten="###,###,###"></td>
+							<td><input type="text" value="${productInfo.price }" name="price"></td>
 						</tr>
 						<tr>
 							<td colspan="2" align="center">
-								<form action="#">
-									<input type="hidden" name="title" value="${productInfo.title }">
-									<select name="amount">
+								<form action="cart">
+									<input type="hidden" name="product_id" value="${productInfo.product_id }">
+									<select name="amount"> 
 										<c:forEach begin="1" end="99" var="i">
 											<option value="${i }">${i }</option>
 										</c:forEach>

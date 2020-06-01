@@ -12,5 +12,6 @@ public interface ProductDAO {
 	public List<ProductDTO> accProductlist();
 	/* cloth 정보 가져오기 */
 	public ProductDTO clothInfoInput(ProductDTO dto);
-
+	/* product 장바구니 */
+	public ProductDTO cart(ProductDTO dto);
 }

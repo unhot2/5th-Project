@@ -166,4 +166,10 @@
 		select * from product where
 		product_id=#{product_id}
 	</select>
+	<!-- cart 부분 -->
+	<select id="cartList" resultType="CartDTO">
+     <!--    insert into cart (cart_id, userid, product_id, amount)values (seq_cart.nextval, #{userid}, #{product_id}, #{amount} ) -->
+     select * from cart
+    </select>
+		
 </mapper>

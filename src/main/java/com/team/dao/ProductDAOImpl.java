@@ -41,4 +41,13 @@ public class ProductDAOImpl implements ProductDAO{
 	public ProductDTO clothInfoInput(ProductDTO dto) {
 		return sqlSession.selectOne("sql.productInformation", dto);
 	}
+
+	@Override
+	public ProductDTO cart(ProductDTO dto) {
+		System.out.println(dto.getTitle());
+		return sqlSession.selectOne("sql.shoppingBasket",dto);
+	}
+	
+	
+	
 }

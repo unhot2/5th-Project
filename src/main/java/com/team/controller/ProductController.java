@@ -1,7 +1,6 @@
 package com.team.controller;
 
 import org.springframework.ui.Model;
-
 import com.team.dto.ProductDTO;
 
 
@@ -15,5 +14,6 @@ public interface ProductController {
 	
 	/* product 정보 가져오기 */
 	public String clothInfoInput(Model model,ProductDTO dto);
+	
 	
 }
