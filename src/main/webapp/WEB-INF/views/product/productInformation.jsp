@@ -7,18 +7,32 @@
 	<div align="center">
 		<table border="1">
 			<tr>
+				<td><img src=${productInfo.imgpath }></td>
 				<td>
-					<img src=${productInfo.imgpath }>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<input type="text" value="${productInfo.title }" name="title">
-				</td>
-			</tr>
-			<tr>	
-				<td>
-					<input type="text" value="${productInfo.price }" name="price">
+					<table border="1">
+						<tr>
+							<td>상품명</td>
+							<td><input type="text" value="${productInfo.title }" name="title"></td>
+						</tr>
+						<tr>
+							<td>상품가격</td>
+							<td><input type="text" value="${productInfo.price }" name="price" patten="###,###,###"></td>
+						</tr>
+						<tr>
+							<td colspan="2" align="center">
+								<form action="#">
+									<input type="hidden" name="title" value="${productInfo.title }">
+									<select name="amount">
+										<c:forEach begin="1" end="99" var="i">
+											<option value="${i }">${i }</option>
+										</c:forEach>
+									</select>&nbsp;개
+									<input type="submit" value="장바구니">
+								</form>
+									<a href="productAll">상품 목록</a>
+							</td>
+						</tr>
+					</table>
 				</td>
 			</tr>
 		</table>
