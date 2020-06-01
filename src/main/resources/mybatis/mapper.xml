@@ -164,6 +164,6 @@
 	</select>
 	<select id="productInformation" resultType="ProductDTO">
 		select * from product where
-		title=#{title}
+		product_id=#{product_id}
 	</select>
 </mapper>
