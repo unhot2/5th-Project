@@ -20,10 +20,6 @@ public class CartControllerImpl implements CartController {
 	@RequestMapping("insertCart")
 	public String insertCart(Model model, CartDTO dto, HttpSession session) {
 		dto.setUserId((String) session.getAttribute("userId"));
-		System.out.println("id값 :"+dto.getUserId());
-		System.out.println("title값 :"+dto.getTitle());
-		System.out.println("product_id값 :"+dto.getProduct_id());
-		System.out.println("price값 :"+dto.getPrice());
 		service.insertCart(dto);
 		model.addAttribute("product_id", dto.getProduct_id());
 		return "redirect:productInformation";
@@ -54,5 +50,4 @@ public class CartControllerImpl implements CartController {
 		model.addAttribute("totalMoney", tatalMoney);
 		return "product/cartList";
 	}
-
 }
