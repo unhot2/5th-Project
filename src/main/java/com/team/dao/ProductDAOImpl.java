@@ -20,23 +20,10 @@ public class ProductDAOImpl implements ProductDAO{
 	}
 	
 	@Override
-	public List<ProductDTO> topProductlist() {
-		return sqlSession.selectList("sql.producTopList");
+	public List<ProductDTO> productList(String category) {
+		return sqlSession.selectList("sql.productList",category);
 	}
-	@Override
-	public List<ProductDTO> outerProductlist() {
-		return sqlSession.selectList("sql.productOuterList");
-	}
-
-	@Override
-	public List<ProductDTO> pantProductlist() {
-		return sqlSession.selectList("sql.productPantList");
-	}
-
-	@Override
-	public List<ProductDTO> accProductlist() {
-		return sqlSession.selectList("sql.productAccList");
-	}
+	
 	@Override
 	public ProductDTO clothInfoInput(ProductDTO dto) {
 		return sqlSession.selectOne("sql.productInformation", dto);
@@ -47,6 +34,7 @@ public class ProductDAOImpl implements ProductDAO{
 		System.out.println(dto.getTitle());
 		return sqlSession.selectOne("sql.shoppingBasket",dto);
 	}
+
 	
 	
 	

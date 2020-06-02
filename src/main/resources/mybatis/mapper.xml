@@ -173,22 +173,12 @@
 	<select id="productListAll" resultType="ProductDTO">
 		select * from product
 	</select>
-	<!-- 상의 불러오기 -->
-	<select id="producTopList" resultType="ProductDTO">
-		select * from product where category='상의'
+	
+	<select id="productList" resultType="ProductDTO">
+		select * from product where category=#{category}
 	</select>
-	<!-- 하의 불러오기 -->
-	<select id="productPantList" resultType="ProductDTO">
-		select * from product where category='하의'
-	</select>
-	<!-- 아우터 불러오기 -->
-	<select id="productOuterList" resultType="ProductDTO">
-		select * from product where category='아우터'
-	</select>
-	<!-- 악세서리 불러오기 --> 
-	<select id="productAccList" resultType="ProductDTO">
-		select * from product where category='악세서리'
-	</select>
+	
+	
 	<select id="productInformation" resultType="ProductDTO">
 		select * from product where
 		product_id=#{product_id}

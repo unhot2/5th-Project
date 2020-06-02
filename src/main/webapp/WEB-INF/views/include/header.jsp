@@ -59,10 +59,10 @@
 					<button class="dropbtn menu" onclick="location.href='#'">상품</button>
 					<span class="dropdown-content">
 							<a href="productAll">전체</a>
-							<a href="topProduct">상의</a>
-							<a href="pantProduct">하의</a>
-							<a href="outerProduct">아우터</a>
-							<a href="accProduct">악세서리</a>
+							<a href="productList?category=상의">상의</a>
+							<a href="productList?category=하의">하의</a>
+							<a href="productList?category=아우터">아우터</a>
+							<a href="productList?category=악세서리">악세서리</a>
 					</span>
 				</div> 
 			<span><a href="#" class="menu">세일</a></span><span class="img">

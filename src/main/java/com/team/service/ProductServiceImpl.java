@@ -18,23 +18,10 @@ public class ProductServiceImpl implements ProductService{
 	public List<ProductDTO> productlistAll() {
 		return dao.productlistAll();
 	}
+	
 	@Override
-	public List<ProductDTO> topProductlist() {
-		return dao.topProductlist();
-	}
-	@Override
-	public List<ProductDTO> outerProductlist() {
-		return dao.outerProductlist();
-	}
-
-	@Override
-	public List<ProductDTO> pantProductlist() {
-		return dao.pantProductlist();
-	}
-
-	@Override
-	public List<ProductDTO> accProductlist() {
-		return dao.accProductlist();
+	public List<ProductDTO> topProductlist(String category) {
+		return dao.productList(category);
 	}
 	
 	@Override
@@ -46,6 +33,8 @@ public class ProductServiceImpl implements ProductService{
 	public ProductDTO cart(ProductDTO dto) {
 		return dao.cart(dto);
 	}
+
+
 
 
 

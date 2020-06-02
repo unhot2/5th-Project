@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.team.dto.ProductDTO;
 import com.team.service.ProductService;
@@ -27,26 +27,13 @@ public class ProductControllerImpl implements ProductController{
 	}
 
 	/* 구분 */
-	@RequestMapping("topProduct")
-	public String topProductlist(Model model) {
-		model.addAttribute("toplist",(ArrayList<ProductDTO>)service.topProductlist());
-		return "product/topProduct";
+	@RequestMapping("productList")
+	public String productList(@RequestParam("category") String category, Model model) {
+		System.out.println(category);
+		model.addAttribute("productList",(ArrayList<ProductDTO>)service.topProductlist(category));
+		return "product/productList";
 	}
-	@RequestMapping("outerProduct")
-	public String outerProductlist(Model model) {
-		model.addAttribute("outerlist",(ArrayList<ProductDTO>)service.outerProductlist());
-		return "product/outerProduct";
-	}
-	@RequestMapping("pantProduct")
-	public String pantProductlist(Model model) {
-		model.addAttribute("pantlist",(ArrayList<ProductDTO>)service.pantProductlist());
-		return "product/pantProduct";
-	}
-	@RequestMapping("accProduct")
-	public String accProductlist(Model model) {
-		model.addAttribute("acclist",(ArrayList<ProductDTO>)service.accProductlist());
-		return "product/accProduct";
-	}
+	
 	
 	
 	@RequestMapping("productInformation")
