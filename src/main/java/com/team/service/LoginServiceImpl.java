@@ -1,5 +1,6 @@
 package com.team.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -88,4 +89,21 @@ public class LoginServiceImpl implements LoginService {
 		}
 		return chk;
 	}
+
+	public LoginDTO find(String id) {
+		return dao.find(id);
+	}
+
+	public boolean chkAnwser(String anwser, String id) {
+		boolean chk = false;
+		if (dao.chkAnwser(id).equals(anwser)) {
+			chk = true;
+		}
+		return chk;
+	}
+
+	public void alterPwd(LoginDTO dto) {
+		dao.alterPwd(dto);
+	}
+
 }

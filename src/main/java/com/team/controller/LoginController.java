@@ -6,7 +6,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.ui.Model;
 
 import org.springframework.web.bind.annotation.PathVariable;
-
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 
@@ -26,6 +26,15 @@ public interface LoginController {
 
 	/* 회원가입 창 연결 메소드 */
 	public String membership();
+	
+	/* 비밀번호 찾기 창 연결 메소드 */
+	public String userFind();
+	
+	
+	
+	
+	
+	
 
 //	dao연결 메소드
 		
@@ -61,4 +70,16 @@ public interface LoginController {
 	
 	/* API 통한 회원가입 메소드 */
 	public String apiSaveMember(LoginDTO dto,HttpSession session);
+
+	/* 비밀번호 찾기 질문 가져오기 메소드 */
+	public String find(@RequestParam("id") String id,Model model);
+
+	/* 비밀번호 찾기 답변 확인 메소드 */
+	public String chkAnswer(@RequestParam("anwser") String anwser, @RequestParam("id") String id,Model model);
+	
+	/* 비밀번호 변경 메소드 */
+	public String alterPwd(LoginDTO dto);
+
 }
+
+
