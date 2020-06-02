@@ -50,6 +50,21 @@
 					<td><input type="email" name="userEmail"></td>
 				</tr>
 				<tr>
+				<th>개인정보용 질문</th>
+				<td>
+					<select size="1" name="userQuestion">
+						<option value="q1" selected>나의 보물 1호는?
+						<option value="q2">나의 고향은?
+						<option value="q3">가장 소중한 것은?
+						<option value="q4">나의 초등학교 이름은?
+						<option value="q5">가장 친한 친구의 이름은?
+						<option value="q6">나의 첫사랑의 이름은?
+						<option value="q7">어머니의 생일은?
+					</select><br>
+					<input type="text" name="userAwnser">
+					</td>	
+				</tr>
+				<tr>
 					<td><input id="submit" type="submit" value="회원가입"
 						disabled="disabled"></td>
 				</tr>

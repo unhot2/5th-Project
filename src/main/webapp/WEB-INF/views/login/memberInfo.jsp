@@ -51,8 +51,9 @@
 						</tr>
 						<tr>
 							<th>생년월일</th>
-							<td><input type="date" value="${memberInfo.userBirth }"
-								name="userBirth"></td>
+							<td><input type="date" value="${userBirth }"
+								name="userBirth"> <%-- <fmt:formatDate value="${memberInfo.userBirth }"
+							pattern="yyyy.MM.dd" /> --%></td>
 						</tr>
 						<tr>
 							<th>이메일</th>
@@ -62,7 +63,7 @@
 						<tr>
 							<td><input type="submit" value="수정"></td>
 							<td><button type="button"
-									onclick="location.href='deleteMember?userId=${memberInfo.userId}'">삭제</button></td>
+									onclick="location.href='deleteMember?userId=${memberInfo.userId}'">회원탈퇴</button></td>
 						</tr>
 					</table>
 				</form>
@@ -90,8 +91,7 @@
 							</tr>
 							<tr>
 								<th>생년월일</th>
-								<td><fmt:formatDate value="${memberInfo.userBirth }"
-										pattern="yyyy.MM.dd" /></td>
+								<td>${userBirth }</td>
 							</tr>
 							<tr>
 								<th>이메일</th>
@@ -101,7 +101,7 @@
 								<td><button type="button"
 										onclick="location.href='updateUserMember?userId=${memberInfo.userId}'">수정</button></td>
 								<td><button type="button"
-										onclick="location.href='deleteMember?userId=${memberInfo.userId}'">삭제</button></td>
+										onclick="location.href='deleteMember?userId=${memberInfo.userId}'">회원탈퇴</button></td>
 							</tr>
 						</table>
 					</c:when>
@@ -130,8 +130,7 @@
 							</tr>
 							<tr>
 								<th>생년월일</th>
-								<td><fmt:formatDate value="${memberInfo.userBirth }"
-										pattern="yyyy.MM.dd" /></td>
+								<td>${userBirth }</td>
 							</tr>
 							<tr>
 								<th>이메일</th>
@@ -141,7 +140,7 @@
 								<td><button type="button"
 										onclick="location.href='updateUserMember?userId=${memberInfo.userId}'">수정</button></td>
 								<td><button type="button"
-										onclick="location.href='deleteMember?userId=${memberInfo.userId}'">삭제</button></td>
+										onclick="location.href='deleteMember?userId=${memberInfo.userId}'">회원탈퇴</button></td>
 							</tr>
 						</table>
 

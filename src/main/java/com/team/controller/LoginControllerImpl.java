@@ -118,14 +118,6 @@ public class LoginControllerImpl implements LoginController {
 
 	@RequestMapping("saveMember")
 	public String saveMember(LoginDTO dto) {
-		System.out.println("id:"+dto.getUserId());
-		System.out.println("pwd:"+dto.getUserPwd());
-		System.out.println("name:"+dto.getUserName());
-		System.out.println("postcode:"+dto.getUserPostCode());
-		System.out.println("addr:"+dto.getUserAddr());
-		System.out.println("gender:"+dto.getUserGender());
-		System.out.println("birth:"+dto.getUserBirth());
-		System.out.println("email:"+dto.getUserEmail());
 		service.saveMember(dto);
 		return "redirect:login";
 	}
@@ -152,7 +144,12 @@ public class LoginControllerImpl implements LoginController {
 	
 	@RequestMapping("updateUserMember")
 	public String updateUserMember(LoginDTO dto,Model model) {
-		model.addAttribute("memberInfo",service.memberInfo(dto));
+		LoginDTO login = service.memberInfo(dto);
+		Date Mbirth = login.getUserBirth();
+		DateFormat dateFormat = new SimpleDateFormat ("yyyy-MM-dd");
+		String birth = dateFormat.format(Mbirth);
+		model.addAttribute("userBirth",birth);
+		model.addAttribute("memberInfo",login);
 		return "login/updateUserMember";
 	}
 	
@@ -171,4 +168,38 @@ public class LoginControllerImpl implements LoginController {
 	public boolean naverIdCheck(String id) {
 		return service.naverIdCheck(id);
 	}
+	
+	@RequestMapping("userFind")
+	public String userFind() {
+		return "login/userFind";
+	}
+	
+	@RequestMapping("find")
+	public String find(@RequestParam("id") String id,Model model) {
+		LoginDTO dto = service.find(id);
+		model.addAttribute("dto",dto);
+		model.addAttribute("id",id);
+		return "login/find";
+	}
+	
+	@RequestMapping("answerChk")
+	public String chkAnswer(@RequestParam("anwser") String anwser, @RequestParam("id") String id,Model model)  {
+		System.out.println("id값 :"+id);
+		System.out.println("anwser값 :"+anwser);
+		if (service.chkAnwser(anwser,id)) {
+			model.addAttribute("id",id);
+			return "login/alterPwd";
+		}
+		else {
+			model.addAttribute("id",id);
+			return "redirect:find";
+		}
+	}
+
+	@RequestMapping("alterPwd")
+	public String alterPwd(LoginDTO dto) {
+		service.alterPwd(dto);
+		return "redirect:login";
+	}
+	
 }

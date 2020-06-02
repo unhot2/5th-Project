@@ -30,4 +30,13 @@ public interface LoginDAO {
 	
 	/* API 통한 회원가입 메소드 */
 	public void apiSaveMember(LoginDTO dto);
+	
+	/* 비밀번호 찾기 질문 가져오기 메소드 */
+	public LoginDTO find(String id);
+
+	/* 비밀번호 찾기 답변 확인 메소드 */
+	public String chkAnwser(String id);
+	
+	/* 비밀번호 변경 메소드 */
+	public void alterPwd(LoginDTO dto);
 }
