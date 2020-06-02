@@ -1,0 +1,15 @@
+@charset "UTF-8";
+
+#columns{
+	column-count:3;
+	border: 3px solid green;
+	 
+}
+#columns figure{
+	display: inline-block;
+	border: 5px solid red;
+	margin: 0px;
+}
+#columns figure img{
+	width: 300px;
+}
