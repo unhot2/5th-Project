@@ -1,5 +1,6 @@
 package com.team.service;
 
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,8 +15,13 @@ public class CartServiceImpl implements CartService{
 	CartDAO dao;
 
 	@Override
-	public List<CartDTO> cart(CartDTO dto) {
-		return dao.cart(dto);
+	public int insertCart(CartDTO dto) {
+		return dao.insertCart(dto);
+	}
+
+	@Override
+	public List<CartDTO> cartList(String userId) {
+		return dao.cartList(userId);
 	}
 	
 }

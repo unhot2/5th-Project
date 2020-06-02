@@ -13,9 +13,13 @@ public class CartDAOImpl implements CartDAO{
 	@Autowired
 	SqlSession sqlSession;
 
-	public List<CartDTO> cart(CartDTO dto) {
-		
-		return sqlSession.selectList("sql.cartList", dto);
+	public int insertCart(CartDTO dto) {
+		return sqlSession.insert("sql.insertCart",dto);
+	}
+
+	@Override
+	public List<CartDTO> cartList(String userId) {
+		return sqlSession.selectList("sql.cartList",userId);
 	}
 	
 	

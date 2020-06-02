@@ -69,7 +69,7 @@
 				<!-- 검색창 --> <a href="#"><img src="resources/img/search.png"></a>
 			</span> <span class="img"> <!-- 찜목록? 추가안하려면 삭제 --> <a href="#"><img
 					src="resources/img/JJim.png"></a>
-			</span> <span class="img"> <!-- 장바구니 --> <a href="cart"><img
+			</span> <span class="img"> <!-- 장바구니 --> <a href="cartList"><img
 					src="resources/img/cart.png"></a>
 			</span> <span class="img"> <!-- 내정보 --> <a
 				href="memberInfo?userId=${userId }"><img

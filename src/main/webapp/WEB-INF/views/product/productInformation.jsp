@@ -12,16 +12,18 @@
 					<table border="1">
 						<tr>
 							<td>상품명</td>
-							<td><input type="text" value="${productInfo.title }" name="title"></td>
+							<td>${productInfo.title }</td>
 						</tr>
 						<tr>
 							<td>상품가격</td>
-							<td><input type="text" value="${productInfo.price }" name="price"></td>
+							<td>${productInfo.price }</td>
 						</tr>
 						<tr>
 							<td colspan="2" align="center">
-								<form action="cart">
+								<form action="insertCart">
+									<input type="hidden" name="title" value="${productInfo.title }">
 									<input type="hidden" name="product_id" value="${productInfo.product_id }">
+									<input type="hidden" name="price" value="${productInfo.price }">
 									<select name="amount"> 
 										<c:forEach begin="1" end="99" var="i">
 											<option value="${i }">${i }</option>

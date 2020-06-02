@@ -60,6 +60,7 @@
 		update login set userPwd=#{userPwd} where userId=#{userId}
 	</update>
 
+
 	<!-- notice 부분 -->
 	<select id="noticeListAll" resultType="noticeDTO">
 		select B.* from(select
@@ -183,10 +184,14 @@
 		select * from product where
 		product_id=#{product_id}
 	</select>
+	
 	<!-- cart 부분 -->
 	<select id="cartList" resultType="CartDTO">
-     <!--    insert into cart (cart_id, userid, product_id, amount)values (seq_cart.nextval, #{userid}, #{product_id}, #{amount} ) -->
-     select * from cart
+     select * from cart where userId=#{userId}
     </select>
+    
+    <insert id="insertCart">
+	insert into cart values(#{userId},#{product_id},#{amount},#{price},#{title})
+	</insert>
 		
 </mapper>

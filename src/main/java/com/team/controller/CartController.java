@@ -1,14 +1,14 @@
 package com.team.controller;
 
-import javax.servlet.http.HttpServletRequest;
-
+import javax.servlet.http.HttpSession;
 import org.springframework.ui.Model;
 
 import com.team.dto.CartDTO;
 
 public interface CartController {
-	/* Cart 장바구니 */
-	public String cart(Model model,CartDTO dto, HttpServletRequest request);
-	
-	
+	/* 장바구니 저장 */
+	public String insertCart(Model model, CartDTO dto, HttpSession session);
+
+	/* 장바구니 목록 가져오기 */
+	public String cartList(Model model, HttpSession session);
 }
