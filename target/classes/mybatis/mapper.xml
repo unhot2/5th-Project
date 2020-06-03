@@ -203,6 +203,6 @@
 	</update>
 	<update id="cntDown">
 		update cart set
-		amount = amount-1 where cartId=#{cartId}
+		amount = amount-1 where cartId=#{cartId} and amount >= 1
 	</update>
 </mapper>
