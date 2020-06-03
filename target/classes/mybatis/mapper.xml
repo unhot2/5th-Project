@@ -179,7 +179,6 @@
 		select * from product where category=#{category}
 	</select>
 	
-	
 	<select id="productInformation" resultType="ProductDTO">
 		select * from product where
 		product_id=#{product_id}
@@ -187,11 +186,15 @@
 	
 	<!-- cart 부분 -->
 	<select id="cartList" resultType="CartDTO">
-     select * from cart where userId=#{userId}
+    	 select * from cart where userId=#{userId}
     </select>
-    
     <insert id="insertCart">
-	insert into cart values(#{userId},#{product_id},#{amount},#{price},#{title})
+		insert into cart values(cart_seq.nextval,#{userId},#{product_id},#{amount},#{price},#{title})
 	</insert>
-		
+	<delete id="cartDelete" parameterType="CartDTO">
+		delete from cart where cartId=#{cartId}
+	</delete>
+	<delete id="cartDeleteAll" parameterType="CartDTO">
+		delete from cart
+	</delete>
 </mapper>

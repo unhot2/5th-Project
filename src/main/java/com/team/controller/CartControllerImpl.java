@@ -1,14 +1,11 @@
 package com.team.controller;
 
 import java.util.ArrayList;
-
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-
 import com.team.dto.CartDTO;
 import com.team.service.CartService;
 
@@ -19,6 +16,7 @@ public class CartControllerImpl implements CartController {
 
 	@RequestMapping("insertCart")
 	public String insertCart(Model model, CartDTO dto, HttpSession session) {
+		String userId = (String) session.getAttribute("userId");
 		dto.setUserId((String) session.getAttribute("userId"));
 		service.insertCart(dto);
 		model.addAttribute("product_id", dto.getProduct_id());
@@ -26,7 +24,7 @@ public class CartControllerImpl implements CartController {
 	}
 
 	@RequestMapping("cartList")
-	public String cartList(Model model,HttpSession session) {
+	public String cartList(Model model, HttpSession session) {
 		String userId = (String) session.getAttribute("userId");
 		ArrayList<CartDTO> list = (ArrayList<CartDTO>) service.cartList(userId);
 		int totalPrice = 0;
@@ -39,15 +37,27 @@ public class CartControllerImpl implements CartController {
 		}
 		if (totalPrice >= 100000) {
 			fee = 0;
-		}
-		else {
+		} else {
 			fee = 2500;
 		}
-		tatalMoney = fee+totalPrice;
+		tatalMoney = fee + totalPrice;
 		model.addAttribute("cartList", list);
 		model.addAttribute("totalPrice", totalPrice);
 		model.addAttribute("fee", fee);
 		model.addAttribute("totalMoney", tatalMoney);
 		return "product/cartList";
 	}
+
+	@RequestMapping("cartDelete")
+	public String cartDelete(CartDTO dto) {
+		service.cartDelete(dto);
+		return "redirect:cartList";
+	}
+
+	@RequestMapping("cartDeleteAll")
+	public String cartDeleteAll(CartDTO dto) {
+		service.cartDeleteAll(dto);
+		return "redirect:cartList";
+	}
+
 }
