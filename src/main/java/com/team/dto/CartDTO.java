@@ -8,13 +8,14 @@ public class CartDTO {
 	    private int price;
 	    private int money;
 	    private int amount;
-	    
+
 		/**
 		 * @return the product_id
 		 */
 		public int getProduct_id() {
 			return product_id;
 		}
+		
 		/**
 		 * @param product_id the product_id to set
 		 */

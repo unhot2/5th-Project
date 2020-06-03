@@ -1,15 +1,13 @@
 package com.team.controller;
 
 import java.util.ArrayList;
-
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-
 import com.team.dto.CartDTO;
+import com.team.dto.QnaDTO;
 import com.team.service.CartService;
 
 @Controller
@@ -19,6 +17,7 @@ public class CartControllerImpl implements CartController {
 
 	@RequestMapping("insertCart")
 	public String insertCart(Model model, CartDTO dto, HttpSession session) {
+		String userId = (String) session.getAttribute("userId");
 		dto.setUserId((String) session.getAttribute("userId"));
 		System.out.println("id값 :"+dto.getUserId());
 		System.out.println("title값 :"+dto.getTitle());
@@ -55,4 +54,16 @@ public class CartControllerImpl implements CartController {
 		return "product/cartList";
 	}
 
+	@RequestMapping("delete")
+	public String delete(CartDTO dto) {
+		service.delete(dto);
+		return "redirect:cartList";
+	}
+
+	@RequestMapping("deleteAll")
+	public String deleteAll(CartDTO dto) {
+		service.deleteAll(dto);
+		return "redirect:cartList";
+	}
+	
 }

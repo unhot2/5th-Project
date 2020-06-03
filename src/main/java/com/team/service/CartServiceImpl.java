@@ -23,5 +23,16 @@ public class CartServiceImpl implements CartService{
 	public List<CartDTO> cartList(String userId) {
 		return dao.cartList(userId);
 	}
+
+	@Override
+	public void delete(CartDTO dto) {
+		dao.delete(dto);
+		
+	}
+
+	@Override
+	public void deleteAll(CartDTO dto) {
+		dao.deleteAll(dto);		
+	}
 	
 }

@@ -21,10 +21,17 @@ public class CartDAOImpl implements CartDAO{
 	public List<CartDTO> cartList(String userId) {
 		return sqlSession.selectList("sql.cartList",userId);
 	}
-	
-	
-	
-	
-	
-	
+
+	@Override
+	public void delete(CartDTO dto) {
+		sqlSession.delete("sql.delete",dto);
+		
+	}
+
+	@Override
+	public void deleteAll(CartDTO dto) {
+		sqlSession.delete("sql.deleteAll",dto);
+		
+	}
+
 }
