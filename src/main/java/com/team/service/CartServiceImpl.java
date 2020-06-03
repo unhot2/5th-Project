@@ -43,5 +43,11 @@ public class CartServiceImpl implements CartService{
 	public void cntDown(CartDTO dto) {
 		dao.cntDown(dto);
 	}
+
+	@Override
+	public List<CartDTO> cartOrder(CartDTO dto) {
+
+		return dao.cartOrder(dto);
+	}
 	
 }

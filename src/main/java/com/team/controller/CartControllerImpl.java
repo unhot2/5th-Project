@@ -71,5 +71,10 @@ public class CartControllerImpl implements CartController {
 		service.cntDown(dto);
 		return "redirect:cartList";
 	}
-
+	@RequestMapping("cartOrder")
+	public String cartOrder(Model model, CartDTO dto) {
+		ArrayList<CartDTO> list = (ArrayList<CartDTO>) service.cartOrder(dto);
+		model.addAttribute("cartList", list);
+		return "product/cartOrder";
+	}
 }

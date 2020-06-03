@@ -44,4 +44,9 @@ public class CartDAOImpl implements CartDAO{
 		sqlSession.update("sql.cntDown",dto);
 	}
 
+	@Override
+	public List<CartDTO> cartOrder(CartDTO dto) {
+		return sqlSession.selectList("sql.cartOrderListAll", dto);
+	}
+
 }

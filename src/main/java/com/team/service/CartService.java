@@ -1,7 +1,6 @@
 package com.team.service;
 
 import java.util.List;
-
 import com.team.dto.CartDTO;
 
 public interface CartService {
@@ -15,5 +14,8 @@ public interface CartService {
 	public void cartDeleteAll(CartDTO dto);
 	public void cntUp(CartDTO dto);
 	public void cntDown(CartDTO dto);
+
+	/*장바구니에있는 값들 주문 목록으로 불러오기 */
+	public List<CartDTO> cartOrder(CartDTO dto);
 
 }

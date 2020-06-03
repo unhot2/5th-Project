@@ -205,4 +205,9 @@
 		update cart set
 		amount = amount-1 where cartId=#{cartId} and amount >= 1
 	</update>
+	
+	<!-- 결제창 주문 목록 불러오는 부분 -->
+	 <select id="cartOrderListAll">
+		select * from cart where userId=#{userId}
+	</select>
 </mapper>
