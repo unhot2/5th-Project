@@ -6,9 +6,12 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="resources/css/main.css" />
+<link rel="stylesheet" href="resources/css/cloth.css" />
 <title>5TH POJECT</title>
-<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/main.js"></script>
-<script src="${pageContext.request.contextPath}/resources/js/jquery-3.4.1.min.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/resources/js/main.js"></script>
+<script
+	src="${pageContext.request.contextPath}/resources/js/jquery-3.4.1.min.js"></script>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 </head>
 <body>
@@ -52,18 +55,21 @@
 					href="noticeList">공지사항</a>
 				</span>
 			</div>
-
-			<div class="dropdown">
-				<button class="dropbtn menu" onclick="location.href='#'">상품</button>
-				<span class="dropdown-content"> <a href="#">상의</a><a href="#">하의</a>
-					<a href="#">신발</a><a href="#">악세서리</a>
-				</span>
-			</div>
-			<span><a href="#" class="menu">세일</a></span> <span class="img">
+				 <div class="dropdown">
+					<button class="dropbtn menu" onclick="location.href='#'">상품</button>
+					<span class="dropdown-content">
+							<a href="productAll">전체</a>
+							<a href="productList?category=상의">상의</a>
+							<a href="productList?category=하의">하의</a>
+							<a href="productList?category=아우터">아우터</a>
+							<a href="productList?category=악세서리">악세서리</a>
+					</span>
+				</div> 
+			<span><a href="#" class="menu">세일</a></span><span class="img">
 				<!-- 검색창 --> <a href="#"><img src="resources/img/search.png"></a>
 			</span> <span class="img"> <!-- 찜목록? 추가안하려면 삭제 --> <a href="#"><img
 					src="resources/img/JJim.png"></a>
-			</span> <span class="img"> <!-- 장바구니 --> <a href="#"><img
+			</span> <span class="img"> <!-- 장바구니 --> <a href="cartList"><img
 					src="resources/img/cart.png"></a>
 			</span> <span class="img"> <!-- 내정보 --> <a
 				href="memberInfo?userId=${userId }"><img
