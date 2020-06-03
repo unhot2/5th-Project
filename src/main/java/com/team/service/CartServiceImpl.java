@@ -35,4 +35,13 @@ public class CartServiceImpl implements CartService{
 		dao.cartDeleteAll(dto);		
 	}
 	
+	public void cntUp(CartDTO dto) {
+		dao.cntUp(dto);
+	}
+
+	@Override
+	public void cntDown(CartDTO dto) {
+		dao.cntDown(dto);
+	}
+	
 }

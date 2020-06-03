@@ -34,4 +34,14 @@ public class CartDAOImpl implements CartDAO{
 		
 	}
 
+	@Override
+	public void cntUp(CartDTO dto) {
+		sqlSession.update("sql.cntUp",dto);
+	}
+
+	@Override
+	public void cntDown(CartDTO dto) {
+		sqlSession.update("sql.cntDown",dto);
+	}
+
 }

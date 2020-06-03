@@ -17,11 +17,16 @@
 				<th>취소</th>
 			</tr>
 			<c:forEach var="cartList" items="${cartList }">
-				<tr>	
+				<tr>
 					<td>${cartList.title}</td>
-					<td>${cartList.amount}</td>
+					<td>
+						<button type="button" onclick="cntDown('${cartList.cartId}')">-</button>
+						${cartList.amount}
+						<button type="button" onclick="cntUp('${cartList.cartId}')">+</button>
+					</td>
 					<td>${cartList.price}</td>
-					<td><button type="button" onclick="location.href='cartDelete?cartId=${cartList.cartId}'">취소</button></td>
+					<td><button type="button"
+							onclick="location.href='cartDelete?cartId=${cartList.cartId}'">취소</button></td>
 				</tr>
 			</c:forEach>
 			<tr>
@@ -39,9 +44,11 @@
 			<tr>
 
 				<td colspan="4">
-					<button type="button" onclick="location.href='productAll'">쇼핑 계속하기</button>
-				 	<button type="button" onclick="location.href='cartDeleteAll'">장바구니 비우기</button>
-					<button type="button" onclick="location.href='#'">전체 상품 주문</button> 
+					<button type="button" onclick="location.href='productAll'">쇼핑
+						계속하기</button>
+					<button type="button" onclick="location.href='cartDeleteAll'">장바구니
+						비우기</button>
+					<button type="button" onclick="location.href='#'">전체 상품 주문</button>
 
 				</td>
 			</tr>

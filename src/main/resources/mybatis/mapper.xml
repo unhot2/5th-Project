@@ -197,4 +197,12 @@
 	<delete id="cartDeleteAll" parameterType="CartDTO">
 		delete from cart
 	</delete>
+	<update id="cntUp">
+		update cart set
+		amount = amount+1 where cartId=#{cartId}
+	</update>
+	<update id="cntDown">
+		update cart set
+		amount = amount-1 where cartId=#{cartId}
+	</update>
 </mapper>

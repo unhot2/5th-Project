@@ -60,4 +60,16 @@ public class CartControllerImpl implements CartController {
 		return "redirect:cartList";
 	}
 
+	@RequestMapping("cntUp")
+	public String cntUp(CartDTO dto) {
+		service.cntUp(dto);
+		return "redirect:cartList";
+	}
+
+	@RequestMapping("cntDown")
+	public String cntDown(CartDTO dto) {
+		service.cntDown(dto);
+		return "redirect:cartList";
+	}
+
 }

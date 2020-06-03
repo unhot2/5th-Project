@@ -13,5 +13,7 @@ public interface CartService {
 	public void cartDelete(CartDTO dto);
 	/* 장바구니 전체 삭제 */
 	public void cartDeleteAll(CartDTO dto);
+	public void cntUp(CartDTO dto);
+	public void cntDown(CartDTO dto);
 
 }
