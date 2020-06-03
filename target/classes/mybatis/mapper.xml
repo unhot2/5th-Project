@@ -195,7 +195,7 @@
 		delete from cart where cartId=#{cartId}
 	</delete>
 	<delete id="cartDeleteAll" parameterType="CartDTO">
-		delete from cart
+		delete from cart where userId = #{userId}
 	</delete>
 	<update id="cntUp">
 		update cart set
