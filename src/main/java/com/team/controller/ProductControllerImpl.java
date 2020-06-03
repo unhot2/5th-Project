@@ -42,7 +42,17 @@ public class ProductControllerImpl implements ProductController{
 		model.addAttribute("productInfo",productdto);	
 		return "product/productInformation";
 	}
-
+	
+	@RequestMapping("productWrite")
+	public String write(){
+		return "product/productWrite";
+	}
+	
+	// 5. 상품 수정(편집) 페이지 매핑
+	@RequestMapping("productEdit")
+	public String edit(){
+		return "product/productEdit";
+	}
 
 
 }
