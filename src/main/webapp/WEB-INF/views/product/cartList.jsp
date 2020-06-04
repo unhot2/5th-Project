@@ -4,10 +4,6 @@
 <!DOCTYPE html>
 <jsp:include page="../include/header.jsp" />
 <section class="cartList">
-	<script type="text/javascript" src="resources/jquery-3.4.1.min.js"></script>
-	<script type="text/javascript">
-		
-	</script>
 	<div align="center">
 		<table border='1'>
 			<tr>

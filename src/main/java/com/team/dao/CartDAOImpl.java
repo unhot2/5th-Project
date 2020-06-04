@@ -20,7 +20,6 @@ public class CartDAOImpl implements CartDAO{
 	@Override
 	public List<JoinDTO> cartList(String userId) {
 		List<JoinDTO> list = sqlSession.selectList("sql.cartList",userId);
-		System.out.println("dao list size: "+list.size());
 		return list;
 	}
 

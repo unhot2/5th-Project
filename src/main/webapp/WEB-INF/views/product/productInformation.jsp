@@ -3,6 +3,20 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <jsp:include page="../include/header.jsp" />
+<script>
+	$(document).on('click', '#addCartBtn', function() {
+		$.ajax({
+			url : "insertCart",
+			data : $("#inserCart").serialize(),
+			success : function(data) {
+				var chk = confirm("장바구니에 저장되었습니다. 장바구니로 이동하시겠습니까?")
+				if (chk) {
+					location.href="cartList"
+				}
+			}
+		})
+	})
+</script>
 <section class="productInformationSection">
 	<div align="center">
 		<table border="1">
@@ -20,18 +34,17 @@
 						</tr>
 						<tr>
 							<td colspan="2" align="center">
-								<form action="insertCart">
+								<form id="inserCart">
 									<input type="hidden" name="title" value="${productInfo.title }">
-									<input type="hidden" name="product_id" value="${productInfo.product_id }">
-									<input type="hidden" name="price" value="${productInfo.price }">
-									<select name="amount"> 
+									<input type="hidden" name="product_id"
+										value="${productInfo.product_id }"> <input
+										type="hidden" name="price" value="${productInfo.price }">
+									<select name="amount">
 										<c:forEach begin="1" end="99" var="i">
 											<option value="${i }">${i }</option>
 										</c:forEach>
-									</select>&nbsp;개
-									<input type="submit" value="장바구니">
-								</form>
-									<a href="productAll">상품 목록</a>
+									</select>&nbsp;개 <button type="button" id="addCartBtn">장바구니 넣기</button>
+								</form> <a href="productAll">상품 목록</a>
 							</td>
 						</tr>
 					</table>

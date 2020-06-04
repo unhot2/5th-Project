@@ -29,7 +29,6 @@ public class ProductControllerImpl implements ProductController{
 	/* 구분 */
 	@RequestMapping("productList")
 	public String productList(@RequestParam("category") String category, Model model) {
-		System.out.println(category);
 		model.addAttribute("productList",(ArrayList<ProductDTO>)service.topProductlist(category));
 		return "product/productList";
 	}
