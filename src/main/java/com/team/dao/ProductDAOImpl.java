@@ -35,7 +35,9 @@ public class ProductDAOImpl implements ProductDAO{
 		return sqlSession.selectOne("sql.shoppingBasket",dto);
 	}
 
-	
-	
-	
+	@Override
+	public void productSave(ProductDTO dto) {
+		sqlSession.insert("sql.productSave",dto);
+
+	}
 }

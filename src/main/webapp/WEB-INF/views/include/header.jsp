@@ -47,6 +47,7 @@
 				</c:when>
 				<c:when test="${userMaster == 0 && userId != null}">
 					<span class="menu"><a href="memberList" class="menu">회원목록</a></span>
+					<span class="menu"><a href="productRegister" class="menu">상품등록</a></span>
 				</c:when>
 			</c:choose>
 			<div class="dropdown">
