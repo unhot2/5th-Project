@@ -190,7 +190,7 @@
 	</select>
 
 	<!-- cart 부분 -->
-	<select id="cartList" resultMap="CommonMap">
+	<select id="cartList" resultType="JoinDTO">
 		select
 		c.product_id,c.cartid,c.userid,c.title,c.amount,c.price,p.imgpath
 		from
@@ -227,45 +227,4 @@
 		select * from cart
 		where userId=#{userId}
 	</select>
-	
-	
-	<!-- resultMap 부분 -->
-	<resultMap type="CartDTO" id="cart">
-		<id property="cartId" column="cartId" />
-		<id property="userId" column="userId" />
-		<id property="userName" column="userName" />
-		<id property="product_id" column="product_id" />
-		<id property="title" column="title" />
-		<id property="price" column="price" />
-		<id property="money" column="money" />
-		<id property="amount" column="amount" />
-	</resultMap>
-
-	<resultMap type="ProductDTO" id="product">
-		<id property="product_id" column="product_id" />
-		<id property="title" column="title" />
-		<id property="category" column="category" />
-		<id property="price" column="price" />
-		<id property="subcategory" column="subcategory" />
-		<id property="imgpath" column="imgpath" />
-	</resultMap>
-	
-	<resultMap type="LoginDTO" id="login">
-		<id property="userId" column="userId"/>
-		<id property="userPwd" column="userPwd"/>
-		<id property="userName" column="userName"/>
-		<id property="userPostCode" column="userPostCode"/>
-		<id property="userAddr" column="userAddr"/>
-		<id property="userGender" column="userGender"/>
-		<id property="userBirth" column="userBirth"/>
-		<id property="userEmail" column="userEmail"/>
-		<id property="userQuestion" column="userQuestion"/>
-		<id property="userAnwser" column="userAnwser"/>
-	</resultMap>
-
-	<resultMap type="CommonDTO" id="CommonMap">
-		<collection property="cart" resultMap="cart" />
-		<collection property="product" resultMap="product" />
-		<collection property="login" resultMap="login" />
-	</resultMap>
 </mapper>

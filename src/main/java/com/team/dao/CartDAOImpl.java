@@ -5,8 +5,7 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-
-import com.team.dto.CommonDTO;
+import com.team.dto.JoinDTO;
 import com.team.dto.CartDTO;
 
 @Controller
@@ -19,8 +18,8 @@ public class CartDAOImpl implements CartDAO{
 	}
 
 	@Override
-	public List<CommonDTO> cartList(String userId) {
-		List<CommonDTO> list = sqlSession.selectList("sql.cartList",userId);
+	public List<JoinDTO> cartList(String userId) {
+		List<JoinDTO> list = sqlSession.selectList("sql.cartList",userId);
 		System.out.println("dao list size: "+list.size());
 		return list;
 	}

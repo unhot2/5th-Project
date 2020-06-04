@@ -8,8 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import com.team.dto.CommonDTO;
+import com.team.dto.JoinDTO;
 import com.team.dto.CartDTO;
 import com.team.service.CartService;
 
@@ -30,14 +29,14 @@ public class CartControllerImpl implements CartController {
 	@RequestMapping("cartList")
 	public String cartList(Model model, HttpSession session) {
 		String userId = (String) session.getAttribute("userId");
-		List<CommonDTO> list = service.cartList(userId);
+		List<JoinDTO> list = service.cartList(userId);
 		model.addAttribute("cartList", list);
 		int totalPrice = 0;
 		int money = 0;
 		int fee = 0;
 		int tatalMoney = 0;
-		for (CommonDTO dto : list) {
-			money = dto.getCart().getAmount() * dto.getCart().getPrice();
+		for (JoinDTO dto : list) {
+			money = dto.getAmount() * dto.getPrice();
 			totalPrice += money;
 		}
 		if (totalPrice >= 100000) {

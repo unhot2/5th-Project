@@ -19,16 +19,16 @@
 			</tr>
 			<c:forEach var="cartList" items="${cartList }">
 				<tr>
-					<td><img src="${cartList.product.imgpath }" id="cartImg"></td>
-					<td>${cartList.cart.title}</td>
+					<td><img src="${cartList.imgpath }" id="cartImg"></td>
+					<td>${cartList.title}</td>
 					<td>
-						<button type="button" onclick="cntDown('${cartList.cart.cartId}')">-</button>
-						${cartList.cart.amount}
-						<button type="button" onclick="cntUp('${cartList.cart.cartId}')">+</button>
+						<button type="button" onclick="cntDown('${cartList.cartId}')">-</button>
+						${cartList.amount}
+						<button type="button" onclick="cntUp('${cartList.cartId}')">+</button>
 					</td>
-					<td>${cartList.cart.price}</td>
+					<td>${cartList.price}</td>
 					<td><button type="button"
-							onclick="location.href='cartDelete?cartId=${cartList.cart.cartId}'">취소</button></td>
+							onclick="location.href='cartDelete?cartId=${cartList.cartId}'">취소</button></td>
 				</tr>
 			</c:forEach>
 			<tr>
