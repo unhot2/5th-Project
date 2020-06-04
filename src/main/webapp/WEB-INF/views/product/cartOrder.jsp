@@ -13,11 +13,13 @@
 			<td>수량</td>
 			<td>가격</td>
 		</tr>
+		<c:forEach var="dto" items="${cartList}">
 		<tr>
-			<td></td>
-			<td></td>
-			<td></td>
+			<td>${dto.title }</td>
+			<td>${dto.amount }</td>
+			<td>${dto.price }</td>
 		</tr>
+		</c:forEach>
 	</table>
 	<table border="1">
 		<caption>주문자 정보</caption>
@@ -37,7 +39,7 @@
 			<td></td>
 		</tr>
 		<tr>
-			<td>베송지 선텍</td>
+			<td>우편번호</td>
 			<td></td>
 		</tr>
 		<tr>

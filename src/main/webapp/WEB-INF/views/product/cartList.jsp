@@ -11,6 +11,7 @@
 	<div align="center">
 		<table border='1'>
 			<tr>
+				<th>이미지 경로</th>
 				<th>상품명</th>
 				<th>수량</th>
 				<th>가격</th>
@@ -18,15 +19,16 @@
 			</tr>
 			<c:forEach var="cartList" items="${cartList }">
 				<tr>
-					<td>${cartList.title}</td>
+					<td><img src="${cartList.product.imgpath }" id="cartImg"></td>
+					<td>${cartList.cart.title}</td>
 					<td>
-						<button type="button" onclick="cntDown('${cartList.cartId}')">-</button>
-						${cartList.amount}
-						<button type="button" onclick="cntUp('${cartList.cartId}')">+</button>
+						<button type="button" onclick="cntDown('${cartList.cart.cartId}')">-</button>
+						${cartList.cart.amount}
+						<button type="button" onclick="cntUp('${cartList.cart.cartId}')">+</button>
 					</td>
-					<td>${cartList.price}</td>
+					<td>${cartList.cart.price}</td>
 					<td><button type="button"
-							onclick="location.href='cartDelete?cartId=${cartList.cartId}'">취소</button></td>
+							onclick="location.href='cartDelete?cartId=${cartList.cart.cartId}'">취소</button></td>
 				</tr>
 			</c:forEach>
 			<tr>
@@ -46,9 +48,12 @@
 				<td colspan="4">
 					<button type="button" onclick="location.href='productAll'">쇼핑
 						계속하기</button>
-					<button type="button" onclick="location.href='cartDeleteAll?userId=${userId}'">장바구니
+					<button type="button"
+						onclick="location.href='cartDeleteAll?userId=${userId}'">장바구니
 						비우기</button>
-					<button type="button" onclick="location.href='cartOrder'">전체 상품 주문</button>
+					<button type="button"
+						onclick="location.href='cartOrder?userId=${userId}'">전체
+						상품 주문</button>
 
 				</td>
 			</tr>

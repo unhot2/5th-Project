@@ -18,5 +18,7 @@
 			<typeAlias alias="NoticereplyDTO" type="com.team.dto.NoticeReplyDTO"/>
 			<typeAlias alias="ProductDTO" type="com.team.dto.ProductDTO"/>
 			<typeAlias alias="CartDTO" type="com.team.dto.CartDTO"/>
+			<typeAlias alias="CommonDTO" type="com.team.dto.CommonDTO"/>
 		</typeAliases>
 	</configuration>
+	

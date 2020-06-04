@@ -1,11 +1,15 @@
 package com.team.controller;
 
 import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.team.dto.CommonDTO;
 import com.team.dto.CartDTO;
 import com.team.service.CartService;
 
@@ -26,13 +30,14 @@ public class CartControllerImpl implements CartController {
 	@RequestMapping("cartList")
 	public String cartList(Model model, HttpSession session) {
 		String userId = (String) session.getAttribute("userId");
-		ArrayList<CartDTO> list = (ArrayList<CartDTO>) service.cartList(userId);
+		List<CommonDTO> list = service.cartList(userId);
+		model.addAttribute("cartList", list);
 		int totalPrice = 0;
 		int money = 0;
 		int fee = 0;
 		int tatalMoney = 0;
-		for (CartDTO dto : list) {
-			money = dto.getAmount() * dto.getPrice();
+		for (CommonDTO dto : list) {
+			money = dto.getCart().getAmount() * dto.getCart().getPrice();
 			totalPrice += money;
 		}
 		if (totalPrice >= 100000) {
@@ -74,6 +79,7 @@ public class CartControllerImpl implements CartController {
 	@RequestMapping("cartOrder")
 	public String cartOrder(Model model, CartDTO dto) {
 		ArrayList<CartDTO> list = (ArrayList<CartDTO>) service.cartOrder(dto);
+		
 		model.addAttribute("cartList", list);
 		return "product/cartOrder";
 	}

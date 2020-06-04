@@ -164,3 +164,8 @@ header {
 	background-color: white;
 	text-decoration: none;
 }
+
+#cartImg{
+	width: 200px;
+	height: 200px;
+}

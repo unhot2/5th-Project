@@ -47,17 +47,20 @@
 
 	<select id="find" resultType="loginDTO">
 		select userQuestion,userAnwser
-		from login where
+		from
+		login where
 		userId=#{id}
 	</select>
 
 	<select id="chkAnwser" resultType="String">
 		select userAnwser
-		from login where userId=#{id}
+		from login
+		where userId=#{id}
 	</select>
-	
+
 	<update id="alterPwd">
-		update login set userPwd=#{userPwd} where userId=#{userId}
+		update login set userPwd=#{userPwd} where
+		userId=#{userId}
 	</update>
 
 
@@ -169,45 +172,100 @@
 		select * from qnareply
 		where idgroup = #{idgroup}
 	</select>
-	
+
 	<!-- product 부분 -->
 	<select id="productListAll" resultType="ProductDTO">
 		select * from product
 	</select>
-	
+
 	<select id="productList" resultType="ProductDTO">
-		select * from product where category=#{category}
-	</select>
-	
-	<select id="productInformation" resultType="ProductDTO">
 		select * from product where
+		category=#{category}
+	</select>
+
+	<select id="productInformation" resultType="ProductDTO">
+		select * from product
+		where
 		product_id=#{product_id}
 	</select>
-	
+
 	<!-- cart 부분 -->
-	<select id="cartList" resultType="CartDTO">
-    	 select * from cart where userId=#{userId}
-    </select>
-    <insert id="insertCart">
-		insert into cart values(cart_seq.nextval,#{userId},#{product_id},#{amount},#{price},#{title})
+	<select id="cartList" resultMap="CommonMap">
+		select
+		c.product_id,c.cartid,c.userid,c.title,c.amount,c.price,p.imgpath
+		from
+		cart c, product p
+		where c.product_id=p.product_id and userId=#{userId}
+	</select>
+
+	<insert id="insertCart">
+		insert into cart
+		values(cart_seq.nextval,#{userId},#{product_id},#{amount},#{price},#{title})
 	</insert>
+
 	<delete id="cartDelete" parameterType="CartDTO">
-		delete from cart where cartId=#{cartId}
+		delete from cart where
+		cartId=#{cartId}
 	</delete>
 	<delete id="cartDeleteAll" parameterType="CartDTO">
-		delete from cart where userId = #{userId}
+		delete from cart where
+		userId = #{userId}
 	</delete>
 	<update id="cntUp">
 		update cart set
-		amount = amount+1 where cartId=#{cartId}
+		amount = amount+1 where
+		cartId=#{cartId}
 	</update>
 	<update id="cntDown">
 		update cart set
-		amount = amount-1 where cartId=#{cartId} and amount >= 1
+		amount = amount-1 where
+		cartId=#{cartId} and amount >= 1
 	</update>
-	
+
 	<!-- 결제창 주문 목록 불러오는 부분 -->
-	 <select id="cartOrderListAll">
-		select * from cart where userId=#{userId}
+	<select id="cartOrderListAll" resultType="CartDTO">
+		select * from cart
+		where userId=#{userId}
 	</select>
+	
+	
+	<!-- resultMap 부분 -->
+	<resultMap type="CartDTO" id="cart">
+		<id property="cartId" column="cartId" />
+		<id property="userId" column="userId" />
+		<id property="userName" column="userName" />
+		<id property="product_id" column="product_id" />
+		<id property="title" column="title" />
+		<id property="price" column="price" />
+		<id property="money" column="money" />
+		<id property="amount" column="amount" />
+	</resultMap>
+
+	<resultMap type="ProductDTO" id="product">
+		<id property="product_id" column="product_id" />
+		<id property="title" column="title" />
+		<id property="category" column="category" />
+		<id property="price" column="price" />
+		<id property="subcategory" column="subcategory" />
+		<id property="imgpath" column="imgpath" />
+	</resultMap>
+	
+	<resultMap type="LoginDTO" id="login">
+		<id property="userId" column="userId"/>
+		<id property="userPwd" column="userPwd"/>
+		<id property="userName" column="userName"/>
+		<id property="userPostCode" column="userPostCode"/>
+		<id property="userAddr" column="userAddr"/>
+		<id property="userGender" column="userGender"/>
+		<id property="userBirth" column="userBirth"/>
+		<id property="userEmail" column="userEmail"/>
+		<id property="userQuestion" column="userQuestion"/>
+		<id property="userAnwser" column="userAnwser"/>
+	</resultMap>
+
+	<resultMap type="CommonDTO" id="CommonMap">
+		<collection property="cart" resultMap="cart" />
+		<collection property="product" resultMap="product" />
+		<collection property="login" resultMap="login" />
+	</resultMap>
 </mapper>
