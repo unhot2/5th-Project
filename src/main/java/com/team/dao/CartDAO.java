@@ -24,6 +24,7 @@ public interface CartDAO {
 	public int countCart(int product_id, String userId);
 	
 	public void updatCart(CartDTO dto);
+	
 
 
 }

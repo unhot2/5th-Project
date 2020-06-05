@@ -23,15 +23,15 @@
       </c:forEach>
       <tr>
         <th>상품금액</th>
-        <td colspan="2">${totalPrice }원</td>
+        <td colspan="3">${totalPrice }원</td>
       </tr>
       <tr>
         <th>택배비</th>
-        <td colspan="2">${fee }원</td>
+        <td colspan="3">${fee }원</td>
       </tr>
       <tr>
         <th>총금액</th>
-        <td colspan="2">${totalMoney }원</td>
+        <td colspan="3">${totalMoney }원</td>
       </tr>
     </table>
     <table border="1">

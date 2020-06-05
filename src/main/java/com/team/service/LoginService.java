@@ -52,4 +52,8 @@ public interface LoginService {
 	
 	/* 비밀번호 변경 메소드 */
 	public void alterPwd(LoginDTO dto);
+
+	
+
+	
 }

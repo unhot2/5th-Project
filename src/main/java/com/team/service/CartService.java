@@ -24,6 +24,7 @@ public interface CartService {
 	public int countCart(int product_id, String userId);
 	
 	public void updateCart(CartDTO dto);
+	public void buyCard();
 
 
 }
