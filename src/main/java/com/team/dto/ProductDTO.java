@@ -7,6 +7,15 @@ public class ProductDTO {
 	private String category;
 	private String subcategory;
 	private String imgpath;
+	
+	private String thimgpath;
+	
+	public String getThimgpath() {
+		return thimgpath;
+	}
+	public void setThimgpath(String thimgpath) {
+		this.thimgpath = thimgpath;
+	}
 	public String getProduct_id() {
 		return product_id;
 	}

@@ -18,7 +18,9 @@ public class UtilFile {
     public String fileUpload(MultipartHttpServletRequest request, MultipartFile uploadFile) {
         String path = "";
         String fileName = "";
-
+        
+        String str=null;
+        
         OutputStream out = null;
         PrintWriter printWriter = null;
 
@@ -54,7 +56,11 @@ public class UtilFile {
                 e.printStackTrace();
             }
         }
-        return path + fileName;
+        str=path+fileName;
+        
+        String result= str.substring(str.lastIndexOf("webapp/")+7);
+        
+        return result;
     }
     
 }

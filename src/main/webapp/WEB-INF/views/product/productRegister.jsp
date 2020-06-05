@@ -32,12 +32,32 @@
 				<td><input type="file" name="uploadFile" id="uploadFile"></td>
 			</tr>
 			<tr>
+				<td>
+				<div class="inputArea">
+				 	<label for="gdsImg">미리보기</label>
+				 	<div class="select_img"><img src="" /></div>
+				 
+				 	<script>
+					  $("#gdsImg").change(function(){
+					   if(this.files && this.files[0]) {
+					    var reader = new FileReader;
+					    reader.onload = function(data) {
+					     $(".select_img img").attr("src", data.target.result).width(500);        
+					    }
+					    reader.readAsDataURL(this.files[0]);
+					   }
+					  });
+				 	</script>
+				</div>
+				</td>
+			</tr>
+			<tr>
 				<td colspan="2" align="center">
 					<input type="submit" value="등록">
 					<input type="button" value="목록" onclick="location.href='${path}/sample/productAll';">
 				</td>
 			</tr>
-
+			
 		</table>
 	</form>
 </section>
