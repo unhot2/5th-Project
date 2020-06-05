@@ -20,4 +20,10 @@ public interface CartService {
 	/*장바구니에있는 값들 주문 목록으로 불러오기 */
 	public List<CartDTO> cartOrder(CartDTO dto);
 
+	/* 장바구니에 기존 상품이 있는지 검사 */
+	public int countCart(int product_id, String userId);
+	
+	public void updateCart(CartDTO dto);
+
+
 }
