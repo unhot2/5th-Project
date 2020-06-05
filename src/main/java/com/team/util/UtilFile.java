@@ -12,7 +12,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 @Controller
 public class UtilFile {
-	String fileName = "";
+	//String fileName = "";
 
     //  fileUpload() 메소드에서 전체 경로를 DB에 경로 그대로 저장 한다.  
     public String fileUpload(MultipartHttpServletRequest request, MultipartFile uploadFile) {
@@ -27,7 +27,7 @@ public class UtilFile {
         try {
             fileName = uploadFile.getOriginalFilename();
             byte[] bytes = uploadFile.getBytes();
-            path  ="C:/Users/user/git/5th-Project/src/main/webapp/resources/img/acc/hat";
+            path  ="C:/Users/user/git/5th-Project/src/main/webapp/resources/img/acc/hat/";
 
             File file = new File(path);
 
@@ -61,6 +61,5 @@ public class UtilFile {
         String result= str.substring(str.lastIndexOf("webapp/")+7);
         
         return result;
-    }
-    
+    } 
 }

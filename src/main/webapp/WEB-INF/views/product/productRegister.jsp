@@ -28,27 +28,47 @@
 				<td><input type="text" name="subcategory"></td>
 			</tr>
 			<tr>
-				<td>상품이미지</td>
-				<td><input type="file" name="uploadFile" id="uploadFile"></td>
+				<td>섬네일 이미지</td>
+				<td><input type="file" name="uploadThFile" id="uploadThFile"></td>
 			</tr>
 			<tr>
-				<td>
-				<div class="inputArea">
-				 	<label for="gdsImg">미리보기</label>
-				 	<div class="select_img"><img src="" /></div>
+				<td colspan="2">
+				 	<label for="uploadThFile">미리보기</label>
+				 	<div class="select_Thimg"><img src="" /></div>
 				 
 				 	<script>
-					  $("#gdsImg").change(function(){
+					  $("#uploadThFile").change(function(){
 					   if(this.files && this.files[0]) {
 					    var reader = new FileReader;
 					    reader.onload = function(data) {
-					     $(".select_img img").attr("src", data.target.result).width(500);        
+					     $(".select_Thimg img").attr("src", data.target.result).width(500);       
 					    }
 					    reader.readAsDataURL(this.files[0]);
 					   }
 					  });
 				 	</script>
-				</div>
+				</td>
+			</tr>
+			<tr>
+				<td>상세 이미지</td>
+				<td><input multiple="multiple" type="file" name="uploadFile" id="uploadFile"></td>
+			</tr>
+			<tr>
+				<td colspan="2">
+				 	<label for="uploadFile">미리보기</label>
+				 	<div class="select_img"><img src="" /></div>
+				 
+				 	<script>
+					  $("#uploadFile").change(function(){
+					   if(this.files && this.files[0]) {
+					    var reader = new FileReader;
+					    reader.onload = function(data) {
+					     $(".select_img img").attr("src", data.target.result).width(500);       
+					    }
+					    reader.readAsDataURL(this.files[0]);
+					   }
+					  });
+				 	</script>
 				</td>
 			</tr>
 			<tr>

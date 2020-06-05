@@ -19,6 +19,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.team.dto.ProductDTO;
 import com.team.service.ProductService;
 import com.team.util.UtilFile;
+import com.team.util.UtilThFile;
 
 @Controller
 public class ProductControllerImpl implements ProductController{
@@ -27,6 +28,9 @@ public class ProductControllerImpl implements ProductController{
 	
 	@Autowired
 	UtilFile utilFile;
+	
+	@Autowired
+	UtilThFile utilthFile;
 	
 	@RequestMapping("productAll")
 	public String productlistAll(Model model) {
@@ -67,6 +71,7 @@ public class ProductControllerImpl implements ProductController{
 		dto.setCategory(request.getParameter("category"));
 		dto.setSubcategory(request.getParameter("subcategory"));
 		dto.setImgpath(utilFile.fileUpload(request,uploadFile));
+		dto.setThimgpath(utilthFile.thfileUpload(request,uploadFile));
 		service.productSave(dto);
 		return "redirect:productAll";
 	}

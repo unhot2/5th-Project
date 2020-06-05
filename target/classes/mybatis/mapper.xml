@@ -196,6 +196,6 @@
 	
 	<!-- 파일 업로드 부분 -->
    	<insert id="productSave">
-   		insert into product(product_id, title, price, category, subcategory, imgpath) values(#{product_id}, #{title}, #{price}, #{category}, #{subcategory}, #{imgpath})
+   		insert into product(product_id, title, price, category, subcategory, imgpath, thimgpath) values(#{product_id}, #{title}, #{price}, #{category}, #{subcategory}, #{imgpath}, #{thimgpath})
    	</insert>	
 </mapper>
