@@ -92,3 +92,9 @@ function DaumPostcode() {
 
 	}).open();
 }
+
+function copydata() {
+	$(".rcName").val($(".orderName").val())
+	$(".rcPostCode").val($(".orderPostCode").val())
+	$(".rcAddr").val($(".orderAddr").val())
+}

@@ -8,14 +8,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 import com.team.dto.JoinDTO;
+import com.team.dto.LoginDTO;
 import com.team.dto.CartDTO;
 import com.team.service.CartService;
+import com.team.service.LoginService;
 
 @Controller
 public class CartControllerImpl implements CartController {
 	@Autowired
 	CartService service;
+	@Autowired
+	LoginService loginService;
 
 	@RequestMapping("insertCart")
 	public String insertCart(Model model, CartDTO dto, HttpSession session) {
@@ -36,7 +42,6 @@ public class CartControllerImpl implements CartController {
 	public String cartList(Model model, HttpSession session) {
 		String userId = (String) session.getAttribute("userId");
 		List<JoinDTO> list = service.cartList(userId);
-		model.addAttribute("cartList", list);
 		int totalPrice = 0;
 		int money = 0;
 		int fee = 0;
@@ -82,10 +87,31 @@ public class CartControllerImpl implements CartController {
 		return "redirect:cartList";
 	}
 	@RequestMapping("cartOrder")
-	public String cartOrder(Model model, CartDTO dto) {
-		ArrayList<CartDTO> list = (ArrayList<CartDTO>) service.cartOrder(dto);
-		
+	public String cartOrder(Model model, HttpSession session) {
+		String userId = (String) session.getAttribute("userId");
+		List<JoinDTO> list = service.cartList(userId);
+		int totalPrice = 0;
+		int money = 0;
+		int fee = 0;
+		int tatalMoney = 0;
+		for (JoinDTO cart : list) {
+			money = cart.getAmount() * cart.getPrice();
+			totalPrice += money;
+		}
+		if (totalPrice >= 100000) {
+			fee = 0;
+		} else {
+			fee = 2500;
+		}
+		tatalMoney = fee + totalPrice;
+		LoginDTO logindto = new LoginDTO();
+		logindto.setUserId(userId);
+		LoginDTO memberInfo = loginService.memberInfo(logindto);
 		model.addAttribute("cartList", list);
+		model.addAttribute("totalPrice", totalPrice);
+		model.addAttribute("fee", fee);
+		model.addAttribute("totalMoney", tatalMoney);
+		model.addAttribute("memberInfo",memberInfo);
 		return "product/cartOrder";
 	}
 }

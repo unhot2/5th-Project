@@ -49,7 +49,7 @@
 						onclick="location.href='cartDeleteAll?userId=${userId}'">장바구니
 						비우기</button>
 					<button type="button"
-						onclick="location.href='cartOrder?userId=${userId}'">전체
+						onclick="location.href='cartOrder'">전체
 						상품 주문</button>
 
 				</td>
