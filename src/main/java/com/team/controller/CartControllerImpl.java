@@ -21,9 +21,15 @@ public class CartControllerImpl implements CartController {
 	public String insertCart(Model model, CartDTO dto, HttpSession session) {
 		String userId = (String) session.getAttribute("userId");
 		dto.setUserId((String) session.getAttribute("userId"));
-		service.insertCart(dto);
-		model.addAttribute("product_id", dto.getProduct_id());
-		return "redirect:productInformation";
+		int count = service.countCart(dto.getProduct_id(), userId);
+		System.out.println("dto.getProduct_id() : "+dto.getProduct_id());
+		System.out.println("count :"+count);
+		if(count ==0) {
+			service.insertCart(dto);
+		}else {
+			service.updateCart(dto);
+		}
+		 return "product/productInformation"; 
 	}
 
 	@RequestMapping("cartList")

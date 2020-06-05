@@ -33,9 +33,6 @@ public class ProductControllerImpl implements ProductController{
 		model.addAttribute("productList",(ArrayList<ProductDTO>)service.topProductlist(category));
 		return "product/productList";
 	}
-	
-	
-	
 	@RequestMapping("productInformation")
 	public String clothInfoInput(Model model,ProductDTO dto) {
 		ProductDTO productdto = service.clothInfoInput(dto);

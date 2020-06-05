@@ -49,5 +49,16 @@ public class CartServiceImpl implements CartService{
 	public List<CartDTO> cartOrder(CartDTO dto) {
 		return dao.cartOrder(dto);
 	}
-	
+
+	@Override
+	public int countCart(int product_id, String userId) {
+		System.out.println("product_id :"+product_id);
+		System.out.println("userId :"+userId);
+		return dao.countCart(product_id, userId);
+	}
+
+	@Override
+	public void updateCart(CartDTO dto) {
+		dao.updatCart(dto);
+	}
 }

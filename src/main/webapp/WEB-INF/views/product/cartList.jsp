@@ -25,6 +25,7 @@
 						<button type="button" onclick="cntDown('${cartList.cartId}')">-</button>
 						${cartList.amount}
 						<button type="button" onclick="cntUp('${cartList.cartId}')">+</button>
+						<input type="hidden" name="product_id" value="${cartList.product_id}">
 					</td>
 					<td>${cartList.price}</td>
 					<td><button type="button"
