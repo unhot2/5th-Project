@@ -17,11 +17,11 @@ public class RewardController {
     // 인자로 MulfiPartFile 객체,
     //MultipartHttpServletRequest 객체, 업로드 하려는 도메인 클래스를 받는다
 
-    public String reAddProCtrl(@RequestParam("uploadFile") MultipartFile uploadFile, MultipartHttpServletRequest request) {
+    public String reAddProCtrl(@RequestParam("uploadFile")MultipartHttpServletRequest request) {
     //UtilFile 객체 생성
     UtilFile utilFile = new UtilFile();
     //파일 업로드 결과값을 path로 받아온다
-    String uploadPath=utilFile.fileUpload(request,uploadFile);
+    String uploadPath=utilFile.fileUpload(request);
      return "isg/Boardlist";
     }
 }

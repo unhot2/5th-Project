@@ -63,15 +63,15 @@ public class ProductControllerImpl implements ProductController{
 	}
 
 	@RequestMapping("productSave")
-	public String productSave(MultipartHttpServletRequest request, MultipartFile uploadFile) {
+	public String productSave(MultipartHttpServletRequest request) {
 		ProductDTO dto = new ProductDTO();
 		dto.setProduct_id(request.getParameter("product_id"));
 		dto.setTitle(request.getParameter("title"));
 		dto.setPrice(Integer.parseInt(request.getParameter("price")));
 		dto.setCategory(request.getParameter("category"));
 		dto.setSubcategory(request.getParameter("subcategory"));
-		dto.setImgpath(utilFile.fileUpload(request,uploadFile));
-		dto.setThimgpath(utilthFile.thfileUpload(request,uploadFile));
+		dto.setImgpath(utilFile.fileUpload(request));
+		dto.setThimgpath(utilthFile.thfileUpload(request));
 		service.productSave(dto);
 		return "redirect:productAll";
 	}

@@ -22,7 +22,7 @@ public interface ProductController {
 	public String productRegister();
 
 	/*상품등록 기능*/
-	public String productSave(MultipartHttpServletRequest request, MultipartFile uploadFile);
+	public String productSave(MultipartHttpServletRequest request);
 	
 	
 }
