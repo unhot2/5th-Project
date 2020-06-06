@@ -8,7 +8,7 @@
 	<div id="columns" align="center">
 		<c:forEach items="${productList}" var="dto">
 			<figure>
-				<a href="productInformation?product_id=${dto.product_id }"><img src="${dto.imgpath}"></a>
+				<a href="productInformation?product_id=${dto.product_id }"><img src="${dto.thimgpath}"></a>
 				<figcaption>
 				${dto.title }
 				${dto.price }
