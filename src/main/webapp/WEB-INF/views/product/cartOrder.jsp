@@ -2,6 +2,36 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <jsp:include page="../include/header.jsp" />
+<script>
+$(document).on('click', '#cardPay', function() {
+	var query = {
+		userId : $("#userId").val()
+	};
+	
+	$.ajax({
+		url : "payCheck",
+		type : "post",
+		data : query,
+		success : function(data) {
+			if (data == 1) {
+				alert("이미 결제가 진행 되었습니다.");
+			} else {
+				cardPay();
+			}
+		}
+	});
+});
+
+ function cardPay(){
+	$.ajax({
+		url : "cardPay",
+		data : $("#cartOder").serialize(),
+		success : function(data) {
+			location.href = "card"
+		}
+	})
+};
+</script>
 <section class="cartOrder">
   <div align="center">
     <h2>주문/결제</h2>
@@ -53,7 +83,7 @@
         <td><input type="text" class="orderAddr" value="${memberInfo.userAddr }"></td>
       </tr>
     </table>
-    <form action="">
+    <form id ="cartOder">
       <h3>배송정보</h3>
       <label> <input type="checkbox" onclick="copydata()">"위 정보와 같음"
       </label>
@@ -77,11 +107,15 @@
         </tr>
         <tr>
           <td>주문 메세지</td>
-          <td><input type="text" name="deliveryMsg"></td>
+          <td><input type="text" name="message"></td>
         </tr>
         <tr>
           <td>
-            <button type="button">결제</button>
+          	<input type="hidden" id="userId" value="${userId }">
+            <button id="cardPay" type="button">카드 결제</button>
+          </td>
+          <td>
+          	<button id="depositPay" type="button">무통장 입금</button>
           </td>
         </tr>
       </table>

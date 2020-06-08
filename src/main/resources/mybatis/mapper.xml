@@ -233,4 +233,19 @@
 	<update id="updateCart">
 		update cart set amount = amount + #{amount} where userId = #{userId} and product_id = #{product_id}
 	</update>
+	
+	<!-- 결제 하는 부분 -->
+	
+	<insert id="cardInsert">
+		insert into pay values(#{userId},#{message},'카드',0)
+	</insert>
+	
+	<insert id="depositInsert">
+		insert into pay values(#{userId},#{message},'무통장입금',0)
+	</insert>
+	<select id="payCheck" resultType="String">
+		select userId from pay where
+		userId=#{userId}
+	</select>
+	
 </mapper>

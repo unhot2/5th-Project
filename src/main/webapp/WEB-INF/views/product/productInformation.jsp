@@ -37,8 +37,7 @@
                   <input type="hidden" name="title" value="${productInfo.title }"> <input
                     type="hidden" name="product_id" value="${productInfo.product_id }"
                   > <input type="hidden" name="price" value="${productInfo.price }"> <select
-                    name="amount"
-                  >
+                    name="amount">
                     <c:forEach begin="1" end="10" var="i">
                       <option value="${i }">${i }</option>
                     </c:forEach>

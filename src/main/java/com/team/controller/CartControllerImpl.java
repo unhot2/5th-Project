@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.team.dto.JoinDTO;
 import com.team.dto.LoginDTO;
-import com.team.dto.BuyDTO;
+import com.team.dto.PayDTO;
 import com.team.dto.CartDTO;
 import com.team.service.CartService;
 import com.team.service.LoginService;
@@ -111,6 +111,7 @@ public class CartControllerImpl implements CartController {
 		logindto.setUserId(userId);
 		LoginDTO memberInfo = loginService.memberInfo(logindto);
 		model.addAttribute("cartList", list);
+		model.addAttribute("userID", userId);
 		model.addAttribute("totalPrice", totalPrice);
 		model.addAttribute("fee", fee);
 		model.addAttribute("totalMoney", tatalMoney);
