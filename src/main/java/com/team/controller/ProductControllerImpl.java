@@ -66,8 +66,8 @@ public class ProductControllerImpl implements ProductController{
 		dto.setPrice(Integer.parseInt(request.getParameter("price")));
 		dto.setCategory(request.getParameter("category"));
 		dto.setSubcategory(request.getParameter("subcategory"));
-		dto.setImgpath(utilFile.fileUpload(request));
-		dto.setThimgpath(utilthFile.thfileUpload(request));
+		dto.setImgpath(utilthFile.thfileUpload(request));
+		dto.setDetailImgpath(utilFile.fileUpload(request));
 		service.productSave(dto);
 		return "redirect:productAll";
 	}

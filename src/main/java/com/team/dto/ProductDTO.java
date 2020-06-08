@@ -8,14 +8,14 @@ public class ProductDTO {
 	private String category;
 	private String subcategory;
 	private String imgpath;
+	private String detailImgpath;
 	
-	private String thimgpath;
 	
-	public String getThimgpath() {
-		return thimgpath;
+	public String getDetailImgpath() {
+		return detailImgpath;
 	}
-	public void setThimgpath(String thimgpath) {
-		this.thimgpath = thimgpath;
+	public void setDetailImgpath(String detailImgpath) {
+		this.detailImgpath = detailImgpath;
 	}
 	public String getProduct_id() {
 		return product_id;

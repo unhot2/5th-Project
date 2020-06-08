@@ -36,8 +36,8 @@
 				<td><input type="text" name="subcategory"></td>
 			</tr>
 			<tr>
-				<td>상세 이미지</td>
-				<td><input type="file" name="uploadThFile" id="uploadThFile"></td>
+				<td>섬네일 이미지</td>
+				<td><input type="file" name="uploadthFile" id="uploadThFile"></td>
 			</tr>
 			<tr>
 				<td colspan="2">
@@ -58,7 +58,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td>섬네일 이미지</td>
+				<td>상세 이미지</td>
 				<td><input multiple="multiple" type="file" name="uploadFile" id="uploadFile"></td>
 			</tr>
 			<tr>

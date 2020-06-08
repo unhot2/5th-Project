@@ -6,7 +6,7 @@
 	$(document).on('click', '#addCartBtn', function() {
 		$.ajax({
 			url : "insertCart",
-			data : $("#inserCart").serialize(),
+			data : $("#insertCart").serialize(),
 			success : function(data) {
 				var chk = confirm("장바구니에 저장되었습니다. 장바구니로 이동하시겠습니까?")
 				if (chk) {
@@ -20,7 +20,7 @@
 	<div align="center">
 		<table border="1">
 			<tr>
-				<td><img src=${productInfo.thimgpath }></td>
+				<td><img src=${productInfo.imgpath }></td>
 				<td>
 					<table border="1">
 						<tr>
@@ -51,7 +51,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td colspan="2"><img src=${productInfo.imgpath }></td>
+				<td colspan="2"><img src=${productInfo.detailImgpath }></td>
 			</tr>
 		</table>
 	</div>

@@ -23,6 +23,10 @@ public class CartControllerImpl implements CartController {
 	public String insertCart(Model model, CartDTO dto, HttpSession session) {
 		String userId = (String) session.getAttribute("userId");
 		dto.setUserId((String) session.getAttribute("userId"));
+		System.out.println("productid:"+dto.getProduct_id());
+		System.out.println("title:"+dto.getTitle());
+		System.out.println("price:"+dto.getPrice());
+		System.out.println("amount:"+dto.getAmount());
 		int count = service.countCart(dto.getProduct_id(), userId);
 		if(count ==0) {
 			service.insertCart(dto);
