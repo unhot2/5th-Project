@@ -33,7 +33,7 @@
 						</tr>
 						<tr>
 							<td colspan="2" align="center">
-								<form action="insertCart">
+								<form id="insertCart">
 									<input type="hidden" name="title" value="${productInfo.title }">
 									<input type="hidden" name="product_id" value="${productInfo.product_id }">
 									<input type="hidden" name="price" value="${productInfo.price }">
@@ -42,7 +42,7 @@
 											<option value="${i }">${i }</option>
 										</c:forEach>
 									</select>&nbsp;개
-									<input type="submit" value="장바구니">
+									<button type="button" id="addCartBtn">장바구니 넣기</button>
 								</form>
 									<a href="productAll">상품 목록</a>
 							</td>
