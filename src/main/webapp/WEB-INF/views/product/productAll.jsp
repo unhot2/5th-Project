@@ -10,9 +10,11 @@
 			<figure>
 				<a href="productInformation?product_id=${dto.product_id }"><img src="${dto.imgpath}"></a>
 				<figcaption>
-					<a>${dto.title }</a>
-					<a>${dto.price }</a>
-				</figcaption>
+					${dto.title }<br>
+					${dto.price }
+					
+					</figcaption>
+			
 			</figure>
 		</c:forEach>
 	</div>
