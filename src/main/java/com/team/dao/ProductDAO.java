@@ -12,4 +12,7 @@ public interface ProductDAO {
 	
 	/* cloth 정보 가져오기 */
 	public ProductDTO clothInfoInput(ProductDTO dto);
+	
+	/*상품정보 저장*/
+	public void productSave(ProductDTO dto);
 }

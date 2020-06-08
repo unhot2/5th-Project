@@ -12,5 +12,7 @@ public interface ProductService {
 	
 	/* cloth 정보 가져오기 */
 	public ProductDTO clothInfoInput(ProductDTO dto);
-
+	
+	/*상품정보저장*/
+	public void productSave(ProductDTO dto);
 }

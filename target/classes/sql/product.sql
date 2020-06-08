@@ -6,6 +6,10 @@ category varchar2(20) not null,
 subcategory varchar2(20) not null,
 imgpath varchar2(200) not null);
 
+alter table product add (imgthpath varchar(200));
+
+commit;
+
 insert into product values(1,'빨간티셔츠', 54000, '상의','티셔츠','resources/img/top/ts/ts1.gif');
 insert into product values(2,'하얀티셔츠', 32000, '상의','티셔츠','resources/img/top/ts/ts2.gif');
 insert into product values(3,'검은티셔츠', 34000, '상의','티셔츠','resources/img/top/ts/ts3.gif');
