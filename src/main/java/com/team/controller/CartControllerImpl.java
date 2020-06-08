@@ -1,15 +1,11 @@
 package com.team.controller;
 
-import java.util.ArrayList;
 import java.util.List;
-
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-
 import com.team.dto.JoinDTO;
 import com.team.dto.LoginDTO;
 import com.team.dto.CartDTO;
@@ -28,8 +24,6 @@ public class CartControllerImpl implements CartController {
 		String userId = (String) session.getAttribute("userId");
 		dto.setUserId((String) session.getAttribute("userId"));
 		int count = service.countCart(dto.getProduct_id(), userId);
-		System.out.println("dto.getProduct_id() : "+dto.getProduct_id());
-		System.out.println("count :"+count);
 		if(count ==0) {
 			service.insertCart(dto);
 		}else {

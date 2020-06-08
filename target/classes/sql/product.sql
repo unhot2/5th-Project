@@ -4,32 +4,28 @@ title varchar2(200) not null,
 price number not null,
 category varchar2(20) not null,
 subcategory varchar2(20) not null,
-imgpath varchar2(200) not null);
-
-alter table product add (imgthpath varchar(200));
-
+imgpath varchar2(200) not null,
+thimgpath varchar2(200) not null);
 commit;
 
-insert into product values(1,'빨간티셔츠', 54000, '상의','티셔츠','resources/img/top/ts/ts1.gif');
-insert into product values(2,'하얀티셔츠', 32000, '상의','티셔츠','resources/img/top/ts/ts2.gif');
-insert into product values(3,'검은티셔츠', 34000, '상의','티셔츠','resources/img/top/ts/ts3.gif');
-insert into product values(4,'초록티셔츠', 30000, '상의','티셔츠','resources/img/top/ts/ts4.gif');
-insert into product values(5,'블라우스', 50000, '상의','블라우스','resources/img/top/blouse/bs1.gif');
-insert into product values(6,'하얀면바지', 58000, '하의','면바지','resources/img/pant/cotton/cott1.gif');
-insert into product values(7,'분홍면바지', 58000, '하의','면바지','resources/img/pant/cotton/cott2.gif');
-insert into product values(8,'검은면바지', 58000, '하의','면바지','resources/img/pant/cotton/cott3.gif');
-insert into product values(9,'연한청바지', 58000, '하의','청바지','resources/img/pant/jean/jean1.gif');
-insert into product values(10,'진한청바지', 48000, '하의','청바지','resources/img/pant/jean/jean2.gif');
-insert into product values(11,'연청코트', 126000, '아우터','코트','resources/img/outer/coat/coat1.gif');
-insert into product values(12,'갈색코트', 126000, '아우터','코트','resources/img/outer/coat/coat2.gif');
-insert into product values(13,'베이지색코트', 126000, '아우터','코트','resources/img/outer/coat/coat3.gif');
-insert into product values(14,'떡볶이코트', 126000, '아우터','코트','resources/img/outer/coat/coat4.gif');
-insert into product values(15,'공항점퍼', 135000, '아우터','점퍼','resources/img/outer/jump/jump1.gif');
-insert into product values(16,'야구모자', 34000, '악세서리','모자','resources/img/acc/hat/hat1.gif');
-insert into product values(17,'비니', 30000, '악세서리','모자','resources/img/acc/hat/hat2.gif');
-insert into product values(18,'버킷햇', 48000, '악세서리','모자','resources/img/acc/hat/hat3.gif');
-insert into product values(19,'베레모', 56000, '악세서리','모자','resources/img/acc/hat/hat4.gif');
-insert into product values(20,'안경', 92000, '악세서리','안경','resources/img/acc/glas/glas1.gif');
-
-
-commit;
+<-- 상의 부분 -->
+insert into product values(1,'부클패브릭 나시탑 가디건 세트 ',22000,'상의','상의','resources/img/outer1info.jpg','resources/img/outer1.jpg');
+insert into product values(2,'테일러드카라 베이직 오픈자켓 ',36000,'상의','상의','resources/img/outer2info.jpg','resources/img/outer2.jpg');
+insert into product values(3,'시스루 오픈숄 롱가디건',22000,'상의','상의','resources/img/outer3info.jpg','resources/img/outer3.jpg');
+insert into product values(4,'러블리 퍼프소매 썸머 반팔 자켓 ',46000,'상의','상의','resources/img/outer4info.jpg','resources/img/outer4.jpg');
+insert into product values(5,'진주장식 포인트 반팔 가디건 ',22000,'상의','상의','resources/img/outer5info.jpg','resources/img/outer5.jpg');
+insert into product values(6,'버튼클로징 포켓장식 데일리 롱가디건',25000,'상의','상의','resources/img/outer6info.jpg','resources/img/outer6.jpg');
+insert into product values(7,'레이스슬립 가디건 세트',31000,'상의','상의','resources/img/outer7info.jpg','resources/img/outer7.jpg');
+insert into product values(8,'홑겹 7부 소매배색 자켓',70000,'상의','상의','resources/img/outer8info.jpg','resources/img/outer8.jpg');
+insert into product values(9,'루즈핏 후드집업',25000,'상의','상의','resources/img/outer9info.jpg','resources/img/outer9.jpg');
+insert into product values(10,'베이직 자켓 ',40000,'상의','상의','resources/img/outer10info.jpg','resources/img/outer10.jpg');
+insert into product values(11,'골드버튼 도톰 V넥 니트가디건 ',38000,'상의','상의','resources/img/outer11info.jpg','resources/img/outer11.jpg');
+insert into product values(12,'포멀핏 베이직 트렌치코트트 ',116000,'상의','상의','resources/img/outer12info.jpg','resources/img/outer12.jpg');
+insert into product values(13,'박시핏 체크 후드 남방 가디건',28700,'상의','상의','resources/img/outer13info.jpg','resources/img/outer13.jpg');
+insert into product values(14,'컬러 배색 가디건',33000,'상의','상의','resources/img/outer14info.jpg','resources/img/outer14.jpg');
+insert into product values(15,'하이넥 야상 숏 자켓 ',78000,'상의','상의','resources/img/outer15info.jpg','resources/img/outer15.jpg');
+insert into product values(16,'골드 버튼 Y넥 니트 가디건 ',30000,'상의','상의','resources/img/outer16info.jpg','resources/img/outer16.jpg');
+insert into product values(17,'글렌 체크 더블버튼 자켓 ',51000,'상의','상의','resources/img/outer17info.jpg','resources/img/outer17.jpg');
+insert into product values(18,'림핏 캐쥬얼 데님 숏 자켓',46000,'상의','상의','resources/img/outer18info.jpg','resources/img/outer18.jpg');
+insert into product values(19,'루즈핏 후드 야상점퍼',77000,'상의','상의','resources/img/outer19info.jpg','resources/img/outer19.jpg');
+insert into product values(20,'로맨틱 가디건',34000,'상의','상의','resources/img/outer20info.jpg','resources/img/outer20.jpg');
