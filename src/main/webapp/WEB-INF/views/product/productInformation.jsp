@@ -7,7 +7,7 @@
 	<div align="center">
 		<table border="1">
 			<tr>
-				<td><img src=${productInfo.imgpath }></td>
+				<td><img src=${productInfo.thimgpath }></td>
 				<td>
 					<table border="1">
 						<tr>
@@ -36,6 +36,9 @@
 						</tr>
 					</table>
 				</td>
+			</tr>
+			<tr>
+				<td colspan="2"><img src=${productInfo.imgpath }></td>
 			</tr>
 		</table>
 	</div>

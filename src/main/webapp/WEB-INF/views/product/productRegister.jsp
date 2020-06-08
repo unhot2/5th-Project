@@ -21,7 +21,15 @@
 			</tr>
 			<tr>
 				<td>카테고리</td>
-				<td><input type="text" name="category"></td>
+				<td>
+				<select name="category">
+					<option value="select" selected="selected">선택하세요</option>
+					<option value="아우터">아우터</option>
+					<option value="상의">상의</option>
+					<option value="하의">하의</option>
+					<option value="악세서리">악세서리</option>
+				</select>
+				</td>
 			</tr>
 			<tr>
 				<td>상세 카테고리</td>

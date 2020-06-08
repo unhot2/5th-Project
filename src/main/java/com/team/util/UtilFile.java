@@ -14,7 +14,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 @Controller
 public class UtilFile {
     public String fileUpload(MultipartHttpServletRequest request) {
-    	String path = "C:/Users/eunji/git/5th-Project/src/main/webapp/resources/img/acc/hat/";
+    	String path = "C:/Users/user/git/5th-Project/src/main/webapp/resources/img/acc/hat/";
 		String fileName = "";
 		String str = null;
 		String resultsecond = null;
