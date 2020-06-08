@@ -5,7 +5,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.team.util.UtilFile;
@@ -21,7 +20,7 @@ public class RewardController {
     //UtilFile 객체 생성
     UtilFile utilFile = new UtilFile();
     //파일 업로드 결과값을 path로 받아온다
-    String uploadPath=utilFile.fileUpload(request);
+    String uploadPath = utilFile.fileUpload(request);
      return "isg/Boardlist";
     }
 }

@@ -1,10 +1,6 @@
 package com.team.util;
 
 import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.io.PrintWriter;
 import java.util.*;
 
 import org.springframework.stereotype.Controller;
@@ -14,7 +10,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 @Controller
 public class UtilFile {
     public String fileUpload(MultipartHttpServletRequest request) {
-    	String path = "C:/Users/unhot/git/5th-Project/src/main/webapp/resources/img/";
+    	String path = "C:/Users/WDP/git/5th-Project/src/main/webapp/resources/img/";
 		String fileName = "";
 		String str = null;
 		String resultsecond = null;

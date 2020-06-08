@@ -31,3 +31,67 @@ insert into product values(19,'루즈핏 후드 야상점퍼',77000,'아우터',
 insert into product values(20,'로맨틱 가디건',34000,'아우터','아우터','resources/img/outer20.jpg','resources/img/outer20info.jpg');
 
 <-- 상의 부분 -->
+insert into product values(21,'레이스 블라우스',22000,'상의','상의','resources/img/top1.jpg','resources/img/top1info.jpg');
+insert into product values(22,'하트넥 골지 반팔 티셔츠',18000,'상의','상의','resources/img/top2.jpg','resources/img/top2info.jpg');
+insert into product values(23,'핀턱 소매 블라우스',35000,'상의','상의','resources/img/top3.jpg','resources/img/top3info.jpg');
+insert into product values(24,'프릴 트리밍 포인트 블라우스 ',46000,'상의','상의','resources/img/top4.jpg','resources/img/top4info.jpg');
+insert into product values(25,'나팔소매 쉬폰 배색 블라우스',31000,'상의','상의','resources/img/top5.jpg','resources/img/top5info.jpg');
+insert into product values(26,'플라워 패턴 리본 반팔 블라우스',34000,'상의','상의','resources/img/top6.jpg','resources/img/top6info.jpg');
+insert into product values(27,'퍼프소매 레이스 블라우스',22000,'상의','상의','resources/img/top7.jpg','resources/img/top7info.jpg');
+insert into product values(28,'시스루 크롭 요루쉬폰 블라우스',30000,'상의','상의','resources/img/top8.jpg','resources/img/top8info.jpg');
+insert into product values(29,'플라워 레이스 나시 블라우스',21000,'상의','상의','resources/img/top9.jpg','resources/img/top9info.jpg');
+insert into product values(30,'V넥 슬립 나시티 ',22000,'상의','상의','resources/img/top10.jpg','resources/img/top10info.jpg');
+insert into product values(31,'레터링 코튼 세미크롭티셔츠',16000,'상의','상의','resources/img/top11.jpg','resources/img/top11info.jpg');
+insert into product values(32,'레터링 코튼 세미크롭티셔츠 ',16000,'상의','상의','resources/img/top12.jpg','resources/img/top12info.jpg');
+insert into product values(33,'포인트 루즈 반팔 티셔츠',14000,'상의','상의','resources/img/top13.jpg','resources/img/top13info.jpg');
+insert into product values(34,'스퀘어넥  5부 골지 니트',22000,'상의','상의','resources/img/top14.jpg','resources/img/top14info.jpg');
+insert into product values(35,'원포인트 반팔 티셔츠 ',22000,'상의','상의','resources/img/top15.jpg','resources/img/top15info.jpg');
+insert into product values(36,'리본 퍼프소매 티셔츠 ',25000,'상의','상의','resources/img/top16.jpg','resources/img/top16info.jpg');
+insert into product values(37,'레터링 슬림핏 티셔츠 ',20000,'상의','상의','resources/img/top17.jpg','resources/img/top17info.jpg');
+insert into product values(38,'골지라인 반팔 니트 티셔츠',16000,'상의','상의','resources/img/top18.jpg','resources/img/top18info.jpg');
+insert into product values(39,'후르츠 포인트 코튼 티셔츠',26000,'상의','상의','resources/img/top19.jpg','resources/img/top19info.jpg');
+insert into product values(40,'츄잉 컬러배색 포인트 반팔 ',14000,'상의','상의','resources/img/top20.jpg','resources/img/top20info.jpg');
+
+<-- 하의 부분 -->
+insert into product values(41,'썸머 하이웨스트 와이드 팬츠',18000,'하의','하의','resources/img/pants1.jpg','resources/img/pants1info.jpg');
+insert into product values(42,'뷔스티에 와이드핏 점프슈트',28000,'하의','하의','resources/img/pants2.jpg','resources/img/pants2info.jpg');
+insert into product values(43,'히든밴딩 일자핏 데님팬츠',32000,'하의','하의','resources/img/pants3.jpg','resources/img/pants3info.jpg');
+insert into product values(44,'니트와이드팬츠 ',18900,'하의','하의','resources/img/pants4.jpg','resources/img/pants4info.jpg');
+insert into product values(45,'슬림 데님팬츠',34000,'하의','하의','resources/img/pants5.jpg','resources/img/pants5info.jpg');
+insert into product values(46,'슬림일자핏 사이드슬릿 코튼 팬츠',29000,'하의','하의','resources/img/pants6.jpg','resources/img/pants6info.jpg');
+insert into product values(47,'쿨 와이드 밴딩 팬츠',11000,'하의','하의','resources/img/pants7.jpg','resources/img/pants7info.jpg');
+insert into product values(48,'하이웨스트 투버튼 숏츠',27000,'하의','하의','resources/img/pants8.jpg','resources/img/pants8info.jpg');
+insert into product values(49,'슬림 일자핏 데일리 9부팬츠',26000,'하의','하의','resources/img/pants9.jpg','resources/img/pants9info.jpg');
+insert into product values(50,'미니 슬릿 치마바지 ',36000,'하의','하의','resources/img/pants10.jpg','resources/img/pants10info.jpg');
+insert into product values(51,'멜빵5부 팬츠 점프슈트',20000,'하의','하의','resources/img/pants11.jpg','resources/img/pants11info.jpg');
+insert into product values(52,'데님 큐롯 팬츠 ',34000,'하의','하의','resources/img/pants12.jpg','resources/img/pants12info.jpg');
+insert into product values(53,'하이웨스트 코튼 숏 팬츠',24000,'하의','하의','resources/img/pants13.jpg','resources/img/pants13info.jpg');
+insert into product values(54,'히든 밴딩 일자핏 데님 팬츠',30000,'하의','하의','resources/img/pants14.jpg','resources/img/pants14info.jpg');
+insert into product values(55,'랩디테일 밴딩 치마바지 ',30000,'하의','하의','resources/img/pants15.jpg','resources/img/pants15info.jpg');
+insert into product values(56,'더블버튼 A라인 큐롯 팬츠 ',37000,'하의','하의','resources/img/pants16.jpg','resources/img/pants16info.jpg');
+insert into product values(57,'슬릿 세미와이드핏 데님 팬츠 ',33000,'하의','하의','resources/img/pants17.jpg','resources/img/pants17info.jpg');
+insert into product values(58,'멜빵디자인 점프슈트',38000,'하의','하의','resources/img/pants18.jpg','resources/img/pants18info.jpg');
+insert into product values(59,'사이드 랩 팬츠 스커트',26000,'하의','하의','resources/img/pants19.jpg','resources/img/pants19info.jpg');
+insert into product values(60,'착붙핏 9부 스키니팬츠',38000,'하의','하의','resources/img/pants20.jpg','resources/img/pants20info.jpg');
+
+<-- 악세사리 부분 -->
+insert into product values(61,'빅 리본 포인트 헤어핀',12000,'악세서리','악세서리','resources/img/acc1.jpg','resources/img/acc1info.jpg');
+insert into product values(62,'포인트 선글라스',20000,'악세서리','악세서리','resources/img/acc2.jpg','resources/img/acc2info.jpg');
+insert into product values(63,'체인 프린트의 정사각형 쉐입 스카프',12000,'악세서리','악세서리','resources/img/acc3.jpg','resources/img/acc3info.jpg');
+insert into product values(64,'골드 장식 슬림 벨트',12000,'악세서리','악세서리','resources/img/acc4.jpg','resources/img/acc4info.jpg');
+insert into product values(65,'스퀘어 쉐입 선글라스',18000,'악세서리','악세서리','resources/img/acc5.jpg','resources/img/acc5info.jpg');
+insert into product values(66,'이중 리본 미디움 헤어핀',8000,'악세서리','악세서리','resources/img/acc6.jpg','resources/img/acc6info.jpg');
+insert into product values(67,'빅사이즈 라운드 안경',16000,'악세서리','악세서리','resources/img/acc7.jpg','resources/img/acc7info.jpg');
+insert into product values(68,'미디엄 토드 숄더백',40000,'악세서리','악세서리','resources/img/acc8.jpg','resources/img/acc8info.jpg');
+insert into product values(69,'튤립 미들 스트랩슈즈',44000,'악세서리','악세서리','resources/img/acc9.jpg','resources/img/acc9info.jpg');
+insert into product values(70,'진주장식 스카프링',6000,'악세서리','악세서리','resources/img/acc10.jpg','resources/img/acc10info.jpg');
+insert into product values(71,'필터교체형 아이스 린넨 마스크',7000,'악세서리','악세서리','resources/img/acc11.jpg','resources/img/acc11info.jpg');
+insert into product values(72,'진주4핀 로맨틱 헤어핀',12000,'악세서리','악세서리','resources/img/acc12.jpg','resources/img/acc12info.jpg');
+insert into product values(73,'쉬폰 빅 리본 헤어밴드',12000,'악세서리','악세서리','resources/img/acc13.jpg','resources/img/acc13info.jpg');
+insert into product values(74,'비즈 펜턴트 백 침 이어링',12000,'악세서리','악세서리','resources/img/acc14.jpg','resources/img/acc14info.jpg');
+insert into product values(75,'물방울 비즈 초커 네크리스',20000,'악세서리','악세서리','resources/img/acc15.jpg','resources/img/acc15info.jpg');
+insert into product values(76,'큐빅 포인트 리본 브로치',16000,'악세서리','악세서리','resources/img/acc16.jpg','resources/img/acc16info.jpg');
+insert into product values(77,'NY레터링 베이직 볼캡',20000,'악세서리','악세서리','resources/img/acc17.jpg','resources/img/acc17info.jpg');
+insert into product values(78,'와이어 니트 벙거지 모자',22000,'악세서리','악세서리','resources/img/acc18.jpg','resources/img/acc18info.jpg');
+insert into product values(79,'꼬임 포인트 반다나 헤어밴드',10000,'악세서리','악세서리','resources/img/acc19.jpg','resources/img/acc19info.jpg');
+insert into product values(80,'어글리 스니커즈',40000,'악세서리','악세서리','resources/img/acc20.jpg','resources/img/acc20info.jpg');
