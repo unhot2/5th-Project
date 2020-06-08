@@ -1,15 +1,12 @@
 package com.team.service;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
-
 import com.team.dao.ProductDAO;
 import com.team.dto.ProductDTO;
 
-@Service
+@Service("ProductService")
 public class ProductServiceImpl implements ProductService{
 	@Autowired
 	ProductDAO dao;
@@ -29,14 +26,10 @@ public class ProductServiceImpl implements ProductService{
 		return dao.clothInfoInput(dto);
 		
 	}
+
 	@Override
-	public ProductDTO cart(ProductDTO dto) {
-		return dao.cart(dto);
+	public void productSave(ProductDTO dto) {
+		dao.productSave(dto);
+
 	}
-
-
-
-
-
-	
 }

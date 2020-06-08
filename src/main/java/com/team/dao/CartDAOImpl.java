@@ -57,7 +57,6 @@ public class CartDAOImpl implements CartDAO{
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("product_id",product_id);
 		map.put("userId",userId);
-		System.out.println("map : "+map);
 		return sqlSession.selectOne("sql.countCart", map);
 	}
 

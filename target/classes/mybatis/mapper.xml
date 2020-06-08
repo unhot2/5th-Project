@@ -234,6 +234,7 @@
 		update cart set amount = amount + #{amount} where userId = #{userId} and product_id = #{product_id}
 	</update>
 	
+
 	<!-- 결제 하는 부분 -->
 	
 	<insert id="cardInsert">
@@ -248,4 +249,10 @@
 		userId=#{userId}
 	</select>
 	
+
+	<!-- 파일 업로드 부분 -->
+   	<insert id="productSave">
+   		insert into product(product_id, title, price, category, subcategory, imgpath, detailimgpath) values(#{product_id}, #{title}, #{price}, #{category}, #{subcategory}, #{imgpath}, #{detailImgpath})
+   	</insert>	
+
 </mapper>

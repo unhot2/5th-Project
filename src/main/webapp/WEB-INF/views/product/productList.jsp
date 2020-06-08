@@ -9,7 +9,10 @@
 		<c:forEach items="${productList}" var="dto">
 			<figure>
 				<a href="productInformation?product_id=${dto.product_id }"><img src="${dto.imgpath}"></a>
-				<figcaption>${dto.title }${dto.price }</figcaption>
+				<figcaption>
+				${dto.title }
+				${dto.price }
+				</figcaption>
 			</figure>
 		</c:forEach>
 	</div>

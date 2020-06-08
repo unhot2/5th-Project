@@ -2,12 +2,13 @@
 
 #columns{
 	column-count:3;
-	border: 3px solid green;
-	 
+	border: 1px solid #c3c3c3;
+	display: flex;
+	justify-content: space-around;
 }
 #columns figure{
 	display: inline-block;
-	border: 5px solid red;
+	border: 5px solid black;
 	margin: 0px;
 }
 #columns figure img{
