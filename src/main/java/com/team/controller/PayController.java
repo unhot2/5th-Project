@@ -14,4 +14,5 @@ public interface PayController {
 	public String depositPay(PayDTO dto);
 	/* 결제 두번 방지 */
 	public int payCheck(@RequestParam(value="userId") String userId) throws JsonProcessingException ;
+	/*  */
 }

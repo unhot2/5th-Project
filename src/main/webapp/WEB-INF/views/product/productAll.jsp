@@ -8,6 +8,7 @@
 <jsp:include page="../include/productmenu.jsp" />
 <section class="ProductAllSection">
 	<div id="columns" align="center">
+		
 		<c:forEach items="${list}" var="dto">
 			<figure>
 				<a href="productInformation?product_id=${dto.product_id }">

@@ -28,7 +28,8 @@ $(document).on('click', '#cardPay', function() {
 		url : "cardPay",
 		data : $("#cartOder").serialize(),
 		success : function(data) {
-			location.href = "card"
+			var url = "card"
+				window.open(url,"","top=50,width=380,height=250,left=300,scrollbars=no,status=no,resizable=no");
 		}
 	})
 };
@@ -55,17 +56,14 @@ $(document).on('click', '#cardPay', function() {
       <tr>
         <th>상품금액</th>
         <td colspan="2"><fmt:formatNumber value="${totalPrice }" pattern="##,###" />원</td>
-        <td colspan="3">${totalPrice }원</td>
       </tr>
       <tr>
         <th>택배비</th>
         <td colspan="2"><fmt:formatNumber value="${fee }" pattern="##,###" />원</td>
-        <td colspan="3">${fee }원</td>
       </tr>
       <tr>
         <th>총금액</th>
         <td colspan="2"><fmt:formatNumber value="${totalMoney }" pattern="##,###" />원</td>
-        <td colspan="3">${totalMoney }원</td>
       </tr>
     </table>
     <table border="1">
