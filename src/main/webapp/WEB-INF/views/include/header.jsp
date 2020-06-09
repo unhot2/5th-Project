@@ -6,18 +6,17 @@
 <head>
 <meta charset="UTF-8">
 
-<link rel="stylesheet" href="resources/css/main.css" />
-<link rel="stylesheet" href="resources/css/cloth.css" />
-
+<link rel="stylesheet" href="resources/css/main.css?after" />
+<link rel="stylesheet" href="resources/css/cloth.css?after" />
+<link rel="stylesheet" href="resources/css/fadeout.css?after">
 <title>5TH POJECT</title>
-<script type="text/javascript"
-	src="${pageContext.request.contextPath}/resources/js/main.js"></script>
-<script
-	src="${pageContext.request.contextPath}/resources/js/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/main.js"></script>
+<script src='https://developers.kakao.com/sdk/js/kakao.min.js'></script>
+<script src="${pageContext.request.contextPath}/resources/js/jquery-3.4.1.min.js"></script>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script>
 	$(document).on('click', '#searchBtn', function() {
-		$("#productSearch").attr('action',"productSearch")		
+		$("#productSearch").attr('action', "productSearch")
 		$("#productSearch").submit()
 	})
 </script>
