@@ -31,8 +31,9 @@
 			<th>조회수</th>
 			<td>${qnaDetail.hit }</td>
 		</tr>
+		<c:if test="${noticeDetail.id == login.userId}">
 		<tr>
-			<td>
+			<td>	
 				<button type="button"
 					onclick="location.href='qnaUpdate?id=${qnaDetail.id}'">글수정</button>
 			</td>
@@ -41,6 +42,7 @@
 					onclick="location.href='qnaDelete?id=${qnaDetail.id }'">글삭제</button>
 			</td>
 		</tr>
+		</c:if>
 	</table>
 	<c:choose>
 		<c:when test="${userId ne null }">
