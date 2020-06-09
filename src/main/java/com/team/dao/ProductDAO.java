@@ -1,5 +1,6 @@
 package com.team.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 import com.team.dto.ProductDTO;
 
@@ -15,4 +16,7 @@ public interface ProductDAO {
 	
 	/*상품정보 저장*/
 	public void productSave(ProductDTO dto);
+	
+	/*상품 검색*/
+	public List<ProductDTO> productSearch(ProductDTO dto);
 }

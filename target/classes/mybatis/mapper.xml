@@ -188,6 +188,12 @@
 		where
 		product_id=#{product_id}
 	</select>
+	
+	<select id="productSearch" resultType="ProductDTO">
+		select * from product
+		where
+		title like'%'||#{title}||'%'
+	</select>
 
 	<!-- cart 부분 -->
 	<select id="cartList" resultType="JoinDTO">

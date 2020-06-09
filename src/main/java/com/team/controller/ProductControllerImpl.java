@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
@@ -71,5 +72,12 @@ public class ProductControllerImpl implements ProductController{
 		service.productSave(dto);
 		return "redirect:productAll";
 	}
-	
+
+	@RequestMapping("productSearch")
+	public String productSearch(ProductDTO dto, Model model) {
+		System.out.println("title값 "+dto.getTitle());
+		ArrayList<ProductDTO> list = (ArrayList<ProductDTO>)service.productSearch(dto);
+		model.addAttribute("list",list);
+		return "product/productResult";
+	}
 }

@@ -1,6 +1,11 @@
 package com.team.controller;
 
+import java.util.ArrayList;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
@@ -24,5 +29,6 @@ public interface ProductController {
 	/*상품등록 기능*/
 	public String productSave(MultipartHttpServletRequest request);
 	
-	
+	/*상품 검색 기능*/
+	public String productSearch(ProductDTO dto, Model model);
 }
