@@ -16,9 +16,8 @@
 				<figcaption>
 					${dto.title }<br><hr>
 					<fmt:formatNumber value="${dto.price }" pattern="##,###" />원
-					
 					</figcaption>
-			
+				<button type="button" onclick="like">좋아요</button>
 			</figure>
 		</c:forEach>
 	</div>

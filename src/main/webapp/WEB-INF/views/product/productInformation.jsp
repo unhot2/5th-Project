@@ -26,11 +26,11 @@
 					<table>
 						<tr>
 							<td><a id="product">상품명</a></td>
-							<td><a>${productInfo.title }</a></td>
+							<td><a id="product1">&nbsp;&nbsp;${productInfo.title }</a></td>
 						</tr>
 						<tr>
 							<td><a id="product">상품가격</a></td>
-							<td><a id="product1"><fmt:formatNumber value="${productInfo.price }" pattern="##,###" />원</a></td>
+							<td><a id="product1">&nbsp;&nbsp;<fmt:formatNumber value="${productInfo.price }" pattern="##,###" />원</a></td>
 						</tr>
 						<tr>
 							<td colspan="2" align="center">

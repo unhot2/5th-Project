@@ -1,14 +1,16 @@
 @charset "UTF-8";
-<link href="https://fonts.googleapis.com/css2?family=Cute+Font&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
+
 #columns{
 	column-count:4;
-	
+	font-family: 'Do Hyeon', sans-serif;
 	font-weight: bold;
 	justify-content: space-around;
 }
 #columns figure{
 	display: inline-block;
-	font-family: 'Cute Font', cursive;
+	font-family: 'Do Hyeon', sans-serif;
+	font-weight: bold;
 	font-size: 15px;
 }
 #columns figure img{
@@ -22,16 +24,16 @@
 }
 #product{
 	font-weight:bold;
-	font-size: 30px;
-	
+	font-size: 20px;
+	font-family: monospace;
 }
 #product1{
 	font-weight:bold;
-	font-size: 30px;
-	font-family: monospace;
+	font-size: 20px;
+	font-family: 'Do Hyeon', sans-serif;
 }
 span{
-	font-family: monospace;
+	font-family: 'Do Hyeon', sans-serif;
 	font-weight:bold;
 	font-size: 50px;
 }
