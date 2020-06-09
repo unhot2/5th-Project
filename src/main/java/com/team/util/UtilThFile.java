@@ -16,7 +16,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 @Controller
 public class UtilThFile {
 	public String thfileUpload(MultipartHttpServletRequest request) {
-		String path = "C:/Users/WDP/git/5th-Project/src/main/webapp/resources/img/";
+		String path = "C:/Users/itbank/git/5th-Project/src/main/webapp/resources/img/";
 		
 		String fileName = "";
 		String str = null;
