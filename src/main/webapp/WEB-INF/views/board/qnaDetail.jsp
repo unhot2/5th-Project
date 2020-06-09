@@ -31,6 +31,7 @@
 			<th>조회수</th>
 			<td>${qnaDetail.hit }</td>
 		</tr>
+		<c:if test="${login.userId!=null}">
 		<c:if test="${noticeDetail.id == login.userId}">
 		<tr>
 			<td>	
@@ -42,6 +43,7 @@
 					onclick="location.href='qnaDelete?id=${qnaDetail.id }'">글삭제</button>
 			</td>
 		</tr>
+		</c:if>
 		</c:if>
 	</table>
 	<c:choose>
