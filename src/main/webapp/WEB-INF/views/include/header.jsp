@@ -15,7 +15,8 @@
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script>
 	$(document).on('click', '#searchBtn', function() {
-		location.href = "productSearch"
+		$("#productSearch").attr('action',"productSearch")		
+		$("#productSearch").submit()
 	})
 </script>
 </head>

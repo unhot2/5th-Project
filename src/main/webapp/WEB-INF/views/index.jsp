@@ -4,8 +4,6 @@
 <link rel="stylesheet" href="resources/css/fadeout.css">
 <script src='https://developers.kakao.com/sdk/js/kakao.min.js'></script>
 <jsp:include page="include/header.jsp" />
-<%-- <c:remove var="userId"/>
-<c:remove var="userMaster"/> --%>
 <section class="indexSection">
 	<c:choose>
 		<c:when test="${userId !=null }">
