@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <jsp:include page="../include/header.jsp" />
 <script>
@@ -18,18 +19,18 @@
 </script>
 <section class="productInformationSection">
 	<div align="center">
-		<table border="1">
+		<table>
 			<tr>
-				<td><img src=${productInfo.imgpath }></td>
+				<td><img src=${productInfo.imgpath } id="img"></td>
 				<td>
-					<table border="1">
+					<table>
 						<tr>
-							<td>상품명</td>
-							<td>${productInfo.title }</td>
+							<td><a id="product">상품명</a></td>
+							<td><a>${productInfo.title }</a></td>
 						</tr>
 						<tr>
-							<td>상품가격</td>
-							<td>${productInfo.price }</td>
+							<td><a id="product">상품가격</a></td>
+							<td><a id="product1"><fmt:formatNumber value="${productInfo.price }" pattern="##,###" />원</a></td>
 						</tr>
 						<tr>
 							<td colspan="2" align="center">
