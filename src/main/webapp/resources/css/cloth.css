@@ -1,14 +1,12 @@
 @charset "UTF-8";
 
 #columns{
-	column-count:3;
+	column-count:4;
 	border: 1px solid #c3c3c3;
-	display: flex;
 	justify-content: space-around;
 }
 #columns figure{
 	display: inline-block;
-	border: 5px solid black;
 	margin: 0px;
 }
 #columns figure img{
