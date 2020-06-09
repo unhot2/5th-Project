@@ -9,7 +9,7 @@
 
 	<insert id="saveMember">
 		insert into login
-		values(#{userId},#{userPwd},#{userName},#{userAddr},#{userGender},#{userBirth},#{userEmail},DEFAULT,#{userPostCode},#{userQuestion},#{userAnwser})
+		values(#{userId},#{userPwd},#{userName},#{userAddr},#{userGender},#{userBirth},#{userEmail},#{userPhone},DEFAULT,#{userPostCode},#{userQuestion},#{userAnwser})
 	</insert>
 
 	<insert id="apiSaveMember">

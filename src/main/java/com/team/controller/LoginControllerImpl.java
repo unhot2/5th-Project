@@ -119,6 +119,7 @@ public class LoginControllerImpl implements LoginController {
 	@RequestMapping("saveMember")
 	public String saveMember(LoginDTO dto) {
 		service.saveMember(dto);
+		System.out.println(dto.getUserPhone());
 		return "redirect:login";
 	}
 	

@@ -10,6 +10,7 @@ public class LoginDTO {
 	private String userName;
 	private String userPostCode;
 	private String userAddr;
+	private String userPhone;
 	private String userGender;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date userBirth;
@@ -63,6 +64,14 @@ public class LoginDTO {
 
 	public void setUserAddr(String userAddr) {
 		this.userAddr = userAddr;
+	}
+	
+	public String getUserPhone() {
+		return userPhone;
+	}
+
+	public void setUserPhone(String userPhone) {
+		this.userPhone = userPhone;
 	}
 
 	public String getUserPostCode() {
