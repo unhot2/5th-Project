@@ -1,5 +1,6 @@
 package com.team.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,5 +31,10 @@ public class ProductDAOImpl implements ProductDAO{
 	public void productSave(ProductDTO dto) {
 		sqlSession.insert("sql.productSave",dto);
 
+	}
+
+	@Override
+	public List<ProductDTO> productSearch(ProductDTO dto) {
+		return sqlSession.selectList("sql.productSearch", dto);
 	}
 }

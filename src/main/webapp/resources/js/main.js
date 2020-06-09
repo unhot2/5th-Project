@@ -98,3 +98,4 @@ function copydata() {
 	$(".rcPostCode").val($(".orderPostCode").val())
 	$(".rcAddr").val($(".orderAddr").val())
 }
+

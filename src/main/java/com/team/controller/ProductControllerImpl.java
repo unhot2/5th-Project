@@ -1,21 +1,13 @@
 package com.team.controller;
 
 import java.util.ArrayList;
-import java.util.List;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
-import org.springframework.web.servlet.ModelAndView;
-
 import com.team.dto.ProductDTO;
 import com.team.service.ProductService;
 import com.team.util.UtilFile;
@@ -71,5 +63,14 @@ public class ProductControllerImpl implements ProductController{
 		service.productSave(dto);
 		return "redirect:productAll";
 	}
+
+	@RequestMapping("productSearch")
+	public String productSearch(ProductDTO dto, Model model) {
+		ArrayList<ProductDTO> list = (ArrayList<ProductDTO>)service.productSearch(dto);
+		model.addAttribute("list",list);
+		model.addAttribute("searchValue",dto.getTitle());
+		return "product/productResult";
+	}
+	
 	
 }

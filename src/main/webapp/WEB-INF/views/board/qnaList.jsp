@@ -77,8 +77,6 @@
 					<button type="button" onclick="location.href='qnaSave'">글작성</button></td>
 			</tr>
 		</table>
-		<button type="button" onclick="location.href='qnaSave'">글작성</button>
-		</td>
 	</div>
 </section>
 <jsp:include page="../include/footer.jsp" />
