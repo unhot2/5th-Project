@@ -1,10 +1,10 @@
 @charset "UTF-8";
 <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
-
 #columns{
 	column-count:4;
 	font-family: 'Do Hyeon', sans-serif;
 	font-weight: bold;
+	border: 1px solid #c3c3c3;
 	justify-content: space-around;
 }
 #columns figure{
@@ -12,12 +12,9 @@
 	font-family: 'Do Hyeon', sans-serif;
 	font-weight: bold;
 	font-size: 15px;
-}
-#columns figure img{
-	padding: 10px;
-	width: 300px;
-	height: 330px;
-}
+	margin: 0px;
+	
+
 #img{
 	width: 600px;
 	height: 700px;

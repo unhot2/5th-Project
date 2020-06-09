@@ -1,5 +1,6 @@
 package com.team.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,5 +31,10 @@ public class ProductServiceImpl implements ProductService{
 	@Override
 	public void productSave(ProductDTO dto) {
 		dao.productSave(dto);
+	}
+
+	@Override
+	public List<ProductDTO> productSearch(ProductDTO dto) {
+		return dao.productSearch(dto);
 	}
 }

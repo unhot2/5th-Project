@@ -13,6 +13,11 @@
 <script
 	src="${pageContext.request.contextPath}/resources/js/jquery-3.4.1.min.js"></script>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+<script>
+	$(document).on('click', '#searchBtn', function() {
+		location.href = "productSearch"
+	})
+</script>
 </head>
 <body>
 	<!-- 아래로 헤더부분 작성 -->
@@ -56,19 +61,23 @@
 					href="noticeList">공지사항</a>
 				</span>
 			</div>
-				 <div class="dropdown">
-					<button class="dropbtn menu" onclick="location.href='#'">상품</button>
-					<span class="dropdown-content">
-							<a href="productAll">전체</a>
-							<a href="productList?category=상의">상의</a>
-							<a href="productList?category=하의">하의</a>
-							<a href="productList?category=아우터">아우터</a>
-							<a href="productList?category=악세서리">악세서리</a>
-					</span>
-				</div> 
-			<span><a href="#" class="menu">세일</a></span><span class="img">
-				<!-- 검색창 --> <a href="#"><img src="resources/img/search.png"></a>
-			</span> <span class="img"> <!-- 찜목록? 추가안하려면 삭제 --> <a href="#"><img
+			<div class="dropdown">
+				<button class="dropbtn menu" onclick="location.href='#'">상품</button>
+				<span class="dropdown-content"> <a href="productAll">전체</a> <a
+					href="productList?category=상의">상의</a> <a
+					href="productList?category=하의">하의</a> <a
+					href="productList?category=아우터">아우터</a> <a
+					href="productList?category=악세서리">악세서리</a>
+				</span>
+			</div>
+			<span><a href="#" class="menu">세일</a></span><span class="img"></span>
+			<!-- 검색창 -->
+			<form id="productSearch" style="display: inline;">
+				<input type="text" name="title"> <a id="searchBtn"> <img
+					src="resources/img/search.png">
+				</a>
+			</form>
+			<span class="img"> <!-- 찜목록? 추가안하려면 삭제 --> <a href="#"><img
 					src="resources/img/JJim.png"></a>
 			</span> <span class="img"> <!-- 장바구니 --> <a href="cartList"><img
 					src="resources/img/cart.png"></a>
