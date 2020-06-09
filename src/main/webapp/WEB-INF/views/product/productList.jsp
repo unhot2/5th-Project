@@ -10,8 +10,8 @@
 			<figure>
 				<a href="productInformation?product_id=${dto.product_id }"><img src="${dto.imgpath}"></a>
 				<figcaption>
-				${dto.title }
-				${dto.price }
+				${dto.title }<br>
+				${dto.price }원
 				</figcaption>
 			</figure>
 		</c:forEach>
