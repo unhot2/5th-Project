@@ -5,8 +5,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
+
 <link rel="stylesheet" href="resources/css/main.css" />
 <link rel="stylesheet" href="resources/css/cloth.css" />
+
 <title>5TH POJECT</title>
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/resources/js/main.js"></script>

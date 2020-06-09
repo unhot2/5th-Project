@@ -1,15 +1,37 @@
 @charset "UTF-8";
-
+<link href="https://fonts.googleapis.com/css2?family=Cute+Font&display=swap" rel="stylesheet">
 #columns{
 	column-count:4;
+	
 	font-weight: bold;
-	font-family: monospace;
 	justify-content: space-around;
 }
 #columns figure{
 	display: inline-block;
+	font-family: 'Cute Font', cursive;
+	font-size: 15px;
 }
 #columns figure img{
+	padding: 10px;
 	width: 300px;
 	height: 330px;
+}
+#img{
+	width: 600px;
+	height: 700px;
+}
+#product{
+	font-weight:bold;
+	font-size: 30px;
+	
+}
+#product1{
+	font-weight:bold;
+	font-size: 30px;
+	font-family: monospace;
+}
+span{
+	font-family: monospace;
+	font-weight:bold;
+	font-size: 50px;
 }
