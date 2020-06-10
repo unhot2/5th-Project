@@ -7,7 +7,7 @@
 			<font size="6"><b>QnA</b></font>
 			<table border="1">
 				<tr>
-					<th>이름</th>
+					<th>아이디</th>
 					<td><input type="text" name="name" size="100"
 						value="${qnaUpdate.name }"></td>
 				</tr>

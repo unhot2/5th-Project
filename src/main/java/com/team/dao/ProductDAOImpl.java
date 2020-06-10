@@ -1,12 +1,10 @@
 package com.team.dao;
 
+import java.util.ArrayList;
 import java.util.List;
-
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-
 import com.team.dto.ProductDTO;
 
 @Controller
@@ -30,12 +28,13 @@ public class ProductDAOImpl implements ProductDAO{
 	}
 
 	@Override
-	public ProductDTO cart(ProductDTO dto) {
-		System.out.println(dto.getTitle());
-		return sqlSession.selectOne("sql.shoppingBasket",dto);
+	public void productSave(ProductDTO dto) {
+		sqlSession.insert("sql.productSave",dto);
+
 	}
 
-	
-	
-	
+	@Override
+	public List<ProductDTO> productSearch(ProductDTO dto) {
+		return sqlSession.selectList("sql.productSearch", dto);
+	}
 }

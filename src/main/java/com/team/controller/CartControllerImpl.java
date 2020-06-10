@@ -1,37 +1,48 @@
 package com.team.controller;
 
-import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import com.team.dto.JoinDTO;
+import com.team.dto.LoginDTO;
+import com.team.dto.PayDTO;
 import com.team.dto.CartDTO;
 import com.team.service.CartService;
+import com.team.service.LoginService;
 
 @Controller
 public class CartControllerImpl implements CartController {
 	@Autowired
 	CartService service;
+	@Autowired
+	LoginService loginService;
 
 	@RequestMapping("insertCart")
 	public String insertCart(Model model, CartDTO dto, HttpSession session) {
+	
 		String userId = (String) session.getAttribute("userId");
 		dto.setUserId((String) session.getAttribute("userId"));
-		service.insertCart(dto);
-		model.addAttribute("product_id", dto.getProduct_id());
-		return "redirect:productInformation";
+		int count = service.countCart(dto.getProduct_id(), userId);
+		if(count ==0) {
+			service.insertCart(dto);
+		}else {
+			service.updateCart(dto);
+		}
+		 return "product/productInformation"; 
 	}
 
 	@RequestMapping("cartList")
 	public String cartList(Model model, HttpSession session) {
 		String userId = (String) session.getAttribute("userId");
-		ArrayList<CartDTO> list = (ArrayList<CartDTO>) service.cartList(userId);
+		List<JoinDTO> list = service.cartList(userId);
 		int totalPrice = 0;
 		int money = 0;
 		int fee = 0;
 		int tatalMoney = 0;
-		for (CartDTO dto : list) {
+		for (JoinDTO dto : list) {
 			money = dto.getAmount() * dto.getPrice();
 			totalPrice += money;
 		}
@@ -47,6 +58,8 @@ public class CartControllerImpl implements CartController {
 		model.addAttribute("totalMoney", tatalMoney);
 		return "product/cartList";
 	}
+	
+	
 
 	@RequestMapping("cartDelete")
 	public String cartDelete(CartDTO dto) {
@@ -71,5 +84,33 @@ public class CartControllerImpl implements CartController {
 		service.cntDown(dto);
 		return "redirect:cartList";
 	}
-
+	@RequestMapping("cartOrder")
+	public String cartOrder(Model model, HttpSession session) {
+		String userId = (String) session.getAttribute("userId");
+		List<JoinDTO> list = service.cartList(userId);
+		int totalPrice = 0;
+		int money = 0;
+		int fee = 0;
+		int tatalMoney = 0;
+		for (JoinDTO cart : list) {
+			money = cart.getAmount() * cart.getPrice();
+			totalPrice += money;
+		}
+		if (totalPrice >= 100000) {
+			fee = 0;
+		} else {
+			fee = 2500;
+		}
+		tatalMoney = fee + totalPrice;
+		LoginDTO logindto = new LoginDTO();
+		logindto.setUserId(userId);
+		LoginDTO memberInfo = loginService.memberInfo(logindto);
+		model.addAttribute("cartList", list);
+		model.addAttribute("userID", userId);
+		model.addAttribute("totalPrice", totalPrice);
+		model.addAttribute("fee", fee);
+		model.addAttribute("totalMoney", tatalMoney);
+		model.addAttribute("memberInfo",memberInfo);
+		return "product/cartOrder";
+	}
 }

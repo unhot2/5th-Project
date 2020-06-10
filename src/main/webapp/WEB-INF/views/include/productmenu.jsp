@@ -4,17 +4,17 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<link rel="stylesheet" href="resources/css/cloth.css" />
 </head>
 <body>
 	<div align="center">
-		<table border="1">
+		<table>
 			<tr>
-				<td><h2><a href="productAll">전체 상품</a></h2></td>
-				<td><h2><a href="productList?category=아우터">outer</a></h2></td>
-				<td><h2><a href="productList?category=상의">top</a></h2></td>
-				<td><h2><a href="productList?category=하의">pant</a></h2></td>
-				<td><h2><a href="productList?category=악세서리">acc</a></h2></td>
+				<td><h2><a href="productAll"><span>total</span></a>&nbsp;&nbsp;&nbsp;&nbsp;</h2></td>
+				<td><h2><a href="productList?category=아우터"><span>outer</span></a>&nbsp;&nbsp;&nbsp;&nbsp;</h2></td>
+				<td><h2><a href="productList?category=상의"><span>top</span></a>&nbsp;&nbsp;&nbsp;&nbsp;</h2></td>
+				<td><h2><a href="productList?category=하의"><span>pant</span></a>&nbsp;&nbsp;&nbsp;&nbsp;</h2></td>
+				<td><h2><a href="productList?category=악세서리"><span>acc</span></a>&nbsp;&nbsp;&nbsp;&nbsp;</h2></td>
 			</tr>
 		</table>
 	</div>

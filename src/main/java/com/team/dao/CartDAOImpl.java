@@ -1,11 +1,13 @@
 package com.team.dao;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-
+import com.team.dto.JoinDTO;
 import com.team.dto.CartDTO;
 
 @Controller
@@ -18,8 +20,9 @@ public class CartDAOImpl implements CartDAO{
 	}
 
 	@Override
-	public List<CartDTO> cartList(String userId) {
-		return sqlSession.selectList("sql.cartList",userId);
+	public List<JoinDTO> cartList(String userId) {
+		List<JoinDTO> list = sqlSession.selectList("sql.cartList",userId);
+		return list;
 	}
 
 	@Override
@@ -44,4 +47,25 @@ public class CartDAOImpl implements CartDAO{
 		sqlSession.update("sql.cntDown",dto);
 	}
 
+	@Override
+	public List<CartDTO> cartOrder(CartDTO dto) {
+		return sqlSession.selectList("sql.cartOrderListAll", dto);
+	}
+
+	@Override
+	public int countCart(int product_id, String userId) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("product_id",product_id);
+		map.put("userId",userId);
+		return sqlSession.selectOne("sql.countCart", map);
+	}
+
+	@Override
+	public void updatCart(CartDTO dto) {
+		sqlSession.update("sql.updateCart", dto);
+		
+	}
+	
+	
+	
 }

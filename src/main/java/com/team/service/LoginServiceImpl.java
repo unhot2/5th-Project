@@ -1,8 +1,6 @@
 package com.team.service;
 
-import java.util.ArrayList;
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.team.dao.LoginDAO;
@@ -23,12 +21,7 @@ public class LoginServiceImpl implements LoginService {
 			if (dto.getUserId().equals(dbDto.getUserId())) {
 				if (dto.getUserPwd().equals(dbDto.getUserPwd())) {
 					chk = true;
-					System.out.println("로그인 성공");
-				} else {
-					System.out.println("비밀번호 틀림");
-				}
-			} else {
-				System.out.println("아이디 없음");
+				} 
 			}
 		}
 		return chk;

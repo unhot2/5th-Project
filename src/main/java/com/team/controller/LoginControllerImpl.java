@@ -21,7 +21,6 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 import org.springframework.web.servlet.ModelAndView;
 
-
 import com.team.dto.LoginDTO;
 import com.team.service.KakaoServiceImpl;
 import com.team.service.LoginService;
@@ -35,30 +34,29 @@ public class LoginControllerImpl implements LoginController {
 	@Autowired
 	KakaoServiceImpl kakao;
 	@Autowired
-	NaverServiceImpl naver; 
-	
+	NaverServiceImpl naver;
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home() {
 		return "index";
 	}
-	
+
 	@RequestMapping(value = "index", method = RequestMethod.GET)
 	public String index() {
 		return "index";
 	}
-	
+
 	@RequestMapping(value = "login", method = { RequestMethod.GET, RequestMethod.POST })
 	public ModelAndView login(HttpSession session) {
 		ModelAndView mav = new ModelAndView();
 		String kakaoUrl = kakao.getUrl(session);
 		String naverUrl = naver.getUrl(session);
 		mav.setViewName("login/login");
-		mav.addObject("kakao_url",kakaoUrl);
-		mav.addObject("naver_url",naverUrl);
+		mav.addObject("kakao_url", kakaoUrl);
+		mav.addObject("naver_url", naverUrl);
 		return mav;
 	}
-	
+
 	@RequestMapping("logout")
 	public String logout(HttpSession session) {
 		session.removeAttribute("access_Token");
@@ -67,7 +65,7 @@ public class LoginControllerImpl implements LoginController {
 		session.removeAttribute("userType");
 		return "redirect:index";
 	}
-	
+
 	@RequestMapping("memberShip")
 	public String membership() {
 		return "login/memberShip";
@@ -75,33 +73,36 @@ public class LoginControllerImpl implements LoginController {
 
 	@RequestMapping("memberList")
 	public String memberList(Model model) {
-		model.addAttribute("memberList",(ArrayList<LoginDTO>)service.memberList());
+		model.addAttribute("memberList", (ArrayList<LoginDTO>) service.memberList());
 		return "login/memberList";
 	}
-	
+
 	@RequestMapping("memberInfo")
-	public String memberInfo(LoginDTO dto,Model model) {
-		LoginDTO login = service.memberInfo(dto);
-		Date Mbirth = login.getUserBirth();
-		DateFormat dateFormat = new SimpleDateFormat ("yyyy-MM-dd");
-		String birth = dateFormat.format(Mbirth);
-		model.addAttribute("userBirth",birth);
-		model.addAttribute("memberInfo",login);
-		return "login/memberInfo";
+	public String memberInfo(LoginDTO dto, Model model) {
+		if (dto.getUserId().equals("empty")) {
+			return "redirect:index";
+		} else {
+			LoginDTO login = service.memberInfo(dto);
+			Date Mbirth = login.getUserBirth();
+			DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+			String birth = dateFormat.format(Mbirth);
+			model.addAttribute("userBirth", birth);
+			model.addAttribute("memberInfo", login);
+			return "login/memberInfo";
+		}
 	}
-	
+
 	@ResponseBody
-	@RequestMapping(value="idCheck",produces="application/json;charset=utf8")
-	public int idCheck(@RequestParam(value="userId") String userId) throws JsonProcessingException  {
+	@RequestMapping(value = "idCheck", produces = "application/json;charset=utf8")
+	public int idCheck(@RequestParam(value = "userId") String userId) throws JsonProcessingException {
 		boolean chk = service.idcheck(userId);
 		int result = 0;
-		if(chk) {
+		if (chk) {
 			result = 1;
 		}
 		return result;
 	}
-	
-	
+
 	@RequestMapping("loginChk")
 	public String loginChk(LoginDTO dto, HttpServletRequest request) {
 		HttpSession session = null;
@@ -109,7 +110,7 @@ public class LoginControllerImpl implements LoginController {
 			session = request.getSession();
 			session.setAttribute("userId", dto.getUserId());
 			session.setAttribute("userMaster", service.getMaster(dto.getUserId()));
-			session.setAttribute("userType","member");
+			session.setAttribute("userType", "member");
 			return "redirect:index";
 		} else {
 			return "redirect:login";
@@ -119,12 +120,13 @@ public class LoginControllerImpl implements LoginController {
 	@RequestMapping("saveMember")
 	public String saveMember(LoginDTO dto) {
 		service.saveMember(dto);
+		System.out.println(dto.getUserPhone());
 		return "redirect:login";
 	}
-	
+
 	@RequestMapping("apiSaveMember")
-	public String apiSaveMember(LoginDTO dto,HttpSession session) {
-		dto.setUserId((String)session.getAttribute("id"));
+	public String apiSaveMember(LoginDTO dto, HttpSession session) {
+		dto.setUserId((String) session.getAttribute("id"));
 		session.removeAttribute("id");
 		service.apiSaveMember(dto);
 		return "redirect:login";
@@ -141,57 +143,55 @@ public class LoginControllerImpl implements LoginController {
 		service.updateMember(dto);
 		return "redirect:memberList";
 	}
-	
+
 	@RequestMapping("updateUserMember")
-	public String updateUserMember(LoginDTO dto,Model model) {
+	public String updateUserMember(LoginDTO dto, Model model) {
 		LoginDTO login = service.memberInfo(dto);
 		Date Mbirth = login.getUserBirth();
-		DateFormat dateFormat = new SimpleDateFormat ("yyyy-MM-dd");
+		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		String birth = dateFormat.format(Mbirth);
-		model.addAttribute("userBirth",birth);
-		model.addAttribute("memberInfo",login);
+		model.addAttribute("userBirth", birth);
+		model.addAttribute("memberInfo", login);
 		return "login/updateUserMember";
 	}
-	
+
 	@RequestMapping("updateUser")
-	public String updateUser(LoginDTO dto,Model model) {
+	public String updateUser(LoginDTO dto, Model model) {
 		service.updateMember(dto);
-		model.addAttribute("memberInfo",service.memberInfo(dto));
+		model.addAttribute("memberInfo", service.memberInfo(dto));
 		return "index";
 	}
-	
+
 	public boolean kakaoIdCheck(String id) {
 		return service.kakaoIdCheck(id);
 	}
 
-
 	public boolean naverIdCheck(String id) {
 		return service.naverIdCheck(id);
 	}
-	
+
 	@RequestMapping("userFind")
 	public String userFind() {
 		return "login/userFind";
 	}
-	
+
 	@RequestMapping("find")
-	public String find(@RequestParam("id") String id,Model model) {
+	public String find(@RequestParam("id") String id, Model model) {
 		LoginDTO dto = service.find(id);
-		model.addAttribute("dto",dto);
-		model.addAttribute("id",id);
+		model.addAttribute("dto", dto);
+		model.addAttribute("id", id);
 		return "login/find";
 	}
-	
+
 	@RequestMapping("answerChk")
-	public String chkAnswer(@RequestParam("anwser") String anwser, @RequestParam("id") String id,Model model)  {
-		System.out.println("id값 :"+id);
-		System.out.println("anwser값 :"+anwser);
-		if (service.chkAnwser(anwser,id)) {
-			model.addAttribute("id",id);
+	public String chkAnswer(@RequestParam("anwser") String anwser, @RequestParam("id") String id, Model model) {
+		System.out.println("id값 :" + id);
+		System.out.println("anwser값 :" + anwser);
+		if (service.chkAnwser(anwser, id)) {
+			model.addAttribute("id", id);
 			return "login/alterPwd";
-		}
-		else {
-			model.addAttribute("id",id);
+		} else {
+			model.addAttribute("id", id);
 			return "redirect:find";
 		}
 	}
@@ -201,5 +201,5 @@ public class LoginControllerImpl implements LoginController {
 		service.alterPwd(dto);
 		return "redirect:login";
 	}
-	
+
 }

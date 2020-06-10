@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.team.dao.CartDAO;
+import com.team.dto.JoinDTO;
 import com.team.dto.CartDTO;
 
 @Service
@@ -20,7 +21,7 @@ public class CartServiceImpl implements CartService{
 	}
 
 	@Override
-	public List<CartDTO> cartList(String userId) {
+	public List<JoinDTO> cartList(String userId) {
 		return dao.cartList(userId);
 	}
 
@@ -43,5 +44,23 @@ public class CartServiceImpl implements CartService{
 	public void cntDown(CartDTO dto) {
 		dao.cntDown(dto);
 	}
+
+	@Override
+	public List<CartDTO> cartOrder(CartDTO dto) {
+		return dao.cartOrder(dto);
+	}
+
+	@Override
+	public int countCart(int product_id, String userId) {
+		return dao.countCart(product_id, userId);
+	}
+
+	@Override
+	public void updateCart(CartDTO dto) {
+		dao.updatCart(dto);
+	}
+
+	
+
 	
 }
