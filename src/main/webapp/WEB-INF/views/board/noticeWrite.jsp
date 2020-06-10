@@ -7,7 +7,7 @@
 		<form action="noticeWrite">
 			<table border="1">
 				<tr>
-					<td>이름</td>
+					<td>아이디</td>
 					<td><input type="text" name="name"></td>
 				<tr>
 					<td>제목</td>
