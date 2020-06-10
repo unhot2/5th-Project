@@ -21,7 +21,7 @@
 </head>
 <body>
 	<!-- 아래로 헤더부분 작성 -->
-	<header class="menuBar">
+	<header class="menuBar" style="z-index: 1">
 		<nav class="navbar">
 			<!-- 상표 넣을자리 -->
 			<span class="img"> <a href="/sample"

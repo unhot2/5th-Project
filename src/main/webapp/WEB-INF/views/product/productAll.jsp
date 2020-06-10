@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
 <!DOCTYPE html>
 <jsp:include page="../include/header.jsp" />
 
 <!-- Swiper -->
-  <div class="swiper-container" style="height: 55%;z-index: -1;">
+<link rel="stylesheet" href="resources/css/swiper.min.css">
+  <div class="swiper-container" style="height: 55%; z-index: 0">
     <div class="swiper-wrapper">
       <div class="swiper-slide">
       	<img src="resources/img/main1.jpg">
@@ -31,7 +31,7 @@
     <div class="swiper-button-prev"></div>
   </div>
   <!-- Swiper JS -->
-  <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
+  <script src="resources/js/swiper.min.js"></script>
 
   <!-- Initialize Swiper -->
   <script>

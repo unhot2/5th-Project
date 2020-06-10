@@ -6,42 +6,43 @@
 <section class="qnaDetailSection">
 	<div align="center">
 	<h1>${qnaDetail.title }의 내용</h1>
-	<table border="1" style="width: 100%; height: 300px;" style="position: relative;">
+	<table border="1" style="width: 60%; height: 100%;">
 		<tr>
-			<th style="width:30px; height: 20px;">글번호</th>
-			<td style="width:50px; height: 20px;">${qnaDetail.id}</td>
-			<th rowspan="2" style="width:30px; height: 20px;">제목</th>
-			<td rowspan="2" style="width:200px; height: 20px;">${qnaDetail.title }</td>
-			<th style="width:50px; height: 20px;">작성일</th>
-			<td style="width:50px; height: 20px;">${qnaDetail.savedate }</td>
+			<th style="width:5%; height: 10%;">글번호</th>
+			<td style="width:5%; height: 10%;">${qnaDetail.id}</td>
+			<th rowspan="2" style="width: 5%; height: 20px;">제목</th>
+			<td rowspan="2" style="width: 50%; height: 20px;">${qnaDetail.title }</td>
+			<th style="width:5%; height: 20px;">작성일</th>
+			<td style="width:10%; height: 20px;">${qnaDetail.savedate }</td>
 		</tr>
 		<tr>
-			<th style="width:50px; height: 20px;">작성자</th>
-			<td style="width:50px; height: 20px;">${qnaDetail.name }</td>
-			<th style="width:50px; height: 20px;">조회수</th>
-			<td style="width:50px; height: 20px;">${qnaDetail.hit }</td>
+			<th style="width:5%; height: 20px;">작성자</th>
+			<td style="width:5%; height: 20px;">${qnaDetail.name }</td>
+			<th style="width:5%; height: 20px;">조회수</th>
+			<td style="width:10%; height: 20px;">${qnaDetail.hit }</td>
 		</tr>
 		<tr>
 			<th>내용</th>
-			<td colspan="6" style="height: 100%">${qnaDetail.content }</td>
+			<td colspan="6" style="width:70%; height: 100%;">${qnaDetail.content }</td>
 		</tr>
-		<tr>
-			
-		</tr>
+		</table>
+		<table style="width: 60%">
 		<c:choose>
 				<c:when test="${userId == qnaDetail.name}">
-				<div style="position: absolute; bottom:150px; right:8px;">
+				<tr>
+				<td colspan="6" style="float: right;">
 					<button type="button"
 						onclick="location.href='qnaUpdate?id=${qnaDetail.id }'">수정</button>
 					<button type="button"
 						onclick="location.href='qnaDelete?id=${qnaDetail.id }'">삭제</button>
-				</div>
+				</td>
+				</tr>
 				</c:when>
 				<c:otherwise>
 
 				</c:otherwise>
 			</c:choose>
-	</table>
+		</table>
 	<c:choose>
 		<c:when test="${userId ne null }">
 			<h3>&nbsp;</h3>
@@ -50,22 +51,23 @@
 				<form
 					action="qnaReplyWrite?userid=${userId }&idgroup=${qnaDetail.idgroup}&id=${qnaDetail.id}"
 					method="post">
-					<table border="1" style="width: 100%">
+					<table border="1" style="width: 60%;">
 						<tr>
-							<th>댓글</th>
-							<td>
-								<input type="text" name="content" size="171px">
-								<input type="submit" value="작성">
+							<th style="width: 5%">댓글</th>
+							<td align="center">
+							<div>
+								<input type="text" name="content" style="width: 90%;">
+								<input type="submit" value="작성" style="width: 8%;">
+							</div>
 							</td>
 						</tr>
 					</table>
-					
 				</form>
 			</div>
 		</c:when>
 	</c:choose>
 	<span>&nbsp;</span>
-		<table border="1" style="width: 100%;">
+		<table border="1" style="width: 60%;">
 			<tr>
 				<th style="width: 10%;">작성자</th><th style="width: 80%;">내용</th><th style="width: 100%;">작성일</th>
 			</tr>

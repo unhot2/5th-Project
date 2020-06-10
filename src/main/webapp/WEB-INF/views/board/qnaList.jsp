@@ -16,14 +16,14 @@
 		<h1>QnA</h1>
 	</div>
 	<div align="center">
-		<table border="1">
+		<table border="1" style="width: 60%;text-align: center;">
 			<tr>
-				<th>번호</th>
-				<th>제목</th>
-				<th>이름</th>
-				<th>내용</th>
-				<th>날짜</th>
-				<th>조회수</th>
+				<th style="width: 5%">번호</th>
+				<th style="width: 100px">제목</th>
+				<th style="width: 10%">작성자</th>
+				<th style="width: 45%">내용</th>
+				<th style="width: 15%">작성일</th>
+				<th style="width: 5%">조회수</th>
 			</tr>
 			<c:choose>
 				<c:when test="${qnaList.size() != 0 }">

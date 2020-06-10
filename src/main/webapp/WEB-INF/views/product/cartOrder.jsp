@@ -112,10 +112,7 @@ $(document).on('click', '#cardPay', function() {
         <tr>
           <td>
           	<input type="hidden" id="userId" value="${userId }">
-            <button id="cardPay" type="button">카드 결제</button>
-          </td>
-          <td>
-          	<button id="depositPay" type="button">무통장 입금</button>
+            <button id="cardPay" type="button">결제하기</button>
           </td>
         </tr>
       </table>
