@@ -13,11 +13,11 @@ function idcheck() {
 			if (data == 1) {
 				$(".result .msg").text("사용 불가");
 				$(".result .msg").attr("style", "color:red");
-				$("#submit").attr("disabled", "disabled")
+				
 			} else {
 				$(".result .msg").text("사용 가능");
 				$(".result .msg").attr("style", "color:blue");
-				$("#submit").removeAttr("disabled");
+				
 			}
 		}
 	});
@@ -117,3 +117,5 @@ function like() {
 		}
 	});
 }
+
+

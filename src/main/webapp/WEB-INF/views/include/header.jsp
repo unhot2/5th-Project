@@ -75,11 +75,7 @@
 			</div>
 			<span><a href="#" class="menu">세일</a></span><span class="img"></span>
 			<!-- 검색창 -->
-			<form id="productSearch" style="display: inline;">
-				<input type="text" name="title"> <a id="searchBtn"> <img
-					src="resources/img/search.png">
-				</a>
-			</form>
+			
 			<span class="img"> <!-- 찜목록? 추가안하려면 삭제 --> <a href="#"><img
 					src="resources/img/JJim.png"></a>
 			</span> <span class="img"> <!-- 장바구니 --> <a href="cartList"><img
@@ -88,5 +84,12 @@
 				href="memberInfo?userId=${userId }"><img
 					src="resources/img/MY.png"></a>
 			</span>
+			<form id="productSearch" style="display: inline;">
+			<span class="img">
+				<input type="text" name="title"> <a id="searchBtn"> <img
+					src="resources/img/search.png">
+				</a>
+				</span>
+			</form>
 		</nav>
 	</header>
