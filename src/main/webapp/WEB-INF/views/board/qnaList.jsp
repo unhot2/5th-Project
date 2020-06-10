@@ -24,9 +24,6 @@
 				<th>내용</th>
 				<th>날짜</th>
 				<th>조회수</th>
-				<th>group</th>
-				<th>step</th>
-				<th>indent</th>
 			</tr>
 			<c:choose>
 				<c:when test="${qnaList.size() != 0 }">
@@ -38,9 +35,6 @@
 							<td>${dto.content }</td>
 							<td>${dto.savedate }</td>
 							<td>${dto.hit }</td>
-							<td>${dto.idgroup }</td>
-							<td>${dto.step }</td>
-							<td>${dto.indent }</td>
 						</tr>
 					</c:forEach>
 				</c:when>

@@ -10,9 +10,11 @@
 <link rel="stylesheet" href="resources/css/cloth.css?after" />
 <link rel="stylesheet" href="resources/css/fadeout.css?after">
 <title>5TH POJECT</title>
-<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/main.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/resources/js/main.js"></script>
 <script src='https://developers.kakao.com/sdk/js/kakao.min.js'></script>
-<script src="${pageContext.request.contextPath}/resources/js/jquery-3.4.1.min.js"></script>
+<script
+	src="${pageContext.request.contextPath}/resources/js/jquery-3.4.1.min.js"></script>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script>
 	$(document).on('click', '#searchBtn', function() {
@@ -82,9 +84,20 @@
 					src="resources/img/JJim.png"></a>
 			</span> <span class="img"> <!-- 장바구니 --> <a href="cartList"><img
 					src="resources/img/cart.png"></a>
-			</span> <span class="img"> <!-- 내정보 --> <a
-				href="memberInfo?userId=${userId }"><img
-					src="resources/img/MY.png"></a>
 			</span>
+			<c:choose>
+				<c:when test="${userId ne null}">
+					<span class="img"> <!-- 내정보 --> <a
+						href="memberInfo?userId=${userId }"> <img
+							src="resources/img/MY.png"></a>
+					</span>
+				</c:when>
+				<c:otherwise>
+					<span class="img"> <!-- 내정보 --> <a
+						href="memberInfo?userId=empty"> <img
+							src="resources/img/MY.png"></a>
+					</span>
+				</c:otherwise>
+			</c:choose>
 		</nav>
 	</header>
