@@ -72,7 +72,6 @@
 					href="productList?category=악세서리">악세서리</a>
 				</span>
 			</div>
-			<span><a href="#" class="menu">세일</a></span><span class="img"></span>
 			<!-- 검색창 -->
 			<form id="productSearch" style="display: inline;">
 				<input type="text" name="title"> <a id="searchBtn"> <img

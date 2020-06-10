@@ -9,7 +9,7 @@
 			<h3>'${userId}'님 환영합니다</h3>
 		</c:when>
 	</c:choose>
-	<div>
+	<div class="indexSlide">
 		<ul class="slideshow">
 			<li><span></span></li>
 			<li><span></span></li>
