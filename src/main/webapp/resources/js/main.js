@@ -117,3 +117,10 @@ function like() {
 		}
 	});
 }
+
+function hover(element){
+	element.setAttribute('src',"resources/img/filllike.png")
+}
+function unhover(element){
+	element.setAttribute('src',"resources/img/like.png")
+}

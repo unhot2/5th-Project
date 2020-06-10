@@ -9,8 +9,16 @@ public class ProductDTO {
 	private String subcategory;
 	private String imgpath;
 	private String detailImgpath;
+	private int productLike;
 	
 	
+	
+	public int getProductLike() {
+		return productLike;
+	}
+	public void setProductLike(int productLike) {
+		this.productLike = productLike;
+	}
 	public String getDetailImgpath() {
 		return detailImgpath;
 	}

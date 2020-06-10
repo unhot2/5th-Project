@@ -59,7 +59,7 @@
 		<c:forEach items="${productList}" var="dto">
 			<figure>
 				<a href="productInformation?product_id=${dto.product_id }">
-					<img src="${dto.imgpath}">
+					<img src="${dto.imgpath}" class="img">
 				</a>
 				<figcaption>
 				${dto.title }<br><hr>

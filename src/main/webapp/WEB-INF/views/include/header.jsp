@@ -25,11 +25,11 @@
 </head>
 <body>
 	<!-- 아래로 헤더부분 작성 -->
-	<header class="menuBar" style="z-index:1">
+	<header class="menuBar" style="z-index: 1">
 		<nav class="navbar">
 			<!-- 상표 넣을자리 -->
 			<span class="img"> <a href="/sample"
-				style="margin-right: 60px;"><img src="resources/img/JJim.png"></a>
+				style="margin-right: 60px;"><img src="resources/img/like.png" onmouseover="hover(this)" onmouseout="unhover(this)"></a>
 			</span>
 			<c:choose>
 				<c:when test="${userId eq null }">
@@ -80,9 +80,7 @@
 					src="resources/img/search.png">
 				</a>
 			</form>
-			<span class="img"> <!-- 찜목록? 추가안하려면 삭제 --> <a href="#"><img
-					src="resources/img/JJim.png"></a>
-			</span> <span class="img"> <!-- 장바구니 --> <a href="cartList"><img
+			<span class="img"> <!-- 장바구니 --> <a href="cartList"><img
 					src="resources/img/cart.png"></a>
 			</span>
 			<c:choose>
