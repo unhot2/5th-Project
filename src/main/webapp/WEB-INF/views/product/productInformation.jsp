@@ -11,6 +11,7 @@
 			success : function(data) {
 				var chk = confirm("장바구니에 저장되었습니다. 장바구니로 이동하시겠습니까?")
 				if (chk) {
+					
 					location.href = "cartList"
 				}
 			}

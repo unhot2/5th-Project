@@ -5,9 +5,8 @@
 <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
 <!DOCTYPE html>
 <jsp:include page="../include/header.jsp" />
-
 <!-- Swiper -->
-  <div class="swiper-container" style="height: 55%;z-index: -1;">
+  <div class="swiper-container" style="height: 55%;z-index: 0;">
     <div class="swiper-wrapper">
       <div class="swiper-slide">
       	<img src="resources/img/main1.jpg">
