@@ -16,9 +16,7 @@
 			</tr> 
 			<c:forEach var="cartList" items="${cartList }">
 				<tr>
-					<td><img src="${cartList.
-					
-					imgpath }" id="cartImg"></td>
+					<td><img src="${cartList.imgpath }" id="cartImg"></td>
 					<td>${cartList.title}</td>
 					<td>
 						<button type="button" onclick="cntDown('${cartList.cartId}')">-</button>
