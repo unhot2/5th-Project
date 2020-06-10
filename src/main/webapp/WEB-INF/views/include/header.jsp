@@ -66,14 +66,42 @@
 				</span>
 			</div>
 			<div class="dropdown">
-				<button class="dropbtn menu" onclick="location.href='#'">상품</button>
-				<span class="dropdown-content"> <a href="productAll">전체</a> <a
-					href="productList?category=상의">상의</a> <a
-					href="productList?category=하의">하의</a> <a
-					href="productList?category=아우터">아우터</a> <a
-					href="productList?category=악세서리">악세서리</a>
+				<button class="dropbtn menu" onclick="location.href='productList?category=아우터'">OUTER</button>
+				<span class="dropdown-content">
+					<a href="productsubList?subcategory=#">가디건</a>
+					<a href="productsubList?subcategory=#">남방</a> 
+					<a href="productsubList?subcategory=#">코트</a>
+					<a href="productsubList?subcategory=#">패딩</a>
 				</span>
 			</div>
+			<div class="dropdown">
+				<button class="dropbtn menu" onclick="location.href='productList?category=상의'">TOP</button>
+				<span class="dropdown-content">
+				<a href="productsubList?subcategory=#">티쳐츠</a>
+				<a href="productsubList?subcategory=#">후드티</a> 
+				<a href="productsubList?subcategory=#">반팔티</a>
+				<a href="productsubList?subcategory=#">맨투맨</a>
+				</span>
+			</div>
+			<div class="dropdown">
+				<button class="dropbtn menu" onclick="location.href='productList?category=하의'">PANTS</button>
+				<span class="dropdown-content">
+					<a href="productsubList?subcategory=#">청바지</a>
+					<a href="productsubList?subcategory=#">면바지</a> 
+					<a href="productsubList?subcategory=#">반바지</a>
+					<a href="productsubList?subcategory=#">치마</a>
+				</span>
+			</div>
+			<div class="dropdown">
+				<button class="dropbtn menu" onclick="location.href='productList?category=악세서리'">ACC</button>
+				<span class="dropdown-content">
+					<a href="productsubList?subcategory=#">목걸이</a>
+					<a href="productsubList?subcategory=#">귀걸이</a> 
+					<a href="productsubList?subcategory=#">모자</a>
+					<a href="productsubList?subcategory=#">안경</a>
+				</span>
+			</div>
+			
 			<!-- 검색창 -->
 			<form id="productSearch" style="display: inline;">
 				<input type="text" name="title"> <a id="searchBtn"> <img

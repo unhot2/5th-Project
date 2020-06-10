@@ -1,6 +1,5 @@
 package com.team.dao;
 
-import java.util.ArrayList;
 import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +22,11 @@ public class ProductDAOImpl implements ProductDAO{
 	}
 	
 	@Override
+	public List<ProductDTO> subProductList(String subcategory) {
+		return sqlSession.selectList("sql.subproductList",subcategory);
+	}
+	
+	@Override
 	public ProductDTO clothInfoInput(ProductDTO dto) {
 		return sqlSession.selectOne("sql.productInformation", dto);
 	}
@@ -37,4 +41,6 @@ public class ProductDAOImpl implements ProductDAO{
 	public List<ProductDTO> productSearch(ProductDTO dto) {
 		return sqlSession.selectList("sql.productSearch", dto);
 	}
+
+
 }

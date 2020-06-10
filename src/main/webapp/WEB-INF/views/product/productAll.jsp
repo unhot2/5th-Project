@@ -63,7 +63,6 @@
 
 	})
 </script>
-
 <jsp:include page="../include/productmenu.jsp" />
 <section class="ProductAllSection">
 	<div class="columns" align="center">

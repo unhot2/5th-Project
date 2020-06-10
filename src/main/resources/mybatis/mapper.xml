@@ -182,7 +182,10 @@
 		select * from product where
 		category=#{category}
 	</select>
-
+	<select id="subproductList" resultType="ProductDTO">
+		select * from product where
+		subcategory=#{subcategory}
+	</select>
 	<select id="productInformation" resultType="ProductDTO">
 		select * from product
 		where

@@ -1,12 +1,15 @@
 package com.team.controller;
 
 import java.util.ArrayList;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import com.team.dto.ProductDTO;
 import com.team.service.ProductService;
@@ -36,6 +39,13 @@ public class ProductControllerImpl implements ProductController{
 		model.addAttribute("productList",(ArrayList<ProductDTO>)service.topProductlist(category));
 		return "product/productList";
 	}
+	
+	@RequestMapping("subProductlist")
+	public String subProductlist(@RequestParam("subcategory") String subcategory, Model model) {
+		model.addAttribute("productsubList",(ArrayList<ProductDTO>)service.subProductlist(subcategory));
+		return "product/productList";
+	}
+	
 	@RequestMapping("productInformation")
 	public String clothInfoInput(Model model,ProductDTO dto) {
 		ProductDTO productdto = service.clothInfoInput(dto);
@@ -71,6 +81,14 @@ public class ProductControllerImpl implements ProductController{
 		model.addAttribute("searchValue",dto.getTitle());
 		return "product/productResult";
 	}
-	
-	
+	@RequestMapping("productlike")
+	public String producrlike(HttpServletRequest httpRequest,HttpSession session) {
+	      String product_id = httpRequest.getParameter("product_id");
+	      System.out.println("1");
+	      int like = Integer.parseInt(httpRequest.getParameter("like"));
+	      ProductDTO dto = new ProductDTO();
+	      dto.setProduct_id(product_id);
+	      System.out.println(like);
+	      return null;
+	}
 }
