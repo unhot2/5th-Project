@@ -24,4 +24,7 @@ public class PayServiceImpl implements PayService {
 		}
 		return chk;  
 	}
+	public int payHistoryInsert(String userId) {
+		return dao.payHistoryInsert(userId);
+	}
 }

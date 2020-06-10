@@ -5,34 +5,35 @@
 <jsp:include page="../include/header.jsp" />
 <script>
 $(document).on('click', '#cardPay', function() {
-	var query = {
-		userId : $("#userId").val()
-	};
-	
-	$.ajax({
-		url : "payCheck",
-		type : "post",
-		data : query,
-		success : function(data) {
-			if (data == 1) {
-				alert("이미 결제가 진행 되었습니다.");
-			} else {
-				cardPay();
-			}
-		}
+	   var query = {
+	      userId : $("#userId").val()
+	   };
+	   
+	   $.ajax({
+	      url : "payCheck",
+	      type : "post",
+	      data : query,
+	      success : function(data) {
+	         if (data == 1) {
+	            alert("이미 결제가 진행 되었습니다.");
+	         } else {
+	            cardPay();
+	         }
+	      }
+	   });
 	});
-});
+	
+function cardPay(){
+	   $.ajax({
+	      url : "cardPay",
+	      data : $("#cartOder").serialize(),
+	      success : function(data) {
+	        location.href="payHistoryInsert"
+	      }
+	   })
+	};
 
- function cardPay(){
-	$.ajax({
-		url : "cardPay",
-		data : $("#cartOder").serialize(),
-		success : function(data) {
-			var url = "card"
-				window.open(url,"","top=50,width=380,height=250,left=300,scrollbars=no,status=no,resizable=no");
-		}
-	})
-};
+
 </script>
 <section class="cartOrder">
   <div align="center">
@@ -114,8 +115,9 @@ $(document).on('click', '#cardPay', function() {
         </tr>
         <tr>
           <td>
-          	<input type="hidden" id="userId" value="${userId }">
-            <button id="cardPay" type="button">카드 결제</button>
+            <input type="hidden" id="userId" value="${userId }">
+            <input type="hidden" id="cartList" value="${cartList }">
+            <button id="cardPay" type="button" >카드 결제</button>
           </td>
           <td>
           	<button id="depositPay" type="button">무통장 입금</button>

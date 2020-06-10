@@ -13,6 +13,7 @@ public interface PayController {
 	/* 무통장 입금 결제 버튼 클릭시 작동 메서드 */
 	public String depositPay(PayDTO dto);
 	/* 결제 두번 방지 */
-	public int payCheck(@RequestParam(value="userId") String userId) throws JsonProcessingException ;
-	/*  */
+	public int payCheck(@RequestParam(value="userId") String userId) throws JsonProcessingException ;	
+	/* 결제내역 테이블 insert */
+	public int payHistoryInsert (HttpSession session);
 }

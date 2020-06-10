@@ -1,10 +1,14 @@
 package com.team.controller;
 
 
+import java.text.DecimalFormat;
+import java.util.Calendar;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -18,6 +22,7 @@ public class PayControllerImpl {
 	@Autowired
 	PayService service;
 	
+	@ResponseBody
 	@RequestMapping("cardPay")
 	public String cardPay(PayDTO dto, HttpSession session) {
 		//카드 결제 버튼 클릭시 이쪽으로 이동
@@ -36,11 +41,7 @@ public class PayControllerImpl {
 		service.depositPay(dto);
 		return null;
 	}
-	
-	@RequestMapping("card")
-	public String cardView() {
-		return "pay/cardPay";
-	}
+
 	
 	@ResponseBody
 	@RequestMapping(value="payCheck",produces="application/json;charset=utf8")
@@ -54,6 +55,19 @@ public class PayControllerImpl {
 		}
 		return result;
 	}
+	
+	@RequestMapping("payHistoryInsert")
+	public String payHistoryInsert (HttpSession session) {
+		String userId = (String) session.getAttribute("userId");
+		service.payHistoryInsert(userId);
+		int result = 0;
+		if(result == 0) {
+			System.out.println("insert 실패");
+		}else {
+			System.out.println("insert 성공");
+		}
+		return "index";
+	} 
 	
 	
 }

@@ -30,4 +30,8 @@ public class PayDAOImpl implements PayDAO {
 		return sqlSession.selectOne("sql.payCheck",userId);
 	}
 	
+	public int payHistoryInsert(String userId) {
+		return sqlSession.insert("sql.insertPayHistory",userId);
+	}
+	
 }

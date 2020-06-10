@@ -9,6 +9,8 @@ public interface PayDAO {
 	public String depositPay(PayDTO dto);
 	/* 중복 결제 방지 DAO  */
 	public String payCheck(String userId);
+	/* 결제내역 테이블 insert */
+	public int payHistoryInsert(String userId);
 	
 	
 }

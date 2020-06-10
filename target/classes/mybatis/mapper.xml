@@ -249,9 +249,14 @@
 		userId=#{userId}
 	</select>
 	
+	<insert id="insertPayHistory">
+		insert into payHistory (userId, amount, price, title) 
+		select userId, amount, price, title, from cart where userId=#{userId}
+	</insert>
+	
 
 	<!-- 파일 업로드 부분 -->
-   	<insert id="productSave">
+   	<insert id="productSave" >
    		insert into product(product_id, title, price, category, subcategory, imgpath, detailimgpath) values(#{product_id}, #{title}, #{price}, #{category}, #{subcategory}, #{imgpath}, #{detailImgpath})
    	</insert>	
 
