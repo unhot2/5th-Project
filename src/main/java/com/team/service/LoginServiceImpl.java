@@ -87,9 +87,9 @@ public class LoginServiceImpl implements LoginService {
 		return dao.find(id);
 	}
 
-	public boolean chkAnwser(String anwser, String id) {
+	public boolean chkAnswer(String answer, String id) {
 		boolean chk = false;
-		if (dao.chkAnwser(id).equals(anwser)) {
+		if (dao.chkAnswer(id).equals(answer)) {
 			chk = true;
 		}
 		return chk;

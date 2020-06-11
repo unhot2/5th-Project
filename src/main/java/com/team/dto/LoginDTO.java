@@ -16,14 +16,16 @@ public class LoginDTO {
 	private Date userBirth;
 	private String userEmail;
 	private String userQuestion;
-	private String userAnwser;
+	private String userAnswer;
 
-	public String getUserAnwser() {
-		return userAnwser;
+	
+
+	public String getUserAnswer() {
+		return userAnswer;
 	}
 
-	public void setUserAnwser(String userAnwser) {
-		this.userAnwser = userAnwser;
+	public void setUserAnswer(String userAnswer) {
+		this.userAnswer = userAnswer;
 	}
 
 	public String getUserQuestion() {
