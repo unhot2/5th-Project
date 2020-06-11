@@ -3,8 +3,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <jsp:include page="../include/header.jsp" />
-<jsp:include page="../include/productmenu.jsp" />
 <section class="ProductResultSection">
+<jsp:include page="../include/productmenu.jsp" />
 <div>
 <h1>" ${searchValue } " 의 검색 결과입니다.</h1>
 </div>

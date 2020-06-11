@@ -5,9 +5,9 @@
 <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
 <!DOCTYPE html>
 <jsp:include page="../include/header.jsp" />
+<section class="productListSection">
 <jsp:include page="../include/mainview.jsp" />
 <jsp:include page="../include/productmenu.jsp" />
-<section class="productListSection">
 	<div class="columns" align="center">
 		<c:forEach items="${productList}" var="dto">
 			<figure>

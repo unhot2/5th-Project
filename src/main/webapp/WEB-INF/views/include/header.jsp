@@ -84,17 +84,7 @@
 					<span class="menu"><a href="memberInfo?userId=${userId }"
 						class="menu">내정보</a></span>
 				</c:when>
-				<%-- <c:when test="${userMaster == 0 && userId != null}">
-					<span class="menu"><a href="memberList" class="menu">회원목록</a></span>
-					<span class="menu"><a href="productRegister" class="menu">상품등록</a></span>
-				</c:when> --%>
 			</c:choose>
-			<div class="dropdown">
-				<button class="dropbtn menu">고객센터</button>
-				<span class="dropdown-content"> <a href="qnaList">QnA</a><a
-					href="noticeList">공지사항</a>
-				</span>
-			</div>
 			<c:choose>
 				<c:when test="${userMaster == 0 && userId != null}">
 					<div class="dropdown">
