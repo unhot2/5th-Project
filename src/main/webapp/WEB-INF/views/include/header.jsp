@@ -29,7 +29,8 @@
 		<nav class="navbar">
 			<!-- 상표 넣을자리 -->
 			<span class="img"> <a href="/sample"
-				style="margin-right: 60px;"><img src="resources/img/like.png" onmouseover="hover(this)" onmouseout="unhover(this)"></a>
+				style="margin-right: 60px;"><img src="resources/img/like.png"
+					onmouseover="hover(this)" onmouseout="unhover(this)"></a>
 			</span>
 			<c:choose>
 				<c:when test="${userId eq null }">

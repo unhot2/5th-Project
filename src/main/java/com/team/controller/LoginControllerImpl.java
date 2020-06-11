@@ -201,5 +201,4 @@ public class LoginControllerImpl implements LoginController {
 		service.alterPwd(dto);
 		return "redirect:login";
 	}
-
 }
