@@ -8,10 +8,10 @@
 <div>
 <h1>" ${searchValue } " 의 검색 결과입니다.</h1>
 </div>
-	<div id="columns" align="center">
+	<div class="columns" align="center">
 		<c:forEach items="${list}" var="dto">
 			<figure>
-				<img src="${dto.imgpath}">
+				<img src="${dto.imgpath}" class="img">
 				<figcaption>
 					<a>${dto.title }</a>
 					<a>${dto.price }</a>

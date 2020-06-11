@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+.indexSection{
+	height: 700px;
+}
+
 .menuBar {
 	width: 100%;
 	height: 75px;
