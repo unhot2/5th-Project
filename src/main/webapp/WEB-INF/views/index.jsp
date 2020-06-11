@@ -18,5 +18,6 @@
 			<li><span></span></li>
 		</ul>
 	</div>
+<jsp:include page="product/productAll.jsp" />	
 </section>
 <jsp:include page="include/footer.jsp" />
