@@ -187,7 +187,7 @@ public class LoginControllerImpl implements LoginController {
 	public String chkAnswer(@RequestParam("anwser") String anwser, @RequestParam("id") String id, Model model) {
 		System.out.println("id값 :" + id);
 		System.out.println("anwser값 :" + anwser);
-		if (service.chkAnwser(anwser, id)) {
+		if (service.chkAnswer(anwser, id)) {
 			model.addAttribute("id", id);
 			return "login/alterPwd";
 		} else {

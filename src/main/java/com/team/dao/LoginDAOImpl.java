@@ -61,8 +61,8 @@ public class LoginDAOImpl implements LoginDAO {
 		
 	}
 
-	public String chkAnwser(String id) {
-		return sqlSession.selectOne("sql.chkAnwser",id);
+	public String chkAnswer(String id) {
+		return sqlSession.selectOne("sql.chkAnswer",id);
 	}
 
 	public void alterPwd(LoginDTO dto) {

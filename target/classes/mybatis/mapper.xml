@@ -9,7 +9,7 @@
 
 	<insert id="saveMember">
 		insert into login
-		values(#{userId},#{userPwd},#{userName},#{userAddr},#{userGender},#{userBirth},#{userEmail},#{userPhone},DEFAULT,#{userPostCode},#{userQuestion},#{userAnwser})
+		values(#{userId},#{userPwd},#{userName},#{userAddr},#{userGender},#{userBirth},#{userPhone},#{userEmail},DEFAULT,#{userPostCode},#{userQuestion},#{userAnswer})
 	</insert>
 
 	<insert id="apiSaveMember">
@@ -25,6 +25,7 @@
 		update login set
 		userPwd=#{userPwd},
 		userName=#{userName},
+		userPhone=#{userPhone},
 		userAddr=#{userAddr},userGender=#{userGender},
 		userBirth=#{userBirth},userEmail=#{userEmail},
 		userPostCode=#{userPostCode}
@@ -46,14 +47,14 @@
 	</select>
 
 	<select id="find" resultType="loginDTO">
-		select userQuestion,userAnwser
+		select userQuestion,userAnswer
 		from
 		login where
 		userId=#{id}
 	</select>
 
-	<select id="chkAnwser" resultType="String">
-		select userAnwser
+	<select id="chkAnswer" resultType="String">
+		select userAnswer
 		from login
 		where userId=#{id}
 	</select>
