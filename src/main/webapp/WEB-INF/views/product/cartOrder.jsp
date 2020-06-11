@@ -109,7 +109,7 @@
 			<table border="1">
 				<tr>
 					<td>이름</td>
-					<td><input type="text" name="userName" class="rcName"></td>
+					<td colspan="2"><input type="text" name="userName" class="rcName"></td>
 				</tr>
 				<!-- <tr>
           <td>전화번호</td>
@@ -117,15 +117,18 @@
         </tr>-->
         <tr>
           <td>우편번호</td>
-          <td><input type="text" name="userPostCode" class="rcPostCode"></td>
+          <td><input type="text" name="userPostCode"id="postcode" class="rcPostCode"></td>
+          <td>  <input type="button"  onclick="DaumPostcode()" value="우편번호 검색"></td>
         </tr>
         <tr>
           <td>주소</td>
-          <td><input type="text" name="userAddr" class="rcAddr"></td>
+          <td colspan="2"><input type="text" id="address" name="userAddr" class="rcAddr">
+          </td>
         </tr>
         <tr>
           <td>주문 메세지</td>
-          <td><input type="text" name="message"></td>
+          <td colspan="2"><input type="text" name="message"></td>
+          
         </tr>
         <tr>
           <td>

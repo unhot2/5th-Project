@@ -4,7 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
 <!DOCTYPE html>
-<jsp:include page="../include/mainview.jsp" />
+<%-- <jsp:include page="../include/mainview.jsp" /> --%>
 <section class="ProductAllSection">
 	<div class="columns" align="center">
 		<c:forEach items="${list}" var="dto">
