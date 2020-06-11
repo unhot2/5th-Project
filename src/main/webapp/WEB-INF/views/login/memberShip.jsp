@@ -1,19 +1,43 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	
+
 <jsp:include page="../include/header.jsp" />
 <script>
-	$(document).ready(function(){
-		
-		 $(':input[type="submit"]').prop('disabled', true);
-		 $('input[type="text"]').keyup(function(){
-			 if($("#userId").val()!='' && $("#userPwd").val()!='' && $("#userName").val()!='' && $("#userPhone").val()!='' && $("#postcode").val()!='' && $("#address").val()!=''&& $("#userAnswer").val()!='' ){
-				 $(':input[type="submit"]').prop('disabled', false);
-			 }
-			 
-		 });
-		
-		
+	$(document).ready(function() {
+		$('input[type="text"]').keyup(function() {
+			var chk;
+			if ($("#userId").val() != ''&&$("#userPwd").val() != ''&&$("#userName").val() != ''&&$("#userPhone").val() != ''&&$("#postcode").val() != ''&&$("#address").val() != ''&&$("#userAnswer").val() != '') {
+				chk = true;
+			}
+			else if ($("#userId").val() == '') {
+				chk = false;
+			}
+			else if ($("#userPwd").val() == '') {
+				chk = false;
+			}
+			else if ($("#userName").val() == '') {
+				chk = false;
+			}
+			else if ($("#userPhone").val() == '') {
+				chk = false;
+			}
+			else if ($("#postcode").val() == '') {
+				chk = false;
+			}
+			else if ($("#address").val() == '') {
+				chk = false;
+			}
+			else if ($("#userAnswer").val() == '') {
+				chk = false;
+			}
+			if (chk) {
+				$(':input[type="submit"]').prop('disabled', false);
+			}
+			else if(chk == false){
+				$(':input[type="submit"]').prop('disabled', true);
+				
+			}
+		});
 	});
 </script>
 <section class="memberShipSection">
@@ -40,7 +64,8 @@
 				</tr>
 				<tr>
 					<th><font color="red">*</font>핸드폰번호</th>
-					<td><input type="text" name="userPhone" id="userPhone" maxlength="11"></td>
+					<td><input type="text" name="userPhone" id="userPhone"
+						maxlength="11"></td>
 				</tr>
 
 				<tr>
