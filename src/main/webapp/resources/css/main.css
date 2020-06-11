@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-Section{
+Section {
 	padding-top: 155px;
 }
 
@@ -18,9 +18,11 @@ Section{
 	height: 18px;
 	background-color: white;
 }
-.img img{
-	 max-width: 122px;
+
+.img img {
+	max-width: 122px;
 }
+
 .likeplace {
 	display: flex;
 }
@@ -119,6 +121,8 @@ body {
 	overflow: hidden;
 	background-color: white;
 	height: 155px;
+	positon: absolute;
+	left: 35%;
 }
 
 .navbar a {
@@ -180,7 +184,6 @@ body {
 .img a:hover {
 	background-color: white;
 	text-decoration: none;
-	
 }
 
 #cartImg {

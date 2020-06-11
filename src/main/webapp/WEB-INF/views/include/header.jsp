@@ -122,7 +122,7 @@
 			</c:choose>	
 			<!-- 검색창 -->
 			<form id="productSearch" style="display: inline;">
-				<input type="text" name="title"
+				<input type="Search" name="title"
 					onkeypress="if(event.keyCode==13) {press()}"> <a
 					id="searchBtn"> <img src="resources/img/search.png">
 				</a>
