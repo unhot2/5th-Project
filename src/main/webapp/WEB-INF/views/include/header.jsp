@@ -54,8 +54,7 @@
 			</div>
 			<!-- 상표 넣을자리 -->
 			<span class="img"> <a href="/sample"
-				style="margin-right: 60px;"><img src="resources/img/shooping.jpg"
-					onmouseover="hover(this)" onmouseout="unhover(this)"></a>
+				style="margin-right: 60px;"><img src="resources/img/shooping.jpg"></a>
 			</span>
 			<div class="dropdown">
 				<button class="dropbtn menu"
