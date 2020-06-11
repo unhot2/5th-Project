@@ -11,6 +11,9 @@ public interface ProductService {
 	/* 카테고리 별 리스트 가져오기 */
 	public List<ProductDTO> topProductlist(String category);
 	
+	/* 서브카테고리 별 리스트 가져오기 */
+	public List<ProductDTO> subProductlist(String subcategory);
+	
 	/* cloth 정보 가져오기 */
 	public ProductDTO clothInfoInput(ProductDTO dto);
 	
@@ -19,4 +22,6 @@ public interface ProductService {
 	
 	/*상품 검색*/
 	public List<ProductDTO> productSearch(ProductDTO dto);
+
+	
 }

@@ -11,8 +11,6 @@ public class ProductDTO {
 	private String detailImgpath;
 	private int productLike;
 	
-	
-	
 	public int getProductLike() {
 		return productLike;
 	}

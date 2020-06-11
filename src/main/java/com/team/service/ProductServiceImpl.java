@@ -1,6 +1,5 @@
 package com.team.service;
 
-import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,6 +22,11 @@ public class ProductServiceImpl implements ProductService{
 	}
 	
 	@Override
+	public List<ProductDTO> subProductlist(String subcategory) {
+		return dao.subProductList(subcategory);
+	}
+	
+	@Override
 	public ProductDTO clothInfoInput(ProductDTO dto) {
 		return dao.clothInfoInput(dto);
 		
@@ -37,4 +41,6 @@ public class ProductServiceImpl implements ProductService{
 	public List<ProductDTO> productSearch(ProductDTO dto) {
 		return dao.productSearch(dto);
 	}
+
+
 }

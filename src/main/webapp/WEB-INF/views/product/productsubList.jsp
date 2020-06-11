@@ -6,20 +6,20 @@
 <!DOCTYPE html>
 <jsp:include page="../include/header.jsp" />
 <jsp:include page="../include/mainview.jsp" />
-<jsp:include page="../include/productmenu.jsp" />
-<section class="productListSection">
-	<div class="columns" align="center">
-		<c:forEach items="${productList}" var="dto">
-			<figure>
-				<a href="productInformation?product_id=${dto.product_id }">
-					<img src="${dto.imgpath}" class="img">
-				</a>
-				<figcaption>
-				${dto.title }<br><hr>
+<jsp:include page="../include/productsubmenu.jsp" />
+<section class="productsubListSection">
+<div class="columns" align="center">
+	<c:forEach items="${productsubList}" var="dto">
+		<figure>
+			<a href="productInformation?product_id=${dto.product_id }"> <img
+				src="${dto.imgpath}" class="img">
+			</a>
+			<figcaption>
+				${dto.title }<br>
+				<hr>
 				<fmt:formatNumber value="${dto.price }" pattern="##,###" />원
-				</figcaption>
-			</figure>
-		</c:forEach>
-	</div>
+			</figcaption>
+		</figure>
+	</c:forEach>
+</div>
 </section>
-<jsp:include page="../include/footer.jsp" />
