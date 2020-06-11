@@ -115,25 +115,26 @@
           <td>전화번호</td>
           <td><input type="text" name="userPhone" value="" class=""></td>
         </tr>-->
-				<tr>
-					<td>우편번호</td>
-					<td><input type="text" name="userPostCode" class="rcPostCode"></td>
-				</tr>
-				<tr>
-					<td>주소</td>
-					<td><input type="text" name="userAddr" class="rcAddr"></td>
-				</tr>
-				<tr>
-					<td>주문 메세지</td>
-					<td><input type="text" name="message"></td>
-				</tr>
-				<tr>
-					<td>
-						<button id="payment" type="button">결제</button>
-					</td>
-				</tr>
-			</table>
-		</form>
-	</div>
+        <tr>
+          <td>우편번호</td>
+          <td><input type="text" name="userPostCode" class="rcPostCode"></td>
+        </tr>
+        <tr>
+          <td>주소</td>
+          <td><input type="text" name="userAddr" class="rcAddr"></td>
+        </tr>
+        <tr>
+          <td>주문 메세지</td>
+          <td><input type="text" name="message"></td>
+        </tr>
+        <tr>
+          <td>
+          	<input type="hidden" id="userId" value="${userId }">
+            <button id="cardPay" type="button">결제하기</button>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </div>
 </section>
 <jsp:include page="../include/footer.jsp" />

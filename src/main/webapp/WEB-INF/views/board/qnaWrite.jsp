@@ -8,8 +8,8 @@
 			<table border="1">
 				<tr>
 					<th>아이디</th>
-					<td><input type="text" name="name" size="100"
-						value="${qnaUpdate.name }"></td>
+					<td>&nbsp;${userId }<input type="hidden" name="name"
+						value="${userId }"></td>
 				</tr>
 				<tr>
 					<th>제목</th>

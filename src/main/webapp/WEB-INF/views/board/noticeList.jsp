@@ -6,14 +6,14 @@
 <section class="noticeListSection">
 	<div align="center">
 		<h1>공 지 사 항</h1>
-		<table border="1">
+		<table border="1" style="width: 60%;text-align: center;">
 			<tr>
-				<th>아이디</th>
-				<th>이름</th>
-				<th>제목</th>
-				<th>내용</th>
-				<th>작성시간</th>
-				<th>조회수</th>
+				<th style="width: 5%">번호</th>
+				<th style="width: 10%">작성자</th>
+				<th style="width: 20%">제목</th>
+				<th style="width: 45%">내용</th>
+				<th style="width: 15%">작성일</th>
+				<th style="width: 5%">조회수</th>
 			</tr>
 			<c:choose>
 				<c:when test="${noticeList.size() !=0 }">

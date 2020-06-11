@@ -7,32 +7,33 @@
 <!DOCTYPE html>
 <jsp:include page="../include/header.jsp" />
 <!-- Swiper -->
-<div class="swiper-container" style="height: 55%; z-index: 0;">
-	<div class="swiper-wrapper">
-		<div class="swiper-slide">
-			<img src="resources/img/main1.jpg">
-		</div>
-		<div class="swiper-slide">
-			<img src="resources/img/main2.jpg">
-		</div>
-		<div class="swiper-slide">
-			<img src="resources/img/main3.jpg">
-		</div>
-		<div class="swiper-slide">
-			<img src="resources/img/main4.jpg">
-		</div>
-		<div class="swiper-slide">
-			<img src="resources/img/main5.jpg">
-		</div>
-	</div>
-	<!-- Add Pagination -->
-	<div class="swiper-pagination"></div>
-	<!-- Add Arrows -->
-	<div class="swiper-button-next"></div>
-	<div class="swiper-button-prev"></div>
-</div>
-<!-- Swiper JS -->
-<script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
+<link rel="stylesheet" href="resources/css/swiper.min.css">
+  <div class="swiper-container" style="height: 55%; z-index: 0">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+      	<img src="resources/img/main1.jpg">
+      </div>
+      <div class="swiper-slide">
+      	<img src="resources/img/main2.jpg">
+      </div>
+      <div class="swiper-slide">
+      	<img src="resources/img/main3.jpg">
+      </div>
+      <div class="swiper-slide">
+      	<img src="resources/img/main4.jpg">
+      </div>
+      <div class="swiper-slide">
+      	<img src="resources/img/main5.jpg">
+      </div>
+    </div>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination"></div>
+    <!-- Add Arrows -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+  </div>
+  <!-- Swiper JS -->
+  <script src="resources/js/swiper.min.js"></script>
 
 <!-- Initialize Swiper -->
 <script>
