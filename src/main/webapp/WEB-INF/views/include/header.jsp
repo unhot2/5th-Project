@@ -21,6 +21,11 @@
 		$("#productSearch").attr('action', "productSearch")
 		$("#productSearch").submit()
 	})
+
+	function press() {
+		$("#productSearch").attr('action', "productSearch")
+		$("#productSearch").submit()
+	}
 </script>
 </head>
 <body>
@@ -67,49 +72,54 @@
 				</span>
 			</div>
 			<div class="dropdown">
-				<button class="dropbtn menu" onclick="location.href='productList?category=아우터'">OUTER</button>
-				<span class="dropdown-content">
-					<a href="productsubList?subcategory=가디건">가디건</a>
-					<a href="productsubList?subcategory=자켓">자켓</a> 
-					<a href="productsubList?subcategory=코트">코트</a>
-					<a href="productsubList?subcategory=점퍼">점퍼</a>
+				<button class="dropbtn menu"
+					onclick="location.href='productList?category=아우터'">OUTER</button>
+				<span class="dropdown-content"> <a
+					href="productsubList?subcategory=가디건">가디건</a> <a
+					href="productsubList?subcategory=자켓">자켓</a> <a
+					href="productsubList?subcategory=코트">코트</a> <a
+					href="productsubList?subcategory=점퍼">점퍼</a>
 				</span>
 			</div>
 			<div class="dropdown">
-				<button class="dropbtn menu" onclick="location.href='productList?category=상의'">TOP</button>
-				<span class="dropdown-content">
-				<a href="productsubList?subcategory=블라우스">블라우스</a>
-				<a href="productsubList?subcategory=티셔츠">티셔츠</a> 
-				<a href="productsubList?subcategory=니트">니트</a>
-				<a href="productsubList?subcategory=반팔">반팔</a>
+				<button class="dropbtn menu"
+					onclick="location.href='productList?category=상의'">TOP</button>
+				<span class="dropdown-content"> <a
+					href="productsubList?subcategory=블라우스">블라우스</a> <a
+					href="productsubList?subcategory=티셔츠">티셔츠</a> <a
+					href="productsubList?subcategory=니트">니트</a> <a
+					href="productsubList?subcategory=반팔">반팔</a>
 				</span>
 			</div>
 			<div class="dropdown">
-				<button class="dropbtn menu" onclick="location.href='productList?category=하의'">PANTS</button>
-				<span class="dropdown-content">
-					<a href="productsubList?subcategory=점프슈트">점프슈트</a>
-					<a href="productsubList?subcategory=와이드팬츠">와이드팬츠</a> 
-					<a href="productsubList?subcategory=스커트">스커트</a>
-					<a href="productsubList?subcategory=면바지">면바지</a>
+				<button class="dropbtn menu"
+					onclick="location.href='productList?category=하의'">PANTS</button>
+				<span class="dropdown-content"> <a
+					href="productsubList?subcategory=점프슈트">점프슈트</a> <a
+					href="productsubList?subcategory=와이드팬츠">와이드팬츠</a> <a
+					href="productsubList?subcategory=스커트">스커트</a> <a
+					href="productsubList?subcategory=면바지">면바지</a>
 				</span>
 			</div>
 			<div class="dropdown">
-				<button class="dropbtn menu" onclick="location.href='productList?category=악세서리'">ACC</button>
-				<span class="dropdown-content">
-					<a href="productsubList?subcategory=스카프">스카프</a>
-					<a href="productsubList?subcategory=헤어핀">헤어핀</a> 
-					<a href="productsubList?subcategory=안경">안경</a>
-					<a href="productsubList?subcategory=벨트">벨트</a>
-					<a href="productsubList?subcategory=가방">가방</a>
-					<a href="productsubList?subcategory=신발">신발</a>
-					<a href="productsubList?subcategory=기타">기타</a>
+				<button class="dropbtn menu"
+					onclick="location.href='productList?category=악세서리'">ACC</button>
+				<span class="dropdown-content"> <a
+					href="productsubList?subcategory=스카프">스카프</a> <a
+					href="productsubList?subcategory=헤어핀">헤어핀</a> <a
+					href="productsubList?subcategory=안경">안경</a> <a
+					href="productsubList?subcategory=벨트">벨트</a> <a
+					href="productsubList?subcategory=가방">가방</a> <a
+					href="productsubList?subcategory=신발">신발</a> <a
+					href="productsubList?subcategory=기타">기타</a>
 				</span>
 			</div>
-			
+
 			<!-- 검색창 -->
 			<form id="productSearch" style="display: inline;">
-				<input type="text" name="title"> <a id="searchBtn"> <img
-					src="resources/img/search.png">
+				<input type="text" name="title"
+					onkeypress="if(event.keyCode==13) {press()}"> <a
+					id="searchBtn"> <img src="resources/img/search.png">
 				</a>
 			</form>
 			<span class="img"> <!-- 장바구니 --> <a href="cartList"><img
