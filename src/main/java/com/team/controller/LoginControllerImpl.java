@@ -63,6 +63,9 @@ public class LoginControllerImpl implements LoginController {
 	public String logout(HttpSession session) {
 		session.removeAttribute("access_Token");
 		session.removeAttribute("userId");
+		session.removeAttribute("userName");
+		session.removeAttribute("userEmail");
+		session.removeAttribute("userAddr");
 		session.removeAttribute("userMaster");
 		session.removeAttribute("userType");
 		return "redirect:index";
@@ -108,6 +111,9 @@ public class LoginControllerImpl implements LoginController {
 		if (service.loginChk(dto)) {
 			session = request.getSession();
 			session.setAttribute("userId", dto.getUserId());
+			session.setAttribute("userName", dto.getUserName());
+			session.setAttribute("userEmail", dto.getUserEmail());
+			session.setAttribute("userAddr", dto.getUserAddr());
 			session.setAttribute("userMaster", service.getMaster(dto.getUserId()));
 			session.setAttribute("userType","member");
 			return "redirect:index";

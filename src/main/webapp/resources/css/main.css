@@ -34,11 +34,12 @@ a {
 	font-weight: bold;
 }
 
-.table {
+.tablefooter {
 	background: black;
 	color: white;
 	align-content: center;
 	text-decoration: none;
+	width: 100%;
 }
 
 .div01 {

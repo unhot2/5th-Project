@@ -71,7 +71,7 @@ public class BoardDAOImpl implements BoardDAO {
 	public NoticePageCount noticePagingNum(int noticestart) {
 		if(noticestart == 0)noticestart=1;
 		NoticePageCount pc = new NoticePageCount();
-		int pageNum=5;
+		int pageNum=10;
 		int totalPage = sqlSession.selectOne("sql.noticeGetTotalPage");
 		int totEndPage = totalPage/pageNum + (totalPage%pageNum == 0 ?0 :1);
 		int startPage = (noticestart - 1) * pageNum + 1;
@@ -130,7 +130,7 @@ public class BoardDAOImpl implements BoardDAO {
 	public PageCount qnaPagingNum(int start) {
 		if(start == 0)start=1;
 		PageCount pc = new PageCount();
-		int pageNum=5;
+		int pageNum=10;
 		int totalPage = sqlSession.selectOne("sql.qnaGetTotalPage");
 		int totEndPage = totalPage/pageNum + (totalPage%pageNum == 0 ?0 :1);
 		int startPage = (start - 1) * pageNum + 1;
