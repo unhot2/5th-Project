@@ -237,9 +237,10 @@
 
 	<!-- 결제 하는 부분 -->
 	
-	<insert id="cardInsert">
-		insert into pay values(#{userId},#{message},'카드',0)
+	 <insert id="cardInsert">
+		insert into pay values(#{userId},#{message},'카드',0,#{orderId})
 	</insert>
+	 
 	
 	<insert id="depositInsert">
 		insert into pay values(#{userId},#{message},'무통장입금',0)
@@ -249,11 +250,11 @@
 		userId=#{userId}
 	</select>
 	
-	<insert id="insertPayHistory">
-		insert into payHistory (userId, amount, price, title) 
-		select userId, amount, price, title, from cart where userId=#{userId}
+	 <insert id="insertPayHistory" parameterType="PayHistoryDTO">
+		
+		insert into payhistory(amount,price,title,orderId,userId,imgpath) values 
+		(#{amount},#{price},#{title},#{orderId},#{userId},#{imgpath})
 	</insert>
-	
 
 	<!-- 파일 업로드 부분 -->
    	<insert id="productSave" >

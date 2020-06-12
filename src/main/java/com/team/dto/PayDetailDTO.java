@@ -1,28 +1,14 @@
 package com.team.dto;
 
-public class PayHistoryDTO {
+public class PayDetailDTO {
 	private String orderId; //이게 시퀀스 집어넣을 곳
 	private String userId;
-	private String amount;
-	private String price;
+	private int amount;
+	private int price;
 	private String title;
 	private String status;
 	private int paystatus;
 	private String imgpath;
-	private String product_Id;
-	private String cartId;
-	public String getProduct_Id() {
-		return product_Id;
-	}
-	public void setProduct_Id(String product_Id) {
-		this.product_Id = product_Id;
-	}
-	public String getCartId() {
-		return cartId;
-	}
-	public void setCartId(String cartId) {
-		this.cartId = cartId;
-	}
 	public String getOrderId() {
 		return orderId;
 	}
@@ -35,18 +21,16 @@ public class PayHistoryDTO {
 	public void setUserId(String userId) {
 		this.userId = userId;
 	}
-	
-	
-	public String getAmount() {
+	public int getAmount() {
 		return amount;
 	}
-	public void setAmount(String amount) {
+	public void setAmount(int amount) {
 		this.amount = amount;
 	}
-	public String getPrice() {
+	public int getPrice() {
 		return price;
 	}
-	public void setPrice(String price) {
+	public void setPrice(int price) {
 		this.price = price;
 	}
 	public String getTitle() {
@@ -73,6 +57,7 @@ public class PayHistoryDTO {
 	public void setImgpath(String imgpath) {
 		this.imgpath = imgpath;
 	}
+	
 	
 	
 }

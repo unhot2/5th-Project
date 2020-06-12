@@ -1,15 +1,20 @@
 package com.team.service;
+import java.util.List;
+
+import com.team.dto.JoinDTO;
 import com.team.dto.PayDTO;
+import com.team.dto.PayDetailDTO;
+import com.team.dto.PayHistoryDTO;
 
 public interface PayService {
 	/* 카드 결제 서비스 */
-	public int cardPay(String message, String userId);
+	public int cardPay(String message, String userId, String orderId);
 	/* 무통장 입금 결제 서비스 */
 	public String depositPay(PayDTO dto) ;
 	/* 결제 완료 되어있으면 메세지 띄울 서비스 */
 	public boolean payCheck(String userId);
 	/* 결제내역 테이블 insert */
-	public int payHistoryInsert(String userId);
+	public void payHistoryInsert(List<JoinDTO> list, String orderId, String userId);
 	
 	
 	

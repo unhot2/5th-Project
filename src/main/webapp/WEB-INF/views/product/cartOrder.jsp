@@ -1,37 +1,68 @@
+<%@page import="com.team.dto.LoginDTO"%>
+<%@page import="com.team.dto.PayHistoryDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
+
+<%
+    // PayHistoryDTO paydto = (PayHistoryDTO)request.getAttribute("cartList"); 
+	// LoginDTO logdto = (LoginDTO)request.getAttribute("memberInfo");
+	String name = (String)request.getAttribute("name");
+	String email = (String)request.getAttribute("email");
+	String title = (String)request.getAttribute("title");
+	String phone = (String)request.getAttribute("phone");
+	String addr = (String)request.getAttribute("addr");
+	String postcode = (String)request.getAttribute("postcode");
+	int totalMoney = (int)request.getAttribute("totalMoney");
+%>
+
 <jsp:include page="../include/header.jsp" />
 <script>
 $(document).on('click', '#cardPay', function() {
-	   var query = {
-	      userId : $("#userId").val()
-	   };
+	var IMP = window.IMP; // 생략가능
+	IMP.init('imp01815205'); // 'iamport' 대신 부여받은 "가맹점 식별코드"를 사용
+	IMP.request_pay({
+	    pg : 'inicis', // version 1.1.0부터 지원.
+	    pay_method : 'card',
+	    merchant_uid : 'merchant_' + new Date().getTime(),
+	    name : '<%=title%>',
+	    amount : <%=totalMoney%>,
+	    buyer_email : '<%=email%>',
+	    buyer_name : '<%=name%>',
+	    buyer_tel : '<%=phone%>',
+	    buyer_addr : '<%=addr%>',
+	    buyer_postcode : '<%=postcode%>',
+	    m_redirect_url : 'http://localhost:8083/sample/'
+	}, function(rsp) {
+		$.ajax ({
+			url : "cardPay",
+			data : $("#cartOder").serialize(),
+			success : function(data) {
+				
+				var msg = '결제가 완료되었습니다.';
+		        msg += '고유ID : ' + rsp.imp_uid;
+		        msg += '상점 거래ID : ' + rsp.merchant_uid;
+		        msg += '결제 금액 : ' + rsp.paid_amount;
+		        msg += '카드 승인번호 : ' + rsp.apply_num;
+		        alert(msg);
+			},
+			error : function (data) {
+				 var msg = '결제에 실패하였습니다.';
+			        msg += '에러내용 : ' + rsp.error_msg;
+			        alert(msg);
+			}
+			
+		});
+		
+	})
+		
+	})
+	    
+	    
 	   
-	   $.ajax({
-	      url : "payCheck",
-	      type : "post",
-	      data : query,
-	      success : function(data) {
-	         if (data == 1) {
-	            alert("이미 결제가 진행 되었습니다.");
-	         } else {
-	            cardPay();
-	         }
-	      }
-	   });
-	});
 	
-function cardPay(){
-	   $.ajax({
-	      url : "cardPay",
-	      data : $("#cartOder").serialize(),
-	      success : function(data) {
-	        location.href="payHistoryInsert"
-	      }
-	   })
-	};
 
 
 </script>
@@ -48,7 +79,7 @@ function cardPay(){
       </tr>
       <c:forEach var="dto" items="${cartList}">
         <tr>
-          <td><img src="${dto.imgpath }" style="width:100px; height:100px;"></td>
+          <td><img src="${dto.imgpath }" style=" width:100px; height:100px;"></td>
           <td>${dto.title }</td>
           <td>${dto.amount }</td>
           <td><fmt:formatNumber value="${dto.price }" pattern="##,###" />원</td>
@@ -111,12 +142,16 @@ function cardPay(){
         </tr>
         <tr>
           <td>주문 메세지</td>
-          <td><input type="text" name="message"></td>
+          <td><input type="text" name="message">
+          </td>
+          
         </tr>
+        
         <tr>
           <td>
-            <input type="hidden" id="userId" value="${userId }">
-            <input type="hidden" id="cartList" value="${cartList }">
+            <input type="hidden" name="userId" value="${userId }">
+            <input type="hidden" name="cartList" value="${cartList }">
+            <input type="hidden" name="memberInfo" value="${memberInfo }">
             <button id="cardPay" type="button" >카드 결제</button>
           </td>
           <td>
