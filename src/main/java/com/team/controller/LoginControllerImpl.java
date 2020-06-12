@@ -38,12 +38,12 @@ public class LoginControllerImpl implements LoginController {
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home() {
-		return "index";
+		return "redirect:productAll";
 	}
 
 	@RequestMapping(value = "index", method = RequestMethod.GET)
 	public String index() {
-		return "index";
+		return "redirect:productAll";
 	}
 
 	@RequestMapping(value = "login", method = { RequestMethod.GET, RequestMethod.POST })

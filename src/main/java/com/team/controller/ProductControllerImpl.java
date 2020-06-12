@@ -30,7 +30,7 @@ public class ProductControllerImpl implements ProductController{
 	@RequestMapping("productAll")
 	public String productlistAll(Model model) {
 		model.addAttribute("list",(ArrayList<ProductDTO>)service.productlistAll());
-		return "product/productAll";
+		return "index";
 	}
 
 	/* 구분 */
