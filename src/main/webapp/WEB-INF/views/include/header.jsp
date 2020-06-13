@@ -34,7 +34,7 @@
 	<header class="menuBar" style="z-index: 1">
 		<!-- 로고 이미지 -->
 		<div>
-			<a href="index"><img src="resources/img/logo.jpg"
+			<a href="index"><img src="resources/img/logo2.jpg"
 				class="logo"></a>
 		</div>
 
@@ -83,7 +83,7 @@
 				<div class="dropdown">
 					<button class="dropbtn dropmenu font"
 						onclick="location.href='productList?category=아우터'">Outer</button>
-					<span class="dropdown-content"> <a
+					<span class="dropdown-content font"> <a
 						href="productsubList?subcategory=가디건">Cardigan</a> <a
 						href="productsubList?subcategory=자켓">Jacket</a> <a
 						href="productsubList?subcategory=코트">Coat</a> <a
@@ -96,7 +96,7 @@
 				<div class="dropdown">
 					<button class="dropbtn dropmenu font"
 						onclick="location.href='productList?category=상의'">Top</button>
-					<span class="dropdown-content"> <a
+					<span class="dropdown-content font"> <a
 						href="productsubList?subcategory=블라우스">blouse</a> <a
 						href="productsubList?subcategory=티셔츠">T-shirt</a> <a
 						href="productsubList?subcategory=니트">knit</a> <a
@@ -108,7 +108,7 @@
 				<div class="dropdown">
 					<button class="dropbtn dropmenu2 font"
 						onclick="location.href='productList?category=하의'">Pants</button>
-					<span class="dropdown-content"> <a
+					<span class="dropdown-content font"> <a
 						href="productsubList?subcategory=점프슈트">Jumping suit</a> <a
 						href="productsubList?subcategory=와이드팬츠">wide pants</a> <a
 						href="productsubList?subcategory=스커트">skirt</a> <a
@@ -121,7 +121,7 @@
 				<div class="dropdown">
 					<button class="dropbtn dropmenu2 font"
 						onclick="location.href='productList?category=악세서리'">Acc</button>
-					<span class="dropdown-content"> <a
+					<span class="dropdown-content font"> <a
 						href="productsubList?subcategory=스카프">Scarf</a> <a
 						href="productsubList?subcategory=헤어핀">Hairpin</a> <a
 						href="productsubList?subcategory=안경">Glasses</a> <a

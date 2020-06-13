@@ -5,11 +5,16 @@ Section {
 }
 
 .logo {
-	width: 453px;
-	height: 210px;
+	width: 412px;
+	height: 131px;
 	position: absolute;
-	left: 38%;
-	top: -17px;
+	left: 40%;
+	top: 17px;
+}
+
+a {
+	text-decoration: none;
+	color: black;
 }
 
 .font {
@@ -27,7 +32,7 @@ Section {
 }
 
 .menu1 {
-	margin-right: 280px;
+	margin-right: 316px;
 	display: flex;
 }
 
@@ -78,14 +83,12 @@ Section {
 }
 
 .navbar {
-	overflow: hidden;
 	background-color: white;
 	position: absolute;
-	left: 9%;
+	left: 8%;
 	top: 105px;
 	display: flex;
 	z-index: -1;
-	height: 251px;
 }
 
 .navbar a {
@@ -107,8 +110,7 @@ Section {
 	position: absolute;
 	background-color: #f9f9f9;
 	min-width: 160px;
-	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-	z-index: 1;
+	box-shadow: 2px 5px 10px 0px rgba(0, 0, 0, 1);
 }
 
 .dropdown-content a {
@@ -117,7 +119,7 @@ Section {
 	padding: 12px 16px;
 	text-decoration: none;
 	display: block;
-	text-align: left;
+	text-align: center;
 }
 
 .dropdown-content a:hover {
