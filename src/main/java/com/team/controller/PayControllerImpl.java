@@ -41,6 +41,14 @@ public class PayControllerImpl {
 	public String cardView() {
 		return "pay/cardPay";
 	}
+	@RequestMapping("paySuccess")
+	public String paySuccessView() {
+		return "pay/paySuccess";
+	}
+	@RequestMapping("payFail")
+	public String payFailView() {
+		return "pay/payFail";
+	}
 	
 	@ResponseBody
 	@RequestMapping(value="payCheck",produces="application/json;charset=utf8")
