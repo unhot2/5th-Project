@@ -1,7 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<link rel="stylesheet" href="resources/css/bootstrap.css">
+<link rel="stylesheet" href="resources/css/bootstrap_litera.css">
 <link rel="stylesheet" href="resources/css/custom.min.css">
 <script src="resources/js/custom.js"></script>
 <jsp:include page="../include/header.jsp" />
@@ -39,7 +39,8 @@
 								<td><a
 									href="qnaDetail?id=${dto.id }&idgroup=${dto.idgroup}">${dto.title }</a></td>
 								<td>${dto.name }</td>
-								<td>${dto.content }</td>
+								<td><a
+									href="qnaDetail?id=${dto.id }&idgroup=${dto.idgroup}">${dto.content }</a></td>
 								<td>${dto.savedate }</td>
 								<td>${dto.hit }</td>
 							</tr>
