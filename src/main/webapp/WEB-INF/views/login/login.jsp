@@ -27,7 +27,7 @@
 					</tr>
 					<tr>
 						<th colspan="2"><a href="${kakao_url }"> <img
-								src="resources/img/kakao_login_btn_medium_narrow.png">
+								src="resources/img/etc/kakao_login_btn_medium_narrow.png">
 						</a></th>
 					</tr>
 					<tr>

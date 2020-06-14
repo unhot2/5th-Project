@@ -4,6 +4,12 @@ Section {
 	padding-top: 220px;
 }
 
+.topBtn {
+	position: fixed;
+	top: 740px;
+	right: 10px;
+}
+
 .logo {
 	width: 412px;
 	height: 131px;

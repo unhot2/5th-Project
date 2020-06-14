@@ -34,7 +34,7 @@
 	<header class="menuBar" style="z-index: 1">
 		<!-- 로고 이미지 -->
 		<div>
-			<a href="index"><img src="resources/img/logo2.jpg"
+			<a href="index"><img src="resources/img/etc/logo2.jpg"
 				class="logo"></a>
 		</div>
 
