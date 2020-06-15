@@ -32,17 +32,29 @@ a {
 	font-size: 28px;
 	font-weight: bold;
 }
+.subfont{
+	font-family: 'Fjalla One', sans-serif;
+	font-size: 28px;
+}
+
+.subfont td{
+	padding : 20px 0px;
+}
+.dropdown-content a{
+	font-family: 'Fjalla One', sans-serif;
+	font-size: 23px;
+}
 
 .topfont {
-	font-size: 20px;
+	font-size: 18px;
 }
 
 .menu {
-	padding: 14px 16px;
+	padding: 14px 12px;
 }
 
 .menu1 {
-	margin-right: 316px;
+	margin-right: 353px;
 	display: flex;
 }
 
@@ -79,7 +91,7 @@ a {
 
 .dropdown .dropbtn {
 	border: none;
-	padding: 14px 16px;
+	padding: 14px 12px;
 	font-weight: bold;
 	background-color: white;
 }

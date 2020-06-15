@@ -124,3 +124,8 @@ function hover(element){
 function unhover(element){
 	element.setAttribute('src',"resources/img/like.png")
 }
+
+function press() {
+	$("#productSearch").attr('action', "productSearch")
+	$("#productSearch").submit()
+}

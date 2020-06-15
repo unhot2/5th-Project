@@ -13,7 +13,10 @@
 <link
 	href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@562&display=swap"
 	rel="stylesheet">
-<title>5TH POJECT</title>
+<link
+	href="https://fonts.googleapis.com/css2?family=Combo&family=Fjalla+One&family=Staatliches&display=swap"
+	rel="stylesheet">
+<title>Angelica</title>
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/resources/js/main.js"></script>
 <script src='https://developers.kakao.com/sdk/js/kakao.min.js'></script>
@@ -25,11 +28,6 @@
 		$("#productSearch").attr('action', "productSearch")
 		$("#productSearch").submit()
 	})
-
-	function press() {
-		$("#productSearch").attr('action', "productSearch")
-		$("#productSearch").submit()
-	}
 </script>
 </head>
 <body>
@@ -55,15 +53,24 @@
 							<div class="menu topfont">
 								<a href="logout">로그아웃</a>
 							</div>
+							<div class="menu topfont">
+								<a href="memberShip">회원가입</a>
+							</div>
 						</c:when>
 						<c:when test="${userType eq 'kakao'}">
 							<div class="menu topfont">
 								<a href="kakaoLogout">로그아웃</a>
 							</div>
+							<div class="menu topfont">
+								<a href="memberShip">회원가입</a>
+							</div>
 						</c:when>
 						<c:when test="${userType eq 'naver'}">
 							<div class="menu topfont">
 								<a href="naverLogout">로그아웃</a>
+							</div>
+							<div class="menu topfont">
+								<a href="memberShip">회원가입</a>
 							</div>
 						</c:when>
 					</c:choose>
@@ -80,6 +87,25 @@
 					href="noticeList">공지사항</a>
 				</span>
 			</div>
+			<c:choose>
+				<c:when test="${userMaster eq 0 }">
+					<div class="dropdown">
+						<button class="dropbtn topfont">관리자 메뉴</button>
+						<span class="dropdown-content"> <a href="memberList">회원목록</a>
+							<a href="#">주문관리</a>
+						</span>
+					</div>
+				</c:when>
+				<c:when test="${userId ne null && userMaster eq 1}">
+					<div class="dropdown">
+						<button class="dropbtn topfont">마이페이지</button>
+						<span class="dropdown-content"> 
+							<a href="memberList">회원정보</a>
+							<a href="#">구매내역</a>
+						</span>
+					</div>
+				</c:when>
+			</c:choose>
 		</div>
 		<nav class="navbar">
 			<div class="menu1">
@@ -87,23 +113,22 @@
 					<button class="dropbtn dropmenu font"
 						onclick="location.href='productList?category=아우터'">Outer</button>
 					<span class="dropdown-content font"> <a
-						href="productsubList?subcategory=가디건">Cardigan</a> <a
-						href="productsubList?subcategory=자켓">Jacket</a> <a
-						href="productsubList?subcategory=코트">Coat</a> <a
-						href="productsubList?subcategory=점퍼">Jumper</a>
+						href="productsubList?category=가디건">Cardigan</a> <a
+						href="productsubList?category=자켓">Jacket</a> <a
+						href="productsubList?category=코트">Coat</a> <a
+						href="productsubList?category=점퍼">Jumper</a>
 					</span>
 				</div>
 				<div class="dress font">
-					<a href="productList?category='드레스'">Dress</a>
+					<a href="productList?category=드레스">Dress</a>
 				</div>
 				<div class="dropdown">
 					<button class="dropbtn dropmenu font"
 						onclick="location.href='productList?category=상의'">Top</button>
 					<span class="dropdown-content font"> <a
-						href="productsubList?subcategory=블라우스">blouse</a> <a
-						href="productsubList?subcategory=티셔츠">T-shirt</a> <a
-						href="productsubList?subcategory=니트">knit</a> <a
-						href="productsubList?subcategory=반팔">Short-sleeve</a>
+						href="productsubList?category=블라우스">Blouse</a> <a
+						href="productsubList?category=티셔츠">T-Shirt</a> <a
+						href="productsubList?category=니트">Knit</a>
 					</span>
 				</div>
 			</div>
@@ -112,26 +137,25 @@
 					<button class="dropbtn dropmenu2 font"
 						onclick="location.href='productList?category=하의'">Pants</button>
 					<span class="dropdown-content font"> <a
-						href="productsubList?subcategory=점프슈트">Jumping suit</a> <a
-						href="productsubList?subcategory=와이드팬츠">wide pants</a> <a
-						href="productsubList?subcategory=스커트">skirt</a> <a
-						href="productsubList?subcategory=면바지">Cotton Pants</a>
+						href="productsubList?category=와이드팬츠">Wide Pants</a> <a
+						href="productsubList?category=면바지">Cotton Pants</a><a
+						href="productsubList?category=점프슈트">Jump Suit</a> <a
+						href="productsubList?category=청바지">Denim</a> <a
+						href="productsubList?category=슬랙스">Slacks</a>
 					</span>
 				</div>
 				<div class="skirts font">
-					<a href="productList?category='스커트'">Skirts</a>
+					<a href="productList?category=스커트">Skirts</a>
 				</div>
 				<div class="dropdown">
 					<button class="dropbtn dropmenu2 font"
 						onclick="location.href='productList?category=악세서리'">Acc</button>
 					<span class="dropdown-content font"> <a
-						href="productsubList?subcategory=스카프">Scarf</a> <a
-						href="productsubList?subcategory=헤어핀">Hairpin</a> <a
-						href="productsubList?subcategory=안경">Glasses</a> <a
-						href="productsubList?subcategory=벨트">Belt</a> <a
-						href="productsubList?subcategory=가방">Bag</a> <a
-						href="productsubList?subcategory=신발">Shoes</a> <a
-						href="productsubList?subcategory=기타">Guitar</a>
+						href="productsubList?category=헤어핀">Hairpin</a> <a
+						href="productsubList?category=안경">Glasses</a> <a
+						href="productsubList?category=스카프벨트">Scarf & Belt</a> <a
+						href="productsubList?category=가방신발">Bag & Shoes</a> <a
+						href="productsubList?category=기타">ETC</a>
 					</span>
 				</div>
 			</div>

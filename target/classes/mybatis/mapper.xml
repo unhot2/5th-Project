@@ -185,7 +185,7 @@
 	</select>
 	<select id="subproductList" resultType="ProductDTO">
 		select * from product where
-		subcategory=#{subcategory}
+		subcategory=#{category}
 	</select>
 	<select id="productInformation" resultType="ProductDTO">
 		select * from product
