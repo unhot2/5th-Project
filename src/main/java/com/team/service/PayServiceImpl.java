@@ -14,8 +14,12 @@ public class PayServiceImpl implements PayService {
 	@Autowired
 	PayDAO dao;
 	
-	public int cardPay(String message, String userId, String orderId) {
-		return dao.cardPay(message,userId,orderId);
+	public void cardPay(String message, List<JoinDTO> list, String orderId) {
+		for (JoinDTO joinDTO : list ) {
+			
+			dao.cardPay(message,joinDTO,orderId);
+		}
+		
 	}
 	public String depositPay(PayDTO dto) {
 		dao.depositPay(dto);
@@ -29,13 +33,27 @@ public class PayServiceImpl implements PayService {
 		return chk;  
 	}
 	public void payHistoryInsert(List<JoinDTO> list , String orderId, String userId) {
-		for (JoinDTO joinDTO : list) {
-			dao.payHistoryInsert(list,orderId,userId);
+
+		for (JoinDTO joinDTO : list ) {
+			
+			dao.payHistoryInsert(joinDTO,orderId,userId);
 		}
 		
+		System.out.println(list.get(0).getImgpath());
+	}
 		
+	public List<JoinDTO> cartGet(String userId) {
 		
+		 return dao.cartGet(userId);
+	}
+	
+	public void paycartDelete(String userId) {
+		dao.paycartDelete(userId);
 		
 	}
+			
+		
+		
+	
 	
 }

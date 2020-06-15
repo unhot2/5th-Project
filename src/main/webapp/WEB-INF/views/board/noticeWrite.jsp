@@ -7,8 +7,9 @@
 		<form action="noticeWrite">
 			<table border="1">
 				<tr>
-					<td>이름</td>
-					<td><input type="text" name="name"></td>
+					<td>아이디</td>
+					<td>&nbsp;${userId }<input type="hidden" name="name"
+						value="${userId }"></td>
 				<tr>
 					<td>제목</td>
 					<td><input type="text" name="title"></td>

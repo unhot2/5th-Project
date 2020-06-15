@@ -8,7 +8,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import com.team.dto.JoinDTO;
 import com.team.dto.LoginDTO;
-import com.team.dto.PayDTO;
 import com.team.dto.CartDTO;
 import com.team.service.CartService;
 import com.team.service.LoginService;

@@ -27,6 +27,11 @@
 								name="userName"></td>
 						</tr>
 						<tr>
+							<th>핸드폰 번호</th>
+							<td><input type="text" value="${memberInfo.userPhone }"
+								name="userPhone"></td>
+						</tr>
+						<tr>
 							<th>주소</th>
 							<td><input type="text" value="${memberInfo.userAddr }"
 								name="userAddr"></td>
@@ -82,6 +87,10 @@
 								<td>${memberInfo.userName }</td>
 							</tr>
 							<tr>
+								<th>핸드폰 번호</th>
+								<td>${memberInfo.userPhone }</td>
+							</tr>
+							<tr>
 								<th>주소</th>
 								<td>${memberInfo.userAddr }</td>
 							</tr>
@@ -119,6 +128,10 @@
 							<tr>
 								<th>이름</th>
 								<td>${memberInfo.userName }</td>
+							</tr>
+							<tr>
+								<th>핸드폰 번호</th>
+								<td>${memberInfo.userPhone }</td>
 							</tr>
 							<tr>
 								<th>주소</th>

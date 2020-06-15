@@ -22,6 +22,11 @@ public class ProductServiceImpl implements ProductService{
 	}
 	
 	@Override
+	public List<ProductDTO> subProductlist(String subcategory) {
+		return dao.subProductList(subcategory);
+	}
+	
+	@Override
 	public ProductDTO clothInfoInput(ProductDTO dto) {
 		return dao.clothInfoInput(dto);
 		
@@ -30,6 +35,12 @@ public class ProductServiceImpl implements ProductService{
 	@Override
 	public void productSave(ProductDTO dto) {
 		dao.productSave(dto);
-
 	}
+
+	@Override
+	public List<ProductDTO> productSearch(ProductDTO dto) {
+		return dao.productSearch(dto);
+	}
+
+
 }

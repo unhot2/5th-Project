@@ -13,7 +13,7 @@
 				<th>수량</th>
 				<th>가격</th>
 				<th>취소</th>
-			</tr>
+			</tr> 
 			<c:forEach var="cartList" items="${cartList }">
 				<tr>
 					<td><img src="${cartList.imgpath }" id="cartImg"></td>

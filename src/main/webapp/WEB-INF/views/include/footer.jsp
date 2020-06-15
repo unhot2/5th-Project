@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-   <table class="table">
+   <table class="tablefooter">
       <tr>
          <td>
             <div class="div01">
@@ -60,12 +60,12 @@
       <tr>
          <td>
             <div class="div06">         
-                <a><img src="resources/img/facebook.png" class="socialimg">페이스북</a>
-               <a><img src="resources/img/instargram.jpg" class="socialimg">인스타그램</a>
-               <a><img src="resources/img/youtube.png" class="socialimg">유튜브</a>&nbsp;&nbsp;&nbsp;&nbsp; 
+                <a><img src="resources/img/etc/facebook.png" class="socialimg">페이스북</a>
+               <a><img src="resources/img/etc/instargram.jpg" class="socialimg">인스타그램</a>
+               <a><img src="resources/img/etc/youtube.png" class="socialimg">유튜브</a>&nbsp;&nbsp;&nbsp;&nbsp; 
 
-               <a href="//www.cafe24.com/" target="_blank"><img src="resources/img/cafe24.png"></a>
-               <a href="//www.ftc.go.kr/" target="_blank"><img src="resources/img/ftc.png"></a>
+               <a href="//www.cafe24.com/" target="_blank"><img src="resources/img/etc/cafe24.png"></a>
+               <a href="//www.ftc.go.kr/" target="_blank"><img src="resources/img/etc/ftc.png"></a>
             </div>
          </td>   
       </tr>

@@ -9,7 +9,7 @@
 
 	<insert id="saveMember">
 		insert into login
-		values(#{userId},#{userPwd},#{userName},#{userAddr},#{userGender},#{userBirth},#{userEmail},#{userPhone},DEFAULT,#{userPostCode},#{userQuestion},#{userAnwser})
+		values(#{userId},#{userPwd},#{userName},#{userAddr},#{userGender},#{userBirth},#{userPhone},#{userEmail},DEFAULT,#{userPostCode},#{userQuestion},#{userAnswer})
 	</insert>
 
 	<insert id="apiSaveMember">
@@ -25,6 +25,7 @@
 		update login set
 		userPwd=#{userPwd},
 		userName=#{userName},
+		userPhone=#{userPhone},
 		userAddr=#{userAddr},userGender=#{userGender},
 		userBirth=#{userBirth},userEmail=#{userEmail},
 		userPostCode=#{userPostCode}
@@ -46,14 +47,14 @@
 	</select>
 
 	<select id="find" resultType="loginDTO">
-		select userQuestion,userAnwser
+		select userQuestion,userAnswer
 		from
 		login where
 		userId=#{id}
 	</select>
 
-	<select id="chkAnwser" resultType="String">
-		select userAnwser
+	<select id="chkAnswer" resultType="String">
+		select userAnswer
 		from login
 		where userId=#{id}
 	</select>
@@ -182,11 +183,20 @@
 		select * from product where
 		category=#{category}
 	</select>
-
+	<select id="subproductList" resultType="ProductDTO">
+		select * from product where
+		subcategory=#{subcategory}
+	</select>
 	<select id="productInformation" resultType="ProductDTO">
 		select * from product
 		where
 		product_id=#{product_id}
+	</select>
+	
+	<select id="productSearch" resultType="ProductDTO">
+		select * from product
+		where
+		title like'%'||#{title}||'%'
 	</select>
 
 	<!-- cart 부분 -->
@@ -203,11 +213,12 @@
 		values(cart_seq.nextval,#{userId},#{product_id},#{amount},#{price},#{title})
 	</insert>
 
-	<delete id="cartDelete" parameterType="CartDTO">
+	<delete id="cartDelete">
 		delete from cart where
 		cartId=#{cartId}
 	</delete>
-	<delete id="cartDeleteAll" parameterType="CartDTO">
+	
+	<delete id="cartDeleteAll" >
 		delete from cart where
 		userId = #{userId}
 	</delete>
@@ -238,7 +249,7 @@
 	<!-- 결제 하는 부분 -->
 	
 	 <insert id="cardInsert">
-		insert into pay values(#{userId},#{message},'카드',0,#{orderId})
+		insert into pay values(#{userId},#{orderId},#{message},#{totalPrice},#{phone},#{addr},#{name})
 	</insert>
 	 
 	
@@ -250,8 +261,7 @@
 		userId=#{userId}
 	</select>
 	
-	 <insert id="insertPayHistory" parameterType="PayHistoryDTO">
-		
+	 <insert id="insertPayHistory" parameterType="JoinDTO">
 		insert into payhistory(amount,price,title,orderId,userId,imgpath) values 
 		(#{amount},#{price},#{title},#{orderId},#{userId},#{imgpath})
 	</insert>

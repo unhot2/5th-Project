@@ -11,7 +11,7 @@ import com.team.dto.PayHistoryDTO;
 
 public interface PayController {
 	/* 카드 결제 버튼 클릭시 작동 메서드 */
-	public int cardPay(PayDTO dto,PayDetailDTO dto2, HttpSession session);
+	public void cardPay(PayDTO dto,PayDetailDTO dto2, HttpSession session);
 	/* 무통장 입금 결제 버튼 클릭시 작동 메서드 */
 	public String depositPay(PayDTO dto);
 	/* 결제 두번 방지 */

@@ -1,10 +1,48 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
 <jsp:include page="../include/header.jsp" />
+<script>
+	$(document).ready(function() {
+		$('input[type="text"]').keyup(function() {
+			var chk;
+			if ($("#userId").val() != ''&&$("#userPwd").val() != ''&&$("#userName").val() != ''&&$("#userPhone").val() != ''&&$("#postcode").val() != ''&&$("#address").val() != ''&&$("#userAnswer").val() != '') {
+				chk = true;
+			}
+			else if ($("#userId").val() == '') {
+				chk = false;
+			}
+			else if ($("#userPwd").val() == '') {
+				chk = false;
+			}
+			else if ($("#userName").val() == '') {
+				chk = false;
+			}
+			else if ($("#userPhone").val() == '') {
+				chk = false;
+			}
+			else if ($("#postcode").val() == '') {
+				chk = false;
+			}
+			else if ($("#address").val() == '') {
+				chk = false;
+			}
+			else if ($("#userAnswer").val() == '') {
+				chk = false;
+			}
+			if (chk) {
+				$(':input[type="submit"]').prop('disabled', false);
+			}
+			else if(chk == false){
+				$(':input[type="submit"]').prop('disabled', true);
+				
+			}
+		});
+	});
+</script>
 <section class="memberShipSection">
-	
 	<div align="center">
-		<form action="saveMember">
+		<form id="saveMember" action="saveMember">
 			<table>
 				<tr>
 					<th><font color="red">*</font>아이디</th>
@@ -18,15 +56,16 @@
 				</tr>
 				<tr>
 					<th><font color="red">*</font>비밀번호</th>
-					<td><input type="text" name="userPwd"></td>
+					<td><input type="text" name="userPwd" id="userPwd"></td>
 				</tr>
 				<tr>
 					<th><font color="red">*</font>이름</th>
-					<td><input type="text" name="userName"></td>
+					<td><input type="text" name="userName" id="userName"></td>
 				</tr>
 				<tr>
 					<th><font color="red">*</font>핸드폰번호</th>
-					<td><input type="text" name="userPhone" maxlength="11"></td>
+					<td><input type="text" name="userPhone" id="userPhone"
+						maxlength="11"></td>
 				</tr>
 
 				<tr>
@@ -65,7 +104,7 @@
 							<option value="q5">가장 친한 친구의 이름은?
 							<option value="q6">나의 첫사랑의 이름은?
 							<option value="q7">어머니의 생일은?
-					</select><br> <input type="text" name="userAwnser"></td>
+					</select><br> <input type="text" name="userAnswer" id="userAnswer"></td>
 				</tr>
 				<tr>
 					<td><input id="submit" type="submit" value="회원가입"

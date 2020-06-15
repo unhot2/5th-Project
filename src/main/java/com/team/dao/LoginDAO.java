@@ -35,7 +35,7 @@ public interface LoginDAO {
 	public LoginDTO find(String id);
 
 	/* 비밀번호 찾기 답변 확인 메소드 */
-	public String chkAnwser(String id);
+	public String chkAnswer(String id);
 	
 	/* 비밀번호 변경 메소드 */
 	public void alterPwd(LoginDTO dto);

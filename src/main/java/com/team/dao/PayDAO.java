@@ -8,14 +8,19 @@ import com.team.dto.PayHistoryDTO;
 
 public interface PayDAO {
 	/* 카드 결제 DAO */
-	public int cardPay(String message, String userId, String orderId);
+	public int cardPay(String message, JoinDTO dto, String orderId);
 	/* 무통장 입금 결제 DAO */
 	public String depositPay(PayDTO dto);
 	/* 중복 결제 방지 DAO  */
 	public String payCheck(String userId);
 	/* 결제내역 테이블 insert */
+	public void payHistoryInsert(JoinDTO joinDTO, String orderId, String userId);
 	
-	public void payHistoryInsert(List<JoinDTO> list, String orderId,String userId);
+
+	public List<JoinDTO> cartGet(String userId);
+	public void paycartDelete(String userId);
+	
+	
 	
 	
 }

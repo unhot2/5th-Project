@@ -22,6 +22,11 @@ public class ProductDAOImpl implements ProductDAO{
 	}
 	
 	@Override
+	public List<ProductDTO> subProductList(String subcategory) {
+		return sqlSession.selectList("sql.subproductList",subcategory);
+	}
+	
+	@Override
 	public ProductDTO clothInfoInput(ProductDTO dto) {
 		return sqlSession.selectOne("sql.productInformation", dto);
 	}
@@ -31,4 +36,11 @@ public class ProductDAOImpl implements ProductDAO{
 		sqlSession.insert("sql.productSave",dto);
 
 	}
+
+	@Override
+	public List<ProductDTO> productSearch(ProductDTO dto) {
+		return sqlSession.selectList("sql.productSearch", dto);
+	}
+
+
 }

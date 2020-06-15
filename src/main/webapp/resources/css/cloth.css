@@ -1,37 +1,49 @@
 @charset "UTF-8";
-<link href="https://fonts.googleapis.com/css2?family=Cute+Font&display=swap" rel="stylesheet">
-#columns{
-	column-count:4;
-	
+<link href ="https: //fonts.googleapis.com /css2?family=Do+Hyeon&display=swap" rel ="stylesheet">
+
+.columns {
+	column-count: 4;
+	font-family: 'Do Hyeon', sans-serif;
 	font-weight: bold;
-	justify-content: space-around;
+	border: 1px solid #c3c3c3;
+	margin-bottom:15px;
+	
 }
-#columns figure{
+.columns {
+	column-count: 4;
+	font-family: 'Do Hyeon', sans-serif;
+	font-weight: bold;
+	border: 1px solid #c3c3c3;
+	margin-bottom:15px;
+}
+.columns Figure {
 	display: inline-block;
-	font-family: 'Cute Font', cursive;
+	font-family: 'Do Hyeon', sans-serif;
+	font-weight: bold;
 	font-size: 15px;
+	margin: 0px;
 }
-#columns figure img{
+
+.columns Figure .img {
 	padding: 10px;
 	width: 300px;
 	height: 330px;
-}
-#img{
-	width: 600px;
-	height: 700px;
-}
-#product{
-	font-weight:bold;
-	font-size: 30px;
 	
 }
-#product1{
-	font-weight:bold;
-	font-size: 30px;
+
+#img {
+	width: 450px;
+	height: 550px;
+}
+
+#product {
+	font-weight: bold;
+	font-size: 20px;
 	font-family: monospace;
 }
-span{
-	font-family: monospace;
-	font-weight:bold;
-	font-size: 50px;
+
+#product1 {
+	font-weight: bold;
+	font-size: 20px;
+	font-family: 'Do Hyeon', sans-serif;
 }
