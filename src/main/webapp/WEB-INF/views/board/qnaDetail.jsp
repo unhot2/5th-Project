@@ -88,48 +88,12 @@
 				</tr>
 				<c:forEach var="reply" items="${qnaReplyList }">
 					<tr>
-						<td>${reply.userid }</td>
-						<td>${reply.content }</td>
-						<td><fmt:formatDate value="${reply.rdate}"
+						<td class="text-center">${reply.userid }</td>
+						<td class="text-center">${reply.content }</td>
+						<td class="text-center"><fmt:formatDate value="${reply.rdate}"
 								pattern="yyyy.MM.dd:hh.mm" /></td>
 					</tr>
 				</c:forEach>
-				<tr>
-					<td class="text-center">${reply.userid }</td>
-					<td class="text-center">${reply.content }</td>
-					<td class="text-center"><fmt:formatDate value="${reply.rdate}"
-							pattern="yyyy.MM.dd:hh.mm" /></td>
-				</tr>
-				<tr>
-					<th>제목</th>
-					<td>${qnaDetail.title }</td>
-				</tr>
-				<tr>
-					<th>내용</th>
-					<td>${qnaDetail.content }</td>
-				</tr>
-				<tr>
-					<th>작성시간</th>
-					<td>${qnaDetail.savedate }</td>
-				</tr>
-				<tr>
-					<th>조회수</th>
-					<td>${qnaDetail.hit }</td>
-				</tr>
-				<c:if test="${noticeDetail.id!=null}">
-					<c:if test="${noticeDetail.id == login.userId}">
-						<tr>
-							<td>
-								<button type="button"
-									onclick="location.href='qnaUpdate?id=${qnaDetail.id}'">글수정</button>
-							</td>
-							<td>
-								<button type="button"
-									onclick="location.href='qnaDelete?id=${qnaDetail.id }'">글삭제</button>
-							</td>
-						</tr>
-					</c:if>
-				</c:if>
 			</table>
 	</div>
 	</div>
