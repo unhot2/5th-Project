@@ -1,6 +1,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
 <link rel="stylesheet" href="resources/css/bootstrap_litera.css">
 <link rel="stylesheet" href="resources/css/custom.min.css">
 <script src="resources/js/custom.js"></script>
@@ -23,9 +25,8 @@
 			<thead>
 				<tr class="table-light">
 					<th style="width: 5%">번호</th>
-					<th style="width: 100px">제목</th>
+					<th style="width: 50%">제목</th>
 					<th style="width: 10%">작성자</th>
-					<th style="width: 42%">내용</th>
 					<th style="width: 15%">작성일</th>
 					<th style="width: 8%">조회수</th>
 				</tr>
@@ -39,9 +40,7 @@
 								<td><a
 									href="qnaDetail?id=${dto.id }&idgroup=${dto.idgroup}">${dto.title }</a></td>
 								<td>${dto.name }</td>
-								<td><a
-									href="qnaDetail?id=${dto.id }&idgroup=${dto.idgroup}">${dto.content }</a></td>
-								<td>${dto.savedate }</td>
+								<td><fmt:formatDate value="${dto.savedate }" pattern="yyyy.MM.dd"/></td>
 								<td>${dto.hit }</td>
 							</tr>
 						</c:forEach>

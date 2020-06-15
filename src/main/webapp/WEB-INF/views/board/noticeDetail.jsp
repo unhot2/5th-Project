@@ -32,7 +32,7 @@
 			</table>
 			<table style="width: 100%">
 				<c:choose>
-					<c:when test="${userId == noticeDetail.name}">
+					<c:when test="${userMaster==0}">
 						<tr>
 							<td>
 								<div align="right">
@@ -47,23 +47,26 @@
 						</tr>
 					</c:when>
 					<c:otherwise>
-
+						<div align="right">
+							<button type="button" class="btn btn-secondary mb-3"
+											onclick="location.href='qnaList'">목록이동</button>
+						</div>
 					</c:otherwise>
 				</c:choose>
 			</table>
+			<div align="center" style="margin-top: 10px; margin-bottom: 10px;">
+				<font size="4"><b>댓&nbsp;&nbsp;&nbsp;글</b></font>
+			</div>
 			<c:choose>
 				<c:when test="${userId ne null }">
 					<h3>&nbsp;</h3>
 					<hr>
 					<div>
 						<form
-							action="qnaReplyWrite?userid=${userId }&idgroup=${noticeDetail.idgroup}&id=${noticeDetail.id}"
+							action="noticeReplyWrite?userid=${userId }&idgroup=${noticeDetail.idgroup}&id=${noticeDetail.id}"
 							method="post">
 							<div style="margin-top: 10px; margin-bottom: 10px;">
-								<div align="center"
-									style="margin-top: 10px; margin-bottom: 10px;">
-									<font size="4"><b>댓&nbsp;&nbsp;&nbsp;글</b></font>
-								</div>
+								
 								<div style="width: 100%" align="center">
 									<div style="float: left; width: 90%">
 										<input class="form-control mt-4 mb-2" type="text"
@@ -82,16 +85,16 @@
 			<span>&nbsp;</span>
 			<table class="table table-hover">
 				<tr>
-					<th class="text-center">작성자</th>
-					<th class="text-center">내용</th>
-					<th class="text-center">작성일</th>
+					<th class="text-center" style="width:10%">작성자</th>
+					<th class="text-center" style="width:50%">내용</th>
+					<th class="text-center" style="width:10%">작성일</th>
 				</tr>
-				<c:forEach var="reply" items="${noticeReplyList  }">
+				<c:forEach var="reply" items="${noticeReplyList }">
 					<tr>
 						<td class="text-center">${reply.userid }</td>
 						<td class="text-center">${reply.content }</td>
 						<td class="text-center"><fmt:formatDate value="${reply.rdate}"
-								pattern="yyyy.MM.dd:hh.mm" /></td>
+								pattern="yyyy.MM.dd" /></td>
 					</tr>
 				</c:forEach>
 			</table>
