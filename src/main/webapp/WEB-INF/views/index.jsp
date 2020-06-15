@@ -29,7 +29,8 @@
 		</c:forEach>
 	</div>
 	<div class="topBtn">
-	<a href="menuBar"><img src="resources/img/etc/TOP.jpg"></a>
+	<a href="#Top"><img src="resources/img/etc/TOP.jpg"></a>
+}
 	</div>
 </section>
 <jsp:include page="include/footer.jsp" />
