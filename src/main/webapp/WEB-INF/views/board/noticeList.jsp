@@ -1,64 +1,100 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<link rel="stylesheet" href="resources/css/bootstrap_litera.css">
+<link rel="stylesheet" href="resources/css/custom.min.css">
+<script src="resources/js/custom.js"></script>
 <jsp:include page="../include/header.jsp" />
-<jsp:useBean id="dao" class="com.team.dao.BoardDAOImpl" />
 <section class="noticeListSection">
+	<c:choose>
+		<c:when test="${start == null}">
+			<c:set var="start" value="1" />
+		</c:when>
+		<c:otherwise>
+			<c:set var="start" value="${start }" />
+		</c:otherwise>
+	</c:choose>
+	<hr>
+	<div align="center" style="margin-top: 30px; margin-bottom: 30px;">
+		<h1>공지사항</h1>
+	</div>
 	<div align="center">
-		<h1>공 지 사 항</h1>
-		<table border="1" style="width: 60%;text-align: center;">
-			<tr>
-				<th style="width: 5%">번호</th>
-				<th style="width: 10%">작성자</th>
-				<th style="width: 20%">제목</th>
-				<th style="width: 40%">내용</th>
-				<th style="width: 15%">작성일</th>
-				<th style="width: 10%">조회수</th>
-			</tr>
-			<c:choose>
-				<c:when test="${noticeList.size() !=0 }">
-					<c:forEach var="nt" items="${noticeList }">
+		<table class="table table-hover" style="text-align: center;">
+			<thead>
+				<tr class="table-light">
+					<th style="width: 5%">번호</th>
+					<th style="width: 100px">제목</th>
+					<th style="width: 10%">작성자</th>
+					<th style="width: 42%">내용</th>
+					<th style="width: 15%">작성일</th>
+					<th style="width: 8%">조회수</th>
+				</tr>
+			</thead>
+			<tbody>
+				<c:choose>
+					<c:when test="${noticeList.size() !=0 }">
+						<c:forEach items="${noticeList }" var="nt">
+							<tr>
+								<td>${nt.id}</td>
+                <td><a href="noticeDetail?id=${nt.id}&idgroup=${nt.idgroup}">${nt.name}</a></td>
+                <td>${nt.title}</td>
+                <td>${nt.content}</td>
+                <td>${nt.savedate}</td>
+                <td>${nt.hit}</td>
+							</tr>
+						</c:forEach>
+					</c:when>
+					<c:otherwise>
 						<tr>
-							<td>${nt.id}</td>
-							<td><a href="noticeDetail?id=${nt.id}&idgroup=${nt.idgroup}">${nt.name}</a></td>
-							<td>${nt.title}</td>
-							<td>${nt.content}</td>
-							<td>${nt.savedate}</td>
-							<td>${nt.hit}</td>
+							<th colspan="6">등록된 정보가 없습니다</th>
 						</tr>
-					</c:forEach>
-				</c:when>
-				<c:otherwise>
-					<tr>
-						<th colspan="6">등록된 정보가 없습니다</th>
-					</tr>
-				</c:otherwise>
-			</c:choose>
-			<tr>
-				<td colspan="6" align="right"><c:choose>
+					</c:otherwise>
+				</c:choose>
+				<tr>
+					<td colspan="6" align="right">
+					<div style="float: left;">
+					<ul class="pagination">
+					<c:choose>
 						<c:when test="${noticestart > 1}">
-							<button type="button"
-								onclick="location.href='noticeList?noticestart=${noticestart-1}'">이전</button>
+							<li class="page-item"><a class="page-link"
+								onclick="location.href='noticeList?noticestart=${noticestart-1}'">&laquo;</a>
+							</li>
 						</c:when>
 						<c:otherwise>
-							<button type="button" disabled="disabled">이전</button>
+							<li class="page-item diabled"><a class="page-link"
+								onclick="location.href='noticeList?noticestart=${noticestart-1}'">&laquo;</a>
+							</li>
 						</c:otherwise>
-					</c:choose> <c:forEach begin="1" end="${pc.totalPage }" step="1" var="cnt">
-						<a href="noticeList?noticestart=${cnt }">[${cnt }]</a>
-					</c:forEach> <c:choose>
+					</c:choose> 
+					
+					<c:forEach begin="1" end="${pc.totalPage }" step="1" var="cnt">
+						<li class="page-item"><a class="page-link" href="noticeList?noticestart=${cnt }">${cnt }</a></li>
+					</c:forEach> 
+					
+					<c:choose>
 						<c:when test="${noticestart < pc.totalPage }">
-							<button type="button"
-								onclick="location.href='noticeList?noticestart=${noticestart+1}'">다음</button>
+							<li class="page-item"><a class="page-link"
+								onclick="location.href='noticeList?noticestart=${noticestart+1}'">&raquo;</a>
+							</li>
 						</c:when>
 						<c:otherwise>
-							<button type="button" disabled="disabled">다음</button>
+							<li class="page-item disabled"><a class="page-link"
+								onclick="location.href='noticeList?noticestart=${noticestart+1}'">&raquo;</a>
+							</li>
 						</c:otherwise>
 					</c:choose>
-					<form action="noticeSearch" method="post" style="display: inline;">
-						<input type="text" name="noticeSearch" placeholder="검색"> <input
-							type="submit" value="검색" />
+					</ul>
+					</div>
+					<div>
+					<form class="form-inline my-2 my-lg-0" action="noticeSearch" method="post" style="display: inline;">
+						<input class="form-control mr-sm-2" type="text" name="noticeSearch" placeholder="검색"> 
+						<input class="btn btn-secondary" type="submit" value="검색" />
 					</form>
-					<button type="button" onclick="location.href='noticeSave'">글작성</button></td>
+					<button class="btn btn-secondary" type="button" onclick="location.href='noticeSave'">글작성</button>
+					</div>
+					</td>
+				</tr>
+			</tbody>
 		</table>
 	</div>
 </section>
