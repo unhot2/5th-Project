@@ -15,9 +15,6 @@ import com.team.dto.LoginDTO;
 
 public interface LoginController {
 //	화면연결 메소드
-	/* 기본화면 연결 메소드 */
-	public String home();
-
 	/* login 화면 연결 메소드 */
 	public ModelAndView login(HttpSession session);
 

@@ -6,8 +6,12 @@ Section {
 
 .topBtn {
 	position: fixed;
-	top: 740px;
-	right: 10px;
+	top: 800px;
+	right: 4px;
+}
+.topBtn img{
+	width: 95px;
+	height: 95px;
 }
 
 .logo {

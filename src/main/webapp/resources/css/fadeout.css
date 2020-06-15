@@ -30,22 +30,22 @@
 
 
 .slideshow li:nth-child(1) span { 
-    background-image: url("../img/main1.jpg"); 
+    background-image: url("../img/etc/main1.jpg"); 
 }
 .slideshow li:nth-child(2) span { 
-    background-image: url("../img/main2.jpg");
+    background-image: url("../img/etc/main2.jpg");
     animation-delay: 6s; 
 }
 .slideshow li:nth-child(3) span { 
-    background-image: url("../img/main3.jpg");
+    background-image: url("../img/etc/main3.jpg");
     animation-delay: 12s; 
 }
 .slideshow li:nth-child(4) span { 
-    background-image: url("../img/main4.jpg");   
+    background-image: url("../img/etc/main4.jpg");   
     animation-delay: 18s; 
 }
 .slideshow li:nth-child(5) span { 
-    background-image: url("../img/main5.jpg");
+    background-image: url("../img/etc/main5.jpg");
     animation-delay: 24s; 
 }
 

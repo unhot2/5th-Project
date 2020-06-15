@@ -17,44 +17,44 @@ import com.team.util.UtilFile;
 import com.team.util.UtilThFile;
 
 @Controller
-public class ProductControllerImpl implements ProductController{
+public class ProductControllerImpl implements ProductController {
 	@Autowired
 	ProductService service;
-	
+
 	@Autowired
 	UtilFile utilFile;
-	
+
 	@Autowired
 	UtilThFile utilthFile;
-	
-	@RequestMapping("productAll")
+
+	@RequestMapping(value = { "index", "/" })
 	public String productlistAll(Model model) {
-		model.addAttribute("list",(ArrayList<ProductDTO>)service.productlistAll());
+		model.addAttribute("list", (ArrayList<ProductDTO>) service.productlistAll());
 		return "index";
 	}
 
 	/* 구분 */
 	@RequestMapping("productList")
 	public String productList(@RequestParam("category") String category, Model model) {
-		model.addAttribute("productList",(ArrayList<ProductDTO>)service.topProductlist(category));
-		model.addAttribute("category",category);
+		model.addAttribute("productList", (ArrayList<ProductDTO>) service.topProductlist(category));
+		model.addAttribute("category", category);
 		return "product/productList";
 	}
-	
+
 	@RequestMapping("productsubList")
 	public String subProductlist(@RequestParam("subcategory") String subcategory, Model model) {
-		model.addAttribute("productsubList",(ArrayList<ProductDTO>)service.subProductlist(subcategory));
-		model.addAttribute("subcategory",subcategory);
+		model.addAttribute("productsubList", (ArrayList<ProductDTO>) service.subProductlist(subcategory));
+		model.addAttribute("subcategory", subcategory);
 		return "product/productsubList";
 	}
-	
+
 	@RequestMapping("productInformation")
-	public String clothInfoInput(Model model,ProductDTO dto) {
+	public String clothInfoInput(Model model, ProductDTO dto) {
 		ProductDTO productdto = service.clothInfoInput(dto);
-		model.addAttribute("productInfo",productdto);	
+		model.addAttribute("productInfo", productdto);
 		return "product/productInformation";
 	}
-	
+
 	@RequestMapping("productRegister")
 	@Override
 	public String productRegister() {
@@ -78,19 +78,20 @@ public class ProductControllerImpl implements ProductController{
 
 	@RequestMapping("productSearch")
 	public String productSearch(ProductDTO dto, Model model) {
-		ArrayList<ProductDTO> list = (ArrayList<ProductDTO>)service.productSearch(dto);
-		model.addAttribute("list",list);
-		model.addAttribute("searchValue",dto.getTitle());
+		ArrayList<ProductDTO> list = (ArrayList<ProductDTO>) service.productSearch(dto);
+		model.addAttribute("list", list);
+		model.addAttribute("searchValue", dto.getTitle());
 		return "product/productResult";
 	}
+
 	@RequestMapping("productlike")
-	public String producrlike(HttpServletRequest httpRequest,HttpSession session) {
-	      String product_id = httpRequest.getParameter("product_id");
-	      System.out.println("1");
-	      int like = Integer.parseInt(httpRequest.getParameter("like"));
-	      ProductDTO dto = new ProductDTO();
-	      dto.setProduct_id(product_id);
-	      System.out.println(like);
-	      return null;
+	public String producrlike(HttpServletRequest httpRequest, HttpSession session) {
+		String product_id = httpRequest.getParameter("product_id");
+		System.out.println("1");
+		int like = Integer.parseInt(httpRequest.getParameter("like"));
+		ProductDTO dto = new ProductDTO();
+		dto.setProduct_id(product_id);
+		System.out.println(like);
+		return null;
 	}
 }

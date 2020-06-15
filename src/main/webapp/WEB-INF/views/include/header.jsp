@@ -9,7 +9,9 @@
 <link rel="stylesheet" href="resources/css/main.css?after" />
 <link rel="stylesheet" href="resources/css/cloth.css?after" />
 <link rel="stylesheet" href="resources/css/fadeout.css?after">
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@562&display=swap" rel="stylesheet">
+<link
+	href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@562&display=swap"
+	rel="stylesheet">
 <title>5TH POJECT</title>
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/resources/js/main.js"></script>
@@ -133,4 +135,7 @@
 				</div>
 			</div>
 		</nav>
+		<div class="topBtn">
+			<a href="#top"><img src="resources/img/etc/top.png"></a>
+		</div>
 	</header>

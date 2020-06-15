@@ -36,16 +36,6 @@ public class LoginControllerImpl implements LoginController {
 	@Autowired
 	NaverServiceImpl naver;
 
-	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home() {
-		return "redirect:productAll";
-	}
-
-	@RequestMapping(value = "index", method = RequestMethod.GET)
-	public String index() {
-		return "redirect:productAll";
-	}
-
 	@RequestMapping(value = "login", method = { RequestMethod.GET, RequestMethod.POST })
 	public ModelAndView login(HttpSession session) {
 		ModelAndView mav = new ModelAndView();
