@@ -1,0 +1,77 @@
+@charset "UTF-8";
+
+
+
+.tablefooter {
+	background-color: floralwhite;
+	color: white;
+	align-content: center;
+	font-family: sans-serif;
+	padding:0px 105px 0px 0px;
+	width: 100%;
+}
+.footermenu {
+	color: black;
+	text-decoration: none;
+	font-weight: bold;
+}
+.footerlogo img {
+    position: relative;
+    left: 5px;
+    top: -44px;
+    width: 275px;
+    height: 85px;
+}
+.div01 {
+	position: relative;
+    top: -30px;
+	text-align: center;
+	font-weight: bold;
+	text-decoration: none;
+	padding: 0px 100px 0px 0px;
+}
+
+.div02 {
+	position: relative;
+    top: 0px;	
+	text-align: center;
+	font-weight: bold;
+	text-decoration: none;
+	padding: 0px 100px 0px 0px;
+}
+
+.div03 {
+	position: relative;
+    top: 0px;	
+	text-align: center;
+	font-weight: bold;
+	text-decoration: none;
+	padding: 0px 100px 0px 0px;
+}
+
+.div04 {
+	position: relative;
+    top: -30px;	
+	text-align: center;
+	font-weight: bold;
+	text-decoration: none;
+	padding: 0px 100px 0px 0px;;
+}
+
+.div05 {
+	position: relative;
+    top: -55px;	
+	text-align: center;
+	font-weight: bold;
+	text-decoration: none;
+	padding: 0px 100px 0px 0px;
+}
+
+.div06 {
+	position: relative;
+    top: -30px;
+	text-align: center;
+	font-weight: bold;
+	text-decoration: none;
+	padding: 0px 100px 0px 0px;
+}

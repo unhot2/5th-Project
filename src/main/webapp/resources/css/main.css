@@ -152,61 +152,6 @@ a {
 .img img {
 	max-width: 122px;
 }
-
-.footermenu {
-	color: white;
-	text-decoration: none;
-	font-weight: bold;
-}
-
-.tablefooter {
-	background: black;
-	color: white;
-	align-content: center;
-	text-decoration: none;
-	width: 100%;
-}
-
-.div01 {
-	text-align: center;
-	color: white;
-	text-decoration: none;
-	padding: 20px 0px 0px 100px;
-}
-
-.div02 {
-	text-align: center;
-	color: white;
-	text-decoration: none;
-	padding: 20px 0px 0px 0px;
-}
-
-.div03 {
-	text-align: center;
-	color: white;
-	text-decoration: none;
-	padding: 20px 0px 0px 0px;
-}
-
-.div04 {
-	text-align: center;
-	color: white;
-	text-decoration: none;
-	padding: 20px 300px 0px 0px;
-}
-
-.div05 {
-	text-align: center;
-	color: white;
-	text-decoration: none;
-}
-
-.div06 {
-	text-align: center;
-	color: white;
-	text-decoration: none;
-}
-
 .socialimg {
 	width: 20px;
 	height: 20px;

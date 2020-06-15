@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 
 <link rel="stylesheet" href="resources/css/main.css?after" />
+<link rel="stylesheet" href="resources/css/footer.css?after" />
 <link rel="stylesheet" href="resources/css/cloth.css?after" />
 <link rel="stylesheet" href="resources/css/fadeout.css?after">
 <link
