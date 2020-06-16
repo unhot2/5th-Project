@@ -6,7 +6,7 @@
   <div class="swiper-container" style="height: 55%;z-index: 0;">
     <div class="swiper-wrapper">
       <div class="swiper-slide">
-      	<img src="resources/img/etc/main1.jpg">
+      	<img src="resources/img/etc/detailMain1.jpg">
       </div>
       <div class="swiper-slide">
       	<img src="resources/img/etc/main2.jpg">
@@ -45,7 +45,7 @@
         prevEl: '.swiper-button-prev',
       },
       autoplay:{
-    	  delay: 4000,
+    	  delay: 5000,
       },
     });
   </script>
