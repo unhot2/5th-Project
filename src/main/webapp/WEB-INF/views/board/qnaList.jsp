@@ -18,7 +18,7 @@
 	</c:choose>
 	<hr>
 	<div align="center">
-		<h1>QnA</h1>
+		<h1>Q & A</h1>
 	</div>
 	<div align="center">
 		<table class="table table-hover" style="text-align: center;">
