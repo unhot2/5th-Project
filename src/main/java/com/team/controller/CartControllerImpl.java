@@ -51,10 +51,13 @@ public class CartControllerImpl implements CartController {
 			fee = 2500;
 		}
 		tatalMoney = fee + totalPrice;
+		
 		model.addAttribute("cartList", list);
 		model.addAttribute("totalPrice", totalPrice);
 		model.addAttribute("fee", fee);
 		model.addAttribute("totalMoney", tatalMoney);
+		
+		
 		return "product/cartList";
 	}
 	
@@ -110,6 +113,19 @@ public class CartControllerImpl implements CartController {
 		model.addAttribute("fee", fee);
 		model.addAttribute("totalMoney", tatalMoney);
 		model.addAttribute("memberInfo",memberInfo);
+		model.addAttribute("name",memberInfo.getUserName());
+		model.addAttribute("email",memberInfo.getUserEmail());
+		model.addAttribute("phone",memberInfo.getUserPhone());
+		model.addAttribute("postcode",memberInfo.getUserPostCode());
+		model.addAttribute("addr",memberInfo.getUserAddr());
+		for (JoinDTO cart : list) {
+			model.addAttribute("title",cart.getTitle());
+		}
+		
+		int boo= 0;
+		model.addAttribute("boo", boo);
+		
+		
 		return "product/cartOrder";
 	}
 }

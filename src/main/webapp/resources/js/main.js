@@ -97,6 +97,7 @@ function copydata() {
 	$(".rcName").val($(".orderName").val())
 	$(".rcPostCode").val($(".orderPostCode").val())
 	$(".rcAddr").val($(".orderAddr").val())
+	$(".rcPhone").val($(".orderPhone").val())
 }
 
 function like() {

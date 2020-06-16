@@ -22,6 +22,7 @@ public class CartServiceImpl implements CartService{
 
 	@Override
 	public List<JoinDTO> cartList(String userId) {
+		System.out.println("service userid:"+userId);
 		return dao.cartList(userId);
 	}
 
