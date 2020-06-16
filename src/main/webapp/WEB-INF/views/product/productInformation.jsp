@@ -39,7 +39,7 @@
 <section class="productInformationSection">
 	<div align="center" style="margin-bottom: 120px;">
 	<fieldset style="border: 2px dashed #c8c8c8; border-radius: 8px; width: 80%">
-		<legend align="right" style="padding:50px 50px;"><font size="5"><b>상품 소개</b></font></legend>
+		<legend align="right" style="padding:50px 50px; color:lightgray;"><font size="5"><b>Product Infomation</b></font></legend>
 		<table>
 			<tr>
 				<td><img src=${productInfo.imgpath } id="img"></td>
