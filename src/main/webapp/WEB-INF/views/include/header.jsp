@@ -32,10 +32,13 @@
 </head>
 <body>
 	<!-- 아래로 헤더부분 작성 -->
+	<div class="sakura">
+		<img src="resources/img/etc/벚꽃2.png">
+	</div>
 	<header class="menuBar" style="z-index: 1">
 		<!-- 로고 이미지 -->
 		<div>
-			<a href="index"><img src="resources/img/etc/logo2.jpg"
+			<a href="index"><img src="resources/img/etc/logo.png"
 				class="logo"></a>
 		</div>
 
@@ -99,8 +102,7 @@
 				<c:when test="${userId ne null && userMaster eq 1}">
 					<div class="dropdown">
 						<button class="dropbtn topfont">마이페이지</button>
-						<span class="dropdown-content"> 
-							<a href="memberList">회원정보</a>
+						<span class="dropdown-content"> <a href="memberList">회원정보</a>
 							<a href="#">구매내역</a>
 						</span>
 					</div>

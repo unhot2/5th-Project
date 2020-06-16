@@ -13,40 +13,41 @@
 }
 
 .slideshow li span { 
-	position: absolute;
-    width: 82%;
-    height: 68%;
+position: absolute;
+    width: 90%;
+    height: 66%;
     top: 244px;
-    left: 174px;
+    left: 97px;
     color: transparent;
     background-size: cover;
     background-position: 50% 50%;
     background-repeat: no-repeat;
     opacity: 0;
     z-index: -1;
-    animation: imageAnimation 30s linear infinite 0s; 
+    animation: imageAnimation 38s linear infinite 0s; 
 }
 
 
 
 .slideshow li:nth-child(1) span { 
     background-image: url("../img/etc/main1.jpg"); 
+    animation-delay: 0s; 
 }
 .slideshow li:nth-child(2) span { 
     background-image: url("../img/etc/main2.jpg");
-    animation-delay: 6s; 
+    animation-delay: 10s; 
 }
 .slideshow li:nth-child(3) span { 
     background-image: url("../img/etc/main3.jpg");
-    animation-delay: 12s; 
+    animation-delay: 17s; 
 }
 .slideshow li:nth-child(4) span { 
     background-image: url("../img/etc/main4.jpg");   
-    animation-delay: 18s; 
+    animation-delay: 24s; 
 }
 .slideshow li:nth-child(5) span { 
     background-image: url("../img/etc/main5.jpg");
-    animation-delay: 24s; 
+    animation-delay: 31s; 
 }
 
 

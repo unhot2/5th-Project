@@ -9,17 +9,25 @@ Section {
 	top: 800px;
 	right: 4px;
 }
-.topBtn img{
+
+.sakura {
+	position: fixed;
+	top: -23px;
+	left: -176px;
+	z-index: 2;
+}
+
+.topBtn img {
 	width: 95px;
 	height: 95px;
 }
 
 .logo {
-	width: 412px;
-	height: 131px;
-	position: absolute;
-	left: 40%;
-	top: 17px;
+    width: 406px;
+    height: 132px;
+    position: absolute;
+    left: 39%;
+    top: 31px;
 }
 
 a {
@@ -31,22 +39,28 @@ a {
 	font-family: "Dancing Script", sans-serif;
 	font-size: 28px;
 	font-weight: bold;
-}
-.subfont{
-	font-family: 'Fjalla One', sans-serif;
-	font-size: 28px;
+	color: #F4B6D9;
 }
 
-.subfont td{
-	padding : 20px 0px;
-}
-.dropdown-content a{
+.subfont {
 	font-family: 'Fjalla One', sans-serif;
-	font-size: 23px;
+	font-size: 28px;
+	color: #F4B6D9;
+}
+
+.subfont td {
+	padding: 20px 0px;
+}
+
+.dropdown-content a {
+	font-family: 'Fjalla One', sans-serif;
+	font-size: 19px;
+	color: #F4B6D9;
 }
 
 .topfont {
-	font-size: 18px;
+	font-size: 15px;
+	color: gray;
 }
 
 .menu {
@@ -65,7 +79,7 @@ a {
 .menu a {
 	text-decoration: none;
 	font-weight: bold;
-	color: black;
+	color: gray;
 }
 
 .menuBar {
@@ -107,7 +121,7 @@ a {
 .navbar {
 	background-color: white;
 	position: absolute;
-	left: 8%;
+	left: 7%;
 	top: 105px;
 	display: flex;
 	z-index: -1;
@@ -115,7 +129,7 @@ a {
 
 .navbar a {
 	float: left;
-	color: black;
+	color: #F4B6D9;
 	text-align: center;
 	padding: 14px 18px;
 	text-decoration: none;
@@ -164,6 +178,7 @@ a {
 .img img {
 	max-width: 122px;
 }
+
 .socialimg {
 	width: 20px;
 	height: 20px;
@@ -173,6 +188,7 @@ body {
 	font-family: Arial, Helvetica, sans-serif;
 	margin: 0;
 	padding: 0;
+	background-image: url("../img/etc/배경.jpg");
 }
 
 .img a:hover {
