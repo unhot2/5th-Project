@@ -23,9 +23,8 @@
 			<thead>
 				<tr class="table-light">
 					<th style="width: 5%">번호</th>
-					<th style="width: 100px">제목</th>
+					<th style="width: 50%">제목</th>
 					<th style="width: 10%">작성자</th>
-					<th style="width: 42%">내용</th>
 					<th style="width: 15%">작성일</th>
 					<th style="width: 8%">조회수</th>
 				</tr>
@@ -36,11 +35,10 @@
 						<c:forEach items="${noticeList }" var="nt">
 							<tr>
 								<td>${nt.id}</td>
-                <td><a href="noticeDetail?id=${nt.id}&idgroup=${nt.idgroup}">${nt.name}</a></td>
-                <td>${nt.title}</td>
-                <td>${nt.content}</td>
-                <td>${nt.savedate}</td>
-                <td>${nt.hit}</td>
+				                <td><a href="noticeDetail?id=${nt.id}&idgroup=${nt.idgroup}">${nt.title}</a></td>
+				                <td>${nt.name}</td>
+				                <td>${nt.savedate}</td>
+				                <td>${nt.hit}</td>
 							</tr>
 						</c:forEach>
 					</c:when>
