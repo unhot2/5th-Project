@@ -185,7 +185,7 @@
 	</select>
 	<select id="subproductList" resultType="ProductDTO">
 		select * from product where
-		subcategory=#{subcategory}
+		subcategory=#{category}
 	</select>
 	<select id="productInformation" resultType="ProductDTO">
 		select * from product
@@ -213,11 +213,12 @@
 		values(cart_seq.nextval,#{userId},#{product_id},#{amount},#{price},#{title})
 	</insert>
 
-	<delete id="cartDelete" parameterType="CartDTO">
+	<delete id="cartDelete">
 		delete from cart where
 		cartId=#{cartId}
 	</delete>
-	<delete id="cartDeleteAll" parameterType="CartDTO">
+	
+	<delete id="cartDeleteAll" >
 		delete from cart where
 		userId = #{userId}
 	</delete>
@@ -247,9 +248,10 @@
 
 	<!-- 결제 하는 부분 -->
 	
-	<insert id="cardInsert">
-		insert into pay values(#{userId},#{message},'카드',0)
+	 <insert id="cardInsert">
+		insert into pay values(#{userId},#{orderId},#{message},#{totalPrice},#{phone},#{addr},#{name})
 	</insert>
+	 
 	
 	<insert id="depositInsert">
 		insert into pay values(#{userId},#{message},'무통장입금',0)
@@ -259,9 +261,13 @@
 		userId=#{userId}
 	</select>
 	
+	 <insert id="insertPayHistory" parameterType="JoinDTO">
+		insert into payhistory(amount,price,title,orderId,userId,imgpath) values 
+		(#{amount},#{price},#{title},#{orderId},#{userId},#{imgpath})
+	</insert>
 
 	<!-- 파일 업로드 부분 -->
-   	<insert id="productSave">
+   	<insert id="productSave" >
    		insert into product(product_id, title, price, category, subcategory, imgpath, detailimgpath) values(#{product_id}, #{title}, #{price}, #{category}, #{subcategory}, #{imgpath}, #{detailImgpath})
    	</insert>	
 

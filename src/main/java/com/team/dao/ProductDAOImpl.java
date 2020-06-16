@@ -22,8 +22,8 @@ public class ProductDAOImpl implements ProductDAO{
 	}
 	
 	@Override
-	public List<ProductDTO> subProductList(String subcategory) {
-		return sqlSession.selectList("sql.subproductList",subcategory);
+	public List<ProductDTO> subProductList(String category) {
+		return sqlSession.selectList("sql.subproductList",category);
 	}
 	
 	@Override

@@ -97,6 +97,7 @@ function copydata() {
 	$(".rcName").val($(".orderName").val())
 	$(".rcPostCode").val($(".orderPostCode").val())
 	$(".rcAddr").val($(".orderAddr").val())
+	$(".rcPhone").val($(".orderPhone").val())
 }
 
 function like() {
@@ -123,4 +124,9 @@ function hover(element){
 }
 function unhover(element){
 	element.setAttribute('src',"resources/img/like.png")
+}
+
+function press() {
+	$("#productSearch").attr('action', "productSearch")
+	$("#productSearch").submit()
 }

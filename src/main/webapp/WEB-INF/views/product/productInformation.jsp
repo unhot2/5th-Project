@@ -16,9 +16,30 @@
 			}
 		})
 	})
+	
+	$(document).on('click', '#payment', function() {
+		$.ajax({
+			url : "payment",
+			data : $("#insertCart").serialize(),
+			success : function(data) {
+				console.log("안들어와짐")
+				var chk = confirm("결제 창으로 이동하시겠습니까?")
+				if (chk) {
+					location.href = "payOrder"
+				}
+			},error : function(data) {
+				var chk = confirm("결제 창으로 이동하시겠습니까?")
+				if (chk) {
+				location.href = "payOrder"
+				}
+			}
+		})
+	})
 </script>
 <section class="productInformationSection">
-	<div align="center">
+	<div align="center" style="margin-bottom: 120px;">
+	<fieldset style="border: 2px dashed #c8c8c8; border-radius: 8px; width: 80%">
+		<legend align="right" style="padding:50px 50px; color:lightgray;"><font size="5"><b>Product Infomation</b></font></legend>
 		<table>
 			<tr>
 				<td><img src=${productInfo.imgpath } id="img"></td>
@@ -38,14 +59,17 @@
 									<input type="hidden" name="title" value="${productInfo.title }">
 									<input type="hidden" name="product_id" value="${productInfo.product_id }">
 									<input type="hidden" name="price" value="${productInfo.price }">
+									
 									<select name="amount"> 
 										<c:forEach begin="1" end="99" var="i">
 											<option value="${i }">${i }</option>
 										</c:forEach>
 									</select>&nbsp;개
 									<button type="button" id="addCartBtn">장바구니 넣기</button>
+									<button type="button" id="payment">바로 결제</button>
 								</form>
 									<a href="productAll">상품 목록</a>
+									
 							</td>
 						</tr>
 					</table>
@@ -55,6 +79,7 @@
 				<td colspan="2"><img src=${productInfo.detailImgpath }></td>
 			</tr>
 		</table>
+		</fieldset>
 	</div>
 
 </section>

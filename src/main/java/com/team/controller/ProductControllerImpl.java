@@ -42,9 +42,9 @@ public class ProductControllerImpl implements ProductController {
 	}
 
 	@RequestMapping("productsubList")
-	public String subProductlist(@RequestParam("subcategory") String subcategory, Model model) {
-		model.addAttribute("productsubList", (ArrayList<ProductDTO>) service.subProductlist(subcategory));
-		model.addAttribute("subcategory", subcategory);
+	public String subProductlist(@RequestParam("category") String category, Model model) {
+		model.addAttribute("productsubList", (ArrayList<ProductDTO>) service.subProductlist(category));
+		model.addAttribute("category", category);
 		return "product/productsubList";
 	}
 
