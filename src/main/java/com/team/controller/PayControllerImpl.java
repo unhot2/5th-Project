@@ -1,48 +1,40 @@
 package com.team.controller;
 
-
-
-
 import java.text.DecimalFormat;
 import java.util.Calendar;
 import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
-
 import javax.servlet.http.HttpSession;
-
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-
-import com.fasterxml.jackson.core.JsonProcessingException;
-
 import com.team.dto.JoinDTO;
-import com.team.dto.PayDTO;
-import com.team.dto.PayHistoryDTO;
+import com.team.dto.LoginDTO;
+import com.team.dto.ProductDTO;
 import com.team.service.CartService;
+import com.team.service.LoginService;
 import com.team.service.PayService;
 
 @Controller
-public class PayControllerImpl {
+public class PayControllerImpl implements PayController {
 	@Autowired
 	PayService service;
 	
 	@Autowired
 	CartService service2;
 	
+	@Autowired
+	LoginService loginService;
+	
 	@ResponseBody
 	@RequestMapping("cardPay")
 	public void cardPay(JoinDTO dto, HttpSession session, HttpServletRequest request) {
 		//카드 결제 버튼 클릭시 이쪽으로 이동
+				
 		String userId = (String) session.getAttribute("userId");
-		System.out.println("id값:"+userId);
 		List<JoinDTO> list = cartGet(userId);
-		System.out.println(list.get(0).getTitle());
 		Calendar cal = Calendar.getInstance();
 		 int year = cal.get(Calendar.YEAR);
 		 String ym = year + new DecimalFormat("00").format(cal.get(Calendar.MONTH) + 1);
@@ -56,45 +48,31 @@ public class PayControllerImpl {
 		 String orderId = ymd + "_" + subNum;
 		
 		
-		service.cardPay(dto.getMessage(),list,orderId);
+		service.cardPay(dto.getMessage(),dto,orderId);
 		service.payHistoryInsert(list,orderId,userId);
 		
 		paycartDelete(userId);
 		
 	}
-	@RequestMapping("depositPay")
-	public String depositPay(PayDTO dto) {
-		service.depositPay(dto);
-		return null;
+	
+	public void cardPayment(JoinDTO dto, HttpSession session, HttpServletRequest request) {
+		String userId = (String) session.getAttribute("userId");
+		Calendar cal = Calendar.getInstance();
+		 int year = cal.get(Calendar.YEAR);
+		 String ym = year + new DecimalFormat("00").format(cal.get(Calendar.MONTH) + 1);
+		 String ymd = ym +  new DecimalFormat("00").format(cal.get(Calendar.DATE));
+		 String subNum = "";
+		 
+		 for(int i = 1; i <= 6; i ++) {
+		  subNum += (int)(Math.random() * 10);
+		 }
+		 
+		 String orderId = ymd + "_" + subNum;
+		 
+		 service.cardPay(dto.getMessage(),dto,orderId);
+		 service.paymentHistoryInsert(dto,orderId,userId);
 	}
 
-	
-	@RequestMapping("card")
-	public String cardView() {
-		return "pay/cardPay";
-	}
-	@RequestMapping("paySuccess")
-	public String paySuccessView() {
-		return "pay/paySuccess";
-	}
-	@RequestMapping("payFail")
-	public String payFailView() {
-		return "pay/payFail";
-	}
-
-	
-	@ResponseBody
-	@RequestMapping(value="payCheck",produces="application/json;charset=utf8")
-	public int payCheck(@RequestParam(value="userId") String userId) throws JsonProcessingException  {
-		boolean chk = service.payCheck(userId);
-		System.out.println("payCheck 실행");
-		int result = 0;
-		if(chk) {
-			result = 1;
-		}
-		return result;
-	}
-	
 	public List<JoinDTO> cartGet(String userId) {
 		List<JoinDTO> list = service.cartGet(userId);
 		return list;
@@ -103,6 +81,55 @@ public class PayControllerImpl {
 	public void paycartDelete(String userId) {
 		service.paycartDelete(userId);
 	}
+	
+	@RequestMapping("payment")
+	public void payment(ProductDTO dto,Model model) {
+		ProductDTO productdto = service.payment(dto);
+		model.addAttribute("productInfo",productdto);
+		
+	}
+	
+	@RequestMapping("payOrder")
+	public String payOrder(ProductDTO dto, Model model, HttpSession session) {
+		String userId = (String) session.getAttribute("userId");
+		System.out.println("payOrder 도착");
+		int totalPrice = dto.getPrice();
+		int fee = 0;
+		int totalMoney = 0;
+		if (totalPrice >= 100000) {
+			fee = 0;
+		}else {
+			fee = 2500;
+		}
+		totalMoney = fee + totalPrice;
+		
+		LoginDTO logindto = new LoginDTO();
+		logindto.setUserId(userId);
+		LoginDTO memberInfo = loginService.memberInfo(logindto);
+		
+		System.out.println(totalMoney);
+		System.out.println(dto.getImgpath());
+		System.out.println(dto.getTitle());
+		
+		model.addAttribute("totalPrice", totalPrice);
+		model.addAttribute("fee", fee);
+		model.addAttribute("totalMoney", totalMoney);
+		model.addAttribute("productInfo",dto);
+		model.addAttribute("memberInfo",memberInfo);
+		model.addAttribute("name",memberInfo.getUserName());
+		model.addAttribute("email",memberInfo.getUserEmail());
+		model.addAttribute("phone",memberInfo.getUserPhone());
+		model.addAttribute("postcode",memberInfo.getUserPostCode());
+		model.addAttribute("addr",memberInfo.getUserAddr());
+		model.addAttribute("title",dto.getTitle());
+		
+		int boo= 1;
+		model.addAttribute("boo", boo);
+		return "product/cartOrder";
+	}
+
+	
+	
 	
 	
 	

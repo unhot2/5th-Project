@@ -51,10 +51,13 @@ public class CartControllerImpl implements CartController {
 			fee = 2500;
 		}
 		tatalMoney = fee + totalPrice;
+		
 		model.addAttribute("cartList", list);
 		model.addAttribute("totalPrice", totalPrice);
 		model.addAttribute("fee", fee);
 		model.addAttribute("totalMoney", tatalMoney);
+		
+		
 		return "product/cartList";
 	}
 	
@@ -119,7 +122,8 @@ public class CartControllerImpl implements CartController {
 			model.addAttribute("title",cart.getTitle());
 		}
 		
-		
+		int boo= 0;
+		model.addAttribute("boo", boo);
 		
 		
 		return "product/cartOrder";
