@@ -51,7 +51,7 @@ public interface LoginController {
 	public String updateMember(LoginDTO dto);
 
 	/* 회원 목록 메소드 */
-	public String memberList(Model model);
+	public String memberList(Model model, @RequestParam(value = "memberstart", defaultValue = "1") int memberstart);
 
 	/* 회원 정보 메소드 */
 	public String memberInfo(LoginDTO dto, Model model);

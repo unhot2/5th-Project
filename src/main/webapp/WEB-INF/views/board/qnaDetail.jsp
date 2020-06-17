@@ -36,12 +36,12 @@
 						<tr>
 							<td>
 								<div align="right">
-									<button class="btn btn-secondary mb-3" type="button"
-										onclick="location.href='qnaUpdate?id=${qnaDetail.id }'">수정</button>
-									<button class="btn btn-secondary mb-3" type="button"
-										onclick="location.href='qnaDelete?id=${qnaDetail.id }'">삭제</button>
-									<button type="button" class="btn btn-secondary mb-3"
-										onclick="location.href='qnaList'">목록이동</button>
+									<a class="btn btn-default"
+										onclick="location.href='qnaUpdate?id=${qnaDetail.id }'">수정</a>
+									<a class="btn btn-default" href="location.href='qnaDelete?id=${qnaDetail.id }'" 
+									onclick="return confirm('삭제하시겠습니까?')">삭제</a>
+									<a class="btn btn-default"
+										onclick="location.href='qnaList'">목록이동</a>
 								</div>
 							</td>
 						</tr>

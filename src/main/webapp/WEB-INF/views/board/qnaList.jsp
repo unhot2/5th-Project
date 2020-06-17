@@ -18,7 +18,7 @@
 	</c:choose>
 	<hr>
 	<div align="center">
-		<h1>QnA</h1>
+		<h1>Q & A</h1>
 	</div>
 	<div align="center">
 		<table class="table table-hover" style="text-align: center;">
@@ -92,7 +92,15 @@
 						<input class="form-control mr-sm-2" type="text" name="qnaSearch" placeholder="검색"> 
 						<input class="btn btn-secondary" type="submit" value="검색" />
 					</form>
-					<button class="btn btn-secondary" type="button" onclick="location.href='qnaSave'">글작성</button>
+					<c:choose>
+						<c:when test="${userId !=null }">
+							<button class="btn btn-secondary" type="button" onclick="location.href='qnaSave'">글작성</button>
+						</c:when>
+						<c:otherwise>
+							<button class="btn btn-secondary" type="button" onclick="location.href='login'">글작성</button>
+						</c:otherwise>
+					</c:choose>
+					
 					</div>
 					</td>
 				</tr>

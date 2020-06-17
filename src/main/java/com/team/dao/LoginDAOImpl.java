@@ -5,15 +5,34 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.ui.Model;
+
 import com.team.dto.LoginDTO;
+import com.team.dto.NoticePageCount;
 
 @Repository
 public class LoginDAOImpl implements LoginDAO {
 	@Autowired
 	SqlSession sqlSession;
 
-	public List<LoginDTO> memberList() {
-		return sqlSession.selectList("sql.listAll");
+	public List<LoginDTO> memberList(int memberstart,Model model) {
+		NoticePageCount pc = noticePagingNum(memberstart);
+		model.addAttribute("pc",pc);
+		return sqlSession.selectList("sql.memberPagenation",pc);
+	}
+	
+	public NoticePageCount noticePagingNum(int memberstart) {
+		if(memberstart == 0)memberstart=1;
+		NoticePageCount pc = new NoticePageCount();
+		int pageNum=10;
+		int totalPage = sqlSession.selectOne("sql.memberGetTotalPage");
+		int totEndPage = totalPage/pageNum + (totalPage%pageNum == 0 ?0 :1);
+		int startPage = (memberstart - 1) * pageNum + 1;
+		int endPage = pageNum * memberstart;
+		pc.setTotalPage(totEndPage);
+		pc.setStartPage(startPage);
+		pc.setEndPage(endPage);
+		return pc;
 	}
 
 	public List<LoginDTO> loginChk() {

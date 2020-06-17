@@ -6,6 +6,18 @@
 	<select id="listAll" resultType="loginDTO">
 		select * from login
 	</select>
+	
+	<select id="memberPagenation" resultType="loginDTO">
+		select B.* from(select
+		rownum rn, A.* from(select * from login order by id desc)A)B where rn
+		between #{startPage} and #{endPage}
+	</select>
+	
+	<select id="memberGetTotalPage" resultType="_int">
+		select count(*) from
+		login
+	</select>
+	
 
 	<insert id="saveMember">
 		insert into login

@@ -27,7 +27,7 @@ public interface LoginService {
 	public void updateMember(LoginDTO dto);
 
 	/* 회원 목록 메소드 */
-	public List<LoginDTO> memberList();
+	public List<LoginDTO> memberList(int memberstart,Model model);
 
 	/* 회원 정보 메소드 */
 	public LoginDTO memberInfo(LoginDTO dto);

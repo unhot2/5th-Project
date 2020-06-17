@@ -3,16 +3,20 @@ package com.team.service;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
+
 import com.team.dao.LoginDAO;
 import com.team.dto.LoginDTO;
+import com.team.dto.NoticeDTO;
 
 @Service
 public class LoginServiceImpl implements LoginService {
 	@Autowired
 	LoginDAO dao;
 
-	public List<LoginDTO> memberList() {
-		return dao.memberList();
+	public List<LoginDTO> memberList(int memberstart,Model model) {
+		List<LoginDTO> list = dao.memberList(memberstart,model);
+		return list;
 	}
 
 	public boolean loginChk(LoginDTO dto) {
