@@ -121,11 +121,8 @@ public class CartControllerImpl implements CartController {
 		for (JoinDTO cart : list) {
 			model.addAttribute("title",cart.getTitle());
 		}
-		
 		int boo= 0;
 		model.addAttribute("boo", boo);
-		
-		
 		return "product/cartOrder";
 	}
 }

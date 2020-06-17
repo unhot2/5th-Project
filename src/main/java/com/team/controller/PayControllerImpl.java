@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import com.team.dto.JoinDTO;
 import com.team.dto.LoginDTO;
@@ -83,17 +84,24 @@ public class PayControllerImpl implements PayController {
 	}
 	
 	@RequestMapping("payment")
+	@ResponseBody
 	public void payment(ProductDTO dto,Model model) {
 		ProductDTO productdto = service.payment(dto);
 		model.addAttribute("productInfo",productdto);
-		
 	}
 	
+	
+	// 장바구니에서 결제하는 메소드
 	@RequestMapping("payOrder")
+	@ResponseBody
 	public String payOrder(ProductDTO dto, Model model, HttpSession session) {
 		String userId = (String) session.getAttribute("userId");
-		System.out.println("payOrder 도착");
-		int totalPrice = dto.getPrice();
+		LoginDTO memberInfo = new LoginDTO();
+		memberInfo.setUserId(userId);
+		memberInfo = loginService.memberInfo(memberInfo);
+		System.out.println("payOrder product_id값 : "+dto.getProduct_id());
+		ProductDTO productdto = service.payment(dto);
+		int totalPrice = productdto.getPrice();
 		int fee = 0;
 		int totalMoney = 0;
 		if (totalPrice >= 100000) {
@@ -102,31 +110,23 @@ public class PayControllerImpl implements PayController {
 			fee = 2500;
 		}
 		totalMoney = fee + totalPrice;
-		
-		LoginDTO logindto = new LoginDTO();
-		logindto.setUserId(userId);
-		LoginDTO memberInfo = loginService.memberInfo(logindto);
-		
-		System.out.println(totalMoney);
-		System.out.println(dto.getImgpath());
-		System.out.println(dto.getTitle());
-		
+		model.addAttribute("memberInfo",memberInfo);
+		model.addAttribute("productInfo",productdto);
 		model.addAttribute("totalPrice", totalPrice);
 		model.addAttribute("fee", fee);
 		model.addAttribute("totalMoney", totalMoney);
-		model.addAttribute("productInfo",dto);
-		model.addAttribute("memberInfo",memberInfo);
+
 		model.addAttribute("name",memberInfo.getUserName());
 		model.addAttribute("email",memberInfo.getUserEmail());
 		model.addAttribute("phone",memberInfo.getUserPhone());
 		model.addAttribute("postcode",memberInfo.getUserPostCode());
 		model.addAttribute("addr",memberInfo.getUserAddr());
-		model.addAttribute("title",dto.getTitle());
-		
+		model.addAttribute("title",productdto.getTitle());
 		int boo= 1;
 		model.addAttribute("boo", boo);
 		return "product/cartOrder";
 	}
+	
 
 	
 	

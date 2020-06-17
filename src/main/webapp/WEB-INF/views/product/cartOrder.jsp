@@ -135,11 +135,11 @@ $(document).on('click', '#kakaopay', function() {
 			<c:otherwise>
 				<!-- 여기에 바로구매 상품정보 넘겨야함. -->
 				<tr>
-					<td><img src="${imgpath }"
+					<td><img src="${productInfo.imgpath }"
 						style="width: 100px; height: 100px;"></td>
-					<td>${title }</td>
+					<td>${productInfo.title }</td>
 					<td>${amount }</td>
-					<td><fmt:formatNumber value="${price }" pattern="##,###" />원</td>
+					<td><fmt:formatNumber value="${productInfo.price }" pattern="##,###" />원</td>
 				</tr>
 			</c:otherwise>
 			</c:choose>
