@@ -33,9 +33,7 @@
 </head>
 <body>
 	<!-- 아래로 헤더부분 작성 -->
-	<div class="sakura">
-		<img src="resources/img/etc/벚꽃2.png">
-	</div>
+ 	
 	<header class="menuBar" style="z-index: 1">
 		<!-- 로고 이미지 -->
 		<div>
@@ -111,9 +109,12 @@
 			</c:choose>
 		</div>
 		<nav class="navbar">
+		<div>
+		<img class="sakura" src="resources/img/etc/벚꽃2.png">
+		</div>
 			<div class="menu1">
 				<div class="dropdown">
-					<button class="dropbtn dropmenu font"
+					<button class="dropbtn dropmenu font" id="menu"
 						onclick="location.href='productList?category=아우터'">Outer</button>
 					<span class="dropdown-content font"> <a
 						href="productsubList?category=가디건">Cardigan</a> <a

@@ -61,7 +61,6 @@ $(document).on('click', '#kakaopay', function() {
 				}
 				
 			});
-			
 		})
 
 	})

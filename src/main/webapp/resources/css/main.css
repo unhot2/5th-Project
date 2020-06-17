@@ -11,9 +11,9 @@ Section {
 }
 
 .sakura {
-	position: fixed;
-	top: -23px;
-	left: -176px;
+	position: absolute;
+	top: -125px;
+    left: -310px;
 	z-index: 2;
 }
 
@@ -70,6 +70,7 @@ a {
 .menu1 {
 	margin-right: 353px;
 	display: flex;
+	z-index: 3;
 }
 
 .menu2 {
@@ -89,6 +90,7 @@ a {
 	background: white;
 	transition: top 0.2s ease-in-out;
 	text-align: center;
+	
 }
 
 .topNav {
