@@ -94,10 +94,10 @@ function DaumPostcode() {
 }
 
 function copydata() {
-	$(".rcName").val($(".orderName").val())
-	$(".rcPostCode").val($(".orderPostCode").val())
-	$(".rcAddr").val($(".orderAddr").val())
-	$(".rcPhone").val($(".orderPhone").val())
+	$(".form-control_rcName").val($(".form-control_orderName").val())
+	$(".form-control_rcPostCode").val($(".form-control_orderPostCode").val())
+	$(".form-control_rcAddr").val($(".form-control_orderAddr").val())
+	$(".form-control_rcPhone").val($(".form-control_orderPhone").val())
 }
 
 function like() {
