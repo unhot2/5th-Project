@@ -48,7 +48,7 @@
 							placeholder="내용을 입력해주세요" required>${qnaUpdate.content }</textarea>
 					</div>
 					<div align="right">
-						<button type="submit" class="btn btn-secondary mb-3">수정하기</button>
+						<button type="submit" class="btn btn-secondary mb-3" onclick="return confirm('수정하시겠습니까?')">수정하기</button>
 						<button type="button" class="btn btn-secondary mb-3"
 							onclick="location.href='qnaList'">목록이동</button>
 					</div>

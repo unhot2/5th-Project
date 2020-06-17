@@ -88,7 +88,14 @@
 						<input class="form-control mr-sm-2" type="text" name="noticeSearch" placeholder="검색"> 
 						<input class="btn btn-secondary" type="submit" value="검색" />
 					</form>
-					<button class="btn btn-secondary" type="button" onclick="location.href='noticeSave'">글작성</button>
+					<c:choose>
+						<c:when test="${userMaster==0}">
+						<button class="btn btn-secondary" type="button" onclick="location.href='noticeSave'">글작성</button>
+						</c:when>
+						<c:otherwise>
+						
+						</c:otherwise>
+					</c:choose>
 					</div>
 					</td>
 				</tr>
