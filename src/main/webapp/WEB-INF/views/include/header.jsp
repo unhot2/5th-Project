@@ -83,25 +83,25 @@
 				<a href="cartList">장바구니</a>
 			</div>
 			<!-- 고객센터 -->
-			<div class="dropdown">
+			<div class="dropdown1">
 				<button class="dropbtn topfont">고객센터</button>
-				<span class="dropdown-content"> <a href="qnaList">QnA</a><a
+				<span class="dropdown1-content"> <a href="qnaList">QnA</a><a
 					href="noticeList">공지사항</a>
 				</span>
 			</div>
 			<c:choose>
 				<c:when test="${userMaster eq 0 }">
-					<div class="dropdown">
+					<div class="dropdown1">
 						<button class="dropbtn topfont">관리자 메뉴</button>
-						<span class="dropdown-content"> <a href="memberList">회원목록</a>
+						<span class="dropdown1-content"> <a href="memberList">회원목록</a>
 							<a href="#">주문관리</a>
 						</span>
 					</div>
 				</c:when>
 				<c:when test="${userId ne null && userMaster eq 1}">
-					<div class="dropdown">
+					<div class="dropdown1">
 						<button class="dropbtn topfont">마이페이지</button>
-						<span class="dropdown-content"> <a href="memberList">회원정보</a>
+						<span class="dropdown1-content"> <a href="memberList">회원정보</a>
 							<a href="#">구매내역</a>
 						</span>
 					</div>
@@ -113,10 +113,10 @@
 		<img class="sakura" src="resources/img/etc/벚꽃2.png">
 		</div>
 			<div class="menu1">
-				<div class="dropdown">
+				<div class="dropdown1">
 					<button class="dropbtn dropmenu font" id="menu"
 						onclick="location.href='productList?category=아우터'">Outer</button>
-					<span class="dropdown-content font"> <a
+					<span class="dropdown1-content font"> <a
 						href="productsubList?category=가디건">Cardigan</a> <a
 						href="productsubList?category=자켓">Jacket</a> <a
 						href="productsubList?category=코트">Coat</a> <a
@@ -126,10 +126,10 @@
 				<div class="dress font">
 					<a href="productList?category=드레스">Dress</a>
 				</div>
-				<div class="dropdown">
+				<div class="dropdown1">
 					<button class="dropbtn dropmenu font"
 						onclick="location.href='productList?category=상의'">Top</button>
-					<span class="dropdown-content font"> <a
+					<span class="dropdown1-content font"> <a
 						href="productsubList?category=블라우스">Blouse</a> <a
 						href="productsubList?category=티셔츠">T-Shirt</a> <a
 						href="productsubList?category=니트">Knit</a>
@@ -137,10 +137,10 @@
 				</div>
 			</div>
 			<div class="menu2">
-				<div class="dropdown">
+				<div class="dropdown1">
 					<button class="dropbtn dropmenu2 font"
 						onclick="location.href='productList?category=하의'">Pants</button>
-					<span class="dropdown-content font"> <a
+					<span class="dropdown1-content font"> <a
 						href="productsubList?category=와이드팬츠">Wide Pants</a> <a
 						href="productsubList?category=면바지">Cotton Pants</a><a
 						href="productsubList?category=점프슈트">Jump Suit</a> <a
@@ -151,10 +151,10 @@
 				<div class="skirts font">
 					<a href="productList?category=스커트">Skirts</a>
 				</div>
-				<div class="dropdown">
+				<div class="dropdown1">
 					<button class="dropbtn dropmenu2 font"
 						onclick="location.href='productList?category=악세서리'">Acc</button>
-					<span class="dropdown-content font"> <a
+					<span class="dropdown1-content font"> <a
 						href="productsubList?category=헤어핀">Hairpin</a> <a
 						href="productsubList?category=안경">Glasses</a> <a
 						href="productsubList?category=스카프벨트">Scarf & Belt</a> <a

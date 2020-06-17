@@ -9,7 +9,7 @@
 	
 	<select id="memberPagenation" resultType="loginDTO">
 		select B.* from(select
-		rownum rn, A.* from(select * from login order by id desc)A)B where rn
+		rownum rn, A.* from(select * from login)A)B where rn
 		between #{startPage} and #{endPage}
 	</select>
 	

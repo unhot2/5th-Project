@@ -3,17 +3,22 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <link
 	href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css"
 	rel="stylesheet" id="bootstrap-css">
-<script
-	src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+<script	src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
 <!------ Include the above in your HEAD tag ---------->
 
 <jsp:include page="../include/header.jsp" />
-<h1>회 원 목 록(관리자)</h1>
+
 <section class="memberListSection">
+<p class="memberListTitle">회 원 목 록(관리자)</p>
+<br>
 	<div align="center">
 		<div class="container">
 			<div class="row">
@@ -45,49 +50,51 @@
 								<td><fmt:formatDate value="${mb.userBirth }"
 										pattern="yyyy.MM.dd" /></td>
 								<td>${mb.userEmail }</td>
-								<td><a href="memberInfo?userId=${mb.userId }"> <i
-										class="icon-pencil"></i></a> <a href="#myModal" role="button"
+								<td class="memberListBtn"><a href="memberInfo?userId=${mb.userId }"> <i
+										class="icon-pencil"></i></a> <a href="deleteMember" role="button"
 									data-toggle="modal"> <i class="icon-remove"></i></a></td>
 							</tr>
 						</c:forEach>
 
 					</tbody>
+					
 				</table>
-			</div>
-		</div>
-		<div>
-					<ul class="pagination">
+				<div class="col col-xs-8" style="float: right;">
+                    <ul class="pagination hidden-xs pull-right">
 					<c:choose>
 						<c:when test="${memberstart > 1}">
-							<li class="page-item"><a class="page-link"
+							<li><a class="page-link"
 								onclick="location.href='memberList?memberstart=${memberstart-1}'">&laquo;</a>
 							</li>
 						</c:when>
 						<c:otherwise>
-							<li class="page-item diabled"><a class="page-link"
+							<li><a class="page-link"
 								onclick="location.href='memberList?memberstart=${memberstart-1}'">&laquo;</a>
 							</li>
 						</c:otherwise>
 					</c:choose> 
 					
 					<c:forEach begin="1" end="${pc.totalPage }" step="1" var="cnt">
-						<li class="page-item"><a class="page-link" href="memberList?memberstart=${cnt }">${cnt }</a></li>
+						<li><a class="page-link" href="memberList?memberstart=${cnt }">${cnt }</a></li>
 					</c:forEach> 
 					
 					<c:choose>
 						<c:when test="${memberstart < pc.totalPage }">
-							<li class="page-item"><a class="page-link"
+							<li><a class="page-link"
 								onclick="location.href='memberList?memberstart=${memberstart+1}'">&raquo;</a>
 							</li>
 						</c:when>
 						<c:otherwise>
-							<li class="page-item disabled"><a class="page-link"
+							<li><a class="page-link"
 								onclick="location.href='memberList?memberstart=${memberstart+1}'">&raquo;</a>
 							</li>
 						</c:otherwise>
 					</c:choose>
 					</ul>
 					</div>
+			</div>
+		</div>
+		
 
 	</div>
 </section>
