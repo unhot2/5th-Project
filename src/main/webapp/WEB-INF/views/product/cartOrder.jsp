@@ -167,10 +167,10 @@ $(document).on('click', '#kakaopay', function() {
 	<form id="cartOrder">
  		<div align="center">
 			<h3>주문자 정보</h3>
- 		<table border="1" width="56%">
+ 		<table width="56%">
 			<tr>
 				<td>이름</td>
-				<td colspan="2"><input class="form-control_orderName" type="text" id="orderName" name="name" value="${memberInfo.userName }"></td>
+				<td colspan="2"><input class="form-control_orderName"  type="text" id="orderName" name="name" value="${memberInfo.userName }"></td>
 			</tr>
 			<tr>
 		        <td>전화번호</td>
@@ -189,7 +189,7 @@ $(document).on('click', '#kakaopay', function() {
 				<input type="checkbox" onclick="copydata()">"위 정보와 같음"
 			</label>
 			<h3>배송정보</h3>
-			<table border="1" width="56%">
+			<table  width="56%">
 				<tr>
 					<td>이름</td>
 					<td colspan="2"><input class="form-control_rcName"  type="text" name="userName"
@@ -201,25 +201,29 @@ $(document).on('click', '#kakaopay', function() {
         </tr>
 				<tr>
 					<td>우편번호</td>
-					<td><input class="form-control_rcPostCode"  type="text" name="userPostCode"
-						id="rcPostCode"></td>
-					<td><input class="form-control" style="width:10%"  type="button" onclick="DaumPostcode()"
+					<td colspan="2"><input class="form-control_rcPostCode"  type="text" name="userPostCode" id="postcode"></td>
+				</tr>		
+				<tr>
+					<td></td>
+					<td><input class="form-control" style="width:100%"  type="button" onclick="DaumPostcode()"
 						value="우편번호 검색"></td>
+						 
+						
 				</tr>
 				<tr>
 					<td>주소</td>
 					<td colspan="2"><input class="form-control_rcAddr"  type="text" 
-						name="userAddr" id="rcAddr"></td>
+						name="userAddr" id="address"></td>
 				</tr>
 				<tr>
 					<td>주문 메세지</td>
 					<td colspan="2"><input class="form-control" type="text" name="message"></td>
 				</tr>
 					<tr>
-						<td><input type="hidden" name="userId" value="${userId }">
-							<input type="hidden" name="cartList" value="${cartList }">
-							<input type="hidden" name="totalPrice" value="${totalMoney }">
-							<button class="btn btn-lg btn-block btn-success text-uppercase" id="kakaopay" type="button">카카오페이</button>
+						<td><input type="hidden" name="userId" value="${userId }"></td>
+						<td>	<input type="hidden" name="cartList" value="${cartList }"></td>
+						<td>	<input type="hidden" name="totalPrice" value="${totalMoney }">
+							<button class="btn_red" style="width:220px; font-size:15px; font-weight:bold; margin-top:20px"  id="kakaopay" type="button">카카오페이</button>
 						</td>
 					</tr>
 				</table> 

@@ -7,7 +7,16 @@
     -webkit-overflow-scrolling: touch;
     -ms-overflow-style: -ms-autohiding-scrollbar;
 }
-
+.btn_red {
+    text-align: center;
+    width: 120px;
+    display: inline-block;
+    padding: 12px;
+    vertical-align: middle;
+    background: #d99f9d;
+    color: #fff;
+    border: 1px solid #d99f9d;
+}
 .table {
 	
     border-collapse: collapse;
