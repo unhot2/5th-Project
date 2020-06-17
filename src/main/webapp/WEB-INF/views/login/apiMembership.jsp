@@ -77,7 +77,7 @@ $('.container .bg').mousemove(function(e){
 					<input type="text" class="inpt" name="userPhone" id="userPhone" required="required">
 				주소<br>
 					<input class="inpt"  type="text" name="userPostCode" id="postcode" placeholder="우편번호">
-					<input type="button" onclick="DaumPostcode()" value="우편번호 찾기"><br>
+					<input class="submit" type="button" onclick="DaumPostcode()" value="우편번호 찾기"><br>
 					<input class="inpt"  type="text" name="userAddr" id="address" placeholder="주소">
 				성별<br>
 					<c:choose>
@@ -111,7 +111,7 @@ $('.container .bg').mousemove(function(e){
 					<option value="q7">어머니의 생일은?
 				</select><br>
 				<input class="inpt" type="text" name="userAnswer" id="userAnswer">
-				<input class="submit" type="submit" id="apiSubmit"
+				<input class="submit" type="submit" id="apiSubmit" 
 					value="회원가입">
 			</form>
             </div>

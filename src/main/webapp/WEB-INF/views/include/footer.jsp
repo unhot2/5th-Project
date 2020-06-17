@@ -45,7 +45,7 @@
                			<a href="memberShip" class="footermenu">회원가입</a><br>
                		</c:when>
                		<c:otherwise>
-               			 <a href="#" class="footermenu">내정보</a><br>
+               			 <a href="memberList" class="footermenu">내정보</a><br>
                		</c:otherwise>
                </c:choose>
                <br>

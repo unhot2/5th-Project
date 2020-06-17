@@ -2,13 +2,12 @@
 <%@page import="com.team.dto.PayHistoryDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<link rel="stylesheet" href="resources/css/cartList.css">
 <!DOCTYPE html>
-
 <%
 	String name = (String) request.getAttribute("name");
 	String email = (String) request.getAttribute("email");
@@ -19,10 +18,10 @@
 	String postcode = (String) request.getAttribute("postcode");
 	int totalMoney = (int) request.getAttribute("totalMoney");
 %>
-
 <jsp:include page="../include/header.jsp" />
-<script type="text/javascript"
-	src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
 <script>
 if (<%=boo%>==0){
 $(document).on('click', '#kakaopay', function() {
@@ -110,15 +109,17 @@ $(document).on('click', '#kakaopay', function() {
 	
 </script>
 <section class="cartOrder">
-	<div align="center">
-		<h2>주문/결제</h2>
-		<table border="1">
+<div class="container mb-4">
+    <div class="row">
+        <div class="col-12">
+            <div class="table-responsive">
+                <table class="table table-striped">
 			<caption>주문리스트</caption>
 			<tr>
-				<td>사진</td>
-				<td>제품</td>
-				<td>수량</td>
-				<td>가격</td>
+				<td scope="col">사진</td>
+				<td scope="col">제품</td>
+				<td scope="col">수량</td>
+				<td scope="col">가격</td>
 			</tr>
 			<c:choose>
 			<c:when test="${boo eq 0}">
@@ -216,17 +217,17 @@ $(document).on('click', '#kakaopay', function() {
 					<td>주문 메세지</td>
 					<td colspan="2"><input type="text" name="message"></td>
 				</tr>
-				<tr>
-					<td><input type="hidden" name="userId" value="${userId }">
-						<input type="hidden" name="cartList" value="${cartList }">
-						<input type="hidden" name="totalPrice" value="${totalMoney }">
-						
-						
-						<button id="kakaopay" type="button">카카오페이</button></td>
-						
-				</tr>
-			</table>
-		</form>
-	</div>
+					<tr>
+						<td><input type="hidden" name="userId" value="${userId }">
+							<input type="hidden" name="cartList" value="${cartList }">
+							<input type="hidden" name="totalPrice" value="${totalMoney }">
+							<button id="kakaopay" type="button">카카오페이</button></td>
+					</tr>
+				</table>
+			</form>
+		</div>
+	 </div>
+   </div>
+</div>
 </section>
 <jsp:include page="../include/footer.jsp" />
