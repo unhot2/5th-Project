@@ -7,7 +7,7 @@
 		<form action="noticeWrite" method="post">
 
 			<div align="center" style="margin-top: 50px; margin-bottom: 50px;">
-				<h1><b>Q&A 작성</b></h1>
+				<h1><b>공지사항 작성</b></h1>
 			</div>
 			<div align="center">
 				<div style="width: 60%; text-align: left;">
@@ -39,9 +39,9 @@
 							placeholder="내용을 입력해주세요" required></textarea>
 					</div>
 					<div align="right">
-						<button type="submit" class="btn btn-secondary mb-3">저장하기</button>
+						<button type="submit" class="btn btn-secondary mb-3" onclick="return confirm('저장하시겠습니까?')">저장하기</button>
 						<button type="button" class="btn btn-secondary mb-3"
-							onclick="location.href='qnaList'">목록이동</button>
+							onclick="location.href='noticeList'">목록이동</button>
 					</div>
 				</div>
 			</div>

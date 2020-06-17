@@ -4,6 +4,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -22,6 +23,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.team.dto.LoginDTO;
+import com.team.dto.NoticeDTO;
 import com.team.service.KakaoServiceImpl;
 import com.team.service.LoginService;
 import com.team.service.NaverServiceImpl;
@@ -65,10 +67,13 @@ public class LoginControllerImpl implements LoginController {
 	}
 
 	@RequestMapping("memberList")
-	public String memberList(Model model) {
-		model.addAttribute("memberList", (ArrayList<LoginDTO>) service.memberList());
+	public String memberList(Model model, @RequestParam(value = "memberstart", defaultValue = "1") int memberstart) {
+		List<LoginDTO> list = service.memberList(memberstart, model);
+		model.addAttribute("memberList", list); 
+		model.addAttribute("memberstart", memberstart);
 		return "login/memberList";
 	}
+	
 
 	@RequestMapping("memberInfo")
 	public String memberInfo(LoginDTO dto, Model model) {
