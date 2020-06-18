@@ -44,7 +44,6 @@
 				<td colspan="2">
 				 	<label for="uploadThFile">미리보기</label>
 				 	<div class="select_Thimg"><img src="" /></div>
-				 
 				 	<script>
 					  $("#uploadThFile").change(function(){
 					   if(this.files && this.files[0]) {

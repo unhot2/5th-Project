@@ -4,10 +4,22 @@ Section {
 	padding-top: 210px;
 }
 
+section.loginSection {
+	height: 754px;
+}
+
+section.cartList {
+	min-height: 754px;
+}
+
 .topBtn {
 	position: fixed;
 	top: 800px;
 	right: 4px;
+}
+
+.membershipBackground {
+	width: 100%;
 }
 
 .sakura {
@@ -23,23 +35,24 @@ Section {
 }
 
 .logo {
-    width: 406px;
-    height: 132px;
-    position: absolute;
-    left: 39%;
-    top: 31px;
+	width: 406px;
+	height: 132px;
+	position: absolute;
+	left: 39%;
+	top: 31px;
 }
 
-.memberListTitle{
+.memberListTitle {
 	text-align: center;
 	font-size: 25px;
 	color: Gray;
 }
 
-.memberListBtn{
+.memberListBtn {
 	display: flex;
 }
-.memberListBtn a{
+
+.memberListBtn a {
 	padding: 0 8px;
 }
 
@@ -103,7 +116,7 @@ a {
 	background: white;
 	transition: top 0.2s ease-in-out;
 	text-align: center;
-	
+	top: 0px;
 }
 
 .topNav {
@@ -209,9 +222,4 @@ body {
 .img a:hover {
 	background-color: white;
 	text-decoration: none;
-}
-
-#cartImg {
-	width: 200px;
-	height: 200px;
 }
