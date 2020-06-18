@@ -50,7 +50,7 @@ $(document).on('click', '#kakaopay', function() {
 				$("#cartOrder").attr('action', 'cardPay')
 				$("#cartOrder").submit()
 			})
-		}
+		})
 	} else {
 		$(document).on('click', '#kakaopay', function() {
 		var IMP = window.IMP; // 생략가능
