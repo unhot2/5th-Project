@@ -1,23 +1,17 @@
-<%@page import="com.team.dto.LoginDTO"%>
-<%@page import="com.team.dto.PayHistoryDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-
 <!DOCTYPE html>
-
 <%
 	String name = (String) request.getAttribute("name");
-	String email = (String) request.getAttribute("email");
-	String title = (String) request.getAttribute("title");
-	String phone = (String) request.getAttribute("phone");
-	String addr = (String) request.getAttribute("addr");
-	int boo = (int) request.getAttribute("boo");
-	String postcode = (String) request.getAttribute("postcode");
-	int totalMoney = (int) request.getAttribute("totalMoney");
+String email = (String) request.getAttribute("email");
+String title = (String) request.getAttribute("title");
+String phone = (String) request.getAttribute("phone");
+String addr = (String) request.getAttribute("addr");
+int boo = (int) request.getAttribute("boo");
+String postcode = (String) request.getAttribute("postcode");
+int totalMoney = (int) request.getAttribute("totalMoney");
 %>
 
 <jsp:include page="../include/header.jsp" />
@@ -39,33 +33,15 @@ $(document).on('click', '#kakaopay', function() {
 	    buyer_tel : '<%=phone%>',
 	    buyer_addr : '<%=addr%>',
 	    buyer_postcode : '<%=postcode%>',
-			m_redirect_url : 'http://localhost:8083/sample/'
-		}, function(rsp) {
-			$.ajax({
-				url : "cardPay",
-				data : $("#cartOrder").serialize(),
-				success : function(data) {
+				m_redirect_url : 'http://localhost:8083/sample/'
+			}, function(rsp) {
+				$("#cartOrder").attr('action', 'cardPay')
+				$("#cartOrder").submit()
+			})
 
-					var msg = '결제가 완료되었습니다.';
-					msg += '고유ID : ' + rsp.imp_uid;
-					msg += '상점 거래ID : ' + rsp.merchant_uid;
-					msg += '결제 금액 : ' + rsp.paid_amount;
-					msg += '카드 승인번호 : ' + rsp.apply_num;
-					alert(msg);
-					location.href="#"; //여기에 결제 완료 후 이동될 결제내역? 같은 곳 
-				},
-				error : function(data) {
-					var msg = '결제에 실패하였습니다.';
-					msg += '에러내용 : ' + rsp.error_msg;
-					alert(msg);
-				}
-				
-			});
 		})
-
-	})
-}else{
-	$(document).on('click', '#kakaopay', function() {
+	} else {
+		$(document).on('click', '#kakaopay', function() {
 		var IMP = window.IMP; // 생략가능
 		IMP.init('imp01815205'); // 'iamport' 대신 부여받은 "가맹점 식별코드"를 사용
 		IMP.request_pay({
@@ -81,32 +57,11 @@ $(document).on('click', '#kakaopay', function() {
 		    buyer_postcode : '<%=postcode%>',
 				m_redirect_url : 'http://localhost:8083/sample/'
 			}, function(rsp) {
-				$.ajax({
-					url : "cardPayment",
-					data : $("#cartOrder").serialize(),
-					success : function(data) {
-
-						var msg = '결제가 완료되었습니다.';
-						msg += '고유ID : ' + rsp.imp_uid;
-						msg += '상점 거래ID : ' + rsp.merchant_uid;
-						msg += '결제 금액 : ' + rsp.paid_amount;
-						msg += '카드 승인번호 : ' + rsp.apply_num;
-						alert(msg);
-						location.href="#"; //여기에 결제 완료 후 이동될 결제내역? 같은 곳 
-					},
-					error : function(data) {
-						var msg = '결제에 실패하였습니다.';
-						msg += '에러내용 : ' + rsp.error_msg;
-						alert(msg);
-					}
-					
-				});
-				
+				$("#cartOrder").attr('action', 'cardPayment')
+				$("#cartOrder").submit()
 			})
-
 		})
-}
-	
+	}
 </script>
 <section class="cartOrder">
 	<div align="center">
@@ -120,31 +75,32 @@ $(document).on('click', '#kakaopay', function() {
 				<td>가격</td>
 			</tr>
 			<c:choose>
-			<c:when test="${boo eq 0}">
-			<c:forEach var="dto" items="${cartList}">
-				<tr>
-					<td><img src="${dto.imgpath }"
-						style="width: 100px; height: 100px;"></td>
-					<td>${dto.title }</td>
-					<td>${dto.amount }</td>
-					<td><fmt:formatNumber value="${dto.price }" pattern="##,###" />원</td>
-				</tr>
-			</c:forEach>
-			</c:when>
-			<c:otherwise>
-				<!-- 여기에 바로구매 상품정보 넘겨야함. -->
-				<tr>
-					<td><img src="${productInfo.imgpath }"
-						style="width: 100px; height: 100px;"></td>
-					<td>${productInfo.title }</td>
-					<td>${amount }</td>
-					<td><fmt:formatNumber value="${productInfo.price }" pattern="##,###" />원</td>
-				</tr>
-			</c:otherwise>
+				<c:when test="${boo eq 0}">
+					<c:forEach var="dto" items="${cartList}">
+						<tr>
+							<td><img src="${dto.imgpath }"
+								style="width: 100px; height: 100px;"></td>
+							<td>${dto.title }</td>
+							<td>${dto.amount }</td>
+							<td><fmt:formatNumber value="${dto.price }" pattern="##,###" />원</td>
+						</tr>
+					</c:forEach>
+				</c:when>
+				<c:otherwise>
+					<!-- 여기에 바로구매 상품정보 넘겨야함. -->
+					<tr>
+						<td><img src="${productInfo.imgpath }"
+							style="width: 100px; height: 100px;"></td>
+						<td>${productInfo.title }</td>
+						<td>${amount }</td>
+						<td><fmt:formatNumber value="${productInfo.price }"
+								pattern="##,###" />원</td>
+					</tr>
+				</c:otherwise>
 			</c:choose>
 			<tr>
 				<th>상품금액</th>
-				<td colspan="2"><fmt:formatNumber value="${totalPrice }"
+				<td colspan="2"><fmt:formatNumber value="${totalMoney }"
 						pattern="##,###" />원</td>
 			</tr>
 			<tr>
@@ -154,36 +110,36 @@ $(document).on('click', '#kakaopay', function() {
 			</tr>
 			<tr>
 				<th>총금액</th>
-				<td colspan="2"><fmt:formatNumber value="${totalMoney }"
+				<td colspan="2"><fmt:formatNumber value="${totalPrice }"
 						pattern="##,###" />원</td>
 			</tr>
 		</table>
 		<form id="cartOrder">
-		<table border="1">
-			<caption>주문자 정보</caption>
-			<tr>
-				<td>이름</td>
-				<td><input type="text" class="orderName" name="name"
-					value="${memberInfo.userName }"></td>
-			</tr>
-			 <tr>
+			<table border="1">
+				<caption>주문자 정보</caption>
+				<tr>
+					<td>이름</td>
+					<td><input type="text" class="orderName" name="name"
+						value="${memberInfo.userName }"></td>
+				</tr>
+				<tr>
 
-        <td>전화번호</td>
-        <td><input type="text" class="orderPhone" name="phone"
-					value="${memberInfo.userPhone }"></td>
-      </tr> 
-			<tr>
-				<td>우편번호</td>
-				<td><input type="text" class="orderPostCode" name="postCode"
-					value="${memberInfo.userPostCode }"></td>
-			</tr>
-			<tr>
-				<td>주소</td>
-				<td><input type="text" class="orderAddr" name="addr"
-					value="${memberInfo.userAddr }"></td>
-			</tr>
-		</table>
-		
+					<td>전화번호</td>
+					<td><input type="text" class="orderPhone" name="phone"
+						value="${memberInfo.userPhone }"></td>
+				</tr>
+				<tr>
+					<td>우편번호</td>
+					<td><input type="text" class="orderPostCode" name="postCode"
+						value="${memberInfo.userPostCode }"></td>
+				</tr>
+				<tr>
+					<td>주소</td>
+					<td><input type="text" class="orderAddr" name="addr"
+						value="${memberInfo.userAddr }"></td>
+				</tr>
+			</table>
+
 			<h3>배송정보</h3>
 			<label> <input type="checkbox" onclick="copydata()">"위
 				정보와 같음"
@@ -195,10 +151,10 @@ $(document).on('click', '#kakaopay', function() {
 					<td colspan="2"><input type="text" name="userName"
 						class="rcName"></td>
 				</tr>
-				 <tr>
-          <td>전화번호</td>
-          <td><input type="text" name="userPhone" class="rcPhone"></td>
-        </tr>
+				<tr>
+					<td>전화번호</td>
+					<td><input type="text" name="userPhone" class="rcPhone"></td>
+				</tr>
 				<tr>
 					<td>우편번호</td>
 					<td><input type="text" name="userPostCode" id="postcode"
@@ -216,13 +172,22 @@ $(document).on('click', '#kakaopay', function() {
 					<td colspan="2"><input type="text" name="message"></td>
 				</tr>
 				<tr>
-					<td><input type="hidden" name="userId" value="${userId }">
-						<input type="hidden" name="cartList" value="${cartList }">
-						<input type="hidden" name="totalPrice" value="${totalMoney }">
-						
-						
-						<button id="kakaopay" type="button">카카오페이</button></td>
-						
+					<c:choose>
+						<c:when test="${boo eq 0 }">
+							<td><input type="hidden" name="userId" value="${userId }">
+								<input type="hidden" name="totalPrice" value="${totalPrice }">
+								<button id="kakaopay" type="button">카카오페이</button></td>
+						</c:when>
+						<c:otherwise>
+							<td><input type="hidden" name="userId" value="${userId }">
+								<input type="hidden" name="amount" value="${amount }">
+								<input type="hidden" name="title" value="${productInfo.title }">
+								<input type="hidden" name="imgpath" value="${productInfo.imgpath }">
+								<input type="hidden" name="price" value="${productInfo.price }">
+								<input type="hidden" name="totalPrice" value="${totalMoney }">
+								<button id="kakaopay" type="button">카카오페이</button></td>
+						</c:otherwise>
+					</c:choose>
 				</tr>
 			</table>
 		</form>

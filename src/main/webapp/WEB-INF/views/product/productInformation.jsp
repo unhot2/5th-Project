@@ -19,18 +19,7 @@
 	})
 
 	$(document).on('click', '#payment', function() {
-		$.ajax({
-			url : "payOrder",
-			data : {
-				product_id : $(".product_id").val()
-			},
-			success : function(data) {
-				alert("성공")
-			},
-			error : function(data) {
-				alert("실패")
-			}
-		})
+				location.href="payOrder?product_id="+$(".product_id").val()+"&amount="+$("select[name='amount']").val()
 	})
 </script>
 <section class="productInformationSection">
@@ -62,11 +51,12 @@
 											value="${productInfo.title }"> <input type="hidden"
 											name="product_id" class="product_id" value="${productInfo.product_id }">
 										<input type="hidden" name="price"
-											value="${productInfo.price }"> <select name="amount">
+											value="${productInfo.price }"> 
+											<select class="select" name="amount">
 											<c:forEach begin="1" end="99" var="i">
 												<option value="${i }">${i }</option>
 											</c:forEach>
-										</select>&nbsp;개
+											</select>&nbsp;개
 										<button type="button" id="addCartBtn">장바구니 넣기</button>
 										<button type="button" id="payment">바로 결제</button>
 									</form> <a href="productAll">상품 목록</a>

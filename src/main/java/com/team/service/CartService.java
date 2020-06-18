@@ -3,7 +3,6 @@ package com.team.service;
 import java.util.List;
 
 import com.team.dto.JoinDTO;
-import com.team.dto.PayHistoryDTO;
 import com.team.dto.CartDTO;
 
 public interface CartService {

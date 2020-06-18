@@ -10,6 +10,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import com.team.dto.JoinDTO;
+import com.team.dto.PayDTO;
 import com.team.dto.ProductDTO;
 @Repository
 public class PayDAOImpl implements PayDAO {
@@ -27,7 +28,6 @@ public class PayDAOImpl implements PayDAO {
 		map.put("totalPrice", dto.getTotalPrice());
 		map.put("orderId", orderId);
 		return sqlSession.insert("sql.cardInsert",map);
-				
 	}
 	
 	public void payHistoryInsert(JoinDTO dto, String orderId, String userId) {
@@ -51,9 +51,12 @@ public class PayDAOImpl implements PayDAO {
 		sqlSession.delete("sql.cartDeleteAll",userId);
 	}
 	
-	public ProductDTO payment(ProductDTO dto) {
-		System.out.println("페이먼트 DAO메서드 실행 : product값 받아옴");
+	public ProductDTO payment(JoinDTO dto) {
 		return sqlSession.selectOne("sql.productInformation", dto);
+	}
+
+	public List<PayDTO> selectPaymentList(String orderId) {
+		return sqlSession.selectList("sql.selectPaymentList",orderId);
 	}
 	
 	
