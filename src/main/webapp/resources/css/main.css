@@ -5,11 +5,17 @@ Section {
 }
 
 section.loginSection {
-	height: 754px;
+	height: 937px;
 }
 
 section.cartList {
 	min-height: 754px;
+}
+
+.searchInput {
+	position: relative;
+	top: 11px;
+	right: -8px;
 }
 
 .topBtn {
@@ -18,8 +24,11 @@ section.cartList {
 	right: 4px;
 }
 
-.membershipBackground {
+.loginBackground {
 	width: 100%;
+	background-image: url(../img/etc/로그인배경.png);
+	background-position-y: 999px;
+	background-position-x: 15px;
 }
 
 .sakura {
@@ -116,6 +125,7 @@ a {
 	background: white;
 	transition: top 0.2s ease-in-out;
 	text-align: center;
+	top: 0px;
 }
 
 .topNav {

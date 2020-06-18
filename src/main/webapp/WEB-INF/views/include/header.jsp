@@ -119,6 +119,12 @@
 					</div>
 				</c:when>
 			</c:choose>
+			<div class="searchInput">
+				<form action="productSearch">
+					<input type=text name="title" placeholder="상품명">
+					<input type="submit" value="검색">
+				</form>
+			</div>
 		</div>
 		<nav class="navbar">
 			<div>
@@ -173,10 +179,6 @@
 						href="productsubList?category=가방신발">Bag & Shoes</a> <a
 						href="productsubList?category=기타">ETC</a>
 					</span>
-				</div>
-				<div>
-				<input type=text name="search">
-				<button type="button">검색</button>
 				</div>
 			</div>
 		</nav>

@@ -13,6 +13,7 @@
 <!------ Include the above in your HEAD tag ---------->
 
 <jsp:include page="../include/header.jsp" />
+<div class="loginBackground">
 <section class="loginSection">
     <div class = "container">
 	<div class="wrapper">
@@ -38,6 +39,6 @@
 	</div>
 </div>
 </section>   
-
+</div>
 <jsp:include page="../include/footer.jsp" />
 

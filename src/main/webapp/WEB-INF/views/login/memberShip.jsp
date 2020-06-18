@@ -41,7 +41,6 @@
    });
 </script>
 <link rel="stylesheet" href="resources/css/membership.css">
-<div class="membershipBackground">
 <section class="container">
 		    <article class="half">
 			        <h1>Azure</h1>
@@ -108,8 +107,6 @@
 		    </article>
 		    <div class="half bg"></div>
 	</section>
-</div>
-
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
 <script type="text/javascript">

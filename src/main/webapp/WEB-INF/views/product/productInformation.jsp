@@ -18,9 +18,13 @@
 		})
 	})
 
-	$(document).on('click', '#payment', function() {
-				location.href="payOrder?product_id="+$(".product_id").val()+"&amount="+$("select[name='amount']").val()
-	})
+	$(document).on(
+			'click',
+			'#payment',
+			function() {
+				location.href = "payOrder?product_id=" + $(".product_id").val()
+						+ "&amount=" + $("select[name='amount']").val()
+			})
 </script>
 <section class="productInformationSection">
 	<div align="center" style="margin-bottom: 120px;">
@@ -35,6 +39,10 @@
 					<td>
 						<table>
 							<tr>
+								<td><img src="resources/img/etc/like1.png"><img
+									src="resources/img/etc/like2.png"></td>
+							</tr>
+							<tr>
 								<td><a id="product">상품명</a></td>
 								<td><a id="product1">&nbsp;&nbsp;${productInfo.title }</a></td>
 							</tr>
@@ -45,21 +53,26 @@
 								</a></td>
 							</tr>
 							<tr>
-								<td colspan="2" align="center">
+								<td id="product">수량</td>
+								<td>
 									<form id="insertCart">
-										<input type="hidden" name="title"
-											value="${productInfo.title }"> <input type="hidden"
-											name="product_id" class="product_id" value="${productInfo.product_id }">
-										<input type="hidden" name="price"
-											value="${productInfo.price }"> 
-											<select class="select" name="amount">
+										<select class="select" name="amount">
 											<c:forEach begin="1" end="99" var="i">
 												<option value="${i }">${i }</option>
 											</c:forEach>
-											</select>&nbsp;개
-										<button type="button" id="addCartBtn">장바구니 넣기</button>
-										<button type="button" id="payment">바로 결제</button>
-									</form> <a href="productAll">상품 목록</a>
+										</select>&nbsp;개 <input type="hidden" name="title"
+											value="${productInfo.title }"> <input type="hidden"
+											name="product_id" class="product_id"
+											value="${productInfo.product_id }"> <input
+											type="hidden" name="price" value="${productInfo.price }">
+									</form>
+								</td>
+							</tr>
+							<tr>
+								<td colspan="2">
+									<button type="button" id="addCartBtn">장바구니 넣기</button>
+									<button type="button" id="payment">바로 결제</button> 
+									<button type="button" onclick="location.href='index'">상품 목록</button> 
 								</td>
 							</tr>
 						</table>
