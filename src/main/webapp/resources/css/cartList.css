@@ -1,5 +1,34 @@
 @charset "UTF-8";
 
+#ordForm table {
+    line-height: 1.5;
+}
+#ordForm table .thumb {
+    width: 180px;
+}
+#ordForm table .product {
+    width: auto;
+}
+
+#ordForm table .price {
+    width: 130px;
+}
+#ordForm table th {
+    padding: 10px;
+    border-top: 1px solid #ccc;
+    font-weight: normal;
+    text-align: center;
+}
+
+#ordForm table .button {
+    width: 120px;
+}
+
+
+
+
+
+
 .jumbotron {
 	display: flex;
     width: 50%;
@@ -45,3 +74,41 @@
     border-radius: .25rem;
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
+.btn_pay{
+	font-size:15px; 
+	font-weight:bold; 
+	text-align: center;
+    width: 130px;
+    display: inline-block;
+    padding: 8px;
+    vertical-align: middle;
+    background: #d99f9d;
+    color: #fff;
+    border: 1px solid #d99f9d;
+}
+.btn01 {
+	
+    text-align: center;
+    width: 130px;
+    display: inline-block;
+    padding: 8px;
+    vertical-align: middle;
+    background: #ccc;
+    color: #fff;
+    border: 0px solid #ccc;
+}
+
+.col-md-6 {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 50%;
+    /* flex: 0 0 50%; */
+    max-width: 60%;
+}
+
+.btn01:hover{
+	background:#d99f9d;
+}
+
+
+
+

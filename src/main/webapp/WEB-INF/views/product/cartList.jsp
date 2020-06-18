@@ -10,11 +10,11 @@
 <section class="cartList">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<section class="jumbotron text-center">
-    <div class="container">
-        <h1 class="jumbotron-heading">장바구니</h1>
+
+    <div align="center">
+        <h3>shopping cart</h3>
      </div>
-</section>
+
 <div class="container mb-4">
     <div class="row">
         <div class="col-12">
@@ -22,11 +22,11 @@
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th scope="col">상품</th>
-                            <th scope="col">상품명</th>
-                            <th scope="col" class="text-center">수량</th>
-                            <th scope="col" class="text-right">가격</th>
-                            <th>취소</th>
+		                    <th scope="col" class="thumb">Product</th>
+		                    <th scope="col" class="product">Name</th>
+		                    <th scope="col" class="quantity">Quantity</th>
+		                    <th scope="col" class="price">Price</th>
+		                    <th scope="col" class="button">Select</th>
                         </tr>
                     </thead>
                       <c:forEach var="cartList" items="${cartList }">
@@ -45,19 +45,15 @@
                 </table>
             </div>
         </div>
-        <div class="col mb-2">
-            <div class="row">
-                <div class="col-sm-12  col-md-6">
-                    <button class="btn btn-block btn-light" onclick="location.href='index'">쇼핑 계속하기</button>
-                </div>
-                <div class="col-sm-12  col-md-6">
-                    <button class="btn btn-block btn-light" onclick="location.href='cartDeleteAll?userId=${userId}'">전제 비우기</button>
-                </div>
+            <span class="left">
+                <a  onclick="location.href='index'"><span class="btn01">메인으로</span></a>
+                <a href="#none" onclick="location.href='index'"><span class="btn01">쇼핑 계속하기</span></a>
+                <a href="#none" onclick="location.href='cartDeleteAll?userId=${userId}'"><span class="btn01">전체 비우기</span></a>
+            </span>
+                
                 <div class="col-sm-12 col-md-6 text-right">
-                    <button class="btn btn-lg btn-block btn-success text-uppercase" onclick="location.href='cartOrder'">결제</button>
-                </div>
-            </div>
-        </div>
+                     <button class="btn_pay"  onclick="location.href='cartOrder'">결제</button> 
+                </div> 
     </div>
 </div>
 </section>

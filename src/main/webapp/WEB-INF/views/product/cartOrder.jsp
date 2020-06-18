@@ -169,7 +169,7 @@ $(document).on('click', '#kakaopay', function() {
 			<h3>주문자 정보</h3>
  		<table width="56%">
 			<tr>
-				<td>이름</td>
+				<td class="bb">이름</td>
 				<td colspan="2"><input class="form-control_orderName"  type="text" id="orderName" name="name" value="${memberInfo.userName }"></td>
 			</tr>
 			<tr>
