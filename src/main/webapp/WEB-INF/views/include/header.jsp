@@ -30,6 +30,10 @@
 		$("#productSearch").attr('action', "productSearch")
 		$("#productSearch").submit()
 	}
+	function error(){
+		alert("로그인 하셔야 합니다.");
+		location.href="login";
+	}
 </script>
 </head>
 <body>
@@ -70,9 +74,18 @@
 				</c:otherwise>
 			</c:choose>
 			<!-- 장바구니 -->
-			<div class="menu topfont">
-				<a href="cartList">장바구니</a>
-			</div>
+			<c:choose>
+				<c:when test="${userId eq null }">
+					<div class="menu topfont">
+						<a onclick="error()" href="#">장바구니</a>
+					</div>
+				</c:when>
+				<c:otherwise>
+					<div class="menu topfont">
+						<a href="cartList">장바구니</a>
+					</div>
+				</c:otherwise>
+			</c:choose>
 			<!-- 고객센터 -->
 			<div class="dropdown">
 				<button class="dropbtn topfont">고객센터</button>

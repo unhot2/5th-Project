@@ -3,8 +3,26 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <jsp:include page="../include/header.jsp" />
-<h1>비밀번호 찾기</h1>
-<form action="answerChk">
+<script>
+	$(document).on('click','#answerBtn', function(){
+		$("#answerChk").attr('action',"answerChk")
+		$("#answerChk").submit()
+	})
+	
+</script>
+<style>
+	.findAnswer{max-width:18%; max-height:50%; margin-left:700px; margin-bottom:100px;}
+</style>
+<section class="answerChkSection">
+<div module="member_findpasswd">
+    <!--@css(/css/module/member/find_passwd.css)-->
+    <!--
+        $nextURL = /member/passwd/find_passwd_question.html
+     -->
+    <div class="findAnswer">
+        <h3><img src="http://img.echosting.cafe24.com/skin/base_ko_KR/member/h3_find_pw.gif" alt="비밀번호 찾기" /></h3>
+        <fieldset>
+           <form id="answerChk" action="answerChk">
 	<c:choose>
 		<c:when test="${dto.userQuestion eq 'q1' }">
 			<table>
@@ -19,7 +37,9 @@
 
 				</tr>
 				<tr>
-					<td colspan="2"><input type="submit" value="답변확인"></td>
+					<td colspan="2"><p class="button">
+                <a href="#none" id="answerBtn" ><img src="http://img.echosting.cafe24.com/skin/base_ko_KR/member/btn_submit.gif" alt="확인" /></a>
+            </p></td>
 				</tr>
 			</table>
 		</c:when>
@@ -34,7 +54,9 @@
 					<td><input type="text" name="anwser" placeholder="답변 입력"></td>
 				</tr>
 				<tr>
-					<td colspan="2"><input type="submit" value="답변확인"><input type="hidden" name="id" value="${id}"></td>
+					<td colspan="2"><p class="button">
+                <a href="#none" id="answerBtn" ><img src="http://img.echosting.cafe24.com/skin/base_ko_KR/member/btn_submit.gif" alt="확인" /></a>
+            </p><input type="hidden" name="id" value="${id}"></td>
 				</tr>
 			</table>
 		</c:when>
@@ -49,7 +71,9 @@
 					<td><input type="text" name="anwser" placeholder="답변 입력"></td>
 				</tr>
 				<tr>
-					<td colspan="2"><input type="submit" value="답변확인"><input type="hidden" name="id" value="${id}"></td>
+					<td colspan="2"><p class="button">
+                <a href="#none" id="answerBtn" ><img src="http://img.echosting.cafe24.com/skin/base_ko_KR/member/btn_submit.gif" alt="확인" /></a>
+            </p><input type="hidden" name="id" value="${id}"></td>
 				</tr>
 			</table>
 		</c:when>
@@ -64,7 +88,9 @@
 					<td><input type="text" name="anwser" placeholder="답변 입력"></td>
 				</tr>
 				<tr>
-					<td colspan="2"><input type="submit" value="답변확인"><input type="hidden" name="id" value="${id}"></td>
+					<td colspan="2"><p class="button">
+                <a href="#none" id="answerBtn" ><img src="http://img.echosting.cafe24.com/skin/base_ko_KR/member/btn_submit.gif" alt="확인" /></a>
+            </p><input type="hidden" name="id" value="${id}"></td>
 				</tr>
 			</table>
 		</c:when>
@@ -79,7 +105,9 @@
 					<td><input type="text" name="anwser" placeholder="답변 입력"></td>
 				</tr>
 				<tr>
-					<td colspan="2"><input type="submit" value="답변확인"><input type="hidden" name="id" value="${id}"></td>
+					<td colspan="2"><p class="button">
+                <a href="#none" id="answerBtn" ><img src="http://img.echosting.cafe24.com/skin/base_ko_KR/member/btn_submit.gif" alt="확인" /></a>
+            </p><input type="hidden" name="id" value="${id}"></td>
 				</tr>
 			</table>
 		</c:when>
@@ -94,7 +122,9 @@
 					<td><input type="text" name="anwser" placeholder="답변 입력"></td>
 				</tr>
 				<tr>
-					<td colspan="2"><input type="submit" value="답변확인"><input type="hidden" name="id" value="${id}"></td>
+					<td colspan="2"><p class="button">
+                <a href="#none" id="answerBtn" ><img src="http://img.echosting.cafe24.com/skin/base_ko_KR/member/btn_submit.gif" alt="확인" /></a>
+            </p><input type="hidden" name="id" value="${id}"></td>
 				</tr>
 			</table>
 		</c:when>
@@ -109,10 +139,17 @@
 					<td><input type="text" name="anwser" placeholder="답변 입력"></td>
 				</tr>
 				<tr>
-					<td colspan="2"><input type="submit" value="답변확인"><input type="hidden" name="id" value="${id}"></td>
+					<td colspan="2"><p class="button">
+                <a href="#none" id="answerBtn" ><img src="http://img.echosting.cafe24.com/skin/base_ko_KR/member/btn_submit.gif" alt="확인" /></a>
+            </p><input type="hidden" name="id" value="${id}"></td>
 				</tr>
 			</table>
 		</c:when>
 	</c:choose>
 </form>
+            
+        </fieldset>
+    </div>
+</div>
+</section>
 <jsp:include page="../include/footer.jsp" />

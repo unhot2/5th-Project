@@ -1,6 +1,7 @@
 package com.team.controller;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.ui.Model;
@@ -69,7 +70,7 @@ public interface LoginController {
 	public String apiSaveMember(LoginDTO dto,HttpSession session);
 
 	/* 비밀번호 찾기 질문 가져오기 메소드 */
-	public String find(@RequestParam("id") String id,Model model);
+	public String find(@RequestParam("id") String id,Model model,HttpServletResponse response);
 
 	/* 비밀번호 찾기 답변 확인 메소드 */
 	public String chkAnswer(@RequestParam("anwser") String anwser, @RequestParam("id") String id,Model model);

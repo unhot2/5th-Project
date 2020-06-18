@@ -40,6 +40,7 @@ public interface LoginDAO {
 	/* 비밀번호 변경 메소드 */
 	public void alterPwd(LoginDTO dto);
 	
-	
+	/*아이디 존재 확인 메소드*/
+	public int idConfirm(String id);
 	
 }
