@@ -24,11 +24,10 @@
     width: 120px;
 }
 
-
-
-
-
-
+#cartImg {
+	width: 100x;
+	height: 100px;
+}
 .jumbotron {
 	display: flex;
     width: 50%;

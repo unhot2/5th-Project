@@ -64,28 +64,26 @@
 							<div class="menu topfont">
 								<a href="logout">로그아웃</a>
 							</div>
-							<div class="menu topfont">
-								<a href="memberShip">회원가입</a>
-							</div>
 						</c:when>
 						<c:when test="${userType eq 'kakao'}">
 							<div class="menu topfont">
 								<a href="kakaoLogout">로그아웃</a>
-							</div>
-							<div class="menu topfont">
-								<a href="memberShip">회원가입</a>
 							</div>
 						</c:when>
 						<c:when test="${userType eq 'naver'}">
 							<div class="menu topfont">
 								<a href="naverLogout">로그아웃</a>
 							</div>
-							<div class="menu topfont">
-								<a href="memberShip">회원가입</a>
-							</div>
 						</c:when>
 					</c:choose>
 				</c:otherwise>
+			</c:choose>
+			<c:choose>
+				<c:when test="${userId eq null }">
+					<div class="menu topfont">
+						<a href="memberShip">회원가입</a>
+					</div>
+				</c:when>			
 			</c:choose>
 			<!-- 장바구니 -->
 			<c:choose>
