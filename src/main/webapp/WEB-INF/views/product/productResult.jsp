@@ -4,8 +4,7 @@
 <!DOCTYPE html>
 <jsp:include page="../include/header.jsp" />
 <section class="ProductResultSection">
-<jsp:include page="../include/productmenu.jsp" />
-<div>
+<div align="center">
 <h1>" ${searchValue } " 의 검색 결과입니다.</h1>
 </div>
 	<div class="columns" align="center">

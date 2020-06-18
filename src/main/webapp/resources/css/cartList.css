@@ -23,11 +23,11 @@
 #ordForm table .button {
     width: 120px;
 }
-
 #cartImg {
-	width: 100x;
+	width: 100px;
 	height: 100px;
 }
+
 .jumbotron {
 	display: flex;
     width: 50%;

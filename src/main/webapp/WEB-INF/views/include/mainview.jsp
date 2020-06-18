@@ -6,19 +6,19 @@
   <div class="swiper-container" style="height: 55%;z-index: 0;">
     <div class="swiper-wrapper">
       <div class="swiper-slide">
-      	<img src="resources/img/etc/detailMain1.jpg">
+      	<img src="resources/img/etc/swiper1.jpg">
       </div>
       <div class="swiper-slide">
-      	<img src="resources/img/etc/main2.jpg">
+      	<img src="resources/img/etc/swiper2.jpg">
       </div>
       <div class="swiper-slide">
-      	<img src="resources/img/etc/main3.jpg">
+      	<img src="resources/img/etc/swiper3.jpg">
       </div>
       <div class="swiper-slide">
-      	<img src="resources/img/etc/main4.jpg">
+      	<img src="resources/img/etc/swiper4.jpg">
       </div>
       <div class="swiper-slide">
-      	<img src="resources/img/etc/main5.jpg">
+      	<img src="resources/img/etc/swiper5.jpg">
       </div>
     </div>
     <!-- Add Pagination -->

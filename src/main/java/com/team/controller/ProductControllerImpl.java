@@ -73,7 +73,7 @@ public class ProductControllerImpl implements ProductController {
 		dto.setImgpath(utilthFile.thfileUpload(request));
 		dto.setDetailImgpath(utilFile.fileUpload(request));
 		service.productSave(dto);
-		return "redirect:productAll";
+		return "redirect:index";
 	}
 
 	@RequestMapping("productSearch")

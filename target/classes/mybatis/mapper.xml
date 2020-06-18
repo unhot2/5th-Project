@@ -277,7 +277,10 @@
 		insert into payhistory(amount,price,title,orderId,userId,imgpath) values 
 		(#{amount},#{price},#{title},#{orderId},#{userId},#{imgpath})
 	</insert>
-
+	
+	<select id="selectPaymentList" resultType="PayDTO">
+		select a.* from(select	h.*,p.totalprice	from pay p, payhistory h where p.orderid=h.orderid)A where orderid=#{orderId}
+	</select>
 	<!-- 파일 업로드 부분 -->
    	<insert id="productSave" >
    		insert into product(product_id, title, price, category, subcategory, imgpath, detailimgpath) values(#{product_id}, #{title}, #{price}, #{category}, #{subcategory}, #{imgpath}, #{detailImgpath})

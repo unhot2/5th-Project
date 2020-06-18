@@ -2,6 +2,7 @@ package com.team.dao;
 
 import java.util.List;
 import com.team.dto.JoinDTO;
+import com.team.dto.PayDTO;
 import com.team.dto.ProductDTO;
 
 public interface PayDAO {
@@ -18,7 +19,9 @@ public interface PayDAO {
 	public void paycartDelete(String userId);
 	
 	/* 바로결제를 위한 해당 Product 정보 가져오기  DAO*/
-	public ProductDTO payment(ProductDTO dto);
+	public ProductDTO payment(JoinDTO dto);
+
+	public List<PayDTO> selectPaymentList(String orderId);
 	
 	
 	

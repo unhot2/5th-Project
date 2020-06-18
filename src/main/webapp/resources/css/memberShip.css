@@ -1,26 +1,22 @@
 @charset "UTF-8";
-@import url(https://fonts.googleapis.com/css?family=Lato:400,700);
 
-* {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
+
+
+
+
 body {
   font-family: 'Lato', sans-serif;
   background-color: #f8f8f8;
 }
 body .container {
-  text-align: -webkit-center;
-  position: relative;
   overflow: hidden;
   width: 700px;
-  height: 1050px;
-  margin: auto 0;
+  height: 1150px;
   background-color: #ffffff;
   -moz-box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 30px;
   -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 30px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 30px;
+  margin-left: 31.5%;
 }
 body .container .half {
   float: left;
@@ -62,10 +58,10 @@ body .container .tabs .tab {
   transition: all 0.1s ease-in-out;
 }
 body .container .tabs .tab a {
-  font-size: 30px;
+  font-size: 11px;
   text-decoration: none;
   text-transform: uppercase;
-  /* color: #d9d9d9; */
+  color: #d9d9d9;
   transition: all 0.1s ease-in-out;
 }
 body .container .tabs .tab.active a, body .container .tabs .tab:hover a {
@@ -78,14 +74,36 @@ body .container .content form {
   position: relative;
   height: 287px;
 }
-
+body .container .content label:first-of-type, body .container .content input:first-of-type, body .container .content .more:first-of-type {
+  -moz-animation: slideIn 0.4s cubic-bezier(0.37, 0.82, 0.2, 1);
+  -webkit-animation: slideIn 0.4s cubic-bezier(0.37, 0.82, 0.2, 1);
+  animation: slideIn 0.4s cubic-bezier(0.37, 0.82, 0.2, 1);
+}
+body .container .content label:nth-of-type(2), body .container .content input:nth-of-type(2), body .container .content .more:nth-of-type(2) {
+  -moz-animation: slideIn 0.5s cubic-bezier(0.37, 0.82, 0.2, 1);
+  -webkit-animation: slideIn 0.5s cubic-bezier(0.37, 0.82, 0.2, 1);
+  animation: slideIn 0.5s cubic-bezier(0.37, 0.82, 0.2, 1);
+}
+body .container .content label:nth-of-type(3), body .container .content input:nth-of-type(3), body .container .content .more:nth-of-type(3) {
+  -moz-animation: slideIn 0.6s cubic-bezier(0.37, 0.82, 0.2, 1);
+  -webkit-animation: slideIn 0.6s cubic-bezier(0.37, 0.82, 0.2, 1);
+  animation: slideIn 0.6s cubic-bezier(0.37, 0.82, 0.2, 1);
+}
+body .container .content label {
+  font-size: 12px;
+  color: #263238;
+  -moz-user-select: -moz-none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
 body .container .content label:not([for='remember']) {
   display: none;
 }
 body .container .content input.inpt {
   font-size: 14px;
   display: block;
-  width: 40%;
+  width: 100%;
   height: 42px;
   margin-bottom: 12px;
   padding: 16px 13px;
@@ -123,7 +141,7 @@ body .container .content input.submit {
   font-size: 12px;
   line-height: 42px;
   display: block;
-  width: 40%;
+  width: 100%;
   height: 42px;
   cursor: pointer;
   vertical-align: middle;
@@ -157,6 +175,34 @@ body .container .content .checkbox {
   padding: 0;
   border: 0;
 }
+body .container .content .checkbox + label {
+  vertical-align: middle;
+  display: inline-block;
+  width: 50%;
+}
+body .container .content .checkbox + label:before {
+  content: "\A";
+  color: #999999;
+  font-family: Verdana;
+  font-weight: bold;
+  font-size: 8px;
+  line-height: 10px;
+  text-align: center;
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  background: transparent;
+  border: 1px solid #d9d9d9;
+  width: 11px;
+  height: 11px;
+  margin: -2px 8px 0 0;
+}
+body .container .content .checkbox:checked + label:before {
+  content: "✓";
+}
 body .container .content .submit-wrap {
   position: absolute;
   bottom: 0;
@@ -173,7 +219,9 @@ body .container .content .submit-wrap a {
 body .container .content .submit-wrap a:hover {
   text-decoration: underline;
 }
-
+body .container .content .signup-cont {
+  
+}
 
 @keyframes slideIn {
   0% {
@@ -215,8 +263,3 @@ body .container .content .submit-wrap a:hover {
   font-weight: 700;
   text-decoration: none;
 }
-.name{
-	text-align: left;
-}
-
-;

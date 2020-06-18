@@ -19,7 +19,7 @@
 			<typeAlias alias="ProductDTO" type="com.team.dto.ProductDTO"/>
 			<typeAlias alias="CartDTO" type="com.team.dto.CartDTO"/>
 			<typeAlias alias="JoinDTO" type="com.team.dto.JoinDTO"/>
-			<typeAlias alias="PayHistoryDTO" type="com.team.dto.PayHistoryDTO"/>
+			<typeAlias alias="PayDTO" type="com.team.dto.PayDTO"/>
 		</typeAliases>
 	</configuration>
 	

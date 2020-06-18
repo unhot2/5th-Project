@@ -29,8 +29,10 @@
 				<select name="category">
 					<option value="select" selected="selected">선택하세요</option>
 					<option value="아우터">아우터</option>
+					<option value="드레스">드레스</option>
 					<option value="상의">상의</option>
 					<option value="하의">하의</option>
+					<option value="스커트">스커트</option>
 					<option value="악세서리">악세서리</option>
 				</select>
 				</td>

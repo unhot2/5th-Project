@@ -29,20 +29,19 @@
 		$("#productSearch").attr('action', "productSearch")
 		$("#productSearch").submit()
 	})
-
 	function press() {
 		$("#productSearch").attr('action', "productSearch")
 		$("#productSearch").submit()
 	}
-	function error(){
+	function error() {
 		alert("로그인 하셔야 합니다.");
-		location.href="login";
+		location.href = "login";
 	}
 </script>
 </head>
 <body>
 	<!-- 아래로 헤더부분 작성 -->
- 	
+
 	<header class="menuBar" style="z-index: 1">
 		<!-- 로고 이미지 -->
 		<div>
@@ -56,6 +55,9 @@
 				<c:when test="${userId eq null }">
 					<div class="menu topfont">
 						<a href="login">로그인</a>
+					</div>
+					<div class="menu topfont">
+						<a href="memberShip">회원가입</a>
 					</div>
 				</c:when>
 				<c:otherwise>
@@ -77,13 +79,6 @@
 						</c:when>
 					</c:choose>
 				</c:otherwise>
-			</c:choose>
-			<c:choose>
-				<c:when test="${userId eq null }">
-					<div class="menu topfont">
-						<a href="memberShip">회원가입</a>
-					</div>
-				</c:when>			
 			</c:choose>
 			<!-- 장바구니 -->
 			<c:choose>
@@ -110,26 +105,31 @@
 					<div class="dropdown1">
 						<button class="dropbtn topfont">관리자 메뉴</button>
 						<span class="dropdown1-content"> <a href="memberList">회원목록</a>
-							<a href="productRegister">상품 등록</a>
-							<a href="#">주문관리</a>
-							
+							<a href="productRegister">상품 등록</a> <a href="#">주문관리</a>
+
 						</span>
 					</div>
 				</c:when>
 				<c:when test="${userId ne null && userMaster eq 1}">
 					<div class="dropdown1">
 						<button class="dropbtn topfont">마이페이지</button>
-						<span class="dropdown1-content"> <a href="memberList">회원정보</a>
-							<a href="#">구매내역</a>
+						<span class="dropdown1-content"> <a
+							href="memberInfo?userId=${userId }">내정보</a> <a href="#">구매내역</a>
 						</span>
 					</div>
 				</c:when>
 			</c:choose>
+			<div class="searchInput">
+				<form action="productSearch">
+					<input type=text name="title" placeholder="상품명">
+					<input type="submit" value="검색">
+				</form>
+			</div>
 		</div>
 		<nav class="navbar">
-		<div>
-		<img class="sakura" src="resources/img/etc/벚꽃2.png">
-		</div>
+			<div>
+				<img class="sakura" src="resources/img/etc/벚꽃2.png">
+			</div>
 			<div class="menu1">
 				<div class="dropdown1">
 					<button class="dropbtn dropmenu font" id="menu"

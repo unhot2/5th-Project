@@ -1,314 +1,47 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<link rel="stylesheet" href="resources/css/memberShip.css" />
 <jsp:include page="../include/header.jsp" />
 <script>
-   $(document).ready(function() {
-      $('input[type="text"]').keyup(function() {
-         var chk;
-         if ($("#userId").val() != ''&&$("#userPwd").val() != ''&&$("#userName").val() != ''&&$("#userPhone").val() != ''&&$("#postcode").val() != ''&&$("#address").val() != ''&&$("#userAnswer").val() != '') {
-            chk = true;
-         }
-         else if ($("#userId").val() == '') {
-            chk = false;
-         }
-         else if ($("#userPwd").val() == '') {
-            chk = false;
-         }
-         else if ($("#userName").val() == '') {
-            chk = false;
-         }
-         else if ($("#userPhone").val() == '') {
-            chk = false;
-         }
-         else if ($("#postcode").val() == '') {
-            chk = false;
-         }
-         else if ($("#address").val() == '') {
-            chk = false;
-         }
-         else if ($("#userAnswer").val() == '') {
-            chk = false;
-         }
-         if (chk) {
-            $(':input[type="submit"]').prop('disabled', false);
-         }
-         else if(chk == false){
-            $(':input[type="submit"]').prop('disabled', true);
-            
-         }
-      });
-   });
-</script>
-<style rel="stylesheet">
-@charset "UTF-8";
-@import url(https://fonts.googleapis.com/css?family=Lato:400,700);
-* {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
-body {
-  font-family: 'Lato', sans-serif;
-  background-color: #f8f8f8;
-}
-body .container {
-  position: relative;
-  overflow: hidden;
-  width: 700px;
-  height: 1500px;
-  margin: 80px auto 0;
-  background-color: #ffffff;
-  -moz-box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 30px;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 30px;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 30px;
-}
-body .container .half {
-  float: left;
-  width: 50%;
-  height: 100%;
-  padding: 58px 40px 0px 100px;
-}
- body .container .half.bg {
-  background-image: resources/image/wide8info.jpg");
-  background-size: 400px;
-  background-repeat: no-repeat;
-} 
-body .container h1 {
-  font-size: 18px;
-  font-weight: 700;
-  margin-bottom: 23px;
-  text-align: center;
-  text-indent: 6px;
-  letter-spacing: 7px;
-  text-transform: uppercase;
-  color: #263238;
-}
-body .container .tabs {
-  width: 100%;
-  margin-bottom: 29px;
-  border-bottom: 1px solid #d9d9d9;
-}
-body .container .tabs .tab {
-  display: inline-block;
-  margin-bottom: -1px;
-  padding: 20px 15px 10px;
-  cursor: pointer;
-  letter-spacing: 0;
-  border-bottom: 1px solid #d9d9d9;
-  -moz-user-select: -moz-none;
-  -ms-user-select: none;
-  -webkit-user-select: none;
-  user-select: none;
-  transition: all 0.1s ease-in-out;
-}
-body .container .tabs .tab a {
-  font-size: 11px;
-  text-decoration: none;
-  text-transform: uppercase;
-  color: #d9d9d9;
-  transition: all 0.1s ease-in-out;
-}
-body .container .tabs .tab.active a, body .container .tabs .tab:hover a {
-  color: #263238;
-}
-body .container .tabs .tab.active {
-  border-bottom: 1px solid #263238;
-}
-body .container .content form {
-  position: relative;
-  height: 287px;
-}
-body .container .content label:first-of-type, body .container .content input:first-of-type, body .container .content .more:first-of-type {
-  -moz-animation: slideIn 0.4s cubic-bezier(0.37, 0.82, 0.2, 1);
-  -webkit-animation: slideIn 0.4s cubic-bezier(0.37, 0.82, 0.2, 1);
-  animation: slideIn 0.4s cubic-bezier(0.37, 0.82, 0.2, 1);
-}
-body .container .content label:nth-of-type(2), body .container .content input:nth-of-type(2), body .container .content .more:nth-of-type(2) {
-  -moz-animation: slideIn 0.5s cubic-bezier(0.37, 0.82, 0.2, 1);
-  -webkit-animation: slideIn 0.5s cubic-bezier(0.37, 0.82, 0.2, 1);
-  animation: slideIn 0.5s cubic-bezier(0.37, 0.82, 0.2, 1);
-}
-body .container .content label:nth-of-type(3), body .container .content input:nth-of-type(3), body .container .content .more:nth-of-type(3) {
-  -moz-animation: slideIn 0.6s cubic-bezier(0.37, 0.82, 0.2, 1);
-  -webkit-animation: slideIn 0.6s cubic-bezier(0.37, 0.82, 0.2, 1);
-  animation: slideIn 0.6s cubic-bezier(0.37, 0.82, 0.2, 1);
-}
-body .container .content label {
-  font-size: 12px;
-  color: #263238;
-  -moz-user-select: -moz-none;
-  -ms-user-select: none;
-  -webkit-user-select: none;
-  user-select: none;
-}
-body .container .content label:not([for='remember']) {
-  display: none;
-}
-body .container .content input.inpt {
-  font-size: 14px;
-  display: block;
-  width: 100%;
-  height: 42px;
-  margin-bottom: 12px;
-  padding: 16px 13px;
-  color: #999999;
-  border: 1px solid #d9d9d9;
-  background: transparent;
-  -moz-border-radius: 2px;
-  -webkit-border-radius: 2px;
-  border-radius: 2px;
-}
-body .container .content input.inpt::-webkit-input-placeholder {
-  font-size: 14px;
-  color: #999999;
-  font-family: 'Lato', sans-serif;
-}
-body .container .content input.inpt:-moz-placeholder {
-  font-size: 14px;
-  color: #999999;
-  font-family: 'Lato', sans-serif;
-}
-body .container .content input.inpt::-moz-placeholder {
-  font-size: 14px;
-  color: #999999;
-  font-family: 'Lato', sans-serif;
-}
-body .container .content input.inpt:-ms-input-placeholder {
-  font-size: 14px;
-  color: #999999;
-  font-family: 'Lato', sans-serif;
-}
-body .container .content input.inpt:focus {
-  border-color: #999999;
-}
-body .container .content input.submit {
-  font-size: 12px;
-  line-height: 42px;
-  display: block;
-  width: 100%;
-  height: 42px;
-  cursor: pointer;
-  vertical-align: middle;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: #263238;
-  border: 1px solid #263238;
-  background: transparent;
-  -moz-border-radius: 2px;
-  -webkit-border-radius: 2px;
-  border-radius: 2px;
-}
-body .container .content input.submit:hover {
-  background-color: #263238;
-  color: #ffffff;
-  -moz-transition: all 0.2s;
-  -o-transition: all 0.2s;
-  -webkit-transition: all 0.2s;
-  transition: all 0.2s;
-}
-body .container .content input:focus {
-  outline: none;
-}
-body .container .content .checkbox {
-  margin-top: 4px;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  width: 0;
-  height: 0;
-  margin: 17px -1px;
-  padding: 0;
-  border: 0;
-}
-body .container .content .checkbox + label {
-  vertical-align: middle;
-  display: inline-block;
-  width: 50%;
-}
-body .container .content .checkbox + label:before {
-  content: "\A";
-  color: #999999;
-  font-family: Verdana;
-  font-weight: bold;
-  font-size: 8px;
-  line-height: 10px;
-  text-align: center;
-  display: inline-block;
-  vertical-align: middle;
-  position: relative;
-  -moz-border-radius: 2px;
-  -webkit-border-radius: 2px;
-  border-radius: 2px;
-  background: transparent;
-  border: 1px solid #d9d9d9;
-  width: 11px;
-  height: 11px;
-  margin: -2px 8px 0 0;
-}
-body .container .content .checkbox:checked + label:before {
-  content: "✓";
-}
-body .container .content .submit-wrap {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-}
-body .container .content .submit-wrap a {
-  font-size: 12px;
-  display: block;
-  margin-top: 20px;
-  text-align: center;
-  text-decoration: none;
-  color: #999999;
-}
-body .container .content .submit-wrap a:hover {
-  text-decoration: underline;
-}
-body .container .content .signup-cont {
-  
-}
+	$(document).ready(
+			function() {
+				$('input[type="text"]').keyup(
+						function() {
+							var chk;
+							if ($("#userId").val() != ''
+									&& $("#userPwd").val() != ''
+									&& $("#userName").val() != ''
+									&& $("#userPhone").val() != ''
+									&& $("#postcode").val() != ''
+									&& $("#address").val() != ''
+									&& $("#userAnswer").val() != '') {
+								chk = true;
+							} else if ($("#userId").val() == '') {
+								chk = false;
+							} else if ($("#userPwd").val() == '') {
+								chk = false;
+							} else if ($("#userName").val() == '') {
+								chk = false;
+							} else if ($("#userPhone").val() == '') {
+								chk = false;
+							} else if ($("#postcode").val() == '') {
+								chk = false;
+							} else if ($("#address").val() == '') {
+								chk = false;
+							} else if ($("#userAnswer").val() == '') {
+								chk = false;
+							}
+							if (chk) {
+								$(':input[type="submit"]').prop('disabled',
+										false);
+							} else if (chk == false) {
+								$(':input[type="submit"]').prop('disabled',
+										true);
 
-@keyframes slideIn {
-  0% {
-    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
-    opacity: 0;
-    margin-left: -320px;
-  }
-  100% {
-    filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
-    opacity: 1;
-    margin-left: 0px;
-  }
-}
-@-webkit-keyframes slideIn {
-  0% {
-    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
-    opacity: 0;
-    margin-left: -320px;
-  }
-  100% {
-    filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
-    opacity: 1;
-    margin-left: 0px;
-  }
-}
-.credits {
-  display: block;
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  color: #999999;
-  font-size: 14px;
-  margin: 0 10px 10px 0;
-}
-.credits a {
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
-  opacity: 0.8;
-  color: inherit;
-  font-weight: 700;
-  text-decoration: none;
-}
-</style>
+							}
+						});
+			});
+</script>
 <section class="container">
 	<article class="half">
 		<h1>Azure</h1>
@@ -316,47 +49,70 @@ body .container .content .signup-cont {
 			<span class="tab signup"><a href="#signup">회원가입</a></span>
 		</div>
 		<div class="content">
+			<article class="half">
+				<h1>Azure</h1>
+				<div class="tabs">
 
-			<div class="signup-cont cont">
-				<form id="saveMember" action="saveMember" method="post">
-					<font color="red">*</font>
-					아이디 <input type="text" name="userId" id="userId" class="inpt" required="required" placeholder="Your id">
-					<button type="button" onclick="idcheck()">아이디 확인</button>
-					<p class="result">
-						<span class="msg">아이디를 확인해 주십시오</span>
-					</p>
-					<font color="red">*</font>
-					비밀번호 <input type="password"name="userPwd" id="userPwd" class="inpt" required="required"placeholder="Your password">
-					<font color="red">*</font>
-					이름 <input type="text" name="userName"id="userName" class="inpt" required="required"placeholder="Your name">
-					<font color="red">*</font>핸드폰번호 <input type="text" name="userPhone" id="userPhone" class="inpt" required="required" maxlength="11"placeholder="Your phoneNumber"><br>
-					<font color="red">*</font>
-					주소 <input type="text" name="userPostCode" id="postcode" placeholder="postNum"><br>
-					<input type="button" id="Phone" onclick="DaumPostcode()" value="우편번호 찾기"><br>
-					<input type="text" name="userAddr" id="address" placeholder="주소"><br>
-					성별<br> 
-					남자<input type="radio" name="userGender"value="남자" checked="checked">
-					여자<input type="radio"name="userGender" value="여자"><br>
-					 생일<br>
-					<input type="date" name="userBirth"><br>
-					이메일<br>
-					<input type="email" name="userEmail" id="email" class="inpt" required="required" placeholder="Your email">
-					<font color="red">*</font>개인정보용 질문 <select size="1" name="userQuestion">
-						<option value="q1" selected>나의 보물 1호는?
-						<option value="q2">나의 고향은?
-						<option value="q3">가장 소중한 것은?
-						<option value="q4">나의 초등학교 이름은?
-						<option value="q5">가장 친한 친구의 이름은?
-						<option value="q6">나의 첫사랑의 이름은?
-						<option value="q7">어머니의 생일은?
-					</select>
-					<input type="text" name="userAnswer" id="userAnswer"><br>
-					<input type="submit" value="회원가입" class="submit" disabled="disabled"> <a href="#" class="more">위로</a>
-				</form>
-			</div>
-		</div>
-	</article>
-	<div class="half bg"></div>
+					<span class="tab signup"><a href="#signup">회원가입</a></span>
+				</div>
+				<div class="content">
+
+					<div class="signup-cont cont">
+						<form id="saveMember" action="saveMember" method="post">
+							<font color="red">*</font>아이디 <input type="text" name="userId"
+								id="userId" class="inpt" required="required"
+								placeholder="Your id">
+							<button type="button" onclick="idcheck()">아이디 확인</button>
+							<br>
+							<br>
+							<p class="result">
+								<span class="msg">아이디를 확인해 주십시오</span>
+							</p>
+
+							<font color="red">*</font>비밀번호 <input type="password"
+								name="userPwd" id="userPwd" class="inpt" required="required"
+								placeholder="Your password"><br>
+							<br> <font color="red">*</font>이름 <input type="text"
+								name="userName" id="userName" class="inpt" required="required"
+								placeholder="Your name"><br>
+							<br> <font color="red">*</font>핸드폰번호 <input type="text"
+								name="userPhone" id="userPhone" class="inpt" required="required"
+								maxlength="11" placeholder="Your phoneNumber"><br>
+
+
+
+							<font color="red">*</font>주소 <input type="text"
+								name="userPostCode" id="postcode" placeholder="postNum"><br>
+							<input type="button" id="Phone" onclick="DaumPostcode()"
+								value="우편번호 찾기"><br> <input type="text"
+								name="userAddr" id="address" placeholder="주소"><br>
+							<div>
+								성별<br> 남자<input type="radio" name="userGender" value="남자"
+									checked="checked"> 여자<input type="radio"
+									name="userGender" value="여자"><br>
+								<br> 생일<br> <input type="date" name="userBirth"><br>
+								<br> 이메일<br> <input type="email" name="userEmail"
+									id="email" class="inpt" required="required"
+									placeholder="Your email"><br>
+								<br> <font color="red">*</font>개인정보용 질문 <select size="1"
+									name="userQuestion">
+									<option value="q1" selected>나의 보물 1호는?
+									<option value="q2">나의 고향은?
+									<option value="q3">가장 소중한 것은?
+									<option value="q4">나의 초등학교 이름은?
+									<option value="q5">가장 친한 친구의 이름은?
+									<option value="q6">나의 첫사랑의 이름은?
+									<option value="q7">어머니의 생일은?
+								</select><br> <input type="text" name="userAnswer" id="userAnswer"><br>
+								<br> <input type="submit" value="회원가입" class="submit"
+									disabled="disabled"> <a href="#" class="more">Terms
+									and conditions</a>
+							</div>
+						</form>
+					</div>
+				</div>
+			</article>
+			<div class="half bg"></div>
 </section>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
