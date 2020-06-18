@@ -1,5 +1,5 @@
 @charset "UTF-8";
-
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@800&display=swap" rel="stylesheet">
 *{
 	margin:0;
 	padding:0;
@@ -16,6 +16,7 @@ body{
     border-radius: 4px;
 }
 .main-reg .form-heading{
+	font-family: 'Nanum Gothic', sans-serif;
 	float:top;
 	font-size: 25px;
 	font-weight: 600;
@@ -35,6 +36,8 @@ body{
 	justify-content:center;
 }
 .form-label{
+	font-family: 'Nanum Gothic', sans-serif;
+	font-size:20px;
     width: 100%;
     max-width: 150px;
     min-width: 150px;
@@ -77,11 +80,10 @@ body{
 .form-radio input[type="radio"]{
 	padding: 0px 5px;
     display: inline;
+    
     margin: 0px 2px;
 
 }
-
-
 
 .form-reg form{
 	margin-top: 20px;
@@ -92,22 +94,13 @@ body{
 	text-align: center;
     padding: 10px 0px;
 }
-
-button[type="reset"]{
-	background:#204d74;
-	border:none;
-	border-radius: 4px;
-	padding: 8px 15px;
-	color: #fff;
-	margin-right: 5px;
-	cursor: pointer;
+.btn {
+    color: white;
+    background-color: #ccc;
+        width: 130px;
+    
 }
 
-button[type="submit"]{
-	background:#398439;
-	border:none;
-	border-radius: 4px;
-	padding:8px 5px;
-	color: #fff;
-	cursor: pointer;
+.btn:hover{
+	background:#d99f9d;
 }

@@ -84,8 +84,8 @@
 			</tr>
 			<tr>
 				<td colspan="2" align="center" class="form-label">
-					<input class="btn btn-success" type="submit" value="등록">
-					<input class="btn btn-danger" type="button" value="목록" onclick="location.href='${path}/sample/productAll';">
+					<input class="btn" type="submit" value="등록">
+					<input class="btn" type="button" value="목록" onclick="location.href='${path}/sample/productAll';">
 				</td>
 			</tr>
 			
