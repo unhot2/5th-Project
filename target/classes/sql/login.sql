@@ -12,3 +12,4 @@ userPostCode varchar2(20),
 userQuestion varchar2(20),
 userAnswer varchar2(100),
 primary key(userId));
+
