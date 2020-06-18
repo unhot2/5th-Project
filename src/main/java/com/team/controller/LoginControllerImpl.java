@@ -1,5 +1,9 @@
 package com.team.controller;
 
+
+
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -7,6 +11,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -60,7 +65,7 @@ public class LoginControllerImpl implements LoginController {
 		session.removeAttribute("userType");
 		return "redirect:index";
 	}
-
+	
 	@RequestMapping("memberShip")
 	public String membership() {
 		return "login/memberShip";
@@ -178,10 +183,27 @@ public class LoginControllerImpl implements LoginController {
 	}
 
 	@RequestMapping("find")
-	public String find(@RequestParam("id") String id, Model model) {
+	public String find(@RequestParam("id") String id, Model model, HttpServletResponse response) {
+		
+		if(service.idConfirm(id)==false) {
+			response.setContentType("text/html; charset=UTF-8");
+			PrintWriter out;
+			try {
+				out = response.getWriter();
+				out.println("<script>alert('아이디가 존재하지 않습니다.'); </script>");
+				out.flush();
+				return "login/userFind";
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			
+		}
 		LoginDTO dto = service.find(id);
 		model.addAttribute("dto", dto);
 		model.addAttribute("id", id);
+	
 		return "login/find";
 	}
 

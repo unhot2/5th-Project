@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <jsp:include page="../include/header.jsp" />
 <h1>회원가입 폼</h1>
+<section class="apiSaveMember">
 <form action="apiSaveMember">
 	<table border='1'>
 		<tr>
@@ -46,4 +47,5 @@
 		</tr>
 	</table>
 </form>
+</section>
 <jsp:include page="../include/footer.jsp" />

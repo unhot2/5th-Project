@@ -59,7 +59,7 @@
 	</select>
 
 	<select id="find" resultType="loginDTO">
-		select userQuestion,userAnswer
+		select userQuestion,userAnwser
 		from
 		login where
 		userId=#{id}

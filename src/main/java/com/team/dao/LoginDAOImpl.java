@@ -1,5 +1,6 @@
 package com.team.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -88,6 +89,19 @@ public class LoginDAOImpl implements LoginDAO {
 		System.out.println("dao"+dto.getUserId());
 		System.out.println("dao"+dto.getUserPwd());
 		sqlSession.update("sql.alterPwd",dto);
+	}
+
+	public int idConfirm(String id) {
+		List<LoginDTO> list=sqlSession.selectList("sql.listAll");
+		
+		int count=0;
+		for(LoginDTO dto : list) {
+			if(dto.getUserId().equals(id)) {
+				count++;
+			}
+		}
+		
+		return count;
 	}
 
 	
