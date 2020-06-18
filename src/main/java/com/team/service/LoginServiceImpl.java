@@ -101,4 +101,15 @@ public class LoginServiceImpl implements LoginService {
 		dao.alterPwd(dto);
 	}
 
+	@Override
+	public boolean idConfirm(String id) {
+		if(dao.idConfirm(id)==0)
+		{
+			return false;
+		}
+		else {
+			return true;
+		}
+	}
+
 }
