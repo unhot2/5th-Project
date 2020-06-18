@@ -174,6 +174,10 @@
 						href="productsubList?category=기타">ETC</a>
 					</span>
 				</div>
+				<div>
+				<input type=text name="search">
+				<button type="button">검색</button>
+				</div>
 			</div>
 		</nav>
 		<div class="topBtn">
