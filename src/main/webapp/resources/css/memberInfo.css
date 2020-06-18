@@ -1,0 +1,36 @@
+@charset "EUC-KR";
+
+.ticket-list .panel-heading {
+   
+    border-bottom: none;
+}
+.ticket-list .panel-body {
+    
+}
+.ticket-list .table-head{
+    border: none;
+      
+}
+.divwidth {
+
+	width: 380px;
+	margin-left: 33.333334%;
+}
+
+.titlesize {
+	font-size: 21px;
+}
+
+.btn {
+	color: white;
+	background-color: #d99f9d;
+	margin-right: 4px;
+    margin-left: 4px;
+    width: 111px;
+    height: 38px;
+    font-size: 13px;
+	border: none;
+}
+
+
+

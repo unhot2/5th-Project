@@ -121,7 +121,7 @@
 				<c:when test="${userId ne null && userMaster eq 1}">
 					<div class="dropdown1">
 						<button class="dropbtn topfont">마이페이지</button>
-						<span class="dropdown1-content"> <a href="memberList">회원정보</a>
+						<span class="dropdown1-content"> <a href="memberInfo">회원정보</a>
 							<a href="#">구매내역</a>
 						</span>
 					</div>
