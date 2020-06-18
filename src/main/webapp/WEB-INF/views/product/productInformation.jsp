@@ -70,7 +70,6 @@
 										<button type="button" id="addCartBtn">장바구니 넣기</button>
 										<button type="button" id="payment">바로 결제</button>
 									</form> <a href="productAll">상품 목록</a>
-
 								</td>
 							</tr>
 						</table>

@@ -94,7 +94,9 @@
 					<div class="dropdown1">
 						<button class="dropbtn topfont">관리자 메뉴</button>
 						<span class="dropdown1-content"> <a href="memberList">회원목록</a>
+							<a href="productRegister">상품 등록</a>
 							<a href="#">주문관리</a>
+							
 						</span>
 					</div>
 				</c:when>

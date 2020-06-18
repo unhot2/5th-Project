@@ -153,6 +153,7 @@ public class LoginControllerImpl implements LoginController {
 		String birth = dateFormat.format(Mbirth);
 		model.addAttribute("userBirth", birth);
 		model.addAttribute("memberInfo", login);
+		
 		return "login/updateUserMember";
 	}
 

@@ -29,6 +29,7 @@
 					<option value="하의">하의</option>
 					<option value="악세서리">악세서리</option>
 				</select>
+  
 				</td>
 			</tr>
 			<tr>
