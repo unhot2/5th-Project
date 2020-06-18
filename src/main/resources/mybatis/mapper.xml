@@ -26,7 +26,7 @@
 
 	<insert id="apiSaveMember">
 		insert into login
-		values(#{userId},DEFAULT,#{userName},#{userAddr},#{userGender},#{userBirth},#{userEmail},DEFAULT,#{userPostCode},DEFAULT,DEFAULT)
+		values(#{userId},DEFAULT,#{userName},#{userAddr},#{userGender},#{userBirth},#{userEmail},DEFAULT,#{userPostCode},#{userQuestion},#{userPhone},#{userAnswer})
 	</insert>
 	<select id="memberInfo" resultType="loginDTO">
 		select * from login where
@@ -59,7 +59,7 @@
 	</select>
 
 	<select id="find" resultType="loginDTO">
-		select userQuestion,userAnwser
+		select userQuestion,userAnswer
 		from
 		login where
 		userId=#{id}

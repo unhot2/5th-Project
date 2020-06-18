@@ -81,6 +81,5 @@
 			</table>
 		</fieldset>
 	</div>
-
 </section>
 <jsp:include page="../include/footer.jsp" />
