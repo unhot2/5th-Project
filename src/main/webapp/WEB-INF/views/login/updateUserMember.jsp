@@ -2,12 +2,26 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<link rel="stylesheet" href="resources/css/memberInfo.css">
 <jsp:include page="../include/header.jsp" />
 <section class="updateUserMemberSection">
 	<div align="center">
-		<h1>내정보 수정</h1>
+		
 		<form action="updateUser" method="post">
-			<table border="1">
+		<div class="container">
+					<div class="row">
+    	<div class="col-md-8 col-md-offset-2 divwidth">
+    	    <div class="panel panel-default ticket-list">
+              <div class="panel-heading">
+                <h3 class="panel-title text-center titlesize">정보 수정</h3>
+              </div>
+              <div class="panel-body ">
+                  <table class="table">
+                    <thead class='table-head'>
+                      <tr class='table-head'>
 				<tr>
 					<th>아이디</th>
 					<td><input type="text" value="${memberInfo.userId }"
@@ -60,12 +74,16 @@
 					<td><input type="email" value="${memberInfo.userEmail }"
 						name="userEmail"></td>
 				</tr>
-				<tr>
-					<td><input type="submit" value="수정"></td>
-					<td><button type="button"
-							onclick="location.href='deleteMember?userId=${memberInfo.userId}'">삭제</button></td>
-				</tr>
+				
+				
 			</table>
+			<input class="btn" type="submit" value="수정">
+				<button class="btn" type="button" onclick="location.href='deleteMember?userId=${memberInfo.userId}'">삭제</button>
+				 </div>
+           </div>
+    	</div>
+	</div>
+</div>
 		</form>
 	</div>
 </section>

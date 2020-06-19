@@ -51,7 +51,7 @@
 										pattern="yyyy.MM.dd" /></td>
 								<td>${mb.userEmail }</td>
 								<td class="memberListBtn"><a href="memberInfo?userId=${mb.userId }"> <i
-										class="icon-pencil"></i></a> <a href="deleteMember" role="button"
+										class="icon-pencil"></i></a> <a href="deleteMember?userId=${mb.userId }" role="button"
 									data-toggle="modal"> <i class="icon-remove"></i></a></td>
 							</tr>
 						</c:forEach>
