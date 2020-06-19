@@ -25,6 +25,10 @@
 				location.href = "payOrder?product_id=" + $(".product_id").val()
 						+ "&amount=" + $("select[name='amount']").val()
 			})
+			
+	function pzlogin() {
+		alert("로그인 하셔야 합니다.")
+	}
 </script>
 <section class="productInformationSection">
 	<div align="center" style="margin-bottom: 120px;">
@@ -70,9 +74,24 @@
 							</tr>
 							<tr>
 								<td colspan="2">
-									<button type="button" id="addCartBtn">장바구니 넣기</button>
-									<button type="button" id="payment">바로 결제</button> 
-									<button type="button" onclick="location.href='index'">상품 목록</button> 
+								<c:choose>
+									<c:when test="${userId eq null}">
+											<button type="button" onclick="pzlogin()">장바구니 넣기</button>
+										</c:when>
+										<c:otherwise>
+											<button type="button" id="addCartBtn">장바구니 넣기</button> 
+										</c:otherwise>
+									</c:choose>
+									<c:choose>
+										<c:when test="${userId eq null}">
+											<button type="button" onclick="pzlogin()">바로 결제</button>
+										</c:when>
+										<c:otherwise>
+											<button type="button" id="payment">바로 결제</button>
+										</c:otherwise>
+									</c:choose>
+									<button type="button" onclick="location.href='index'">상품
+										목록</button>
 								</td>
 							</tr>
 						</table>
