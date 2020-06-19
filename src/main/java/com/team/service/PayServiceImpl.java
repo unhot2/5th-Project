@@ -1,13 +1,12 @@
 package com.team.service;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.team.dao.PayDAO;
 import com.team.dto.JoinDTO;
 import com.team.dto.PayDTO;
+import com.team.dto.PayHistoryDTO;
 import com.team.dto.ProductDTO;
 
 @Service
@@ -49,6 +48,11 @@ public class PayServiceImpl implements PayService {
 
 	public List<PayDTO> selectPaymentList(String orderId) {
 		return dao.selectPaymentList(orderId);
+	}
+
+	@Override
+	public List<PayHistoryDTO> paymentList(PayHistoryDTO paydto) {
+		return dao.paymentList(paydto);
 	}
 	
 }

@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import com.team.dto.JoinDTO;
 import com.team.dto.PayDTO;
+import com.team.dto.PayHistoryDTO;
 import com.team.dto.ProductDTO;
 @Repository
 public class PayDAOImpl implements PayDAO {
@@ -57,6 +58,10 @@ public class PayDAOImpl implements PayDAO {
 
 	public List<PayDTO> selectPaymentList(String orderId) {
 		return sqlSession.selectList("sql.selectPaymentList",orderId);
+	}
+
+	public List<PayHistoryDTO> paymentList(PayHistoryDTO paydto) {
+		return sqlSession.selectList("sql.paymentList", paydto);
 	}
 	
 	

@@ -3,6 +3,7 @@ package com.team.dao;
 import java.util.List;
 import com.team.dto.JoinDTO;
 import com.team.dto.PayDTO;
+import com.team.dto.PayHistoryDTO;
 import com.team.dto.ProductDTO;
 
 public interface PayDAO {
@@ -22,6 +23,8 @@ public interface PayDAO {
 	public ProductDTO payment(JoinDTO dto);
 
 	public List<PayDTO> selectPaymentList(String orderId);
+
+	public List<PayHistoryDTO> paymentList(PayHistoryDTO paydto);
 	
 	
 	

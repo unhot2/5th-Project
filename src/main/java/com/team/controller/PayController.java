@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import org.springframework.ui.Model;
 import com.team.dto.JoinDTO;
+import com.team.dto.PayHistoryDTO;
 
 public interface PayController {
 	/* 카드 결제를 위한 결제 DB저장 메소드 */
@@ -17,4 +18,7 @@ public interface PayController {
 
 	/* 바로결제를 위한 결제 DB저장 메소드 */
 	public String cardPayment(JoinDTO dto, HttpSession session, HttpServletRequest request);
+
+	/* 구매 내역 */
+	public String paymentList(PayHistoryDTO paydto, Model model);
 }

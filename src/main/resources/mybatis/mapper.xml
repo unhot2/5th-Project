@@ -294,6 +294,11 @@
 		h.*,p.totalprice from pay p, payhistory h where p.orderid=h.orderid)A
 		where orderid=#{orderId}
 	</select>
+	
+	<select id="paymentList" resultType="PayHistoryDTO">
+		select * from payhistory where userId=#{userId}
+	</select>
+	
 	<!-- 파일 업로드 부분 -->
 	<insert id="productSave">
 		insert into product(product_id, title, price,

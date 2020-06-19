@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
 <link rel="stylesheet" href="resources/css/memberShip.css" />
 <jsp:include page="../include/header.jsp" />
 <script>
@@ -44,15 +45,13 @@
 </script>
 <section class="container">
 	<article class="half">
-		<h1>Azure</h1>
-		<div class="tabs">
+		<h1>Angelica</h1>
+		<!-- <div class="tabs">
 			<span class="tab signup"><a href="#signup">회원가입</a></span>
-		</div>
+		</div> -->
 		<div class="content">
 			<article class="half">
-				<h1>Azure</h1>
 				<div class="tabs">
-
 					<span class="tab signup"><a href="#signup">회원가입</a></span>
 				</div>
 				<div class="content">
@@ -71,30 +70,27 @@
 
 							<font color="red">*</font>비밀번호 <input type="password"
 								name="userPwd" id="userPwd" class="inpt" required="required"
-								placeholder="Your password"><br>
+								placeholder="Your password">
 							<br> <font color="red">*</font>이름 <input type="text"
 								name="userName" id="userName" class="inpt" required="required"
-								placeholder="Your name"><br>
+								placeholder="Your name">
 							<br> <font color="red">*</font>핸드폰번호 <input type="text"
 								name="userPhone" id="userPhone" class="inpt" required="required"
-								maxlength="11" placeholder="Your phoneNumber"><br>
-
-
-
-							<font color="red">*</font>주소 <input type="text"
-								name="userPostCode" id="postcode" placeholder="postNum"><br>
+								maxlength="11" placeholder="Your phoneNumber">
+							<font color="red">*</font>주소 <br><input type="text" class="inpt"
+								name="userPostCode" id="postcode" placeholder="postNum">
 							<input type="button" id="Phone" onclick="DaumPostcode()"
-								value="우편번호 찾기"><br> <input type="text"
-								name="userAddr" id="address" placeholder="주소"><br>
-							<div>
+								value="우편번호 찾기"> <input type="text" class="inpt"
+								name="userAddr" id="address" placeholder="주소">
+							<div><br>
 								성별<br> 남자<input type="radio" name="userGender" value="남자"
 									checked="checked"> 여자<input type="radio"
-									name="userGender" value="여자"><br>
-								<br> 생일<br> <input type="date" name="userBirth"><br>
+									name="userGender" value="여자">
+								<br> 생일<br> <input type="date" name="userBirth">
 								<br> 이메일<br> <input type="email" name="userEmail"
 									id="email" class="inpt" required="required"
-									placeholder="Your email"><br>
-								<br> <font color="red">*</font>개인정보용 질문 <select size="1"
+									placeholder="Your email">
+								 <font color="red">*</font>개인정보용 질문 <select size="1"
 									name="userQuestion">
 									<option value="q1" selected>나의 보물 1호는?
 									<option value="q2">나의 고향은?
@@ -103,10 +99,10 @@
 									<option value="q5">가장 친한 친구의 이름은?
 									<option value="q6">나의 첫사랑의 이름은?
 									<option value="q7">어머니의 생일은?
-								</select><br> <input type="text" name="userAnswer" id="userAnswer"><br>
-								<br> <input type="submit" value="회원가입" class="submit"
-									disabled="disabled"> <a href="#" class="more">Terms
-									and conditions</a>
+								</select>
+								<input class="inpt" type="text" name="userAnswer" id="userAnswer">
+								<input class="submit" type="submit" id="apiSubmit" disabled="disabled"
+								value="회원가입">
 							</div>
 						</form>
 					</div>

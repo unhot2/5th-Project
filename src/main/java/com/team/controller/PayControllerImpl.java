@@ -1,6 +1,7 @@
 package com.team.controller;
 
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.team.dto.JoinDTO;
 import com.team.dto.LoginDTO;
 import com.team.dto.PayDTO;
+import com.team.dto.PayHistoryDTO;
 import com.team.dto.ProductDTO;
 import com.team.service.CartService;
 import com.team.service.LoginService;
@@ -118,5 +120,14 @@ public class PayControllerImpl implements PayController {
 		int boo = 1;
 		model.addAttribute("boo", boo);
 		return "product/cartOrder";
+	}
+
+	@RequestMapping("paymentList")
+	public String paymentList(PayHistoryDTO paydto, Model model) {
+		ArrayList<PayHistoryDTO> list = 
+				(ArrayList<PayHistoryDTO>)service.paymentList(paydto);
+		model.addAttribute("paymentList1",list);
+		System.out.println("11");
+		return "pay/paymentList";
 	}
 }

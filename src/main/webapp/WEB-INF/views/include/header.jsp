@@ -105,8 +105,7 @@
 					<div class="dropdown1">
 						<button class="dropbtn topfont">관리자 메뉴</button>
 						<span class="dropdown1-content"> <a href="memberList">회원목록</a>
-							<a href="productRegister">상품 등록</a> <a href="#">주문관리</a>
-
+							<a href="productRegister">상품 등록</a>
 						</span>
 					</div>
 				</c:when>
@@ -114,7 +113,7 @@
 					<div class="dropdown1">
 						<button class="dropbtn topfont">마이페이지</button>
 						<span class="dropdown1-content"> <a
-							href="memberInfo?userId=${userId }">내정보</a> <a href="#">구매내역</a>
+							href="memberInfo?userId=${userId }">내정보</a> <a href="paymentList?userId=${userId }">구매내역</a>
 						</span>
 					</div>
 				</c:when>
