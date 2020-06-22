@@ -8,7 +8,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import com.team.dto.JoinDTO;
 import com.team.dto.LoginDTO;
-import com.team.dto.PayDTO;
 import com.team.dto.CartDTO;
 import com.team.service.CartService;
 import com.team.service.LoginService;
@@ -52,10 +51,13 @@ public class CartControllerImpl implements CartController {
 			fee = 2500;
 		}
 		tatalMoney = fee + totalPrice;
+		
 		model.addAttribute("cartList", list);
 		model.addAttribute("totalPrice", totalPrice);
 		model.addAttribute("fee", fee);
 		model.addAttribute("totalMoney", tatalMoney);
+		
+		
 		return "product/cartList";
 	}
 	
@@ -111,6 +113,16 @@ public class CartControllerImpl implements CartController {
 		model.addAttribute("fee", fee);
 		model.addAttribute("totalMoney", tatalMoney);
 		model.addAttribute("memberInfo",memberInfo);
+		model.addAttribute("name",memberInfo.getUserName());
+		model.addAttribute("email",memberInfo.getUserEmail());
+		model.addAttribute("phone",memberInfo.getUserPhone());
+		model.addAttribute("postcode",memberInfo.getUserPostCode());
+		model.addAttribute("addr",memberInfo.getUserAddr());
+		for (JoinDTO cart : list) {
+			model.addAttribute("title",cart.getTitle());
+		}
+		int boo= 0;
+		model.addAttribute("boo", boo);
 		return "product/cartOrder";
 	}
 }

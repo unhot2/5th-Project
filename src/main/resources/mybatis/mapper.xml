@@ -1,20 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="sql">
 	<!-- login 부분 -->
 	<select id="listAll" resultType="loginDTO">
 		select * from login
 	</select>
 
+	<select id="memberPagenation" resultType="loginDTO">
+		select B.* from(select
+		rownum rn, A.* from(select * from login)A)B where rn
+		between
+		#{startPage} and #{endPage}
+	</select>
+
+	<select id="memberGetTotalPage" resultType="_int">
+		select count(*) from
+		login
+	</select>
+
+
 	<insert id="saveMember">
 		insert into login
-		values(#{userId},#{userPwd},#{userName},#{userAddr},#{userGender},#{userBirth},#{userEmail},#{userPhone},DEFAULT,#{userPostCode},#{userQuestion},#{userAnwser})
+		values(#{userId},#{userPwd},#{userName},#{userAddr},#{userGender},#{userBirth},#{userPhone},#{userEmail},DEFAULT,#{userPostCode},#{userQuestion},#{userAnswer})
 	</insert>
 
 	<insert id="apiSaveMember">
 		insert into login
-		values(#{userId},DEFAULT,#{userName},#{userAddr},#{userGender},#{userBirth},#{userEmail},DEFAULT,#{userPostCode},DEFAULT,DEFAULT)
+		values(#{userId},DEFAULT,#{userName},#{userAddr},#{userGender},#{userBirth},#{userEmail},DEFAULT,#{userPostCode},#{userQuestion},#{userPhone},#{userAnswer})
 	</insert>
 	<select id="memberInfo" resultType="loginDTO">
 		select * from login where
@@ -25,6 +37,7 @@
 		update login set
 		userPwd=#{userPwd},
 		userName=#{userName},
+		userPhone=#{userPhone},
 		userAddr=#{userAddr},userGender=#{userGender},
 		userBirth=#{userBirth},userEmail=#{userEmail},
 		userPostCode=#{userPostCode}
@@ -46,14 +59,14 @@
 	</select>
 
 	<select id="find" resultType="loginDTO">
-		select userQuestion,userAnwser
+		select userQuestion,userAnswer
 		from
 		login where
 		userId=#{id}
 	</select>
 
-	<select id="chkAnwser" resultType="String">
-		select userAnwser
+	<select id="chkAnswer" resultType="String">
+		select userAnswer
 		from login
 		where userId=#{id}
 	</select>
@@ -106,6 +119,7 @@
 		select * from notice where
 		title like '%'||#{noticestart}||'%'
 	</select>
+
 	<insert id="noticeReplyWrite">
 		insert into noticereply
 		values(notice_reply_seq.nextval,#{userid},#{content},default,default,default,#{idgroup})
@@ -141,7 +155,10 @@
 	</update>
 
 	<update id="qnaModify" parameterType="QnaDTO">
-
+		update qna set
+		name=#{name}, title= #{title},
+		content=#{content} where
+		id=#{id}
 	</update>
 
 	<delete id="qnaDelete" parameterType="QnaDTO">
@@ -182,13 +199,17 @@
 		select * from product where
 		category=#{category}
 	</select>
-
+	<select id="subproductList" resultType="ProductDTO">
+		select * from product
+		where
+		subcategory=#{category}
+	</select>
 	<select id="productInformation" resultType="ProductDTO">
 		select * from product
 		where
 		product_id=#{product_id}
 	</select>
-	
+
 	<select id="productSearch" resultType="ProductDTO">
 		select * from product
 		where
@@ -209,13 +230,15 @@
 		values(cart_seq.nextval,#{userId},#{product_id},#{amount},#{price},#{title})
 	</insert>
 
-	<delete id="cartDelete" parameterType="CartDTO">
+	<delete id="cartDelete">
 		delete from cart where
 		cartId=#{cartId}
 	</delete>
-	<delete id="cartDeleteAll" parameterType="CartDTO">
+
+	<delete id="cartDeleteAll">
 		delete from cart where
-		userId = #{userId}
+		userId =
+		#{userId}
 	</delete>
 	<update id="cntUp">
 		update cart set
@@ -234,31 +257,55 @@
 		where userId=#{userId}
 	</select>
 	<select id="countCart" resultType="_int">
-		select count(*) from cart where userId=#{userId} and product_id = #{product_id}
+		select count(*) from cart
+		where userId=#{userId} and product_id = #{product_id}
 	</select>
 	<update id="updateCart">
-		update cart set amount = amount + #{amount} where userId = #{userId} and product_id = #{product_id}
+		update cart set amount = amount + #{amount} where
+		userId = #{userId} and product_id = #{product_id}
 	</update>
-	
+
 
 	<!-- 결제 하는 부분 -->
-	
+
 	<insert id="cardInsert">
-		insert into pay values(#{userId},#{message},'카드',0)
+		insert into pay
+		values(#{userId},#{orderId},#{message},#{totalPrice},#{phone},#{addr},#{name})
 	</insert>
-	
+
+
 	<insert id="depositInsert">
-		insert into pay values(#{userId},#{message},'무통장입금',0)
+		insert into pay
+		values(#{userId},#{message},'무통장입금',0)
 	</insert>
 	<select id="payCheck" resultType="String">
 		select userId from pay where
 		userId=#{userId}
 	</select>
+
+	<insert id="insertPayHistory" parameterType="JoinDTO">
+		insert into
+		payhistory(amount,price,title,orderId,userId,imgpath) values
+		(#{amount},#{price},#{title},#{orderId},#{userId},#{imgpath})
+	</insert>
+
+	<select id="selectPaymentList" resultType="PayDTO">
+		select a.* from(select
+		h.*,p.totalprice from pay p, payhistory h where p.orderid=h.orderid)A
+		where orderid=#{orderId}
+	</select>
 	
-
+	<select id="paymentList" resultType="PayHistoryDTO">
+		select * from payhistory where userId=#{userId}
+	</select>
+	
 	<!-- 파일 업로드 부분 -->
-   	<insert id="productSave">
-   		insert into product(product_id, title, price, category, subcategory, imgpath, detailimgpath) values(#{product_id}, #{title}, #{price}, #{category}, #{subcategory}, #{imgpath}, #{detailImgpath})
-   	</insert>	
-
+	<insert id="productSave">
+		insert into product(product_id, title, price,
+		category, subcategory,
+		imgpath, detailimgpath) values(#{product_id},
+		#{title}, #{price},
+		#{category}, #{subcategory}, #{imgpath},
+		#{detailImgpath})
+	</insert>
 </mapper>

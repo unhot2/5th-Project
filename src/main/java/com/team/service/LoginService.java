@@ -4,8 +4,6 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestParam;
-
 import com.team.dto.LoginDTO;
 
 @Service
@@ -27,7 +25,7 @@ public interface LoginService {
 	public void updateMember(LoginDTO dto);
 
 	/* 회원 목록 메소드 */
-	public List<LoginDTO> memberList();
+	public List<LoginDTO> memberList(int memberstart,Model model);
 
 	/* 회원 정보 메소드 */
 	public LoginDTO memberInfo(LoginDTO dto);
@@ -48,12 +46,13 @@ public interface LoginService {
 	public LoginDTO find(String id);
 
 	/* 비밀번호 찾기 답변 확인 메소드 */
-	public boolean chkAnwser(String anwser, String id);
+	public boolean chkAnswer(String answer, String id);
 	
 	/* 비밀번호 변경 메소드 */
 	public void alterPwd(LoginDTO dto);
 
-	
+	/*아이디 존재 확인 메소드*/
+	public boolean idConfirm(String id);
 
 	
 }

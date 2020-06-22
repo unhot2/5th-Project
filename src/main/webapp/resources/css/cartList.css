@@ -1,0 +1,113 @@
+@charset "UTF-8";
+
+#ordForm table {
+    line-height: 1.5;
+}
+#ordForm table .thumb {
+    width: 180px;
+}
+#ordForm table .product {
+    width: auto;
+}
+
+#ordForm table .price {
+    width: 130px;
+}
+#ordForm table th {
+    padding: 10px;
+    border-top: 1px solid #ccc;
+    font-weight: normal;
+    text-align: center;
+}
+
+#ordForm table .button {
+    width: 120px;
+}
+#cartImg {
+	width: 100px;
+	height: 100px;
+}
+
+.jumbotron {
+	display: flex;
+    width: 50%;
+    margin: 0px 0px 0px 477px;
+    padding: 2rem 1rem;
+    margin-bottom: 3rem;
+    background-color: #FFEBF0;
+}
+
+.btn-block{
+	width: 100%
+}
+
+
+.col-md-6 {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+    max-width: 32%;
+}
+.button1{
+	margin: 10px 68px -32px -38px;
+    display: block;
+    padding: 0px 0px 3px 0px;
+    width: 25px;
+}
+.button2{
+    margin: -31px 0px -35px 59px;
+    display: block;
+    padding: 0px 0px 3px 0px;
+    width: 25px;
+}
+.form-control {
+    display: block;
+    width: 15%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.btn_pay{
+	font-size:15px; 
+	font-weight:bold; 
+	text-align: center;
+    width: 130px;
+    display: inline-block;
+    padding: 8px;
+    vertical-align: middle;
+    background: #d99f9d;
+    color: #fff;
+    border: 1px solid #d99f9d;
+}
+.btn01 {
+	
+    text-align: center;
+    width: 130px;
+    display: inline-block;
+    padding: 8px;
+    vertical-align: middle;
+    background: #ccc;
+    color: #fff;
+    border: 0px solid #ccc;
+}
+
+.col-md-6 {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 50%;
+    /* flex: 0 0 50%; */
+    max-width: 60%;
+}
+
+.btn01:hover{
+	background:#d99f9d;
+}
+
+
+
+

@@ -1,6 +1,9 @@
 create table pay(
-	userId varchar2(20) primary key,
+	userId varchar2(20) ,
+	orderId varchar2(100),
 	message varchar2(200),
-	status varchar2(20),
-	payStatus number
+	totalprice varchar2(20),
+	phone varchar2(50),
+	addr varchar2(100),
+	name varchar2(50)
 );

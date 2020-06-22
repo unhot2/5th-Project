@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+.img{
+	width: 100px;
+	height: 100px;
+	
+}
+.btn_pay{
+	font-size:15px; 
+	font-weight:bold; 
+	text-align: center;
+    width: 130px;
+    display: inline-block;
+    padding: 8px;
+    vertical-align: middle;
+    background: #ccc;
+    color: #fff;
+    border: 1px solid #ccc;
+}
+
+.btn_pay:hover{
+	background:#d99f9d;
+}

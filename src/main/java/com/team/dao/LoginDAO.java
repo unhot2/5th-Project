@@ -2,6 +2,8 @@ package com.team.dao;
 
 import java.util.List;
 
+import org.springframework.ui.Model;
+
 import com.team.dto.LoginDTO;
 
 public interface LoginDAO {
@@ -16,7 +18,7 @@ public interface LoginDAO {
 	/* 회원정보 수정 메소드 */
 	public void updateMember(LoginDTO dto);
 	/* 회원 목록 메소드 */
-	public List<LoginDTO> memberList();
+	public List<LoginDTO> memberList(int memberstart,Model model);
 	/* 회원 정보 메소드 */
 	public LoginDTO memberInfo(LoginDTO dto);
 	/* 회원 관리자 권한 */
@@ -35,11 +37,13 @@ public interface LoginDAO {
 	public LoginDTO find(String id);
 
 	/* 비밀번호 찾기 답변 확인 메소드 */
-	public String chkAnwser(String id);
+	public String chkAnswer(String id);
 	
 	/* 비밀번호 변경 메소드 */
 	public void alterPwd(LoginDTO dto);
 	
+	/*아이디 존재 확인 메소드*/
+	public int idConfirm(String id);
 	
 	
 }

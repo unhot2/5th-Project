@@ -3,6 +3,7 @@ package com.team.service;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 import com.team.dao.LoginDAO;
 import com.team.dto.LoginDTO;
 
@@ -11,8 +12,9 @@ public class LoginServiceImpl implements LoginService {
 	@Autowired
 	LoginDAO dao;
 
-	public List<LoginDTO> memberList() {
-		return dao.memberList();
+	public List<LoginDTO> memberList(int memberstart,Model model) {
+		List<LoginDTO> list = dao.memberList(memberstart,model);
+		return list;
 	}
 
 	public boolean loginChk(LoginDTO dto) {
@@ -87,9 +89,9 @@ public class LoginServiceImpl implements LoginService {
 		return dao.find(id);
 	}
 
-	public boolean chkAnwser(String anwser, String id) {
+	public boolean chkAnswer(String answer, String id) {
 		boolean chk = false;
-		if (dao.chkAnwser(id).equals(anwser)) {
+		if (dao.chkAnswer(id).equals(answer)) {
 			chk = true;
 		}
 		return chk;
@@ -97,6 +99,17 @@ public class LoginServiceImpl implements LoginService {
 
 	public void alterPwd(LoginDTO dto) {
 		dao.alterPwd(dto);
+	}
+
+	@Override
+	public boolean idConfirm(String id) {
+		if(dao.idConfirm(id)==0)
+		{
+			return false;
+		}
+		else {
+			return true;
+		}
 	}
 
 }

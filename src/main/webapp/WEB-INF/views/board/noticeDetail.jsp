@@ -1,85 +1,104 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<link rel="stylesheet" href="resources/css/bootstrap_basic.min.css">
 <jsp:include page="../include/header.jsp" />
 <section class="noticeDetailSection">
-	<div align="center">
-		<h1>${noticeDetail.title}의내용</h1>
-		<table border="1" style="width: 100%; height: 300px;"
-			style="position: relative;">
-			<tr>
-				<th style="width: 30px; height: 20px;">글번호</th>
-				<td style="width: 50px; height: 20px;">${noticeDetail.id}</td>
-				<th rowspan="2" style="width: 30px; height: 20px;">제목</th>
-				<td rowspan="2" style="width: 200px; height: 20px;">${noticeDetail.title }</td>
-				<th style="width: 50px; height: 20px;">작성일</th>
-				<td style="width: 50px; height: 20px;">${noticeDetail.savedate }</td>
-			</tr>
-			<tr>
-				<th style="width: 50px; height: 20px;">작성자</th>
-				<td style="width: 50px; height: 20px;">${noticeDetail.name}</td>
-				<th style="width: 50px; height: 20px;">조회수</th>
-				<td style="width: 50px; height: 20px;">${noticeDetail.hit }</td>
-			</tr>
-			<tr>
-				<th>내용</th>
-				<td colspan="6" style="height: 100%">${noticeDetail.content }</td>
-			</tr>
-			<tr>
-
-			</tr>
+	<div class="container my-1" style="height: 65%; margin-top: 5%;">
+		<div class="row">
+			<table class="table">
+				<thead>
+					<tr class="table-active">
+						<th scope="col" style="width: 30%"><font size="3"><b>글번호
+									:${noticeDetail.id}</b></font><br> <font size="3"><b>작성자 :
+									${noticeDetail.name}</b></font></th>
+						<th scope="col" style="width: 40%; text-align: center;"><font
+							size="6"><b>${noticeDetail.title }</b></font></th>
+						<th scope="col" style="width: 30%" class="text-right"><font
+							size="3"><b>조회수 : ${noticeDetail.hit }</b></font><br> <font
+							size="3"><b>작성일 : ${noticeDetail.savedate }</b></font></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td colspan="3">
+							<div>
+								<pre>${noticeDetail.content }</pre>
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<table style="width: 100%">
+				<c:choose>
+					<c:when test="${userMaster==0}">
+						<tr>
+							<td>
+								<div align="right">
+									<a class="btn btn-default"
+										onclick="location.href='noticeUpdate?id=${noticeDetail.id}'">수정</a>
+									<a class="btn btn-default" href="location.href='noticeDelete?id=${noticeDetail.id}'"
+										onclick="return confirm('삭제하시겠습니까?')">삭제</a>
+									<a class="btn btn-default"
+										onclick="location.href='noticeList'">목록이동</a>
+								</div>
+							</td>
+						</tr>
+					</c:when>
+					<c:otherwise>
+						<div align="right">
+							<button type="button" class="btn btn-secondary mb-3"
+											onclick="location.href='noticeList'">목록이동</button>
+						</div>
+					</c:otherwise>
+				</c:choose>
+			</table>
+			<div align="center" style="margin-top: 10px; margin-bottom: 10px;">
+				<font size="4"><b>댓&nbsp;&nbsp;&nbsp;글</b></font>
+			</div>
 			<c:choose>
-				<c:when test="${userId == noticeDetail.name}">
-					<div style="position: absolute; bottom: 150px; right: 8px;">
-						<button type="button"
-							onclick="location.href='noticeUpdate?id=${noticeDetail.id}'">수정</button>
-						<button type="button"
-							onclick="location.href='noticeDelete?id=${noticeDetail.id }'">삭제</button>
+				<c:when test="${userId ne null }">
+					<h3>&nbsp;</h3>
+					<hr>
+					<div>
+						<form
+							action="noticeReplyWrite?userid=${userId }&idgroup=${noticeDetail.idgroup}&id=${noticeDetail.id}"
+							method="post">
+							<div style="margin-top: 10px; margin-bottom: 10px;">
+								
+								<div style="width: 100%" align="center">
+									<div style="float: left; width: 90%">
+										<input class="form-control mt-4 mb-2" type="text"
+											name="content" style="width: 100%;">
+									</div>
+									<div>
+										<input class="btn btn-secondary mb-3" type="submit" value="작성"
+											style="width: 5%; margin-left: 40px;">
+									</div>
+								</div>
+							</div>
+						</form>
 					</div>
 				</c:when>
-				<c:otherwise>
-
-				</c:otherwise>
 			</c:choose>
-		</table>
-		<c:choose>
-			<c:when test="${userId ne null }">
-				<h3>&nbsp;</h3>
-				<hr>
-				<div class="replyBoard">
-					<form
-						action="noticeReplyWrite?userid=${userId }&idgroup=${noticeDetail.idgroup}&id=${noticeDetail.id}"
-						method="post">
-						<table border="1" style="width: 100%">
-							<tr>
-								<th>댓글</th>
-								<td><input type="text" name="content" size="171px">
-									<input type="submit" value="작성"></td>
-							</tr>
-						</table>
-
-					</form>
-				</div>
-			</c:when>
-		</c:choose>
-		<span>&nbsp;</span>
-		<table border="1" style="width: 100%;">
-			<tr>
-				<th style="width: 10%;">작성자</th>
-				<th style="width: 80%;">내용</th>
-				<th style="width: 100%;">작성일</th>
-			</tr>
-			<c:forEach var="reply" items="${noticeReplyList  }">
+			<span>&nbsp;</span>
+			<table class="table table-hover">
 				<tr>
-					<td>${reply.userid }</td>
-					<td>${reply.content }</td>
-					<td><fmt:formatDate value="${reply.rdate}"
-							pattern="yyyy.MM.dd:hh.mm" /></td>
+					<th class="text-center" style="width:10%">작성자</th>
+					<th class="text-center" style="width:50%">내용</th>
+					<th class="text-center" style="width:10%">작성일</th>
 				</tr>
-			</c:forEach>
-		</table>
+				<c:forEach var="reply" items="${noticeReplyList }">
+					<tr>
+						<td class="text-center">${reply.userid }</td>
+						<td class="text-center">${reply.content }</td>
+						<td class="text-center"><fmt:formatDate value="${reply.rdate}"
+								pattern="yyyy.MM.dd" /></td>
+					</tr>
+				</c:forEach>
+			</table>
+	</div>
 	</div>
 </section>
 <jsp:include page="../include/footer.jsp" />

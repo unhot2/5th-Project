@@ -1,26 +1,25 @@
 package com.team.controller;
 
+
+
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-
+import java.util.List;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-
 import com.fasterxml.jackson.core.JsonProcessingException;
-
 import org.springframework.web.servlet.ModelAndView;
-
 import com.team.dto.LoginDTO;
 import com.team.service.KakaoServiceImpl;
 import com.team.service.LoginService;
@@ -35,16 +34,6 @@ public class LoginControllerImpl implements LoginController {
 	KakaoServiceImpl kakao;
 	@Autowired
 	NaverServiceImpl naver;
-
-	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home() {
-		return "index";
-	}
-
-	@RequestMapping(value = "index", method = RequestMethod.GET)
-	public String index() {
-		return "index";
-	}
 
 	@RequestMapping(value = "login", method = { RequestMethod.GET, RequestMethod.POST })
 	public ModelAndView login(HttpSession session) {
@@ -61,21 +50,27 @@ public class LoginControllerImpl implements LoginController {
 	public String logout(HttpSession session) {
 		session.removeAttribute("access_Token");
 		session.removeAttribute("userId");
+		session.removeAttribute("userName");
+		session.removeAttribute("userEmail");
+		session.removeAttribute("userAddr");
 		session.removeAttribute("userMaster");
 		session.removeAttribute("userType");
 		return "redirect:index";
 	}
-
+	
 	@RequestMapping("memberShip")
 	public String membership() {
 		return "login/memberShip";
 	}
 
 	@RequestMapping("memberList")
-	public String memberList(Model model) {
-		model.addAttribute("memberList", (ArrayList<LoginDTO>) service.memberList());
+	public String memberList(Model model, @RequestParam(value = "memberstart", defaultValue = "1") int memberstart) {
+		List<LoginDTO> list = service.memberList(memberstart, model);
+		model.addAttribute("memberList", list); 
+		model.addAttribute("memberstart", memberstart);
 		return "login/memberList";
 	}
+	
 
 	@RequestMapping("memberInfo")
 	public String memberInfo(LoginDTO dto, Model model) {
@@ -109,6 +104,9 @@ public class LoginControllerImpl implements LoginController {
 		if (service.loginChk(dto)) {
 			session = request.getSession();
 			session.setAttribute("userId", dto.getUserId());
+			session.setAttribute("userName", dto.getUserName());
+			session.setAttribute("userEmail", dto.getUserEmail());
+			session.setAttribute("userAddr", dto.getUserAddr());
 			session.setAttribute("userMaster", service.getMaster(dto.getUserId()));
 			session.setAttribute("userType", "member");
 			return "redirect:index";
@@ -152,6 +150,7 @@ public class LoginControllerImpl implements LoginController {
 		String birth = dateFormat.format(Mbirth);
 		model.addAttribute("userBirth", birth);
 		model.addAttribute("memberInfo", login);
+		
 		return "login/updateUserMember";
 	}
 
@@ -176,10 +175,27 @@ public class LoginControllerImpl implements LoginController {
 	}
 
 	@RequestMapping("find")
-	public String find(@RequestParam("id") String id, Model model) {
+	public String find(@RequestParam("id") String id, Model model, HttpServletResponse response) {
+		
+		if(service.idConfirm(id)==false) {
+			response.setContentType("text/html; charset=UTF-8");
+			PrintWriter out;
+			try {
+				out = response.getWriter();
+				out.println("<script>alert('아이디가 존재하지 않습니다.'); </script>");
+				out.flush();
+				return "login/userFind";
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			
+		}
 		LoginDTO dto = service.find(id);
 		model.addAttribute("dto", dto);
 		model.addAttribute("id", id);
+	
 		return "login/find";
 	}
 
@@ -187,7 +203,7 @@ public class LoginControllerImpl implements LoginController {
 	public String chkAnswer(@RequestParam("anwser") String anwser, @RequestParam("id") String id, Model model) {
 		System.out.println("id값 :" + id);
 		System.out.println("anwser값 :" + anwser);
-		if (service.chkAnwser(anwser, id)) {
+		if (service.chkAnswer(anwser, id)) {
 			model.addAttribute("id", id);
 			return "login/alterPwd";
 		} else {
@@ -201,5 +217,4 @@ public class LoginControllerImpl implements LoginController {
 		service.alterPwd(dto);
 		return "redirect:login";
 	}
-
 }

@@ -13,11 +13,11 @@ function idcheck() {
 			if (data == 1) {
 				$(".result .msg").text("사용 불가");
 				$(".result .msg").attr("style", "color:red");
-				$("#submit").attr("disabled", "disabled")
+				
 			} else {
 				$(".result .msg").text("사용 가능");
 				$(".result .msg").attr("style", "color:blue");
-				$("#submit").removeAttr("disabled");
+				
 			}
 		}
 	});
@@ -94,9 +94,10 @@ function DaumPostcode() {
 }
 
 function copydata() {
-	$(".rcName").val($(".orderName").val())
-	$(".rcPostCode").val($(".orderPostCode").val())
-	$(".rcAddr").val($(".orderAddr").val())
+	$(".form-control_rcName").val($(".form-control_orderName").val())
+	$(".form-control_rcPostCode").val($(".form-control_orderPostCode").val())
+	$(".form-control_rcAddr").val($(".form-control_orderAddr").val())
+	$(".form-control_rcPhone").val($(".form-control_orderPhone").val())
 }
 
 function like() {
@@ -116,4 +117,18 @@ function like() {
 			alert("ajax실패")
 		}
 	});
+}
+
+function hover(element){
+	element.setAttribute('src',"resources/img/filllike.png")
+}
+function unhover(element){
+	element.setAttribute('src',"resources/img/like.png")
+
+}
+
+function press() {
+	$("#productSearch").attr('action', "productSearch")
+	$("#productSearch").submit()
+
 }
