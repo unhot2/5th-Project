@@ -2,9 +2,9 @@
 KG 아이티뱅크 팀프로젝트
 
 구동환경
-JAVA 1.8
-SPRING 4.3.4 RELEASE
-ORACLE 11g
+- JAVA 1.8
+- SPRING 4.3.4 RELEASE
+- ORACLE 11g
 
 
 사용기술
