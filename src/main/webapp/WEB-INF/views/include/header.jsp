@@ -5,12 +5,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-
-
 <link rel="stylesheet" href="resources/css/main.css?after" />
 <link rel="stylesheet" href="resources/css/footer.css?after" />
 <link rel="stylesheet" href="resources/css/cloth.css?after" />
 <link rel="stylesheet" href="resources/css/fadeout.css?after">
+<link rel="stylesheet" href="resources/css/swiper.min.css">
 <link
 	href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@562&display=swap"
 	rel="stylesheet">
@@ -24,6 +23,8 @@
 <script
 	src="${pageContext.request.contextPath}/resources/js/jquery-3.4.1.min.js"></script>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+<!-- Swiper JS -->
+  <script src="resources/js/swiper.min.js"></script>
 <script>
 	$(document).on('click', '#searchBtn', function() {
 		$("#productSearch").attr('action', "productSearch")
