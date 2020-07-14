@@ -26,7 +26,7 @@
 
 	<insert id="apiSaveMember">
 		insert into login
-		values(#{userId},DEFAULT,#{userName},#{userAddr},#{userGender},#{userBirth},#{userEmail},DEFAULT,#{userPostCode},#{userQuestion},#{userPhone},#{userAnswer})
+		values(#{userId},DEFAULT,#{userName},#{userAddr},#{userGender},#{userBirth},#{userPhone},#{userEmail},DEFAULT,#{userPostCode},#{userQuestion},#{userAnswer})
 	</insert>
 	<select id="memberInfo" resultType="loginDTO">
 		select * from login where

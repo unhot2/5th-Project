@@ -175,27 +175,14 @@ public class LoginControllerImpl implements LoginController {
 	}
 
 	@RequestMapping("find")
-	public String find(@RequestParam("id") String id, Model model, HttpServletResponse response) {
-		
+	public String find(@RequestParam("id") String id, Model model) {
 		if(service.idConfirm(id)==false) {
-			response.setContentType("text/html; charset=UTF-8");
-			PrintWriter out;
-			try {
-				out = response.getWriter();
-				out.println("<script>alert('아이디가 존재하지 않습니다.'); </script>");
-				out.flush();
+				model.addAttribute("idconfirm",false);
 				return "login/userFind";
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			
-			
 		}
 		LoginDTO dto = service.find(id);
 		model.addAttribute("dto", dto);
 		model.addAttribute("id", id);
-	
 		return "login/find";
 	}
 
