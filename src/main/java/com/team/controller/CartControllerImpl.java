@@ -19,7 +19,7 @@ public class CartControllerImpl implements CartController {
 	@Autowired
 	LoginService loginService;
 
-	@RequestMapping("insertCart")
+	@RequestMapping("insertCart")//장바구니에 상품을 넣는다.
 	public String insertCart(Model model, CartDTO dto, HttpSession session) {
 	
 		String userId = (String) session.getAttribute("userId");
@@ -33,7 +33,7 @@ public class CartControllerImpl implements CartController {
 		 return "product/productInformation"; 
 	}
 
-	@RequestMapping("cartList")
+	@RequestMapping("cartList")//카트에 담긴 상품 리스트를 보여준다.
 	public String cartList(Model model, HttpSession session) {
 		String userId = (String) session.getAttribute("userId");
 		List<JoinDTO> list = service.cartList(userId);
@@ -63,30 +63,30 @@ public class CartControllerImpl implements CartController {
 	
 	
 
-	@RequestMapping("cartDelete")
+	@RequestMapping("cartDelete")//카트에 담긴 상품을 제거한다.
 	public String cartDelete(CartDTO dto) {
 		service.cartDelete(dto);
 		return "redirect:cartList";
 	}
 
-	@RequestMapping("cartDeleteAll")
+	@RequestMapping("cartDeleteAll")//장바구니 모든 상품목록을 제거 한다.
 	public String cartDeleteAll(CartDTO dto) {
 		service.cartDeleteAll(dto);
 		return "redirect:cartList";
 	}
 
-	@RequestMapping("cntUp")
+	@RequestMapping("cntUp")//상품개수 증가시키기
 	public String cntUp(CartDTO dto) {
 		service.cntUp(dto);
 		return "redirect:cartList";
 	}
 
-	@RequestMapping("cntDown")
+	@RequestMapping("cntDown")//상품개수 줄이기
 	public String cntDown(CartDTO dto) {
 		service.cntDown(dto);
 		return "redirect:cartList";
 	}
-	@RequestMapping("cartOrder")
+	@RequestMapping("cartOrder")//장바구니 상품 주문하기
 	public String cartOrder(Model model, HttpSession session) {
 		String userId = (String) session.getAttribute("userId");
 		List<JoinDTO> list = service.cartList(userId);

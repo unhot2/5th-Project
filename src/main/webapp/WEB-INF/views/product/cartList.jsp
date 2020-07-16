@@ -6,6 +6,7 @@
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <link rel="stylesheet" href="resources/css/cartList.css">
 <!DOCTYPE html>
+
 <jsp:include page="../include/header.jsp" />
 <section class="cartList">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
@@ -42,10 +43,23 @@
                            <td class="text-right"><button class="btn btn-sm btn-danger" onclick="location.href='cartDelete?cartId=${cartList.cartId}'"><i class="fa fa-trash"></i></button></td>
                         </tr>
                      	</c:forEach>
+                     	<tr>
+				<th colspan="3">상품금액</th>
+				<td colspan="3"><fmt:formatNumber value="${totalPrice }" pattern="##,###" />원</td>
+			</tr>
+			<tr>
+				<th colspan="3">택배비</th>
+				<td colspan="3"><fmt:formatNumber value="${fee }" pattern="##,###" />원</td>
+			</tr>
+			<tr>
+				<th colspan="3">총금액</th>
+				<td colspan="3"><fmt:formatNumber value="${totalMoney }" pattern="##,###" />원</td>
+			</tr>
+                     	
                 </table>
             </div>
         </div>
-            <span class="left">
+            <span class="button-left">
                 <a  onclick="location.href='index'"><span class="btn01">메인으로</span></a>
                 <a href="#none" onclick="location.href='index'"><span class="btn01">쇼핑 계속하기</span></a>
                 <a href="#none" onclick="location.href='cartDeleteAll?userId=${userId}'"><span class="btn01">전체 비우기</span></a>

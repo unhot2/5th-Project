@@ -80,6 +80,7 @@
     width: 130px;
     display: inline-block;
     padding: 8px;
+    margin-right:-160px;
     vertical-align: middle;
     background: #d99f9d;
     color: #fff;
@@ -109,5 +110,7 @@
 }
 
 
-
+.button-left{
+	padding-left:14px;
+}
 

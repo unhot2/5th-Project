@@ -146,7 +146,7 @@ $(document).on('click', '#kakaopay', function() {
 			</c:choose>
 			<tr>
 				<th colspan="2">상품금액</th>
-				<td colspan="2"><fmt:formatNumber value="${totalMoney }" pattern="##,###" />원</td>
+				<td colspan="2"><fmt:formatNumber value="${totalPrice }" pattern="##,###" />원</td>
 			</tr>
 			<tr>
 				<th colspan="2">택배비</th>
@@ -154,7 +154,7 @@ $(document).on('click', '#kakaopay', function() {
 			</tr>
 			<tr>
 				<th colspan="2">총금액</th>
-				<td colspan="2"><fmt:formatNumber value="${totalPrice }" pattern="##,###" />원</td>
+				<td colspan="2"><fmt:formatNumber value="${totalMoney }" pattern="##,###" />원</td>
 			</tr>
 	
 		</table>
