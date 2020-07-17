@@ -13,14 +13,13 @@
 	<div align="center">
 		<c:choose>
 			<c:when test="${userMaster == 0 }">
-				
 				<form action="updateMember" method="post">
 				<div class="container">
 					<div class="row">
     	<div class="col-md-8 col-md-offset-2 divwidth">
     	    <div class="panel panel-default ticket-list">
               <div class="panel-heading">
-                <h3 class="panel-title text-center titlesize">내정보</h3>
+                <h3 class="panel-title text-center titlesize">회원정보</h3>
               </div>
               <div class="panel-body ">
                   <table class="table">

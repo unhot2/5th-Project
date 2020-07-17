@@ -80,7 +80,8 @@ $(document).on('click', '#kakaopay', function() {
           buyer_name : '<%=name%>',
           buyer_tel : '<%=phone%>',
           buyer_addr : '<%=addr%>',
-          buyer_postcode : '<%=postcode%>',
+          buyer_postcode : '<%=postcode%>
+	',
 				m_redirect_url : 'http://localhost:8083/sample/'
 			}, function(rsp) {
 				if (rsp.success) {
@@ -88,7 +89,6 @@ $(document).on('click', '#kakaopay', function() {
 						url : "cardPayment",
 						data : $("#cartOrder").serialize(),
 						success : function(data) {
-
 							var msg = '결제가 완료되었습니다.';
 							msg += '고유ID : ' + rsp.imp_uid;
 							msg += '상점 거래ID : ' + rsp.merchant_uid;
@@ -196,11 +196,14 @@ $(document).on('click', '#kakaopay', function() {
 						value="${memberInfo.userAddr }"></td>
 				</tr>
 			</table>
-			<label> <input type="checkbox" onclick="copydata()">"위
-				정보와 같음"
-			</label>
+
 			<h3>배송정보</h3>
 			<table width="56%">
+				<tr>
+					<td>배송선택</td>
+					<td><input type="checkbox" onclick="copydata()"> 주문자
+						정보와 동일</td>
+				</tr>
 				<tr>
 					<td>이름</td>
 					<td colspan="2"><input class="form-control_rcName" type="text"

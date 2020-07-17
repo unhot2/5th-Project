@@ -18,6 +18,11 @@ section.cartList {
 	right: -8px;
 }
 
+.qnaDetailSection{
+	display:grid;
+}
+
+
 .topBtn {
 	position: fixed;
 	top: 800px;
