@@ -37,11 +37,11 @@
 							<td>
 								<div align="right">
 									<a class="btn btn-default"
-										onclick="location.href='qnaUpdate?id=${qnaDetail.id }'">수정</a>
+										href="qnaUpdate?id=${qnaDetail.id }">수정</a>
 									<a class="btn btn-default" href="qnaDelete?id=${qnaDetail.id }" 
 									onclick="confirm('삭제하시겠습니까?')">삭제</a>
 									<a class="btn btn-default"
-										onclick="location.href='qnaList'">목록이동</a>
+										href="qnaList">목록이동</a>
 								</div>
 							</td>
 						</tr>

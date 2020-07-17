@@ -37,11 +37,11 @@
 							<td>
 								<div align="right">
 									<a class="btn btn-default"
-										onclick="location.href='noticeUpdate?id=${noticeDetail.id}'">수정</a>
-									<a class="btn btn-default" href="location.href='noticeDelete?id=${noticeDetail.id}'"
-										onclick="return confirm('삭제하시겠습니까?')">삭제</a>
+										href="noticeUpdate?id=${noticeDetail.id}">수정</a>
+									<a class="btn btn-default" href="noticeDelete?id=${noticeDetail.id}"
+										onclick="confirm('삭제하시겠습니까?')">삭제</a>
 									<a class="btn btn-default"
-										onclick="location.href='noticeList'">목록이동</a>
+										href='noticeList'>목록이동</a>
 								</div>
 							</td>
 						</tr>
