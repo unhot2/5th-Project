@@ -2,13 +2,15 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <!DOCTYPE html>
 <jsp:include page="../include/header.jsp" />
 <section class="paySuccessSection">
 	<div align="center">
 		<h2>주문 / 결제</h2>
 		<div>
-			<table border="1">
+			<table class="table table-striped" style="width:60%">
 				<tr>
 					<th colspan="6">주문이 정상적으로 완료되었습니다</th>
 				</tr>

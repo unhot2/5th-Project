@@ -11,6 +11,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+
 import com.team.dto.JoinDTO;
 import com.team.dto.LoginDTO;
 import com.team.dto.PayDTO;
@@ -32,7 +34,9 @@ public class PayControllerImpl implements PayController {
 	LoginService loginService;
 
 	@RequestMapping("cardPay")
+	@ResponseBody
 	public String cardPay(JoinDTO dto, HttpSession session, HttpServletRequest request) {
+		System.out.println("cardPay들어옴");
 		// 카드 결제 버튼 클릭시 이쪽으로 이동
 		String userId = (String) session.getAttribute("userId");
 		List<JoinDTO> list = service.cartGet(userId);
@@ -48,7 +52,7 @@ public class PayControllerImpl implements PayController {
 		service.cardPay(dto.getMessage(), dto, orderId);
 		service.payHistoryInsert(list, orderId, userId);
 		paycartDelete(userId);
-		return "redirect:paySuccess?orderId="+orderId;
+		return orderId;
 	}
 
 	@RequestMapping("cardPayment")
@@ -71,6 +75,7 @@ public class PayControllerImpl implements PayController {
 
 	@RequestMapping("paySuccess")
 	public String paySuccess(@RequestParam("orderId")String orderId,Model model) {
+		System.out.println("들어온 orderId"+orderId);
 		//구매내역 불러오기
 		List<PayDTO> list = service.selectPaymentList(orderId);
 		model.addAttribute("paymentList",list);

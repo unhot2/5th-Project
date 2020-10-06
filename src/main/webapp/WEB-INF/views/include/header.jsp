@@ -22,9 +22,10 @@
 <script src='https://developers.kakao.com/sdk/js/kakao.min.js'></script>
 <script
 	src="${pageContext.request.contextPath}/resources/js/jquery-3.4.1.min.js"></script>
-<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <!-- Swiper JS -->
-  <script src="resources/js/swiper.min.js"></script>
+  <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <script>
 	$(document).on('click', '#searchBtn', function() {
 		$("#productSearch").attr('action', "productSearch")

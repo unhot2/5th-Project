@@ -34,10 +34,9 @@ int totalMoney = (int) request.getAttribute("totalMoney");
 <script>
 if (<%=boo%>==0){
 $(document).on('click', '#kakaopay', function() {
-   var IMP = window.IMP; // 생략가능
-   IMP.init('imp01815205'); // 'iamport' 대신 부여받은 "가맹점 식별코드"를 사용
+   IMP.init('imp85558424'); 
    IMP.request_pay({
-       pg : 'kakaopay', // version 1.1.0부터 지원.
+       pg : 'kakaopay',
        pay_method : 'card',
        merchant_uid : 'merchant_' + new Date().getTime(),
        name : '<%=title%>',
@@ -46,32 +45,29 @@ $(document).on('click', '#kakaopay', function() {
        buyer_name : '<%=name%>',
        buyer_tel : '<%=phone%>',
        buyer_addr : '<%=addr%>',
-       buyer_postcode : '<%=postcode%>',
-         m_redirect_url : 'http://localhost:8083/sample/'
+       buyer_postcode : '<%=postcode%>'
       }, function(rsp) {
-    	  if(rsp.successs){
-         $.ajax({
-            url : "cardPay",
-            data : $("#cartOrder").serialize(),
-            success : function(data) {
-					var msg = '결제가 완료되었습니다.';
-					msg += '고유ID : ' + rsp.imp_uid;
-					msg += '상점 거래ID : ' + rsp.merchant_uid;
-					msg += '결제 금액 : ' + rsp.paid_amount;
-					msg += '카드 승인번호 : ' + rsp.apply_num;
-					alert(msg);
-					location.href="#"; //여기에 결제 완료 후 이동될 결제내역? 같은 곳 
-				}
-			});
+    	  if(rsp.success){
+    		  $.ajax({
+    	            url : "cardPay",
+    	            data : $("#cartOrder").serialize(),
+    	            success : function(data) {
+    						alert('결제가 완료되었습니다.');
+    						location.href="paySuccess?orderId="+data
+    				}
+  				});
+    		}
+    	  else{
+    		  alert('결제에 실패하였습니다.')
     	  }
 		})
-   })
+  	 })
 }else{
    $(document).on('click', '#kakaopay', function() {
       var IMP = window.IMP; // 생략가능
-      IMP.init('imp01815205'); // 'iamport' 대신 부여받은 "가맹점 식별코드"를 사용
+      IMP.init('imp85558424'); // 'iamport' 대신 부여받은 "가맹점 식별코드"를 사용
       IMP.request_pay({
-          pg : 'kakaopay', // version 1.1.0부터 지원.
+          pg : 'inicis', // version 1.1.0부터 지원.
           pay_method : 'card',
           merchant_uid : 'merchant_' + new Date().getTime(),
           name : '<%=title%>',
@@ -80,9 +76,7 @@ $(document).on('click', '#kakaopay', function() {
           buyer_name : '<%=name%>',
           buyer_tel : '<%=phone%>',
           buyer_addr : '<%=addr%>',
-          buyer_postcode : '<%=postcode%>
-	',
-				m_redirect_url : 'http://localhost:8083/sample/'
+          buyer_postcode : '<%=postcode%>'
 			}, function(rsp) {
 				if (rsp.success) {
 					$.ajax({
